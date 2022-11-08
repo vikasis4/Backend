@@ -1,0 +1,93 @@
+.footer-main {
+    height: max-content;
+    background-color: var(--s1);
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-one {
+    color: var(--c1);
+    height: 60%;
+    display: flex;
+    gap: 20rem;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Dosis', sans-serif;
+    font-size: 2rem
+}
+
+.footer-one div li {
+    margin: 2.5rem;
+}
+
+.footer-one div li:hover {
+    cursor: pointer;
+    color: var(--c2);
+}
+
+.footer-one div {
+    list-style: none;
+}
+
+.footer-line {
+    margin: 4rem auto;
+    width: 70%;
+    border-radius: 5rem;
+    height: 1rem;
+    background-color: var(--c2);
+}
+
+
+
+.footer-two {
+    height: 40%;
+    display: flex;
+    margin-top: 4rem;
+    flex-direction: column;
+    justify-content: flex-end
+}
+
+.social-class {
+    margin: 2rem auto;
+    width: max-content;
+}
+
+.social-class ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.footer-brand {
+    color: var(--c1);
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Righteous', sans-serif;
+    padding: 1rem;
+    font-size: 1.2rem
+}
+
+.footer-nil {
+    width: max-content;
+    margin: 0 auto;
+    position: relative;
+    bottom: 3.5rem
+}
+
+.footer-nil img {
+    height: 12rem;
+    width: 12rem;
+    border-radius: 105rem;
+}
+#info-link:hover {
+    cursor: pointer;
+    color: var(--s2) !important;
+}
+
+.social-class ul li a:hover {
+    padding-bottom: 0.7rem;
+    border-bottom: 0.2rem solid var(--c2);
+}
+.f-gappers{
+    height:14rem;
+}

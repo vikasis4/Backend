@@ -1,0 +1,212 @@
+.secondsection-main-top {
+    width:200%;
+    position:relative;
+    bottom:-2rem;
+    z-index: 0;
+}
+.secondsection-main{
+    height:max-content;
+}
+.secondsection-main-bottom{
+    height:max-content;
+    background:var(--s1);
+}
+
+.secondsection-main-third-in span{
+    font-size:6rem
+}
+.secondsection-main-third-in div{
+    width:max-content;
+    font-family: "Dosis", sans-serif;
+    margin: 0 auto;
+}
+.secondsection-main-third-in{
+    display:flex;
+    color:var(--c1);
+    justify-content:center;
+    background-color:var(--s1);
+    align-items:center;
+    padding:4rem 16rem;
+    font-family: "Inter", sans-serif;
+    text-transform:uppercase;
+
+}
+
+.secondsec-1{
+    text-align:center;
+    padding-top:8rem;
+}
+.secondsec-1 h1{
+    font-family: "Dosis", sans-serif;
+    display:inline-block;
+    font-weight: 200;
+    font-size:8rem;
+    color: var(--c1);
+    padding:1rem 4rem
+}
+.secondsec-2{
+    height:max-content;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding:8rem;
+    flex-wrap: wrap;
+    gap:6rem;
+}
+.secondsec-card h5{
+    font-weight:700 !important;
+    text-align: center;
+    font-family: "Dosis", sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    padding:2rem 0 
+}
+.secondsec-card h1{
+    font-weight:400 !important;
+    font-size: 2rem;
+    text-align: center;
+    font-family: "Dosis", sans-serif;
+}
+.secondsec-card img{
+    text-align: center;
+    border:0.4rem solid var(--c2)
+}
+.secondsec-card{
+    display: flex;
+    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+    height:max-content;
+    width:17rem;
+    height:calc(max-content+2rem);
+    color:var(--s5);
+    background-color: var(--c2);
+    border-radius:1rem;
+    box-sizing: border-box;
+}
+
+.secondsec-img-cont{
+    width:100%;
+    height:14rem;
+    margin-bottom: 2rem;
+    background-color:var(--c2);
+    display:flex;
+    justify-content:center;
+    place-items:center;
+}
+.secondsection-reason{
+    height:max-content;
+    padding:2rem 20rem;
+    display:flex;
+    justify-content:center;
+    place-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    padding-bottom: 10rem;
+}
+.reason h1{
+    font-size: 2rem;
+    font-family: "Dosis", serif;
+    text-align:center;
+}
+.reason{
+    background-color:var(--c2);
+    height:15rem;
+    width:20rem;
+    display:flex;
+    justify-content:center;
+    place-items:center;
+    color: white;
+    box-shadow: 4px 4px 6px 3px rgba(0, 0, 0, 0.3);
+}
+.reason-heading{
+    text-align: center;
+    font-size:8rem;
+    color:var(--c1);
+    font-family: "Dosis", sans-serif;
+    font-weight:200;
+    margin:8rem 0
+}
+.secondsec-refral h1{
+    font-family: "Dosis", sans-serif;
+    font-size: 7rem;
+    margin-top: 4rem;
+    font-weight: 400;
+}
+.secondsec-refral span{
+    font-family: "Dosis", sans-serif;
+    font-size:2rem
+}
+.secondsec-refral button:hover{
+    background-color:var(--c2);
+    cursor: pointer;
+}
+.secondsec-refral button{
+    padding:1rem 4rem;
+    font-family: "Dosis", sans-serif;
+    background-color:var(--s3);
+    color:white;
+    font-size: 2rem;
+    border-radius: 1rem;
+    font-weight: 600;
+}
+.secondsec-refral{
+    gap: 2rem;
+    flex-direction: column;
+    display:flex;
+    justify-content:center;
+    place-items:center;
+}
+.secondsec-refral-txt h2{
+    font-family: "Dosis",sans-serif;
+    font-size:2.8rem;
+    font-weight: 500;
+    padding-left:3rem;
+    padding-right:3rem;
+    padding-top:2rem;
+    padding-bottom:4rem;
+}
+.secondsec-refral-txt h1{
+    font-family: "Dosis",sans-serif;
+    font-size:4rem;
+    padding-left:3rem;
+}
+.secondsec-refral-txt button{
+    padding: 1.6rem 4rem;
+    background-color:var(--c2);
+    margin-left:3rem;
+    border-radius: 1rem;
+    font-size: 3rem;
+    font-weight:500;
+    margin-bottom:2rem;
+    font-family: "Dosis",sans-serif;
+    color:white
+}
+.secondsec-refral-txt{
+    height:40%;
+    width:100%;
+}
+.secondsec-refral-img img{
+    height:30rem;
+}
+.secondsec-refral-img{
+    width:100%;
+    height:60%;
+    display:flex;
+    justify-content:center;
+    place-items:center;
+    background-color: white;
+}
+.secondsec-refral-mobile{
+    flex-direction: column;
+    display:flex;
+    justify-content:center;
+    place-items:center;
+    background-color:white;
+    box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    height:70rem;
+    margin: 0 auto;
+    border-radius: 1rem;
+    margin-bottom: 6rem;
+}

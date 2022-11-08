@@ -1,0 +1,189 @@
+.herohomepage {
+    height: max-content;
+    padding-bottom: 10rem;
+}
+
+.herohomepage-main {
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    height: 100%;
+}
+.herohomepage-cbtwn ul li{
+    font-family: "Dosis";
+    margin-left: 1.4rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+}
+.herohomepage-cbtwn ul{
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    place-items: center;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+.herohomepage-cbtwn p{
+    margin:1rem 0 1rem 1.4rem;
+    font-family: "Dosis";
+    font-size: 3rem;
+}
+.herohomepage-for-m {
+    display: none;
+}
+
+.activate-dis {
+    display: none;
+}
+
+.deactivate-dis {
+    display: block;
+}
+
+.herohomepage-first-txt h1 {
+    color: var(--c1);
+    font-family: "Dosis", sans-serif;
+    font-size: 6rem;
+    margin-top: 22rem
+}
+
+.herohomepage-first {
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+}
+
+.herohomepage-second-img img {
+    height: 50rem;
+    width: 100%;
+    margin-top: 10rem;
+}
+
+.herohomepage-second {
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    height: 100%;
+    width: 50%;
+}
+
+.herohomepage-first-course {
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    width:38rem;
+    flex-direction: column;
+    border-radius: 1rem;
+    box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+.herohomepage-first-course h1 {
+    font-family: "Dosis", sans-serif;
+    padding: 2rem;
+}
+
+.herohomepage-first-course button:hover {
+    cursor: pointer;
+}
+
+.herohomepage-first-course button {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--s3);
+    font-family: "Dosis", sans-serif;
+    color: white;
+    font-size: 2rem;
+    border-radius: 0 0 1rem 1rem;
+}
+
+.herohomepage-first-course img {
+    height: 18rem;
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.herohomepage-cbt-panel p{
+    font-size:2rem;
+    font-weight: 600;
+    color:var(--c1);
+    border-bottom: 1px solid grey;
+}
+.herohomepage-cbt-panel{
+    display: flex;
+    justify-content:center;
+    place-items: center;
+    gap:2rem;
+    width:100%;
+}
+.herohomepage-course-list h1 {
+    font-family: "Dosis", sans-serif;
+    font-weight: 100;
+    border-bottom: 0.1rem solid var(--c2);
+}
+.herohomepage-course-list {
+    margin-top: 10rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    place-items: center;
+    margin-left: 6rem;
+}
+
+.herohero-flex {
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+
+.herohero-mobile {
+    height: max-content;
+    width: 100%;
+    margin: 3rem 0;
+}
+
+.herohero-mobile-one img {
+    /* height: 70%; */
+    height: 59%;
+    border-radius: 1rem 1rem 0 0;
+    width: 35rem;
+}
+
+.reason img {
+    display: none
+}
+
+.herohero-mobile-one {
+    height: 40rem;
+    width: 35rem;
+    border-radius: 1rem;
+    background-color: white;
+    margin: 2rem;
+    position: relative;
+    left: 42.5rem;
+    /* left: 62rem; */
+    display: flex;
+    justify-content: flex-start;
+    place-items: center;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.4);
+    flex-direction: column;
+}
+
+.herohero-mobile-cont h1 {
+    text-align: center;
+}
+
+.herohero-mobile-cont {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    font-family: "Dosis";
+    justify-content: center;
+    place-items: center;
+}

@@ -1,0 +1,13 @@
+.blog-main{
+    background-color: white;
+    height:60rem
+}
+.blog-one h1{
+    font-weight: 200;
+}
+.blog-one{
+    color:var(--c1);
+    padding:10rem;
+    font-size:2rem;
+    font-family: 'Dosis', sans-serif;
+}

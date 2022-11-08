@@ -1,0 +1,96 @@
+.checkout-main{
+    display:flex;
+    justify-content:center;
+    place-items:flex-start;
+    gap:10rem
+}
+.checkout-second img{
+    height:60rem
+}
+.checkout-first-second h2{
+    font-family: "Dosis", sans-serif;
+    font-size:2.4rem;
+    font-weight:500;
+    margin-top:1rem;
+    text-align: left;
+
+}
+.checkout-first-second h1{
+    font-family: "Dosis", sans-serif;
+    font-size:5rem;
+    font-weight:200;
+    text-align: left;
+}
+.checkout-first-second{
+    background-color: var(--s1);
+    padding:4rem 2rem;
+    border-radius: 1rem;
+}
+.checkout-first button:hover{
+    cursor: pointer;
+    background-color: var(--c2)
+}
+.checkout-first button{
+    padding:1rem 6rem;
+    margin-top:4rem;
+    border-radius: 1rem;
+    background-color: var(--s3);
+    color:white;
+    font-size:2.6rem;
+    font-family: "Dosis",sans-serif;
+}
+.checkout-first{
+    display:flex;
+    height:100%;
+    justify-content:flex-start;
+    place-items:center;
+    flex-direction: column;
+}
+
+.checkout-mode {
+    display:flex;
+    justify-content:center;
+    place-items:center;
+    flex-wrap: wrap;
+    gap:2rem
+}
+.checkout-mode h1{
+    font-family: "Dosis", sans-serif;
+    font-size:3rem !important;
+    font-weight:400;
+    padding:1rem;
+    color:black;
+    border-bottom: 2px solid var(--s3);
+    text-transform: lowercase;
+}
+.checkout-modes h1{
+    font-family: "Dosis", sans-serif;
+    font-size:4rem;
+    font-weight:400;
+    margin-bottom:2rem;
+}
+.checkout-modes{
+    background-color: var(--s1);
+    padding:2rem;
+    margin-top:4rem;
+    border-radius: 1rem;
+}
+.checkout-liss ul li a img:hover{
+    cursor: pointer;
+}
+.checkout-liss ul li a img{
+height:2rem
+}
+.checkout-liss ul li{
+    background-color: var(--s3);
+    margin:1rem;
+    padding:0.6rem;
+    border-radius: 1rem;
+    color:white;
+    font-size: 2rem;
+}
+.checkout-liss ul{
+    list-style: none;
+    font-family: "Dosis", sans-serif;
+    font-weight: 500;
+}

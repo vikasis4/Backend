@@ -1,0 +1,138 @@
+.profile-cont {
+    background-color: var(--c2);
+    width: 95%;
+    margin: 0 auto;
+    height: 60rem;
+    margin-top: 4rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    flex-direction: column;
+}
+
+.profile-main-one {
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    width: 100%;
+    height: 60%;
+}
+
+.profile-main-two {
+    width: 100%;
+    border-radius: 1rem;
+    height: 40%;
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    place-items: center;
+    background-color: var(--c2)
+}
+
+.profile-two img {
+    height: 40rem;
+}
+
+.profile-two {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    background-color: white
+}
+
+.profile-one h1 {
+    font-family: "Dosis", sans-serif;
+    font-weight: 300;
+    font-size: 3rem;
+    color: white;
+}
+
+.profile-one img {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50rem;
+    border: 0.2rem solid white;
+}
+
+.profile-one {
+    height: 100%;
+    width: 40%;
+    gap: 3rem;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    flex-direction: column;
+}
+
+.profile-element {
+    background-color: white;
+    padding: 2rem 1rem;
+    border-radius: 0.4rem
+}
+
+.profile-fst button:hover {
+    cursor: pointer;
+    background-color: var(--c2);
+    color: white;
+}
+
+.profile-fst button {
+    font-family: "Dosis", sans-serif;
+    font-weight: 400;
+    color: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    font-size: 1.8rem;
+    background-color: var(--s3);
+    text-align: center;
+    padding: 0.6rem 1.4rem;
+    border-radius: 0.4rem;
+    margin: 3rem 0rem 1rem 0;
+}
+
+.profile-fst h1 {
+    font-family: "Dosis", sans-serif;
+    color: var(--c1)
+}
+
+.profile-fst ul li{
+    font-family: "Dosis", sans-serif;
+    font-size: 2rem;
+    padding:0.6rem 1rem;
+    font-weight: 600;
+    color:purple;
+}
+.profile-fst ul{
+    list-style: none;
+    display: flex;
+    margin-top: 2rem;
+    flex-direction: column;
+}
+.profile-fst {
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    flex-direction: column;
+}
+
+.profile-hover h1:hover {
+    color: var(--c1);
+    background-color: white;
+    cursor: pointer;
+}
+
+.profile-hover h1 {
+    font-family: "Dosis", sans-serif;
+    font-weight: 400;
+    font-size: 2.4rem;
+    color: white;
+    padding: 0.6rem 1.4rem;
+    border-radius: 0.4rem;
+    background-color: var(--s3);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+}

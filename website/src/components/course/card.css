@@ -1,0 +1,120 @@
+.card-flex-two h1 {
+    
+    color:var(--c1);
+    letter-spacing:0.1rem;
+    font-family: "Dosis", sans-serif;
+    font-size: 2.2rem;
+}
+.card-flex-two h1 img{
+    height:5rem;
+    width:5rem;
+}
+
+.card-flex-two {
+    box-sizing: border-box;
+    height:max-content;
+    padding:4rem;
+    display:none;
+    width:65%;
+    border-bottom-left-radius:1rem;
+    border-bottom-right-radius:1rem;
+    background-color: var(--s5);
+}
+.card-flex{
+    display: flex;
+    justify-content: center;
+    border-radius:2rem;
+    place-items:center;
+    flex-direction: column;
+    box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.4);
+}
+.card-main {
+    height:25rem;
+    width:45rem;
+    border-radius:2rem;
+    background-size: cover !important;
+    animation:cardbro 3s linear infinite;
+}
+@keyframes cardbro {
+    0%{
+        box-shadow: 0px 0px 15px 1px var(--s5);
+    }
+    50%{
+        box-shadow: 0px 0px 10px 1px var(--s5);
+    }
+    100%{
+        box-shadow: 0px 0px 15px 1px var(--s5);
+    }
+}
+.card-cont:hover{
+    background: rgba(0,0,0,0.8);
+}
+.card-cont{
+    background: rgba(0,0,0,0.2);
+    transition: all 0.2s;
+    height: 100%;
+    border-radius: 2rem;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+.card-one h1{
+    color:white;
+    text-align: left;
+    padding: 3rem;
+    font-size:2rem;
+    font-family: "Dosis", sans-serif;
+}
+.card-one{
+    height: 30%;
+    width: 100%;
+}
+.card-two a:hover{
+    cursor: pointer;
+}
+.card-two a{
+    display: block;
+    margin: 4rem auto;
+    text-align: center;}
+.card-two{
+    height: 70%;
+    width: 100%;
+}
+
+
+
+/* ////////////////////////////////////////////////////////////////////////// */
+
+#loader-load1, #loader-load2, #loader-load3, #loader-load4, #loader-load5, #loader-load6, #loader-load7, #loader-load8, #loader-load9,#loader-load10,#loader-load11,#loader-load12{
+    height: 20rem;
+    width: 18rem;
+    background: var(--s5);
+    overflow: hidden;
+    animation:redness 2s linear infinite;
+}
+.loader-load{
+    height: 20rem;
+    width: 18rem;
+    overflow: hidden;
+    background-color: var(--s5);
+}
+.load-mid{
+    height: 30rem;
+    position: relative;
+    box-shadow:0 0 1.5rem 1.5rem var(--s1);
+    left: 7.4rem;
+    width: 0.6rem;
+    background: transparent;
+    transform:rotate(42deg);
+    animation: loading 0.4s infinite;
+}
+@keyframes loading {
+    from {top:-24.5rem}
+    to {top:24.5rem}
+}
+.bugasuga{
+    font-family: "Dosis";
+    text-align: center;
+    padding:4rem 0;
+    font-size:3rem
+}

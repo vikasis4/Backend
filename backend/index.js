@@ -44,7 +44,7 @@ const io = require("socket.io")(server, {
 
 mongoToConnect();
 dotenv.config();
-app.use(cors({ origin: ['http://localhost:3000'], credentials: true, sameSite: 'none' }));
+app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live'], credentials: true}));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

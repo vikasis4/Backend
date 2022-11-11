@@ -30,21 +30,47 @@ const History = require('./models/traffichistory');
 const { v4: uuidv4 } = require('uuid');
 const Personal = require('./models/personal');
 const Pyq = require('./models/pyq');
-const Variables = require('./models/variables')
-
+const Variables = require('./models/variables');
+const { spawn } = require('child_process');
+var CronJob = require('cron').CronJob;
 
 
 const app = express();
 const server = require('http').createServer(app);
+// const io = require("socket.io")(server, {
+//     cors: {
+//         origin: "*"
+//     }
+// });
 const io = require("socket.io")(server, {
     cors: {
-        origin: "*"
+        origin: ['https://rankboost.live', 'https://admin.rankboost.live']
     }
 });
+////////////////////////////////////////////////////////////////////////////
+const DB_name = 'raceway';
+const Archive_path = path.join(__dirname, 'backup', `${DB_name}.gzip`)
+const backupDB = () => {
+    spawn('./mongodump', [
+        `--db=${DB_name}`,
+        `--archive=${Archive_path}`,
+        '--gzip'
+    ])
+}
+var job1 = new CronJob(
+    '0 1 * * *',
+    function () {
+        backupDB()
+    },
+    null,
+    true
+);
+/////////////////////////////////////////////////////////////////////////////////////////
 
 mongoToConnect();
 dotenv.config();
 app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live'], credentials: true}));
+// app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001'], credentials: true }));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -60,6 +86,7 @@ app.use(express.static(make));
 const asp = io.of("/admin");
 const nsp = io.of("/normal");
 var count = 0;
+var livearray = [];
 asp.on("connection", (socket) => {
 
     socket.on("Texts", (data) => {
@@ -70,12 +97,21 @@ asp.on("connection", (socket) => {
 })
 
 nsp.on("connection", (socket) => {
-    count = count + 1;
-    socket.on("disconnect", () => {
-        count = count - 1;
+    socket.on('update-cont', (id) => {
+        count = count + 1;
+        if (id) {
+            livearray.push(id);
+        }
         asp.emit("live-listen", count);
     })
-    asp.emit("live-listen", count);
+    socket.on("disconnect", () => {
+        const index = livearray.findIndex((element) => element === socket.id);
+        if (index > -1) {
+            count = count - 1;
+            livearray.splice(index, 1);
+        }
+        asp.emit("live-listen", count);
+    })
     /////////////////////////////////////
     socket.on('Texts', (data) => {
         asp.emit('daata', data);
@@ -85,20 +121,14 @@ nsp.on("connection", (socket) => {
     })
 })
 ///////////////// LIVE RELOADER /////////////////////////////////////////////////////////////////////////////
-var timer;
-var seconds = 0;
-const born = () => {
-    timer = setInterval(() => {
-        if (seconds === 40) {
-            seconds = 0
-            live()
-        } else {
-            seconds = seconds + 1
-        }
-    }, 1000)
-    return () => clearInterval(timer)
-}
-born()
+var job2 = new CronJob(
+    '* * * * *',
+    function () {
+        live()
+    },
+    null,
+    true
+);
 //////////////// TRAFFIC MANAGER ///////////////////////////////////////////////////////////////////////////
 app.post('/api/traffic/tracker', async (req, res) => {
     const ds = new Date();
@@ -174,7 +204,7 @@ app.post('/api/benjo/paid', async (req, res) => {
 
         reffile("paid", req.body.id)
         res.json({ status: 'yes' })
-        refralpaidfxn({money, id})
+        refralpaidfxn({ money, id })
     } catch (error) {
         console.log(error);
     }
@@ -1285,7 +1315,7 @@ app.post('/api/variables/create', async (req, res) => {
         console.log(error);
     }
 })
-app.get('/api/variables/fetch', async (req, res)=>{
+app.get('/api/variables/fetch', async (req, res) => {
     try {
         const variables = await Variables.find({});
         res.json(variables);
@@ -1293,13 +1323,13 @@ app.get('/api/variables/fetch', async (req, res)=>{
         console.log(error);
     }
 })
-app.put('/api/variables/update', async (req, res)=>{
+app.put('/api/variables/update', async (req, res) => {
     try {
-        await Variables.findByIdAndUpdate(req.body.id, {var1: req.body.var1});
-        await Variables.findByIdAndUpdate(req.body.id, {var2: req.body.var2});
-        await Variables.findByIdAndUpdate(req.body.id, {var3: req.body.var3});
-        await Variables.findByIdAndUpdate(req.body.id, {var4: req.body.var4});
-        await Variables.findByIdAndUpdate(req.body.id, {var5: req.body.var5});
+        await Variables.findByIdAndUpdate(req.body.id, { var1: req.body.var1 });
+        await Variables.findByIdAndUpdate(req.body.id, { var2: req.body.var2 });
+        await Variables.findByIdAndUpdate(req.body.id, { var3: req.body.var3 });
+        await Variables.findByIdAndUpdate(req.body.id, { var4: req.body.var4 });
+        await Variables.findByIdAndUpdate(req.body.id, { var5: req.body.var5 });
     } catch (error) {
         console.log(error);
     }

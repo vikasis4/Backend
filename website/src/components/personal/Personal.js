@@ -65,11 +65,10 @@ const Query = () => {
 
     useEffect(() => {
         if (socket === null) {
-            setSocket(io(`${NonApiLink}/normal`))
+            setSocket(io(`${NonApiLink}/normal`));
         }
         if (socket && loading === true) {
             socket.emit("join-room", room);
-
             socket.on('data', (data) => {
                 if (dialogues[dialogues.length - 1] === data) {
                     //

@@ -4,9 +4,9 @@ import './auth.css'
 import PanelContext from '../../context/panelentry/PanelContext'
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, registerables } from 'chart.js';
-import { Chart } from 'react-chartjs-2'
-import BroadcastingContext from "../../context/broadcasting/BroadcastingContext";
 ChartJS.register(...registerables);
+import io from 'socket.io-client'
+
 
 
 const Auth = () => {
@@ -14,7 +14,23 @@ const Auth = () => {
     const [key, setKey] = useState('')
     const link = process.env.REACT_APP_LINK
     const panel = useContext(PanelContext)
-    const broadcast = useContext(BroadcastingContext)
+    const NonApiLink = process.env.REACT_APP_VIDEO_LINK;
+
+
+    //////////////////////// WEB SOCKET ///////////////////////////////////
+    const [socket, setSocket] = useState(null);
+    const [count, setCount] = useState(0)
+    useEffect(() => {
+        if (socket === null) {
+            setSocket(io(`${NonApiLink}/normal`));
+        }
+        if (socket) {
+            socket.on('live-listen', (counts) =>{
+                setCount(counts)
+            })
+        }
+    }, [socket])
+
 
     /////////////////////////// TOKEN //////////////////////////////////////
     const token = localStorage.getItem('authinfo')
@@ -155,8 +171,7 @@ const Auth = () => {
         setMontharr([]);
         setDate([]);
         setFinaldate([]);
-        if (montharr.length === 0 && date.length === 0 && finaldate.length === 0) { 
-            console.log('ji');
+        if (montharr.length === 0 && date.length === 0 && finaldate.length === 0) {
             hisudt();
         }
     }
@@ -238,7 +253,7 @@ const Auth = () => {
 
                                 <div className="dash-cont">
                                     <h1 style={{ textAlign: 'center' }}>Realtime Traffic</h1>
-                                    <h1 style={{ textAlign: 'center' }}>{broadcast.live}</h1>
+                                    <h1 style={{ textAlign: 'center' }}>{count}</h1>
                                 </div>
                             </div>
                             <div className="graph-update">

@@ -29,6 +29,8 @@ import Checkout from './components/checkout/Checkout'
 import Courses from './components/courses/Courses'
 import Books from './components/books/Books'
 import axios from 'axios';
+import io from 'socket.io-client'
+
 
 function App() {
 
@@ -36,6 +38,21 @@ function App() {
   const verify = useContext(VerifyContext);
   const location = useLocation();
   const clink = process.env.REACT_APP_LINK;
+  const NonApiLink = process.env.REACT_APP_VIDEO_LINK;
+
+  ///////////////////////// WEB SOCKETS ////////////////////////////////////////////////////////////
+
+  const [socket, setSocket] = useState(null);
+  useEffect(() => {
+    if (socket === null) {
+      setSocket(io(`${NonApiLink}/normal`))
+    }
+    if (socket) {
+      socket.on("connect", () => {
+        socket.emit('update-cont', socket.id); // x8WIv7-mJelg7on_ALbx
+      });
+    }
+  },[socket])
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   document.addEventListener('contextmenu', event => event.preventDefault());

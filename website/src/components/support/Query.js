@@ -187,7 +187,6 @@ const Query = (props) => {
         )
     }
     const datearr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-console.log(dialogues);
     const mapfxn = () => {
 
         if (dialogues) {

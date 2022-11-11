@@ -48,7 +48,7 @@ const io = require("socket.io")(server, {
     }
 });
 ////////////////////////////////////////////////////////////////////////////
-const DB_name = 'raceway';
+const DB_name = 'paceway';
 const Archive_path = path.join(__dirname, 'backup', `${DB_name}.gzip`)
 const backupDB = () => {
     spawn('./mongodump', [

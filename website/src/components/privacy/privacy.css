@@ -39,6 +39,8 @@
 }
 .privacy-two p{
     font-family: "Inter", sans-serif;
-    font-weight: 200;
+    font-weight: 500;
+    word-spacing: 0.4rem;
+    line-height: 2;
     font-size:2rem
 }

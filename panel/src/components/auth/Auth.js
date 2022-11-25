@@ -4,8 +4,8 @@ import './auth.css'
 import PanelContext from '../../context/panelentry/PanelContext'
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, registerables } from 'chart.js';
-ChartJS.register(...registerables);
 import io from 'socket.io-client'
+ChartJS.register(...registerables);
 
 
 

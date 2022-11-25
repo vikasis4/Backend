@@ -2,3 +2,5 @@
 /public
 .env
 /backup
+mongodump.exe
+mongorestore.exe

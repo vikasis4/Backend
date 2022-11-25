@@ -32,7 +32,7 @@ const HeroHomepageo = () => {
 
             <div className="herohomepage">
                 <div className="herohomepage-for-m">
-                    <h1>Rank Boost</h1>
+                    <h1>RankBoost</h1>
                     <h2>Jee/Neet best guidance platform</h2>
                 </div>
                 <div className="herohomepage-main">
@@ -75,7 +75,12 @@ const HeroHomepageo = () => {
                             <div className="herohomepage-first-course">
                                 <img src={course}></img>
                                 <div className="herohomepage-cbtwn">
-                                    <p>IIT JEE mentorship course</p>
+                                    <p>IIT-JEE Mentorship Courses</p>
+                                    <p className="htdocs-1"> Special 50% off - Limited time offer</p>
+                                <div className="herohomepage-cbt-panel">
+                                    <button onClick={() => { navigate('/price') }} className="herohomepage-main-half-btn">View all courses</button>
+                                    <div className="herohomepage-fine-line"></div>
+                                </div>
                                     <ul>
                                         <li>&#10003; Guidance</li>
                                         <li>&#10003; Doubt session</li>
@@ -86,9 +91,6 @@ const HeroHomepageo = () => {
                                         <li>&#10003; Short notes + PYQ</li>
                                         <li>&#10003; Mains + Advance strategy</li>
                                     </ul>
-                                </div>
-                                <div className="herohomepage-cbt-panel">
-                                    <button onClick={() => { navigate('/price') }} className="herohomepage-main-half-btn">View all courses</button>
                                 </div>
                             </div>
                         </div>

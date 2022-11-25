@@ -61,9 +61,9 @@ const Navbar = () => {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-   
+
     const [url, setUrl] = useState(cart)
-  
+
     ////////////////////////////////////////////////////////////////////////////////
 
     const [value, setValue] = useState('no');
@@ -88,6 +88,13 @@ const Navbar = () => {
         <>
 
 
+<div className='mobile-offer-top activate-dis'>
+     <ul>
+        <li>Made by IITIANs and Top Coaches</li>
+        <li>A Quality product by RankBoost</li>
+        <li>India's Best Mentorship platform</li>
+     </ul>
+     </div>
             <div id="navbar-main"
                 className="navbar-main" >
                 <LoadingBar
@@ -139,12 +146,12 @@ const Navbar = () => {
                                 location.pathname === '/login' ?
                                     <>
                                         <a className="navbar-cart" onClick={() => { navigate("/checkout") }}><p >{cartlength}</p><img src={url}></img></a>
-                                        <button  className="navbar-third-btn" onClick={() => { navigate("/register") }}>Register</button>
+                                        <button className="navbar-third-btn" onClick={() => { navigate("/register") }}>Register</button>
                                     </>
                                     :
                                     <>
                                         <a className="navbar-cart" onClick={() => { navigate("/checkout") }}><p >{cartlength}</p><img src={url}></img></a>
-                                        <button  className="navbar-third-btn" onClick={loginp}>Login</button>
+                                        <button className="navbar-third-btn" onClick={loginp}>Login</button>
                                     </>
                             :
                             manage.profile.void === 'no' ?
@@ -193,22 +200,22 @@ const Navbar = () => {
 
             <div className="activate-dis">
                 <div className="bottom-menu">
-                    <div onClick={() => { navigate('/refral')}} className="bottom-menu-comman">
+                    <div onClick={() => { navigate('/refral') }} className="bottom-menu-comman">
                         <img src={mrefer}></img>
                         <h1>Refer to Earn</h1>
                     </div>
-                    <div onClick={() => { navigate('/books')}} className="bottom-menu-comman">
+                    <div onClick={() => { navigate('/books') }} className="bottom-menu-comman">
                         <img src={mbook}></img>
                         <h1>Books</h1>
                     </div>
-                    <div onClick={() => {show()}}className="bottom-menu-center">
+                    <div onClick={() => { show() }} className="bottom-menu-center">
                         <img src={dottedmenu}></img>
                     </div>
-                    <div onClick={() => { navigate('/price')}} className="bottom-menu-comman">
+                    <div onClick={() => { navigate('/price') }} className="bottom-menu-comman">
                         <img src={mprice}></img>
                         <h1>Price</h1>
                     </div>
-                    <div onClick={() => { navigate('/courses')}} className="bottom-menu-comman">
+                    <div onClick={() => { navigate('/courses') }} className="bottom-menu-comman">
                         <img src={mcourse}></img>
                         <h1>courses</h1>
                     </div>

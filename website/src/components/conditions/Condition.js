@@ -11,128 +11,30 @@ const Condition = () => {
           <h1>terms & conditions</h1>
         </div>
         <div className="privacy-two">
-          <h1><strong>Terms and Conditions</strong></h1>
+          <p>
 
-          <p>Welcome to rank boost!</p>
+            As the original purchaser of content sold on rankboost, you are entitled to access and use the content which is identified in the course and which is on the rankboost website, at rankboost.live ("Website"). In order to access and use this content, you must register with rankboost and create a password to use in accessing the content on the Website.<br/><br/><br/>
 
-          <p>These terms and conditions outline the rules and regulations for the use of rank boost's Website.</p>
+            Your password is unique and exclusive to you, and you may not transfer your password to any other person or allow any other person to use your password to access or use content on the Website. You agree to notify rankboost immediately if any other person makes unauthorized use of your password. rankboost reserves the right to suspend or revoke your password in the event of any misuse of your password or any use of your password in violation of these Terms and Conditions. In the event of any such suspension or revocation, you will not be entitled to any refund or payment.<br/><br/><br/>
 
-          <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use rank boost if you do not agree to take all of the terms and conditions stated on this page.</p>
+            These Terms of Use govern your access to and use of the Website and the content on the Website. By accessing and using the Website, you agree to these Terms of Use. If you do not agree to any of these Terms of Use, you may not access or use the site. rankboost reserves the right to modify these Terms of Use at any time and in its sole discretion. Your use of the site following any modification will constitute your assent to and acceptance of the modifications.<br/><br/><br/>
 
-          <p>The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company’s terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.</p>
+            Upon registration, rankboost grants you a non-exclusive, non-transferable, non-assignable, personal license to access and use the rankboost content identified in the content you purchased via an online/offline reader. You also agree to allow us to send you emails about new product launches, updates, etc. using the email you have signed up on the app/website with.<br/><br/><br/>
 
-          <h3><strong>Cookies</strong></h3>
+            rankboost will not be liable for any delay or interruption in your access to the site or any content located on the site, or for any transmission errors, equipment or software incompatibilities, force majeure or other failure of performance. rankboost will use reasonable efforts to correct any failure of performance, but rankboost will not be required to make any changes to any equipment or software used by rankboost or its contractors or agents to ensure compatibility with any equipment or software used by you. You may not use the site or the content on the site for any commercial purpose, including but not limited to the use of any of the content to market or sell goods or services to any person. You agree not to launch any automated system, including without limitation, "robots," "spiders," or "offline readers," to access the site.<br/><br/><br/>
 
-          <p>We employ the use of cookies. By accessing rank boost, you agreed to use cookies in agreement with the rank boost's Privacy Policy. </p>
+            rankboost reserves the right to change, suspend access to, or remove any or all of the content on the Website at any time, for any reason, in its sole discretion. rankboost also reserves the right to discontinue the Website at any time, either temporarily or permanently. In the event of the removal of any content from the Website or the termination of the Website, you will not be entitled to any refund or payment. If you are involved in pirating the content or doing any harm to the firm in any form, we can remove your access with no refund whatsoever along with legal action as suitable.<br/><br/><br/>
 
-          <p>Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.</p>
+            YOU AGREE THAT YOUR USE OF THE SITE SHALL BE AT YOUR SOLE RISK, AND RANKBOOST WILL NOT BE HELD LIABLE IN ANY WAY FOR YOUR USE OF THE SITE OR FOR ANY INFORMATION CONTAINED ON THE SITE. ALL CONTENT CONTAINED IN OR REFERRED TO ON THE SITE IS PROVIDED "AS IS," WITHOUT ANY REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY LAW, rankboost DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. rankboost MAKES NO WARRANTIES THAT THE SITE WILL BE ERROR-FREE, OR THAT ANY ERRORS WILL BE CORRECTED, OR THAT THE SITE OR THE SERVER FROM WHICH THE SITE IS OPERATED WILL BE FREE OF VIRUSES OR OTHER POTENTIALLY HARMFUL CODES. UNDER NO CIRCUMSTANCES, INCLUDING NEGLIGENCE, SHALL rankboost BE HELD LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES AND EXPENSES OF ANY KIND (INCLUDING, WITHOUT LIMITATION, PERSONAL INJURY OR PROPERTY DAMAGE, LOST PROFITS, AND DAMAGES ARISING FROM COMPUTER VIRUSES, BUSINESS INTERRUPTION, LOST DATA, UNAUTHORIZED ACCESS TO OR USE OF SITE SERVERS OR ANY PERSONAL INFORMATION STORED THEREIN, OR ANY INTERRUPTION OR CESSATION OF OPERATION OF THE SITE) ARISING OUT OF OR IN ANY WAY CONNECTED WITH THE USE OF THE SITE OR ANY INFORMATION CONTAINED ON THE SITE, WHETHER SUCH DAMAGES ARE BASED ON CONTRACT, TORT, STRICT LIABILITY OR OTHERWISE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.<br/><br/><br/>
 
-          <h3><strong>License</strong></h3>
+            You agree to indemnify, hold harmless and defend rankboost from and against any and all claims, damages, losses, liabilities, judgments, awards, settlements, costs and expenses (including attorney's fees and court costs) arising out of or resulting from your use of this Website or the violation by you of any of these Terms of Use. We will be sending emails to you related to preparation advice if you sign up. You consent giving us your email address for this reason.<br/><br/><br/>
 
-          <p>Unless otherwise stated, rank boost and/or its licensors own the intellectual property rights for all material on rank boost. All intellectual property rights are reserved. You may access this from rank boost for your own personal use subjected to restrictions set in these terms and conditions.</p>
+            YOU AGREE THAT ANY CAUSE OF ACTION ARISING OUT OF OR RELATED TO THIS SITE OR YOUR USE OF THIS SITE MUST COMMENCE WITHIN ONE (1) YEAR AFTER THE CAUSE OF ACTION ACCRUES, AND WILL THEREAFTER BE PERMANENTLY BARRED.<br/><br/><br/>
 
-          <p>You must not:</p>
-          <ul style={{ padding: '2rem 4rem', fontSize: '1.6rem' }}>
-            <li>Republish material from rank boost</li>
-            <li>Sell, rent or sub-license material from rank boost</li>
-            <li>Reproduce, duplicate or copy material from rank boost</li>
-            <li>Redistribute content from rank boost</li>
-          </ul>
+            Referral/Affiliate Terms:The money or currency can be transferred to your bank account if you agree with our referral policy and create referral account. rankboost Credits are a legal or transferrable currency and can only be used to avail discounts within the rankboost platform only.Any legal/informal disputes arising between users due to the credits will not be a responsiblity of rankboost. The affiliate/referral program is in a beta stage and may be discontinued at any point in future.We can change the rules, commision rates and maximum discounts applicable at any point. You understand that we are a private company and might change (increase or decrease) the affiliate/referral commisions, value of a credit, or any other rules based on how they are helping us grow.We will try to keep the program alive for as long as possible to help our affiliates, but it is recommended to use your credits as soon as possible in case the rules change in future (we will try our best to keep your commisions high, but due to uncertainity of running a company, we can't promise anything). If misuse of the policy is seen (fake accounts, credit transfers in any form, using bots/own accounts (with same IP) then we can reduce or remove your credits completely. A removal from courses might also be observed. The credits/referral system is by no means a right and the privilege for which might be removed from an account if needed or required.<br/><br/><br/>
 
-
-          <p>Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. rank boost does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of rank boost,its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, rank boost shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p>
-
-          <p>rank boost reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.</p>
-
-          <p>You warrant and represent that:</p>
-
-          <ul style={{ padding: '2rem 4rem', fontSize: '1.6rem' }}>
-            <li>You are entitled to post the Comments on our website and have all necessary licenses and consents to do so;</li>
-            <li>The Comments do not invade any intellectual property right, including without limitation copyright, patent or trademark of any third party;</li>
-            <li>The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material which is an invasion of privacy</li>
-            <li>The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</li>
-          </ul>
-
-          <p>You hereby grant rank boost a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</p>
-
-          <h3><strong>Hyperlinking to our Content</strong></h3>
-
-          <p>The following organizations may link to our Website without prior written approval:</p>
-
-          <ul style={{ padding: '2rem 4rem', fontSize: '1.6rem' }}>
-            <li>Government agencies;</li>
-            <li>Search engines;</li>
-            <li>News organizations;</li>
-            <li>Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses; and</li>
-            <li>System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site.</li>
-          </ul>
-
-          <p>These organizations may link to our home page, to publications or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products and/or services; and (c) fits within the context of the linking party’s site.</p>
-
-          <p>We may consider and approve other link requests from the following types of organizations:</p>
-
-          <ul style={{ padding: '2rem 4rem', fontSize: '1.6rem' }}>
-            <li>commonly-known consumer and/or business information sources;</li>
-            <li>dot.com community sites;</li>
-            <li>associations or other groups representing charities;</li>
-            <li>online directory distributors;</li>
-            <li>internet portals;</li>
-            <li>accounting, law and consulting firms; and</li>
-            <li>educational institutions and trade associations.</li>
-          </ul>
-
-          <p>We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of rank boost; and (d) the link is in the context of general resource information.</p>
-
-          <p>These organizations may link to our home page so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context of the linking party’s site.</p>
-
-          <p>If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to rank boost. Please include your name, your organization name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.</p>
-
-          <p>Approved organizations may hyperlink to our Website as follows:</p>
-
-          <ul style={{ padding: '2rem 4rem', fontSize: '1.6rem' }}>
-            <li>By use of our corporate name; or</li>
-            <li>By use of the uniform resource locator being linked to; or</li>
-            <li>By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party’s site.</li>
-          </ul>
-
-          <p>No use of rank boost's logo or other artwork will be allowed for linking absent a trademark license agreement.</p>
-
-          <h3><strong>iFrames</strong></h3>
-
-          <p>Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.</p>
-
-          <h3><strong>Content Liability</strong></h3>
-
-          <p>We shall not be hold responsible for any content that appears on your Website. You agree to protect and defend us against all claims that is rising on your Website. No link(s) should appear on any Website that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.</p>
-
-          <h3><strong>Your Privacy</strong></h3>
-
-          <p>Please read Privacy Policy</p>
-
-          <h3><strong>Reservation of Rights</strong></h3>
-
-          <p>We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it’s linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.</p>
-
-          <h3><strong>Removal of links from our website</strong></h3>
-
-          <p>If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you directly.</p>
-
-          <p>We do not ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the website remains available or that the material on the website is kept up to date.</p>
-
-          <h3><strong>Disclaimer</strong></h3>
-
-          <p>To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</p>
-
-          <ul style={{ padding: '2rem 4rem', fontSize: '1.6rem' }}>
-            <li>limit or exclude our or your liability for death or personal injury;</li>
-            <li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li>
-            <li>limit any of our or your liabilities in any way that is not permitted under applicable law; or</li>
-            <li>exclude any of our or your liabilities that may not be excluded under applicable law.</li>
-          </ul>
-
-          <p>The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort and for breach of statutory duty.</p>
-
-          <p>As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</p>
+            These Terms of Use constitute the entire agreement between you and rankboost concerning your use of the Website and the contents of the Website. If any provision is deemed invalid by a court of competent jurisdiction, the remaining provisions shall remain in full force and effect. No waiver of any the Terms of Use shall be deemed a further or continuing waiver of such term or condition or any other term or condition, and any failure by rankboost to assert any right or provision under these Terms of Use shall not constitute a waiver of such right or provision.<br/><br/><br/>
+          </p>
         </div>
       </div>
     </>

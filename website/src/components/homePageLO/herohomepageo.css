@@ -11,20 +11,25 @@
 }
 .herohomepage-cbtwn ul li{
     font-family: "Dosis";
-    margin-left: 1.4rem;
-    font-size: 1.4rem;
-    margin-bottom: 0.6rem;
+    margin-left: 4rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color:rgb(43, 103, 43);
+    margin-bottom: 1rem;
 }
 .herohomepage-cbtwn ul{
     list-style: none;
     display: flex;
     justify-content: flex-start;
-    place-items: center;
-    flex-wrap: wrap;
+    place-items: flex-start;
+    flex-direction: column;
     margin: 1rem 0;
 }
+.herohomepage-cbtwn {
+    width:100%;
+    padding-top: 4rem;
+}
 .herohomepage-cbtwn p{
-    margin:1rem 0 1rem 1.4rem;
     font-family: "Dosis";
     font-size: 3rem;
 }
@@ -91,11 +96,11 @@
 
 .herohomepage-first-course button {
     width: 100%;
-    padding: 1rem;
+    padding: 2rem;
     background-color: var(--s3);
     font-family: "Dosis", sans-serif;
     color: white;
-    font-size: 2rem;
+    margin:2rem 0;
     border-radius: 0 0 1rem 1rem;
 }
 
@@ -115,8 +120,10 @@
     display: flex;
     justify-content:center;
     place-items: center;
-    gap:2rem;
-    width:100%;
+    flex-direction: column;
+    gap:1rem;
+    width:80%;
+    margin: 0 auto;
 }
 .herohomepage-course-list h1 {
     font-family: "Dosis", sans-serif;
@@ -186,4 +193,13 @@
     font-family: "Dosis";
     justify-content: center;
     place-items: center;
+}
+.htdocs-1{
+    padding:1rem 4rem;
+    width:max-content;
+    border-radius: 50rem;
+    background-color:var(--s3);
+    color:white;
+    font-weight: 600;
+    margin: 3rem auto;
 }

@@ -71,7 +71,6 @@ const SecondSection = () => {
                 </div>
                 </div>
 
-                <h1 className="reason-heading">Specs of course</h1>
                 <div className="secondsection-reason">
                     <div className="reason reason1">
                         <img src={pricem}></img>
@@ -152,7 +151,6 @@ const SecondSection = () => {
                 </div>
 
                 <div className="secondsection-main-bottom">
-                    <div className="secondsec-1"><h1>Our selections</h1></div>
                     <div className="secondsec-2">
                         <div className="secondsec-card">
                             <div className="secondsec-img-cont">

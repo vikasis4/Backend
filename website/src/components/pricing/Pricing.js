@@ -11,6 +11,9 @@ import jblog from '../../svg/jblog.svg'
 import jsupport from '../../svg/jsupport.svg'
 import personal from './personal.png'
 import axios from 'axios'
+import sales from './sales/sales2.jpg'
+import medal from '../../svg/badge.svg'
+import deals from './sales/deals.jpeg'
 
 const Pricing = () => {
 
@@ -26,19 +29,19 @@ const Pricing = () => {
   const [stated, setStated] = useState(false)
   const [statee, setStatee] = useState(false)
   const [variables, setVariables] = useState({
-    var1:0,
-    var2:0,
-    var3:0,
-    var4:0,
-    var5:0,
-    })
+    var1: 0,
+    var2: 0,
+    var3: 0,
+    var4: 0,
+    var5: 0,
+  })
 
-    useEffect(() => {
-      axios.get(clink + '/variables/fetch').then((response)=>{
-        setVariables(response.data[0])
-      })
-    },[])
-  
+  useEffect(() => {
+    axios.get(clink + '/variables/fetch').then((response) => {
+      setVariables(response.data[0])
+    })
+  }, [])
+
   useEffect(() => {
 
     if (localStorage.getItem('reload-facility') === '89307988vikasREF') {
@@ -100,17 +103,40 @@ const Pricing = () => {
       <div className="price-cont">
         <div className="videopage-gap"></div>
         <div className="price-main">
-
-
           <div className="price-flex">
             <div className="price-mod">
+
+
               <div className="price-card">
                 <div className="price-first-course">
                   <img className="price-img" src={one}></img>
                   <div className="price-cbtwn">
-                    <p><img src={jcourse}></img> Jee guidance for 2023 batch</p>
+                    <p className="price-head">Jee guidance for 2023 batch</p>
                     <div className="price-tag">
-                      <h4><span style={{color:'green'}}>&#8377;699</span> only <strong style={{color:'black'}}>||</strong> <span style={{color:'green'}}>{variables.var1}</span> students enrolled</h4>
+                      <h4><span style={{ color: 'white' }}> Discounted price  &nbsp; &#8377;699 only</span>
+                      </h4>
+                      <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 50% off</h3>
+                      {/* <h4><span style={{ color: 'green' }}>&#8377;699</span> only <strong style={{ color: 'black' }}>||</strong> <span style={{ color: 'green' }}>{variables.var1}</span> students enrolled</h4> */}
+                      <div className="price-cbt-panel">
+                        {
+                          statea === true ?
+                            <button onClick={() => { profile.setCurrent('twel'); navigate('/course'); }} className="price-main-half-btn">Go to course</button>
+                            :
+                            cart.find(({ name }) => name === "twel") ?
+                              <>
+                                <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
+                                <button onClick={() => { navigate('/checkout'); updatecart('twel') }} className="price-main-half-btn">Buy now</button>
+                              </>
+                              :
+                              <>
+                                <button onClick={() => { updatecart('twel') }} className="price-main-half-btn">Add to cart</button>
+                                <button onClick={() => { navigate('/checkout'); updatecart('twel') }} className="price-main-half-btn">Buy now</button>
+                              </>
+                        }
+                      </div>
+                      <span className="price-h6">
+                        {variables.var1} students enrolled
+                      </span>
                     </div>
                     <ul>
                       <li>&#10003; 23+ Doubt + Councelling videos - 2023</li>
@@ -123,32 +149,41 @@ const Pricing = () => {
                     </ul>
                   </div>
 
-                  <div className="price-cbt-panel">
-                    {
-                      statea === true ?
-                        <button onClick={() => { profile.setCurrent('twel'); navigate('/course'); }} className="price-main-half-btn">Go to course</button>
-                        :
-                        cart.find(({ name }) => name === "twel") ?
-                          <>
-                            <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
-                            <button onClick={() => { navigate('/checkout'); updatecart('twel') }} className="price-main-half-btn">Buy now</button>
-                          </>
-                          :
-                          <>
-                            <button onClick={() => { updatecart('twel') }} className="price-main-half-btn">Add to cart</button>
-                            <button onClick={() => { navigate('/checkout'); updatecart('twel') }} className="price-main-half-btn">Buy now</button>
-                          </>
-                    }
-                  </div>
+
                 </div>
               </div>
               <div className="price-card">
                 <div className="price-first-course">
                   <img className="price-img" src={three}></img>
                   <div className="price-cbtwn">
-                    <p><img src={jcourse}></img> Jee guidance for 2024 batch</p>
+                    <p className="price-head">Jee guidance for 2024 batch</p>
                     <div className="price-tag">
-                      <h4><span style={{color:'green'}}>&#8377;1299</span> only <strong style={{color:'black'}}>||</strong> <span style={{color:'green'}}>{variables.var2}</span> students enrolled</h4>
+                      <h4><span style={{ color: 'white' }}> Discounted price  &nbsp; &#8377;1299 only</span>
+                      </h4>
+                      <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 50% off</h3>
+                      {/* <h4><span style={{ color: 'green' }}>&#8377;1299</span> only <strong style={{ color: 'black' }}>||</strong> <span style={{ color: 'green' }}>{variables.var2}</span> students enrolled</h4> */}
+                      <div className="price-cbt-panel">
+                        {
+                          stateb === true ?
+                            <>
+                              <button onClick={() => { profile.setCurrent('elev'); navigate('/course'); }} className="price-main-half-btn">Go to course</button>
+                            </>
+                            :
+                            cart.find(({ name }) => name === "elev") ?
+                              <>
+                                <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
+                                <button onClick={() => { navigate('/checkout'); updatecart('elev') }} className="price-main-half-btn">Buy now</button>
+                              </>
+                              :
+                              <>
+                                <button onClick={() => { updatecart('elev') }} className="price-main-half-btn">Add to cart</button>
+                                <button onClick={() => { navigate('/checkout'); updatecart('elev') }} className="price-main-half-btn">Buy now</button>
+                              </>
+                        }
+                      </div>
+                      <span className="price-h6">
+                        {variables.var2} students enrolled
+                      </span>
                     </div>
                     <ul>
                       <li>&#10003; 23+ Doubt + Councelling videos - 2024</li>
@@ -161,34 +196,40 @@ const Pricing = () => {
                     </ul>
                   </div>
 
-                  <div className="price-cbt-panel">
-                    {
-                      stateb === true ?
-                        <>
-                          <button onClick={() => { profile.setCurrent('elev'); navigate('/course'); }} className="price-main-half-btn">Go to course</button>
-                        </>
-                        :
-                        cart.find(({ name }) => name === "elev") ?
-                          <>
-                            <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
-                            <button onClick={() => { navigate('/checkout'); updatecart('elev') }} className="price-main-half-btn">Buy now</button>
-                          </>
-                          :
-                          <>
-                            <button onClick={() => { updatecart('elev') }} className="price-main-half-btn">Add to cart</button>
-                            <button onClick={() => { navigate('/checkout'); updatecart('elev') }} className="price-main-half-btn">Buy now</button>
-                          </>
-                    }
-                  </div>
+
                 </div>
               </div>
               <div className="price-card">
                 <div className="price-first-course">
                   <img className="price-img" src={two}></img>
                   <div className="price-cbtwn">
-                    <p><img src={jblog}></img> Jee Study Material</p>
+                    <p className="price-head">Study Material</p>
                     <div className="price-tag">
-                      <h4><span style={{color:'green'}}>&#8377;399</span> only <strong style={{color:'black'}}>||</strong> <span style={{color:'green'}}>{variables.var3}</span> students purchased</h4>
+                      <h4><span style={{ color: 'white' }}> Discounted price  &nbsp; &#8377;399 only</span>
+                      </h4>
+                      <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 60% off</h3>
+                      {/* <h4><span style={{ color: 'green' }}>&#8377;399</span> only <strong style={{ color: 'black' }}>||</strong> <span style={{ color: 'green' }}>{variables.var3}</span> students purchased</h4> */}
+                      <div className="price-cbt-panel">
+                        {
+                          statec === true ?
+
+                            <button onClick={() => { profile.setCurrent('material'); navigate('/course'); }} className="price-main-half-btn">Go to course</button>
+                            :
+                            cart.find(({ name }) => name === "material") ?
+                              <>
+                                <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
+                                <button onClick={() => { navigate('/checkout'); updatecart('material') }} className="price-main-half-btn">Buy now</button>
+                              </>
+                              :
+                              <>
+                                <button onClick={() => { updatecart('material') }} className="price-main-half-btn">Add to cart</button>
+                                <button onClick={() => { navigate('/checkout'); updatecart('material') }} className="price-main-half-btn">Buy now</button>
+                              </>
+                        }
+                      </div>
+                      <span className="price-h6">
+                        {variables.var3} students enrolled
+                      </span>
                     </div>
                     <ul>
                       <li>&#10003; Complete study material</li>
@@ -200,35 +241,16 @@ const Pricing = () => {
                       <li>&#10003; 26 previos paper</li>
                     </ul>
                   </div>
-
-                  <div className="price-cbt-panel">
-                    {
-                      statec === true ?
-
-                        <button onClick={() => { profile.setCurrent('material'); navigate('/course'); }} className="price-main-half-btn">Go to course</button>
-                        :
-                        cart.find(({ name }) => name === "material") ?
-                          <>
-                            <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
-                            <button onClick={() => { navigate('/checkout'); updatecart('material') }} className="price-main-half-btn">Buy now</button>
-                          </>
-                          :
-                          <>
-                            <button onClick={() => { updatecart('material') }} className="price-main-half-btn">Add to cart</button>
-                            <button onClick={() => { navigate('/checkout'); updatecart('material') }} className="price-main-half-btn">Buy now</button>
-                          </>
-                    }
-                  </div>
                 </div>
               </div>
-             
-              <div className="price-card">
+
+              {/* <div className="price-card">
                 <div className="price-first-course">
                   <img className="price-img" src={personal}></img>
                   <div className="price-cbtwn">
-                    <p><img src={jsupport}></img> Jee Personal 1-1 guidance</p>
+                    <p> Jee Personal 1-1 guidance</p>
                     <div className="price-tag">
-                      <h4><span style={{color:'green'}}>&#8377;2999</span> only <strong style={{color:'black'}}>||</strong> <span style={{color:'green'}}>{variables.var4}</span> students enrolled</h4>
+                      <h4><span style={{ color: 'green' }}>&#8377;2999</span> only <strong style={{ color: 'black' }}>||</strong> <span style={{ color: 'green' }}>{variables.var4}</span> students enrolled</h4>
                     </div>
                     <ul>
                       <li>&#10003; Get a personal guide</li>
@@ -258,7 +280,7 @@ const Pricing = () => {
                     }
                   </div>
                 </div>
-              </div>
+              </div> */}
 
 
             </div>
@@ -266,55 +288,64 @@ const Pricing = () => {
 
 
           <div className="price-flex price-spl">
-            <h2 className="deactivate-dis" data-text="&nbsp;&#8377; 999 for first 3000 students &nbsp;">&nbsp;&#8377; 999 for first 3000 students &nbsp;</h2>
             <div className="price-mod mob-price-mod">
               <div className="price-cardd">
+                <img className="price-deal" src={deals}></img>
                 <div className="price-first-coursed">
-                  <img src={four}></img>
+                  <img className="price-first-coursed-img" src={four}></img>
                   <div className="price-cbtwn">
-                    <p className="deactivate-dis">IITJEE combo pack for both 2023 & 2024</p>
-                    <div className="price-gnxt">
-                      <h2 className="activate-dis gnxt" data-text="&nbsp;&#8377;999 for first 3000 students &nbsp;">&nbsp;&#8377;999 for first 3000 students &nbsp;</h2>
-                    </div>
                     <div className="price-tag">
-                      <h4><span style={{color:'green'}}> <s style={{color:'red'}}>&#8377;2000</s> &nbsp; &#8377;999</span> only <strong style={{color:'black'}}>||</strong> <span style={{color:'green'}}>{variables.var5}</span> students enrolled</h4>
+                      <p className="price-head">COMBO Pack for 2023 and 2024 Batch</p>
+                      <h4><span style={{ color: 'white' }}> Discounted price  &nbsp; &#8377;999 only</span>
+                      </h4>
+                      <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 70% off</h3>
+
+                      <div className="price-cbt-panel">
+                        {
+                          statee === true ?
+                            <button onClick={() => { profile.setCurrent('combo'); navigate('/course'); }} className="price-main-half-btn">Go to course</button>
+                            :
+                            cart.find(({ name }) => name === "combo") ?
+                              <>
+                                <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
+                                <button onClick={() => { navigate('/checkout'); updatecart('combo') }} className="price-main-half-btn">Buy now</button>
+                              </>
+                              :
+                              <>
+                                <button onClick={() => { updatecart('combo') }} className="price-main-half-btn">Add to cart</button>
+                                <button onClick={() => { navigate('/checkout'); updatecart('combo') }} className="price-main-half-btn">Buy now</button>
+                              </>
+                        }
+                      </div>
+                      <span className="price-h6">
+                        {variables.var5} students enrolled
+                      </span>
+
+
                     </div>
                     <ul>
                       <li>&#10003; 23+ Doubt + Councelling videos</li>
                       <li>&#10003; 1-1 personal guidance</li>
                       <li>&#10003; IITIANs support</li>
                       <li>&#10003; Doubt session</li>
-                      <li>&#10003; IITJEE study material for both mains and advance</li>
+                      <li>&#10003; Study material for both mains and advance</li>
                       <li>&#10003; Chat section</li>
-                      <li>&#10003; 26 previous paper with solutions</li>
+                      <li>&#10003; 26 previous year papers with solutions</li>
                       <li>&#10003; Toppers notes + short notes</li>
                       <li>&#10003; Weekly study plan</li>
                       <li>&#10003; 2 years access</li>
                     </ul>
                   </div>
 
-                  <div className="price-cbt-panel">
-                    {
-                      statee === true ?
-                        <button onClick={() => { profile.setCurrent('combo'); navigate('/course'); }} className="price-main-half-btn">Go to course</button>
-                        :
-                        cart.find(({ name }) => name === "combo") ?
-                          <>
-                            <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
-                            <button onClick={() => { navigate('/checkout'); updatecart('combo') }} className="price-main-half-btn">Buy now</button>
-                          </>
-                          :
-                          <>
-                            <button onClick={() => { updatecart('combo') }} className="price-main-half-btn">Add to cart</button>
-                            <button onClick={() => { navigate('/checkout'); updatecart('combo') }} className="price-main-half-btn">Buy now</button>
-                          </>
-                    }
-                  </div>
+
                 </div>
               </div>
             </div>
           </div>
 
+          {/* /////////////////////// */}
+          <img className="sales-img" src={sales}></img>
+          {/* /////////////////////// */}
 
         </div>
       </div>

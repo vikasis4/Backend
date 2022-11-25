@@ -19,22 +19,38 @@
 .price-card{
     height:max-content;
     background-color:var(--s1);
-    box-shadow:0 0 4px 0 rgba(0, 0, 0, 0.4);
-    border-radius: 1rem 1rem 0.3rem 0.3rem;
+    border-radius: 1rem 1rem 1rem 1rem;
     width:32rem;
+}
+.price-call-img{
+    height:5rem;
+    width:5rem;
+}
+.price-call{
+    background-color:white;
+    margin:1rem;
+    padding:1rem;
+    justify-content:center;
+    place-items:center;
+    gap:1rem;
+    display: flex;
 }
 .price-cardd{
     height:max-content;
-    background-color:var(--s1);
+    background-color:black;
     box-shadow:0 0 4px 0 rgba(0, 0, 0, 0.4);
     border-radius: 1rem 1rem 0.3rem 0.3rem;
     width:75%;
 }
-.price-first-course img{
-    border-radius: 0.4rem 0.4rem 0 0;
-    height:18rem;
+.price-first-course{
+    background-color:royalblue;
 }
-.price-first-coursed img{
+
+.price-first-coursed {
+    background-color:var(--s4);
+    color:white
+}
+.price-first-coursed-img{
     border-radius: 0.4rem 0.4rem 0 0;
     height:30rem;
     width:100%;
@@ -47,8 +63,9 @@
     margin-bottom: 1rem;
     margin-left: 1rem;
     font-family: "Dosis";
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.6rem;
+    color:white;
     margin-right: 2rem;
 }
 .price-tag h4{
@@ -56,14 +73,26 @@
     text-align: center;
     font-size:2rem;
     font-weight:600;
+    margin-top:3rem;
     color:var(--s4);
-    margin-bottom:2rem
+}
+.price-tag h3{
+    font-family: "Dosis";
+    text-align: center;
+    font-size:3.4rem;
+    width:50%;
+    margin:3rem auto;
+    font-weight:600;
+    color:var(--s4);
 }
 .price-cbtwn ul{
     display: flex;
     justify-content: flex-start;
-    place-items: center;
-    flex-wrap: wrap;
+    place-items: flex-start;
+    flex-wrap: no-wrap;
+    flex-direction: column;
+    margin-top:4rem;
+    padding-bottom:2rem;
     list-style: none;
 }
 .price-cbt-panel{
@@ -84,29 +113,33 @@
     padding:0 1rem;
     font-weight: 600;
 }
-.price-cbtwn p img{
-    height:3rem
-}
-.price-cbtwn p{
-    font-family: "Dosis", sans-serif;
-    font-size: 2rem;
-    padding:1rem;
-    display: flex;
-    justify-content: flex-start;
-    gap:1rem;
-    place-items: center;
-    font-weight: 600;
-}
+
 .price-main-half-btn:hover{
     cursor: pointer;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     transform: translateY(-2px)
 }
-.price-main-half-btn{
-    padding:0.6rem 4rem;
-    background-color:var(--s3);
-    border-radius:0.4rem;
+.price-h6{
     color:white;
+    font-size:3.4rem;
+    font-family: "Dosis";
+    font-weight: 600;
+    border-bottom: 2px solid white;
+    width: 90%;
+    margin:0 auto;
+    padding: 2rem 0 1rem 0;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+.price-main-half-btn{
+    padding:1.6rem 4rem;
+    background-color:white;
+    border-radius:0.4rem;
+    color:var(--s4);
+    width: 45%;
+    font-size: 3.4rem;
+    font-weight: 600;
     font-family: "Dosis", sans-serif;
     transition: all 0.2s
 }
@@ -162,4 +195,29 @@
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
     border-radius: 0.4rem;
     height: 100%;
+}
+.sales-img{
+    height:60rem;
+    width:60rem;
+    margin:0 auto;
+}
+.price-head{
+    font-family: "Dosis";
+    font-size: 3.4rem;
+    font-weight: 700;
+    background-color:white;
+    border-radius:0 0 50rem 50rem;
+    color:var(--s4);
+    text-align: center;
+    width: 90%;
+    margin: 3rem auto;
+    padding:1rem 0
+}
+.price-deal{
+    height:18rem;
+    position:relative;
+    top:-1rem;
+    left:1.4rem;
+    width:14rem;
+    margin-bottom:-18rem
 }

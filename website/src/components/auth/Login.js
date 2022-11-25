@@ -196,7 +196,6 @@ const Login = () => {
                             <h1>Login to your account</h1>
                         </div>
                         <div id="signInDIVs"></div>
-                        <h1 className="lelebhai">OR</h1>
                         <div className="mob-login-form">
                             <input
                                 type="text"

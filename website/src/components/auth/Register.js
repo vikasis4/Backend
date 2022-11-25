@@ -249,7 +249,6 @@ const Register = () => {
                         </div>
                         {pto ? <Otp id={id} /> : <>
                             <div id="signUpDivs"></div>
-                            <h1 className="lelebhai">OR</h1>
                             <div className="mob-login-form">
                                 <input
                                     type="name"

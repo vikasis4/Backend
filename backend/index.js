@@ -6,8 +6,6 @@ const mongoToConnect = require('./mongodb')
 const bcrypt = require('bcryptjs');
 const verify = require('./middleware/verify')
 const dotenv = require('dotenv');
-const Razorpay = require('razorpay');
-const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const Otp = require('./models/otp');
 const Payment = require('./models/payment');
@@ -32,7 +30,9 @@ const Personal = require('./models/personal');
 const Pyq = require('./models/pyq');
 const Variables = require('./models/variables');
 const { spawn } = require('child_process');
-var CronJob = require('cron').CronJob;
+const CronJob = require('cron').CronJob;
+const payUMoney = require('./payUmoney');
+
 
 
 const app = express();
@@ -57,6 +57,7 @@ const backupDB = () => {
         '--gzip'
     ])
 }
+
 var job1 = new CronJob(
     '0 1 * * *',
     function () {
@@ -69,9 +70,8 @@ var job1 = new CronJob(
 
 mongoToConnect();
 dotenv.config();
-app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live'], credentials: true}));
-// app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001'], credentials: true }));
-app.use(cors());
+app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true}));
+// app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'https://api.payu.in'], credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -700,89 +700,101 @@ app.get('/api/verifyuser', verify, async (req, res) => {
 
 //////////////////////////////////  RAZOR PAY  /////////////////////////////////////////////
 
-app.post('/api/payment/orders', async (req, res) => {
-
-    try {
-        var num = process.env.value;
-        const user = await User.findById(req.body.id);
-        const money = user.cart;
-        for (let i = 0; i < money.length; i++) {
-            if (money[i].name === 'elev') {
-                num = parseInt(num) + parseInt(process.env.elev);
-            }
-            else if (money[i].name === 'twel') {
-                num = parseInt(num) + parseInt(process.env.twel);
-            }
-            else if (money[i].name === 'combo') {
-                num = parseInt(num) + parseInt(process.env.combo);
-            }
-            else if (money[i].name === 'personal') {
-                num = parseInt(num) + parseInt(process.env.personal);
-            }
-            else if (money[i].name === 'material') {
-                num = parseInt(num) + parseInt(process.env.material);
-            }
-        }
-        const instance = new Razorpay({
-            key_id: process.env.razorpaykey_id,
-            key_secret: process.env.razorpaykey_secret
-        });
-        const options = {
-            amount: num * 100,
-            currency: 'INR',
-            receipt: crypto.randomBytes(10).toString('hex')
-        }
-
-        instance.orders.create(options, (error, orders) => {
-            if (error) {
-                console.log(error)
-                res.json({ error, message: 'INTERNAL SERVER ERROR' })
-                console.log('460:error');
-            }
-            else {
-                res.json(orders)
-            }
-        })
-    } catch (error) {
-        console.log(error);
-        console.log('468:error');
-    }
+app.post('/api/payments/payumoney',payUMoney.payUMoneyPayment);
+app.post('/payu/success', async (req, res) => {
+    res.send(
+    `<h1> <span style={{color:'green'}}> Your payment is successfully </span>.<br/> Click on <a href="https://rankboost.live">RankBoost</a> to reuturn to the website </h1>`
+    );
+})
+app.post('/payu/failed', async (req, res) => {
+    res.send(
+    `<h1> <span style={{color:'red'}}> payment failed </span>.<br/> Click on <a href="https://rankboost.live">RankBoost</a> to reuturn to the website </h1>`
+    );
 })
 
-app.post('/api/payment/verify', async (req, res) => {
+// app.post('/api/payment/orders', async (req, res) => {
+
+//     try {
+//         var num = process.env.value;
+//         const user = await User.findById(req.body.id);
+//         const money = user.cart;
+//         for (let i = 0; i < money.length; i++) {
+//             if (money[i].name === 'elev') {
+//                 num = parseInt(num) + parseInt(process.env.elev);
+//             }
+//             else if (money[i].name === 'twel') {
+//                 num = parseInt(num) + parseInt(process.env.twel);
+//             }
+//             else if (money[i].name === 'combo') {
+//                 num = parseInt(num) + parseInt(process.env.combo);
+//             }
+//             else if (money[i].name === 'personal') {
+//                 num = parseInt(num) + parseInt(process.env.personal);
+//             }
+//             else if (money[i].name === 'material') {
+//                 num = parseInt(num) + parseInt(process.env.material);
+//             }
+//         }
+//         const instance = new Razorpay({
+//             key_id: process.env.razorpaykey_id,
+//             key_secret: process.env.razorpaykey_secret
+//         });
+//         const options = {
+//             amount: num * 100,
+//             currency: 'INR',
+//             receipt: crypto.randomBytes(10).toString('hex')
+//         }
+
+//         instance.orders.create(options, (error, orders) => {
+//             if (error) {
+//                 console.log(error)
+//                 res.json({ error, message: 'INTERNAL SERVER ERROR' })
+//                 console.log('460:error');
+//             }
+//             else {
+//                 res.json(orders)
+//             }
+//         })
+//     } catch (error) {
+//         console.log(error);
+//         console.log('468:error');
+//     }
+// })
+
+// app.post('/api/payment/verify', async (req, res) => {
 
 
-    try {
-        const { razorpay_order_id, razorpay_payment_id, razorpay_signature, id, type, cart } = req.body
+//     try {
+//         const { razorpay_order_id, razorpay_payment_id, razorpay_signature, id, type, cart } = req.body
 
-        const sign = razorpay_order_id + "|" + razorpay_payment_id;
-        const expectedSign = crypto
-            .createHmac('sha256', process.env.razorpaykey_secret)
-            .update(sign.toString())
-            .digest('hex');
+//         const sign = razorpay_order_id + "|" + razorpay_payment_id;
+//         const expectedSign = crypto
+//             .createHmac('sha256', process.env.razorpaykey_secret)
+//             .update(sign.toString())
+//             .digest('hex');
 
-        const payment = await Payment.create({
-            razorpay_payment_id: razorpay_payment_id,
-            razorpay_order_id: razorpay_order_id,
-            user: id,
-            date: Date.now(),
-            type: type,
-            cart
-        })
-        payment.save();
-        if (razorpay_signature === expectedSign) {
-            reffile("payment", id, "NoToken", cart)
-            var otpi = Math.floor(1000000 + Math.random() * 9000000);
-            await User.findByIdAndUpdate(id, { pkey: otpi })
-            return res.status(200).json({ message: "Payment verified Successfully", status: 'success', pkey: otpi });
-        } else {
-            return res.status(400).json({ message: "Payment verification failed", status: 'failed' });
-        }
+//         const payment = await Payment.create({
+//             razorpay_payment_id: razorpay_payment_id,
+//             razorpay_order_id: razorpay_order_id,
+//             user: id,
+//             date: Date.now(),
+//             type: type,
+//             cart
+//         })
+//         payment.save();
+//         if (razorpay_signature === expectedSign) {
+//             reffile("payment", id, "NoToken", cart)
+//             var otpi = Math.floor(1000000 + Math.random() * 9000000);
+//             await User.findByIdAndUpdate(id, { pkey: otpi })
+//             return res.status(200).json({ message: "Payment verified Successfully", status: 'success', pkey: otpi });
+//         } else {
+//             return res.status(400).json({ message: "Payment verification failed", status: 'failed' });
+//         }
 
-    } catch (error) {
-        console.log(error);
-    }
-})
+//     } catch (error) {
+//         console.log(error);
+//     }
+// })
 
 ////////////////////// UPDATE USER SUBS ///////////////////////////////////
 

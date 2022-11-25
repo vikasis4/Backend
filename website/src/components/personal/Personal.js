@@ -7,14 +7,10 @@ import Pins from '../../svg/Pins'
 import FormData from 'form-data'
 import cross from '../../svg/cross.svg'
 import Send from '../../svg/send.svg'
-import jsupport from '../../svg/jsupport.svg';
 import io from 'socket.io-client'
-import oned from '../pricing/one.png'
-import lew from '../pricing/four.jpeg'
 import downloadPersonal from '../../svg/downloadPersonal.svg'
 import gross from '../../svg/cross.svg'
-import four from '../homePageLO/course.png'
-import personal from '../pricing/personal.png'
+
 
 const Query = () => {
 
@@ -579,93 +575,7 @@ const Query = () => {
                     <>
                         <div className="courses-page">
                             <div className="videopage-gap"></div>
-                            <h3>Pick any one course to start with your personal 1-1 guidance</h3>
-                            <div className="personals">
-                                <div className="price-flex price-spl">
-                                    <h2 className="deactivate-dis" data-text="&nbsp;&#8377; 999 for first 3000 students &nbsp;">&nbsp;&#8377; 999 for first 3000 students &nbsp;</h2>
-                                    <div className="price-mod mob-price-mod">
-                                        <div className="price-cardd">
-                                            <div className="price-first-coursed">
-                                                <img src={four}></img>
-                                                <div className="price-cbtwn">
-                                                    <p className="deactivate-dis">IITJEE combo pack for both 2023 & 2024</p>
-                                                    <div className="price-gnxt">
-                                                        <h2 className="activate-dis gnxt" data-text="&nbsp;&#8377;999 for first 3000 students &nbsp;">&nbsp;&#8377;999 for first 3000 students &nbsp;</h2>
-                                                    </div>
-                                                    <div className="price-tag">
-                                                        <h4><span style={{ color: 'green' }}> <s style={{ color: 'red' }}>&#8377;2000</s> &nbsp; &#8377;999</span> only <strong style={{ color: 'black' }}>||</strong> <span style={{ color: 'green' }}>{variables.var5}</span> students enrolled</h4>
-                                                    </div>
-                                                    <ul>
-                                                        <li>&#10003; 23+ Doubt + Councelling videos</li>
-                                                        <li>&#10003; 1-1 personal guidance</li>
-                                                        <li>&#10003; IITIANs support</li>
-                                                        <li>&#10003; Doubt session</li>
-                                                        <li>&#10003; IITJEE study material for both mains and advance</li>
-                                                        <li>&#10003; Chat section</li>
-                                                        <li>&#10003; 26 previous paper with solutions</li>
-                                                        <li>&#10003; Toppers notes + short notes</li>
-                                                        <li>&#10003; Weekly study plan</li>
-                                                        <li>&#10003; 2 years access</li>
-                                                    </ul>
-                                                </div>
-
-                                                <div className="price-cbt-panel">
-                                                    {
-                                                        cart.find(({ name }) => name === "combo") ?
-                                                            <>
-                                                                <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
-                                                                <button onClick={() => { navigate('/checkout'); updatecart('combo') }} className="price-main-half-btn">Buy now</button>
-                                                            </>
-                                                            :
-                                                            <>
-                                                                <button onClick={() => { updatecart('combo') }} className="price-main-half-btn">Add to cart</button>
-                                                                <button onClick={() => { navigate('/checkout'); updatecart('combo') }} className="price-main-half-btn">Buy now</button>
-                                                            </>
-                                                    }
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h1>OR</h1>
-                                <div className="price-card">
-                                    <div className="price-first-course">
-                                        <img className="price-img" src={personal}></img>
-                                        <div className="price-cbtwn">
-                                            <p><img src={jsupport}></img> Jee Personal 1-1 guidance</p>
-                                            <div className="price-tag">
-                                                <h4><span style={{ color: 'green' }}>&#8377;2999</span> only <strong style={{ color: 'black' }}>||</strong> <span style={{ color: 'green' }}>{variables.var4}</span> students enrolled</h4>
-                                            </div>
-                                            <ul>
-                                                <li>&#10003; Get a personal guide</li>
-                                                <li>&#10003; IITIAN support</li>
-                                                <li>&#10003; Doubt session</li>
-                                                <li>&#10003; Chat section</li>
-                                                <li>&#10003; 6 month Study plan</li>
-                                                <li>&#10003; 1 year access</li>
-                                            </ul>
-                                        </div>
-
-                                        <div className="price-cbt-panel">
-                                            {
-
-                                                cart.find(({ name }) => name === "personal") ?
-                                                    <>
-                                                        <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
-                                                        <button onClick={() => { navigate('/checkout'); updatecart('personal') }} className="price-main-half-btn">Buy now</button>
-                                                    </>
-                                                    :
-                                                    <>
-                                                        <button onClick={() => { updatecart('personal') }} className="price-main-half-btn">Add to cart</button>
-                                                        <button onClick={() => { navigate('/checkout'); updatecart('personal') }} className="price-main-half-btn">Buy now</button>
-                                                    </>
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
+                            <h3>No Course Purchased Yet to activate this section.<br/> Quickly Go to the Pricing page and purchase the course</h3>
                         </div>
                     </>
             }

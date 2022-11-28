@@ -14,8 +14,8 @@ const HeroHomepageo = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    
-  
+
+
 
     if (location.pathname.slice(0, 12) === '/refral-link') {
         if (!localStorage.getItem('refral')) {
@@ -24,7 +24,7 @@ const HeroHomepageo = () => {
     }
 
 
-   
+
 
     return (
         <>
@@ -75,22 +75,24 @@ const HeroHomepageo = () => {
                             <div className="herohomepage-first-course">
                                 <img src={course}></img>
                                 <div className="herohomepage-cbtwn">
-                                    <p>IIT-JEE Mentorship Courses</p>
+                                    <h6>IIT-JEE Mentorship Courses</h6>
                                     <p className="htdocs-1"> Special 50% off - Limited time offer</p>
-                                <div className="herohomepage-cbt-panel">
-                                    <button onClick={() => { navigate('/price') }} className="herohomepage-main-half-btn">View all courses</button>
-                                    <div className="herohomepage-fine-line"></div>
-                                </div>
-                                    <ul>
-                                        <li>&#10003; Guidance</li>
-                                        <li>&#10003; Doubt session</li>
-                                        <li>&#10003; 23+ Doubt videos</li>
-                                        <li>&#10003; 1-1 personal guidance</li>
-                                        <li>&#10003; Study material</li>
-                                        <li>&#10003; Councelling</li>
-                                        <li>&#10003; Short notes + PYQ</li>
-                                        <li>&#10003; Mains + Advance strategy</li>
-                                    </ul>
+                                    <div className="herohomepage-cbt-panel">
+                                        <button onClick={() => { navigate('/price') }} className="herohomepage-main-half-btn">View all courses</button>
+                                        <div className="herohomepage-fine-line"></div>
+                                    </div>
+                                    <div className="activate-dis">
+                                        <ul>
+                                            <li>&#10003; Guidance</li>
+                                            <li>&#10003; Doubt session</li>
+                                            <li>&#10003; 23+ Doubt videos</li>
+                                            <li>&#10003; 1-1 personal guidance</li>
+                                            <li>&#10003; Study material</li>
+                                            <li>&#10003; Councelling</li>
+                                            <li>&#10003; Short notes + PYQ</li>
+                                            <li>&#10003; Mains + Advance strategy</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>

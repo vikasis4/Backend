@@ -1,5 +1,7 @@
 @media only screen and (max-width: 480px) {
 
+
+
     html,
     body {
         font-size: 5px !important;
@@ -68,7 +70,12 @@
     .Thirdsec-ques {
         width: 90% !important;
     }
-
+    .herohomepage-cbtwn h6{
+        font-size: 4.6rem !important;
+    }
+    .herohomepage-cbtwn p{
+        font-size: 3.6rem !important;
+    }
     .navbar-third-btn {
         width: 100% !important;
         padding: 2rem 1rem !important;
@@ -253,9 +260,9 @@
     .herohomepage-first-course button {
         font-size: 4rem !important;
         font-weight: 500 !important;
-        width: 80% !important;
+        width: 100% !important;
         box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.3);
-        border-radius: 0.4rem !important;
+        border-radius: 0rem !important;
         background-color: var(--c2) !important;
     }
 .herohomepage-fine-line{

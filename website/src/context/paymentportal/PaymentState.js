@@ -88,12 +88,12 @@ const PaymentState = (props) => {
                 txnid: 'unique id',
                 amount: 1,
                 firstname: 'RankBoost',
-                email: aaprofile.profile.username + '@gmail.com',
+                email: aaprofile.profile.username,
                 phone: 1234321863,
                 productinfo: 'RankBoost courses',
                 surl: 'https://rankboost.live',
                 furl: 'https://rankboost.live',
-                hash: ''
+                hash: '',
             }
 
             // Data to be Sent to API to generate hash.
@@ -102,7 +102,10 @@ const PaymentState = (props) => {
                 'email': pd.email,
                 'amount': pd.amount,
                 'productinfo': pd.productinfo,
-                'firstname': pd.firstname
+                'firstname': pd.firstname,
+                'udf1': id,
+                'udf2': '',
+                'udf3': '',
             }
             let self = this;
             // API call to get the Hash value

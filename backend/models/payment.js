@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 
 const Payment = new mongoose.Schema({
 
-    razorpay_payment_id:{type: 'string', required: true},
-    razorpay_order_id:{type: 'string', required: true},
+    refrence_nos:{type: 'number', required: true},
+    transaction_id:{type: 'number', required: true},
     user:{type: 'string', required: true},
     date:{type:Date},
     type:{type: 'string', required: true},

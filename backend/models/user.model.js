@@ -10,6 +10,14 @@ const User = new mongoose.Schema({
     username: { type: 'string', required: true },
     password: { type: 'string', required: true },
     subscription: { type: 'string', default: 'false' },
+    guidance_session: {
+        plan_time: { type: 'number', default: 0},
+        expiry_time: {
+            month: {type: 'number', default: 0},
+            date: {type: 'number', default: 0},
+            year: {type: 'number', default: 0}
+        },
+    },
     img: { type: 'string', default: 'empty' },
     name: { type: 'string', default: 'User'},
     pkey: { type: 'number', default: 9876 },

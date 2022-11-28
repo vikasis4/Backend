@@ -1,8 +1,190 @@
+/* ///////////// pd supermacy /////////////////////// */
+.pd_main{
+    display:flex;
+    justify-content:center;
+    place-items:center;
+    flex-direction:column;
+}
+.pd_one_head{
+    display:flex;
+    justify-content:center;
+    place-items:center;
+    flex-direction:column;
+}
+.pd_one_head h1{
+    font-family: "DM Sans";
+    font-size: 5rem;
+    color: navy;
+    margin:4rem 0;
+    font-weight: 600;
+}
+.pd_one_button button:hover{
+    cursor: pointer;
+}
+.pd_one_button button{
+    font-weight: 500;
+    font-size: 2.4rem;
+    padding:1rem 6rem;
+    transition: all 0.2s;
+    color:white;
+    font-family: "DM Sans";
+    background-color:var(--s4);
+    border-radius: 0.4rem;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.2)
+}
+.pd_one_button{
+    display:flex;
+    justify-content:center;
+    place-items:center;
+    gap:2rem;
+    padding:4rem 0
+}
+.pd_card_useless{
+    width:100%;
+    display:flex;
+    justify-content:flex-end;
+}
+.pd_card_one h6{
+    font-family: "DM Sans";
+    font-size: 1.4rem;
+    margin-top:1rem;
+    letter-spacing:0.08rem;
+    margin-right:1rem;
+    width:max-content;
+    padding:0.4rem 1rem;
+    color: white;
+    background-color: var(--s4);
+    font-weight: 600;
+    border-radius: 50rem;
+}
+.pd_cambo h1{
+    color:white !important;
+}
+.pd_card_one h1{
+    font-family: "DM Sans";
+    font-size: 2rem;
+    color: black;
+    text-align: center;
+    margin: 2rem 0 2rem 0;
+    font-weight: 500;
+    width:max-content;
+}
+.pd_card_slab h4{
+    background-color:var(--s4);
+    padding:1rem 3rem;
+    color:white;
+    margin:1rem auto;
+    border-radius: 0 0 10rem 10rem;
+    font-family: "Dosis";
+    width:max-content;
+    font-size: 1.8rem;
+}
+.pd_control_buttons button:hover{
+    cursor: pointer;
+    transform: translateY(-0.4rem);
+}
+.pd_card_cont{
+    display:flex;
+    flex-wrap: wrap;
+    place-items: center;
+    justify-content: space-around;
+}
+.pd_card_slab ul li{
+    padding-bottom: 1rem;
+}
+.pd_card_slab ul{
+    list-style: none;
+    color:black;
+    font-weight: 600;
+    font-family: "Dosis";
+    font-size: 1.8rem;
+    margin:0rem 1rem;
+    padding-bottom: 1rem;
+}
+.pd_combo_h6{
+    color: white !important;
+    border-color: white !important;
+}
+.pd_h6{
+    font-family: "Dosis";
+    font-weight: 600;
+    font-size: 2rem;
+    color:black;
+    width:80%;
+    text-align:center;
+    padding-bottom: 0.4rem;
+    margin: 2rem auto;
+    border-bottom:2px solid black;
+    display: block;
+}
+.pd_control_buttons button{
+    padding:0.6rem 2rem;
+    border-radius: 0.4rem;
+    background-color:var(--s3);
+    color:white;
+    font-family: Dosis;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    transition: all 0.2s;
+    font-size: 2rem;
+}
+.pd_control_buttons{
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    gap:1rem
+}
+.pd_slab_combo ul{
+    color:white !important;
+}
+.pd_card_slab h3{
+    background-color:var(--s4);
+    padding:0.6rem 2rem;
+    color:white;
+    margin:1rem auto;
+    font-weight: 600;
+    word-spacing: 0.2rem;
+    border-radius: 0.4rem;
+    font-family: "Dosis";
+    width:max-content;
+    font-size: 2rem;
+}
+.pd_card_one{
+    display:flex;
+    justify-content:center;
+    place-items:center;
+    flex-direction: column;
+}
+.pd_card_one img{
+    height: 18rem;
+    width:95%;
+    margin:1rem auto;
+    border-radius: 0.4rem;
+}
+.pd_card_combo{
+    background-color:black !important;
+    box-shadow: 0 2px 30px -6px gold !important;
+}
+.pd_card{
+    height:max-content;
+    box-shadow: 0 2px 4px 2px rgba(0,0,0, 0.3);
+    background-color:white;
+    width:32rem;
+    border-radius:2rem;
+}
+.pd_two{
+    width:100%;
+}
+.pd_two_one{
+    padding:4rem 1rem;
+    width:100%;
+}
+/* ///////////// pd supermacy /////////////////////// */
 .price-cont{
     margin:0;
     padding:0;
 }
-
 .price-main {
     padding-top:3rem;
     padding:4rem 6rem;

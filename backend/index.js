@@ -31,6 +31,7 @@ const Pyq = require('./models/pyq');
 const Variables = require('./models/variables');
 const { spawn } = require('child_process');
 const CronJob = require('cron').CronJob;
+const mongoose = require('mongoose');
 const payUMoney = require('./payUmoney');
 
 
@@ -78,7 +79,21 @@ app.use(express.urlencoded({ extended: true }));
 var make = path.join(__dirname, 'public');
 app.use(express.static(make));
 
-
+const bilx = async () => {
+    await mongoose.model("User").updateMany({}, {
+        $set: {
+            guidance_session: {
+                plan_time: 0,
+                expiry_time: {
+                    month: 0,
+                    date: 0,
+                    year: 0,
+                },
+            },
+        }
+    })
+}
+// bilx()
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -697,187 +712,275 @@ const optverify = (mailOptions) => {
 app.get('/api/verifyuser', verify, async (req, res) => {
 
 })
-
-//////////////////////////////////  RAZOR PAY  /////////////////////////////////////////////
-
-app.post('/api/payments/payumoney',payUMoney.payUMoneyPayment);
+//////////////////////////////////  PAYU  /////////////////////////////////////////////
+app.post('/api/payments/payumoney', payUMoney.payUMoneyPayment);
 app.post('/payu/success', async (req, res) => {
-    res.send(
-    `<h1> <span style={{color:'green'}}> Your payment is successfully </span>.<br/> Click on <a href="https://rankboost.live">RankBoost</a> to reuturn to the website </h1>`
-    );
-})
-app.post('/payu/failed', async (req, res) => {
-    res.send(
-    `<h1> <span style={{color:'red'}}> payment failed </span>.<br/> Click on <a href="https://rankboost.live">RankBoost</a> to reuturn to the website </h1>`
-    );
-})
-
-// app.post('/api/payment/orders', async (req, res) => {
-
-//     try {
-//         var num = process.env.value;
-//         const user = await User.findById(req.body.id);
-//         const money = user.cart;
-//         for (let i = 0; i < money.length; i++) {
-//             if (money[i].name === 'elev') {
-//                 num = parseInt(num) + parseInt(process.env.elev);
-//             }
-//             else if (money[i].name === 'twel') {
-//                 num = parseInt(num) + parseInt(process.env.twel);
-//             }
-//             else if (money[i].name === 'combo') {
-//                 num = parseInt(num) + parseInt(process.env.combo);
-//             }
-//             else if (money[i].name === 'personal') {
-//                 num = parseInt(num) + parseInt(process.env.personal);
-//             }
-//             else if (money[i].name === 'material') {
-//                 num = parseInt(num) + parseInt(process.env.material);
-//             }
-//         }
-//         const instance = new Razorpay({
-//             key_id: process.env.razorpaykey_id,
-//             key_secret: process.env.razorpaykey_secret
-//         });
-//         const options = {
-//             amount: num * 100,
-//             currency: 'INR',
-//             receipt: crypto.randomBytes(10).toString('hex')
-//         }
-
-//         instance.orders.create(options, (error, orders) => {
-//             if (error) {
-//                 console.log(error)
-//                 res.json({ error, message: 'INTERNAL SERVER ERROR' })
-//                 console.log('460:error');
-//             }
-//             else {
-//                 res.json(orders)
-//             }
-//         })
-//     } catch (error) {
-//         console.log(error);
-//         console.log('468:error');
-//     }
-// })
-
-// app.post('/api/payment/verify', async (req, res) => {
-
-
-//     try {
-//         const { razorpay_order_id, razorpay_payment_id, razorpay_signature, id, type, cart } = req.body
-
-//         const sign = razorpay_order_id + "|" + razorpay_payment_id;
-//         const expectedSign = crypto
-//             .createHmac('sha256', process.env.razorpaykey_secret)
-//             .update(sign.toString())
-//             .digest('hex');
-
-//         const payment = await Payment.create({
-//             razorpay_payment_id: razorpay_payment_id,
-//             razorpay_order_id: razorpay_order_id,
-//             user: id,
-//             date: Date.now(),
-//             type: type,
-//             cart
-//         })
-//         payment.save();
-//         if (razorpay_signature === expectedSign) {
-//             reffile("payment", id, "NoToken", cart)
-//             var otpi = Math.floor(1000000 + Math.random() * 9000000);
-//             await User.findByIdAndUpdate(id, { pkey: otpi })
-//             return res.status(200).json({ message: "Payment verified Successfully", status: 'success', pkey: otpi });
-//         } else {
-//             return res.status(400).json({ message: "Payment verification failed", status: 'failed' });
-//         }
-
-//     } catch (error) {
-//         console.log(error);
-//     }
-// })
-
-////////////////////// UPDATE USER SUBS ///////////////////////////////////
-
-app.put('/api/updatesubs', async (req, res) => {
 
     try {
-        const user = await User.findById(req.body.id);
-        const volume = user.cart;
-        var bools = 'false'
-
-        if (volume.find(({ name }) => name === 'personal')) {
-            bools = 'true'
+        var user = await User.findById(req.body.udf1);
+        var type = 'empty'
+        if (user.refral === 'empty') {
+            type = 'normal'
+        } else {
+            type = 'refral'
         }
-
+        var string = req.body.udf2;
+        var plan_time = user.guidance_session.plan_time;
+        var p_date = user.guidance_session.expiry_time.date;
+        var p_month = user.guidance_session.expiry_time.month;
+        var p_year = user.guidance_session.expiry_time.year;
+        var pkey = user.pkey
+        var cart = [];
+        var derator = string.length / 4;
+        var xl = ['', 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         const ds = new Date();
-        const date = ds.getUTCDate(); //day
+        const date = ds.getUTCDate();
         const month = ds.getUTCMonth() + 1;
         const year = ds.getUTCFullYear();
         const hours = ds.getHours();
         const mins = ds.getMinutes();
-
-        if (user.pkey === req.body.pkey) {
-            if (user.subscription === 'true') {
-                ////////////////////////
-            } else {
-                await User.findOneAndUpdate({ _id: req.body.id }, { subscription: 'true' })
-            }
-            if (volume.find(({ name }) => name === 'combo' || volume.find(({ name }) => name === 'personal'))) {
-
-                try {
-                    const chat = await Personal.findOne({ userid: req.body.id });
-                    var diag = chat.dialogue;
-                    diag.push({
-                        statement: 'Your personal 1-1 guidance programme tenure is increased by 6 months',
-                        type: 'vikas',
-                        content: 'text',
-                        mins,
-                        hours,
-                        date,
-                        month,
-                        year
-                    })
-                    await Personal.findOneAndUpdate({ userid: req.body.id }, { dialogue: diag })
-                } catch (error) {
-                    await Personal.create({
-                        dialogue: [
-                            {
-                                statement: 'Welcome to rankboost personal 1-1 guidance programme. you can ask your all problems in your jee journey. Our team will respond to your questions within 1-2 days',
-                                type: 'vikas',
-                                content: 'text',
-                                mins,
-                                hours,
-                                date,
-                                month,
-                                year,
-                                personal: bools
-                            }
-                        ],
-                        date: ds,
-                        userid: req.body.id,
-                        room: uuidv4(),
-                        image: user.img,
-                        email: user.username,
-                        name: user.name
-                    })
+        if (req.body.status === 'success') {
+            for (let i = 0; i < derator; i++) {
+                if (string.slice(i * 4, (i + 1) * 4) === 'isro') {
+                    cart.push({ name: 'elev' });
+                }
+                else if (string.slice(i * 4, (i + 1) * 4) === 'tata') {
+                    cart.push({ name: 'twel' });
+                }
+                else if (string.slice(i * 4, (i + 1) * 4) === 'drdo') {
+                    cart.push({ name: 'combo' });
+                }
+                else if (string.slice(i * 4, (i + 1) * 4) === 'bel1') {
+                    cart.push({ name: 'personal1' });
+                }
+                else if (string.slice(i * 4, (i + 1) * 4) === 'bel2') {
+                    cart.push({ name: 'personal2' });
+                }
+                else if (string.slice(i * 4, (i + 1) * 4) === 'bel3') {
+                    cart.push({ name: 'personal3' });
+                }
+                else if (string.slice(i * 4, (i + 1) * 4) === 'bros') {
+                    cart.push({ name: 'material' });
                 }
             }
-            const arr = user.subarray
-            const pills = arr.concat(volume)
-            await User.findOneAndUpdate({ _id: req.body.id }, { subarray: pills })
-            await User.findByIdAndUpdate({ _id: req.body.id }, { cart: [] })
-            res.json({ value: 'yes' })
+
+            const payment = await Payment.create({
+                refrence_nos: req.body.bank_ref_num,
+                transaction_id: req.body.mihpayid,
+                user: req.body.udf1,
+                date: req.body.addedon,
+                type: type,
+                cart: cart
+            })
+            payment.save();
         }
-        else {
-            console.log('vanced');
-            res.json({ message: 'Better luck next time' })
+        var vpkey = parseInt(req.body.udf3);
+        if (pkey === vpkey) {
+            if (user.subscription === 'false') {
+                await User.findByIdAndUpdate(req.body.udf1, { subscription: 'true' })
+            }
+            await User.findByIdAndUpdate(req.body.udf1, { subarray: cart });
+            await User.findByIdAndUpdate(req.body.udf1, { cart: [] });
+
+            const updatepersonal = async (amount, bools) => {
+                if (month + amount > 24) {
+                    var monthz = month + amount - 24;
+                    var yearz = year + 2;
+                    var datez = date;
+                    if (datez > xl[monthz]) {
+                        datez = datez - xl[monthz];
+                        monthz = monthz + 1;
+                    }
+                    await User.findByIdAndUpdate(req.body.udf1, {
+                        guidance_session: {
+                            plan_time: amount,
+                            expiry_time: {
+                                month: monthz,
+                                date: datez,
+                                year: yearz
+                            },
+                        }
+                    })
+                }
+                else if (month + amount > 12) {
+                    var monthz = month + amount - 12;
+                    var yearz = year + 1;
+                    var datez = date;
+                    if (datez > xl[monthz]) {
+                        datez = datez - xl[monthz];
+                        monthz = monthz + 1;
+                    }
+                    await User.findByIdAndUpdate(req.body.udf1, {
+                        guidance_session: {
+                            plan_time: amount,
+                            expiry_time: {
+                                month: monthz,
+                                date: datez,
+                                year: yearz
+                            },
+                        }
+                    })
+                } else {
+                    var monthy = month + amount;
+                    var yeary = year;
+                    var datey = date;
+                    if (datey > xl[monthy]) {
+                        datey = datey - xl[monthy];
+                        monthy = monthy + 1;
+                    }
+                    await User.findByIdAndUpdate(req.body.udf1, {
+                        guidance_session: {
+                            plan_time: amount,
+                            expiry_time: {
+                                month: monthy,
+                                date: datey,
+                                year: yeary
+                            },
+                        }
+                    })
+                }
+                await Personal.create({
+                    dialogue: [
+                        {
+                            statement: 'Welcome to rankboost personal 1-1 guidance programme. you can ask your all problems in your jee journey between Monady to Friday. on the weekends (saturday and sunday) our team will address your problems.',
+                            type: 'vikas',
+                            content: 'text',
+                            mins,
+                            hours,
+                            date,
+                            month,
+                            year,
+                        }
+                    ],
+                    personal: bools,
+                    date: ds,
+                    userid: req.body.id,
+                    room: uuidv4(),
+                    image: user.img,
+                    email: user.username,
+                    name: user.name
+                })
+            }
+            if (cart.find(({ name }) => name === 'combo') && (cart.find(({ name }) => name === 'personal1') || cart.find(({ name }) => name === 'personal2') || cart.find(({ name }) => name === 'personal3'))) {
+                var status = 0
+                if (cart.find(({ name }) => name === 'personal1')) {
+                    status = 6
+                }
+                else if (cart.find(({ name }) => name === 'personal2')) {
+                    status = 9
+                }
+                else if (cart.find(({ name }) => name === 'personal3')) {
+                    status = 15
+                }
+                if (user.guidance_session.plan_time === 0) {
+                    updatepersonal(status, 'true');
+                } else {
+                    var monthz = p_month + status;
+                    var yearz = p_year;
+                    var datez = p_date;
+                    if (p_month + status > 24) {
+                        monthz = p_month + status - 24;
+                        yearz = p_year + 2
+                    }
+                    else if (p_month + status > 12) {
+                        monthz = p_month + status - 12;
+                        yearz = p_year + 1
+                    }
+                    if (datez > xl[monthz]) {
+                        datez = datez - xl[monthz];
+                        monthz = monthz + 1;
+                    }
+                    var updatedvalue = {
+                        plan_time: plan_time + status,
+                        expiry_time: {
+                            month: monthz,
+                            date: datez,
+                            year: yearz
+                        },
+                    }
+                    await User.findByIdAndUpdate(req.body.udf1, { guidance_session: updatedvalue })
+                }
+            }
+            else if (cart.find(({ name }) => name === 'personal1') || cart.find(({ name }) => name === 'personal2') || cart.find(({ name }) => name === 'personal3')) {
+                var status = 0
+                if (cart.find(({ name }) => name === 'personal1')) {
+                    status = 3
+                }
+                else if (cart.find(({ name }) => name === 'personal2')) {
+                    status = 6
+                }
+                else if (cart.find(({ name }) => name === 'personal3')) {
+                    status = 12
+                }
+                if (user.guidance_session.plan_time === 0) {
+                    updatepersonal(status, 'true');
+                } else {
+                    var monthz = p_month + status;
+                    var yearz = p_year;
+                    var datez = p_date;
+                    if (p_month + status > 12) {
+                        monthz = p_month + status - 12;
+                        yearz = p_year + 1
+                    }
+                    if (datez > xl[monthz]) {
+                        datez = datez - xl[monthz];
+                        monthz = monthz + 1;
+                    }
+                    var updatedvalue = {
+                        plan_time: plan_time + status,
+                        expiry_time: {
+                            month: monthz,
+                            date: datez,
+                            year: yearz
+                        },
+                    }
+                    await User.findByIdAndUpdate(req.body.udf1, { guidance_session: updatedvalue })
+                }
+            }
+            else if (cart.find(({ name }) => name === 'combo')) {
+                if (user.guidance_session.plan_time === 0) {
+                    updatepersonal(3, 'false');
+                } else {
+                    var monthz = p_month + 3;
+                    var yearz = p_year;
+                    var datez = p_date;
+                    if (p_month + 3 > 12) {
+                        monthz = p_month + 3 - 12;
+                        yearz = p_year + 1
+                    }
+                    if (datez > xl[monthz]) {
+                        datez = datez - xl[monthz];
+                        monthz = monthz + 1;
+                    }
+                    var updatedvalue = {
+                        plan_time: plan_time + 3,
+                        expiry_time: {
+                            month: monthz,
+                            date: datez,
+                            year: yearz
+                        },
+                    }
+                    await User.findByIdAndUpdate(req.body.udf1, { guidance_session: updatedvalue })
+                }
+            }
+            await User.findByIdAndUpdate(req.body.udf1, { pkey: 0000 })
         }
+        res.send(
+            `<h2> <span style={{color:'green'}}> Your payment is successfully </span>.<br/> Click on <a href="https://rankboost.live">RankBoost</a> to reuturn to the website </h2>`
+        );
     } catch (error) {
-        console.log('nah brah');
         console.log(error);
     }
-
 })
+app.post('/payu/failed', async (req, res) => {
+    console.log(req.body);
+    res.send(
+        `<h2> <span style={{color:'red'}}> payment failed </span>.<br/> Click on <a href="https://rankboost.live">RankBoost</a> to reuturn to the website </h2>`
+    );
+})
+
+
+///////////////////////////////////////////////////////////////////////
 app.delete('/api/delete/subs', async (req, res) => {
     try {
         const user = await User.findById({ _id: req.body.id });

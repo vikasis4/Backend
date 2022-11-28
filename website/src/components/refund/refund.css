@@ -1,8 +1,10 @@
 .refund-two p{
     font-family: "Inter",sans-serif;
-    font-size:2rem;
-    font-weight:200
+    font-weight: 500;
+    word-spacing: 0.4rem;
+    line-height: 1.8;
+    font-size:2rem
 }
 .refund-two{
-    padding:12rem 36rem;
+    padding:0rem 20rem;
 }

@@ -41,7 +41,7 @@ html{
 }
 .navbar-main-right{
     width:80%;
-    height:65rem;
+    height:51rem;
     overflow-y: scroll;
 }
 .navbar-ul {
@@ -65,7 +65,7 @@ html{
     background-image: linear-gradient(to left, rgb(0, 128, 122), rgb(92, 92, 171));
     font-weight:600;
     font-family: "Dosis", sans-serif;
-    padding:2.3rem 4rem;
+    padding:1.3rem 4rem;
     border:none;
     width:100%;
     font-size: 2.2rem;

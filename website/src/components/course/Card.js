@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import './card.css'
-import Profile from '../../svg/Profile'
+import profile from '../../svg/profile.svg'
 import ProfileContext from '../../context/profile/ProfileContext'
 import CourseContext from '../../context/course/CourseContext'
 import VerifyContext from '../../context/verify/VerifyContext'
@@ -49,7 +49,7 @@ const card = (props) => {
                         </div>
                         <div className="card-two">
                             <a onClick={vimeo} >
-                                <Profile />
+                                <img src={profile} />
                             </a>
                         </div>
                     </div>

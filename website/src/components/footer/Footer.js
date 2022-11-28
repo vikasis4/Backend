@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import Facebook from '../../svg/Facebook'
-import Instgram from '../../svg/Instagram'
-import Youtube from '../../svg/Youtube'
-import Twitter from '../../svg/Twitter'
-import Linkedin from '../../svg/Linkedin'
-import Telegram from '../../svg/Telegram'
+import facebook from '../../svg/facebook.svg'
+import instgram from '../../svg/instagram.svg'
+import youtube from '../../svg/youtube.svg'
+import twitter from '../../svg/twitter.svg'
+import linkedin from '../../svg/linkedin.svg'
+import telegram from '../../svg/telegram.svg'
 import { useNavigate } from 'react-router-dom'
 import ProfileContext from '../../context/profile/ProfileContext'
 import './footer.css'
@@ -59,12 +59,12 @@ const Footer = () => {
 
                                 <ul>
 
-                                    <li><a target="_blank" href="https://www.facebook.com/RankBoostEducation/"><Facebook /></a></li>
-                                    <li><a target="_blank" href="https://www.instagram.com/rankboostedu/"><Instgram /></a></li>
-                                    <li><a target="_blank" href="https://youtube.com/c/RanKBoosTsShubhamKumar"><Youtube /></a></li>
-                                    <li><a target="_blank" href="https://twitter.com/RankboostS"><Twitter /></a></li>
-                                    <li><a target="_blank" href="https://www.linkedin.com/in/shubham-kumar-sah-b53aa0224"><Linkedin /></a></li>
-                                    <li><a target="_blank" href="https://t.me/RankBoostsYT"><Telegram /></a></li>
+                                    <li><a target="_blank" href="https://www.facebook.com/RankBoostEducation/"><img src={facebook} /></a></li>
+                                    <li><a target="_blank" href="https://www.instagram.com/rankboostedu/"><img src={instgram} /></a></li>
+                                    <li><a target="_blank" href="https://youtube.com/c/RanKBoosTsShubhamKumar"><img src={youtube} /></a></li>
+                                    <li><a target="_blank" href="https://twitter.com/RankboostS"><img src={twitter} /></a></li>
+                                    <li><a target="_blank" href="https://www.linkedin.com/in/shubham-kumar-sah-b53aa0224"><img src={linkedin} /></a></li>
+                                    <li><a target="_blank" href="https://t.me/RankBoostsYT"><img src={telegram} /></a></li>
                                 </ul>
                             </div>
                         </div>

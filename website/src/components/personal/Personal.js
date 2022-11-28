@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import './personal.css'
 import ProfileContext from '../../context/profile/ProfileContext'
-import Logo from '../support/favicon.ico'
-import Pins from '../../svg/Pins'
+import Logo from '../support/favicon.png'
+import pins from '../../svg/pins.svg'
 import FormData from 'form-data'
 import cross from '../../svg/cross.svg'
 import Send from '../../svg/send.svg'
@@ -527,7 +527,7 @@ const Query = () => {
                         </div>
                         <div className="query-last">
                             <div className="query-chat">
-                                <div className="pins" onClick={() => { newchange() }} ><Pins /></div>
+                                <div className="pins" onClick={() => { newchange() }} ><img src={pins} /></div>
                                 <input type="text" id="inputfield" onKeyPress={(e) => { (e.key === 'Enter' ? submitchat() : null) }} value={chat} onChange={(e) => { setChat(e.target.value) }}></input>
                                 <div className="senda" onClick={() => { submitchat() }}><img src={Send} /></div>
                             </div>
@@ -553,7 +553,7 @@ const Query = () => {
                         </div>
                         <div className="MOB-query-last">
                             <div className="MOB-query-chat">
-                                <div className="MOB-pins" onClick={() => { handleimg() }} ><Pins /></div>
+                                <div className="MOB-pins" onClick={() => { handleimg() }} ><img src={pins} /></div>
                                 <input type="text" id="inputfield" value={chat} onChange={(e) => { setChat(e.target.value) }}></input>
                                 <div className="MOB-senda" onClick={submitchat}><img src={Send} /></div>
                             </div>

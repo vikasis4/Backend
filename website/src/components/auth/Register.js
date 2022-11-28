@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import "./register.css"
 import { useNavigate } from 'react-router-dom'
-import Rocket from '../../svg/Rocket.tsx'
+import rocket from '../../svg/rocket.svg'
 import validator from 'validator'
 import Otp from './Otp'
 import jwt_decode from 'jwt-decode'
@@ -182,7 +182,7 @@ const Register = () => {
 
                         </div>
                         <div className="login-rocket">
-                            <Rocket />
+                            <img src={Rocket} />
                         </div>
                     </div>
                     <div className="login-center-right">

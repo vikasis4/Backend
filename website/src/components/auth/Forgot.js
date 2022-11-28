@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import './login.css'
 import Change from './Change'
-import Rocket from '../../svg/Rocket.tsx'
+import rocket from '../../svg/rocket.svg'
 import logimg from './login.jpg'
 import ProfileContext from '../../context/profile/ProfileContext'
 
@@ -100,7 +100,7 @@ const Forgot = () => {
                     <div className="login-center-left">
                         <div className="login-rocket-txt"><h2>RANK BOOST</h2></div>
                         <div className="login-rocket">
-                            <Rocket />
+                            <img src={rocket} />
                         </div>
                         <div className="login-timer-txt">{change === 'billy' ? <h3 style={{ fontSize: '1.2rem', paddingBottom: '1rem', color: 'white' }}>OTP EXPIRES IN : {seconds}</h3> : ''}</div>
                     </div>

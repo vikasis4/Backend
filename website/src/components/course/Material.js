@@ -1,7 +1,7 @@
 import axios from 'axios';
 import './card.css'
 import React, { useContext, useEffect, useState } from 'react'
-import Pdf from '../../svg/Pdf'
+import pdf from '../../svg/pdf.svg'
 import ProfileContext from '../../context/profile/ProfileContext'
 
 const Material = (props) => {
@@ -50,7 +50,7 @@ const Material = (props) => {
                         <>
                             <div className="mat-one">
                                 <div><h1>{plf.name}</h1></div>
-                                <div className="mat-two">{<Pdf />}</div>
+                                <div className="mat-two">{<img src={pdf} />}</div>
                                 <button onClick={() => subble()}>view pdf</button>
                             </div>
                         </>
@@ -68,7 +68,7 @@ const Material = (props) => {
                         <>
                             <div className="mat-one">
                                 <div><h1>{plf.name}</h1></div>
-                                <div className="mat-two">{<Pdf />}</div>
+                                <div className="mat-two">{<img src={pdf} />}</div>
                                 <button onClick={() => subble()}>view pdf</button>
                             </div>
                         </>
@@ -94,7 +94,7 @@ const Material = (props) => {
                         <>
                             <div className="mat-one">
                                 <div><h1>{jankari.name}</h1></div>
-                                <div className="mat-two">{<Pdf />}</div>
+                                <div className="mat-two">{<img src={pdf} />}</div>
                                 <button onClick={() => subble()}>view pdf</button>
                             </div>
                         </>
@@ -112,7 +112,7 @@ const Material = (props) => {
                         <>
                             <div className="mat-one">
                                 <div><h1>{jankari.name}</h1></div>
-                                <div className="mat-two">{<Pdf />}</div>
+                                <div className="mat-two">{<img src={pdf} />}</div>
                                 <button onClick={() => subble()}>view pdf</button>
                             </div>
                         </>
@@ -130,7 +130,7 @@ const Material = (props) => {
                         <>
                             <div className="mat-one">
                                 <div><h1>{jankari.name}</h1></div>
-                                <div className="mat-two">{<Pdf />}</div>
+                                <div className="mat-two">{<img src={pdf} />}</div>
                                 <button onClick={() => subble()}>view pdf</button>
                             </div>
                         </>

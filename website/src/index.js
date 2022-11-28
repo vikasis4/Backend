@@ -7,20 +7,20 @@ import ProfileState from './context/profile/ProfileState';
 import VerifyState from './context/verify/VerifyState'
 import PaymentState from './context/paymentportal/PaymentState'
 import CourseState from './context/course/CourseState'
+import { hydrateRoot } from 'react-dom/client';
 
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const container = document.getElementById('root');
+const root = hydrateRoot(container,
+    <BrowserRouter>
         <ProfileState >
             <VerifyState >
                 <PaymentState>
                     <CourseState>
-                        <BrowserRouter>
-                            <App />
-                        </BrowserRouter>
+                        <App />
                     </CourseState>
                 </PaymentState>
             </VerifyState>
         </ProfileState>
+    </BrowserRouter>
 );

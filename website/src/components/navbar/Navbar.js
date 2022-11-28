@@ -5,10 +5,11 @@ import ProfileContext from '../../context/profile/ProfileContext'
 import VerifyContext from '../../context/verify/VerifyContext'
 import LoadingBar from 'react-top-loading-bar'
 import cross from '../../svg/cross.svg'
-import Menu from '../../svg/Menu'
+import menu from '../../svg/menud.svg'
 import user from './user.png'
 import Gif from '../homePageLO/Gif.gif'
-import ico from '../support/favicon.ico'
+// import ico from '../support/favicon.ico'
+import ico from '../support/favicon.png'
 import mhome from '../../svg/mhome.svg'
 import mkey from '../../svg/mkey.svg'
 import mprice from '../../svg/mprice.svg'
@@ -110,7 +111,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div id="navbar-pehla" onClick={() => { show() }} className="navbar-pehla">
-                    <a > <Menu /></a>
+                    <a > <img src={menu} /></a>
                 </div>
 
                 <div id="navbar-first" className="navbar-first" >

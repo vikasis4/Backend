@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import './login.css'
-import Rocket from '../../svg/Rocket.tsx'
+import rocket from '../../svg/rocket.svg'
 import jwt_decode from 'jwt-decode'
 import logimg from './logi.jpg'
 import ProfileContext from '../../context/profile/ProfileContext'
@@ -138,7 +138,7 @@ const Login = () => {
 
                         </div>
                         <div className="login-rocket">
-                            <Rocket />
+                            <img src={rocket} />
                         </div>
                     </div>
                     <div className="login-center-right">

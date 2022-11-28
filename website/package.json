@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "homepage": ".",
   "dependencies": {
+    "@babel/node": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
     "@react-oauth/google": "^0.2.6",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -18,6 +21,7 @@
     "react-hls-player": "^3.0.7",
     "react-player": "^2.10.1",
     "react-router-dom": "^6.3.0",
+    "react-router-sitemap-generator": "^0.0.8",
     "react-scripts": "^5.0.1",
     "react-top-loading-bar": "^2.1.0",
     "screenfull": "^6.0.2",

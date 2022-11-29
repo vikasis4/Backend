@@ -5,6 +5,7 @@ import Query from './Query'
 import ProfileContext from '../../context/profile/ProfileContext'
 import './support.css'
 import leftarrow from '../../svg/leftarrow.svg'
+import { Helmet } from 'react-helmet'
 
 
 
@@ -20,7 +21,7 @@ const Support = () => {
     const navigate = useNavigate();
     const clink = process.env.REACT_APP_LINK;
 
-   
+
 
     useEffect(() => {
         if (localStorage.getItem('reload-facility') === '89307988vikasREF') {
@@ -78,7 +79,7 @@ const Support = () => {
                     <>
                         <div Key={byte._id} className="MOB-chat-list">
                             <div className="MOB-chat-list-pimp">
-                              
+
                                 <div className="MOB-chat-list-child">
                                     <h1>Subject</h1>
                                     <h2>{byte.subject.length < 20 ? byte.subject : byte.subject.slice(0, 20) + "..."}</h2>
@@ -103,6 +104,9 @@ const Support = () => {
     return (
         <>
             <div className="support-main deactivate-dis">
+                <Helmet>
+                    <title>RankBoost - Customer Support</title>
+                </Helmet>
                 <div className="videopage-gap"></div>
                 <div className="gappers"></div>
 
@@ -134,7 +138,7 @@ const Support = () => {
                                         </div>
                                     </>
                                     :
-                                    like 
+                                    like
                                 }
                             </div>
                             <div className="forum-gap"></div>

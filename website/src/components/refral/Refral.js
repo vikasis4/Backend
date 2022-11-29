@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import ProfileContext from '../../context/profile/ProfileContext'
 import axios from 'axios'
 import './refral.css'
+import { Helmet } from 'react-helmet'
 
 const Refral = () => {
 
@@ -85,7 +86,7 @@ const Refral = () => {
     const withdraw = () => {
         if (money - wmoney - pmoney === 0) {
             alert("You don't have enough balance to withdraw'")
-        }else{
+        } else {
             axios.post(clink + '/withdraw/refral/money', { id: profile.profile.id }).then(function (response) {
                 if (response.data.status === 'success') {
                     alert("Withdrawn process has been successfully started, it will take 2 days for settling down transaction")
@@ -97,8 +98,12 @@ const Refral = () => {
     return (
         <>
             <div className="videopage-gap"></div>
-
             <div className="refral-main">
+                <Helmet>
+                    <title>RankBoost - Referral Scheme</title>
+                    <meta name="keywords" content="RankBoost referral refer guidance mentorship iit jee" />
+                    <meta name="description" content="Rankboost Referral scheme offers you 50 rs per transaction made by the person you refer to. Generate your referal link and share it with your friends. visit the page to view more details" />
+                </Helmet>
                 <div className="refral-one">
                     <h1>&#8377; 50 &nbsp; per referral</h1>
                 </div>
@@ -123,7 +128,7 @@ const Refral = () => {
                 <div className="refral-three">
                     <div className="refral-special">
                         <div className="refral-three-one">
-                            <h1>Your referral link :- <span style={{ fontSize: '3.2rem' }}>{screen.width < 540 ? <br/> : ''}{link === 'empty' ? 'None' : `http://localhost:3000/refral-link/${link}`}</span>{screen.width < 540 ? <br/> : ''}<span onClick={() => { copy() }} className="refral-copy">{text}</span></h1>
+                            <h1>Your referral link :- <span style={{ fontSize: '3.2rem' }}>{screen.width < 540 ? <br /> : ''}{link === 'empty' ? 'None' : `http://localhost:3000/refral-link/${link}`}</span>{screen.width < 540 ? <br /> : ''}<span onClick={() => { copy() }} className="refral-copy">{text}</span></h1>
                             <div className="refral-upi">
                                 <span>{link === 'empty' ? 'Enter' : 'Change'} UPI ID</span>
                                 <input type="text" value={upi} onChange={(e) => { setUpi(e.target.value) }}></input>

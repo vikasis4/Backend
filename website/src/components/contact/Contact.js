@@ -1,6 +1,7 @@
 import React from 'react'
 import './contact.css'
 import { useNavigate } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 
 const Contact = () => {
@@ -9,8 +10,12 @@ const Contact = () => {
 
     return (
         <div className="contact-cont">
+            <Helmet>
+                <title>RankBoost - Contact Us</title>
+                <meta name="keywords" content="RankBoost contact us guidance mentorship iit jee" />
+                <meta name="description" content="Reach us by contacting us over email, phone number or through our customer support of rankboost website which deals with guidance and mentorship for iit jee aspirants" />
+            </Helmet>
             <div className="videopage-gap"></div>
-            a
             <div className="contact-main">
                 <h1>Contact us</h1>
             </div>

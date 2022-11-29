@@ -10,6 +10,7 @@ import Send from '../../svg/send.svg'
 import io from 'socket.io-client'
 import downloadPersonal from '../../svg/downloadPersonal.svg'
 import gross from '../../svg/cross.svg'
+import { Helmet } from 'react-helmet'
 
 
 const Query = () => {
@@ -513,6 +514,9 @@ const Query = () => {
     return (
         <>
             <div style={progress ? { display: 'block' } : { display: 'none' }} className="progress-bar">
+                <Helmet>
+                    <title>RankBoost - One to One Guidance</title>
+                </Helmet>
                 <div className="progress">
                     <h2>Uploading</h2>
                     <h1>{progress} %</h1>
@@ -572,12 +576,12 @@ const Query = () => {
                     </div>
                 </>
                 :
-                    <>
-                        <div className="courses-page">
-                            <div className="videopage-gap"></div>
-                            <h3>No Course Purchased Yet to activate this section.<br/> Quickly Go to the Pricing page and purchase the course</h3>
-                        </div>
-                    </>
+                <>
+                    <div className="courses-page">
+                        <div className="videopage-gap"></div>
+                        <h3>No Course Purchased Yet to activate this section.<br /> Quickly Go to the Pricing page and purchase the course</h3>
+                    </div>
+                </>
             }
         </>
     )

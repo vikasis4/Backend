@@ -3,6 +3,7 @@ import './card.css'
 import React, { useContext, useEffect, useState } from 'react'
 import pdf from '../../svg/pdf.svg'
 import ProfileContext from '../../context/profile/ProfileContext'
+import { Helmet } from 'react-helmet'
 
 const Material = (props) => {
 
@@ -169,7 +170,11 @@ const Material = (props) => {
     return (
         <>
             <div className="material-main">
-
+                <Helmet>
+                    <title>RankBoost - Study material</title>
+                    <meta name="keywords" content="RankBoost study material guidance mentorship iit jee" />
+                    <meta name="description" content="Check our quality rankboost study material" />
+                </Helmet>
 
                 <h1 className="bugasuga">{bar === 'one' ? 'Notes' : bar === 'two' ? 'Pyq' : 'Mid map'}</h1>
 
@@ -188,7 +193,7 @@ const Material = (props) => {
                 {
                     bar === 'two' ?
                         <div className="material-cont">
-                           
+
                             <div className="material-body">
                                 {deliment}
                             </div>
@@ -197,7 +202,7 @@ const Material = (props) => {
                         bar === 'three' ?
                             <>
                                 <div className="material-cont">
-                                   
+
                                     <div className="material-body">
                                         {zeliment}
                                     </div>

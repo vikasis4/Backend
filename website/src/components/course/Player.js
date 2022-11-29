@@ -3,6 +3,7 @@ import Part from './Part'
 import './player.css'
 import ProfileContext from '../../context/profile/ProfileContext'
 import { useNavigate } from 'react-router-dom'
+import {Helmet} from 'react-helmet'
 
 
 
@@ -26,6 +27,11 @@ const Player = () => {
     return (
         <>
             <div className="player-main">
+                <Helmet>
+                    <title>{prowork.profile.current.name}</title>
+                    <meta name="keywords" content="RankBoost player guidance mentorship iit jee" />
+                    <meta name="description" content="Rankboost hls player" />
+                </Helmet>
                 <div className="videopage-gap"></div>
                 <div className="player-cont">
 

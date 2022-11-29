@@ -1,11 +1,17 @@
 import React from 'react'
 import './privacy.css'
+import { Helmet } from 'react-helmet';
 
 const Privacy = () => {
 
   return (
     <>
       <div className="privacy-cont">
+        <Helmet>
+          <title>RankBoost - Privacy Page</title>
+          <meta name="keywords" content="RankBoost privacy guidance mentorship iit jee" />
+          <meta name="description" content="Rankboost - By visiting this page you can read the privacy policy of rankboost website" />
+        </Helmet>
         <div className="videopage-gap"></div>
         <div className="privacy-main">
           <h1>privacy policy</h1>

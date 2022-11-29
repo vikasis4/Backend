@@ -8,6 +8,7 @@ import Otp from './Otp'
 import jwt_decode from 'jwt-decode'
 import logimg from './login.jpg'
 import ProfileContext from '../../context/profile/ProfileContext'
+import {Helmet} from 'react-helmet'
 
 const Register = () => {
 
@@ -172,7 +173,11 @@ const Register = () => {
         <>
             <div className="videopage-gap"></div>
             <div className="login-main deactivate-dis">
-
+            <Helmet>
+                    <title>RankBoost - Create your account</title>
+                    <meta name="keywords" content="RankBoost login sign up sign in signup signin create account" />
+                    <meta name="description" content="SignUp page - Create your account with rankboost and experience india's best guidance and mentorship along with personal one to one guidance." />
+                </Helmet>
                 <div className="login-center">
                     <div className="login-center-left">
                         <div className="login-rocket-txt">
@@ -182,7 +187,7 @@ const Register = () => {
 
                         </div>
                         <div className="login-rocket">
-                            <img src={Rocket} />
+                            <img src={rocket} />
                         </div>
                     </div>
                     <div className="login-center-right">

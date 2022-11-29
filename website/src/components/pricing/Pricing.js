@@ -11,6 +11,7 @@ import axios from 'axios'
 import sales from './sales/sales2.jpg'
 import medal from '../../svg/badge.svg'
 import deals from './sales/deals.jpeg'
+import { Helmet } from 'react-helmet'
 
 const Pricing = () => {
 
@@ -115,6 +116,11 @@ const Pricing = () => {
     <>
 
       <div className="price-cont">
+        <Helmet>
+          <title>RankBoost - Pricing Page</title>
+          <meta name="keywords" content="RankBoost pricing price cost courses course guidance mentorship iit jee" />
+          <meta name="description" content="Rankboost Pricing Page - IITJEE guidance and mentorship courses with highly affordable prices along with one to one personal guidance. Jee guidance courses for 2023 and 2024 batches. Grab the Combo pack to get all features in one course with very low price, special offer valid for limited time " />
+        </Helmet>
         <div className="videopage-gap"></div>
         {/* ///////////////////////////// Desktop view starts ///////////////////////////////// */}
         <div className="deactivate-dis">
@@ -123,13 +129,13 @@ const Pricing = () => {
               <div className="pd_one_head">
                 <h1>Choose Your Plan</h1>
                 <div className="pd_one_button">
-                  <button style={position === true ? styled.yes : styled.no} onClick={() =>{changepos()}}>JEE Guidance Courses </button>
-                  <button style={position === false ? styled.yes : styled.no} onClick={() =>{changepos()}}> 1-1 Personal Guidance  </button>
+                  <button style={position === true ? styled.yes : styled.no} onClick={() => { changepos() }}>JEE Guidance Courses </button>
+                  <button style={position === false ? styled.yes : styled.no} onClick={() => { changepos() }}> 1-1 Personal Guidance  </button>
                 </div>
               </div>
             </div>
             <div className="pd_two">
-              <div style={position === true ? {display:'block'} : {display:'none'}}  className="pd_two_one">
+              <div style={position === true ? { display: 'block' } : { display: 'none' }} className="pd_two_one">
                 <div className="pd_card_cont">
 
                   <div className="pd_card">

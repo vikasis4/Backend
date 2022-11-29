@@ -5,6 +5,7 @@ import Change from './Change'
 import rocket from '../../svg/rocket.svg'
 import logimg from './login.jpg'
 import ProfileContext from '../../context/profile/ProfileContext'
+import { Helmet } from 'react-helmet'
 
 
 
@@ -72,8 +73,8 @@ const Forgot = () => {
         profiles.setDisp('block')
         await axios.post(clink + '/otp', { id, otp, blink })
             .then((response) => {
-                    if (response.data.message === 'yes') {
-            setChange('verified')
+                if (response.data.message === 'yes') {
+                    setChange('verified')
                     profiles.setDisp('none')
                     setNorm(response.data.norm)
                 }
@@ -95,7 +96,11 @@ const Forgot = () => {
         <>
             <div className="videopage-gap"></div>
             <div className="login-main deactivate-dis">
-
+                <Helmet>
+                    <title>RankBoost - Reset password</title>
+                    <meta name="keywords" content="RankBoost reset password change change-password reset-password" />
+                    <meta name="description" content="Reset password - change your password of rankboost account with the registered email. verify with otp and create new password. . check your email for password if you created your account with google sing up" />
+                </Helmet>
                 <div className="login-center">
                     <div className="login-center-left">
                         <div className="login-rocket-txt"><h2>RANK BOOST</h2></div>
@@ -130,7 +135,7 @@ const Forgot = () => {
                                     ></input>
 
                                 </form>
-                                <button className="login-submit" type="submit" onClick={()=> forward()}>get otp</button></>
+                                <button className="login-submit" type="submit" onClick={() => forward()}>get otp</button></>
                                 :
                                 <>
                                     <form method="post" onSubmit={e => { e.preventDefault(); }} encType="application/json">
@@ -144,8 +149,8 @@ const Forgot = () => {
                                         ></input>
 
                                     </form>
-                                    <button className="login-submit" type="submit" onClick={()=>verify()}>Submit</button>
-                                    <a className="login-resend" onClick={()=> resend()}>RESEND OTP</a>
+                                    <button className="login-submit" type="submit" onClick={() => verify()}>Submit</button>
+                                    <a className="login-resend" onClick={() => resend()}>RESEND OTP</a>
                                     <h4 style={{ color: 'red', marginTop: '2rem', fontSize: '1.2rem', fontFamily: 'Righteous' }}>NEW OTP CAN BE GENERATED {seconds - 80 <= 0 ? 'NOW' : `IN  ${seconds - 80} SECONDS`}</h4>
                                 </>}
                             {screen.width < 480 ?
@@ -203,8 +208,8 @@ const Forgot = () => {
                                 <div >{change === 'billy' ? <h3 style={{ fontSize: '2rem', paddingBottom: '1rem', color: 'black', fontSize: '3rem', fontWeight: 'bold', fontFamily: 'Dosis', marginTop: '4rem' }}>OTP EXPIRES IN : {seconds}</h3> : ''}</div>
                                 : ''
                             }
-                            {change === '' || change === 'verified' ? '' : 
-                            <button className="mob-forgot-btn2" type="submit" onClick={verify}>Submit</button>
+                            {change === '' || change === 'verified' ? '' :
+                                <button className="mob-forgot-btn2" type="submit" onClick={verify}>Submit</button>
                             }
                         </div>
                     </div>

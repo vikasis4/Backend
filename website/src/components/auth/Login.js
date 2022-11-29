@@ -6,7 +6,7 @@ import rocket from '../../svg/rocket.svg'
 import jwt_decode from 'jwt-decode'
 import logimg from './logi.jpg'
 import ProfileContext from '../../context/profile/ProfileContext'
-
+import { Helmet } from 'react-helmet'
 
 const Login = () => {
     const navigate = useNavigate();
@@ -128,7 +128,11 @@ const Login = () => {
         <>
             <div className="videopage-gap"></div>
             <div className="login-main deactivate-dis">
-
+                <Helmet>
+                    <title>RankBoost - Login page</title>
+                    <meta name="keywords" content="RankBoost login sign up sign in signup signin create account" />
+                    <meta name="description" content="Login page - login/signin with your account on rankboost and experience india's best guidance and mentorship along with personal one to one guidance." />
+                </Helmet>
                 <div className="login-center">
                     <div className="login-center-left">
                         <div className="login-rocket-txt">
@@ -215,12 +219,12 @@ const Login = () => {
                             ></input>
                         </div>
                         <div className="mob-login-cred">
-                            <h1 onClick={() =>{navigate('/register')}}>Register now</h1>
+                            <h1 onClick={() => { navigate('/register') }}>Register now</h1>
                             <h2 onClick={forget}>Forgot password ?</h2>
                         </div>
                     </div>
                     <div className="mob-login-submit">
-                    <button className="mob-login-spl-btn" onClick={registerUser}>Login</button>
+                        <button className="mob-login-spl-btn" onClick={registerUser}>Login</button>
                     </div>
                 </div>
             </div>

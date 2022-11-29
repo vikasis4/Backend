@@ -6,7 +6,7 @@ import './checkout.css'
 import pay from './6342757.jpg'
 import minus from '../../svg/minus.svg'
 import axios from 'axios'
-
+import { Helmet } from 'react-helmet'
 
 const Checkout = () => {
 
@@ -82,7 +82,7 @@ const Checkout = () => {
             axios.post(`${clink}/cartremove`, {
                 id: profile.profile.id,
                 cart: kart
-            }).then(function(response) {if (response.data.status === 'no') {alert('Something went wrong please try again')}})
+            }).then(function (response) { if (response.data.status === 'no') { alert('Something went wrong please try again') } })
         } else {
             localStorage.removeItem(cart);
             localStorage.setItem('cart', kart)
@@ -93,7 +93,7 @@ const Checkout = () => {
         if (profile.profile.void === 'no') {
             if (bill > 0) {
                 Payment.paymentverify(profile.profile.id)
-            }else {
+            } else {
                 alert("Cart is empty")
             }
         } else {
@@ -105,8 +105,10 @@ const Checkout = () => {
     return (
         <>
             <div className="videopage-gap"></div>
-
             <div className="checkout-main">
+                <Helmet>
+                    <title>RankBoost - Checkout Cart</title>
+                </Helmet>
                 <div className="checkout-second">
                     <img src={pay}></img>
                 </div>

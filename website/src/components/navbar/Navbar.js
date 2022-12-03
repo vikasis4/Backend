@@ -129,7 +129,7 @@ const Navbar = () => {
 
 
                         <li><a style={location.pathname === '/refral' ? { color: 'var(--s2)', } : { color: 'var(--c1)', borderColor: 'var(--c1)' }} onClick={() => { navigate('/refral') }}>Referral</a></li>
-                        {/* <li><a style={location.pathname === '/books' ? { color: 'var(--s2)', } : { color: 'var(--c1)', borderColor: 'var(--c1)' }} onClick={() => { navigate('/books') }}>Books</a></li> */}
+                        <li><a style={location.pathname === '/books' ? { color: 'var(--s2)', } : { color: 'var(--c1)', borderColor: 'var(--c1)' }} onClick={() => { navigate('/books') }}>Books</a></li>
                         <li><a style={location.pathname === '/guidance-personal' ? { color: 'var(--s2)', } : { color: 'var(--c1)', borderColor: 'var(--c1)' }} onClick={() => { navigate('/guidance-personal') }}>Personal 1-1 guidance</a></li>
                         <li><a style={location.pathname === '/support' ? { color: 'var(--s2)', } : { color: 'var(--c1)', borderColor: 'var(--c1)' }} onClick={() => { navigate('/support') }}>Customer support</a></li>
                         <li><a onClick={() => { navigate("/checkout") }}><p>{cartlength}</p><img src={cart}></img></a></li>
@@ -186,15 +186,24 @@ const Navbar = () => {
                         <li onClick={() => { navigate('/courses'); show(); }}> <div className="menu-bros" ><img className="menu-icos" src={mcourse} ></img> <a>Courses</a></div><img src={mright}></img></li>
                         <li onClick={() => { navigate('/price'); show(); }}> <div className="menu-bros" ><img className="menu-icos" src={mprice} ></img> <a>Pricing</a></div><img src={mright}></img></li>
                         <li onClick={() => { navigate('/refral'); show(); }}> <div className="menu-bros" ><img className="menu-icos" src={mrefer} ></img> <a >Referral</a></div><img src={mright}></img></li>
-                        {/* <li onClick={() => { navigate('/books'); show(); }}> <div className="menu-bros" ><img className="menu-icos" src={mbook} ></img> <a >Books</a></div><img src={mright}></img></li> */}
+                        <li onClick={() => { navigate('/books'); show(); }}> <div className="menu-bros" ><img className="menu-icos" src={mbook} ></img> <a >Books</a></div><img src={mright}></img></li>
                         <li onClick={() => { navigate('/guidance-personal'); show(); }}> <div className="menu-bros" ><img className="menu-icos" src={mdoubt} ></img> <a>Personal 1-1 guidance</a></div><img src={mright}></img></li>
                         <li onClick={() => { navigate('/forgot'); show(); }}> <div className="menu-bros" ><img className="menu-icos" src={mkey} ></img> <a >Change &nbsp; password</a></div><img src={mright}></img></li>
                         <li onClick={() => { navigate('/support'); show(); }}> <div className="menu-bros" ><img className="menu-icos" src={msupport} ></img> <a >Customer &nbsp; support</a></div><img src={mright}></img></li>
                     </ul>
                     <div className="menu-last">
-                        <img onClick={() => { manage.profile.void === 'no' ? navigate('/profile') : navigate('/register'); show(); }} src={macc}></img>
-                        <img onClick={() => { window.open('https://youtube.com/c/RanKBoosTsShubhamKumar') }} src={myoutube}></img>
-                        <img onClick={() => { navigate('/blogs'); show(); }} src={mblog}></img>
+                        <div className="menu-last-dik">
+                            <img onClick={() => { navigate('/blogs'); show(); }} src={mblog}></img>
+                            <h1>Blogs</h1>
+                        </div>
+                        <div className="menu-last-dik">
+                            <img onClick={() => { window.open('https://youtube.com/c/RanKBoosTsShubhamKumar') }} src={myoutube}></img>
+                            <h1>Youtube</h1>
+                        </div>
+                        <div className="menu-last-dik">
+                            <img onClick={() => { manage.profile.void === 'no' ? navigate('/profile') : navigate('/register'); show(); }} src={macc}></img>
+                            <h1>Account</h1>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -205,11 +214,11 @@ const Navbar = () => {
                         <img src={mrefer}></img>
                         <h1>Refer to Earn</h1>
                     </div>
-                    {/* <div onClick={() => { navigate('/books') }} className="bottom-menu-comman">
+                    <div onClick={() => { navigate('/books') }} className="bottom-menu-comman">
                         <img src={mbook}></img>
                         <h1>Books</h1>
-                    </div> */}
-                    
+                    </div>
+
                     <div onClick={() => { show() }} className="bottom-menu-center">
                         <img src={dottedmenu}></img>
                     </div>

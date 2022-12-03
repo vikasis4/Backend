@@ -1,5 +1,9 @@
 /build
 /node_modules
+server-build
 .env
 .gitignore
 .env.save
+server
+.babelrc.json
+webpack.server.js

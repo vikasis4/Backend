@@ -1,124 +1,159 @@
-.Thirdsection-cont{
-    height:max-content;
-    background-color:var(--s5);
-    width:100%;
-    padding:4rem 0;
+.Thirdsection-cont {
+    height: max-content;
+    background-color: var(--s5);
+    width: 100%;
+    padding: 4rem 0;
 }
+
 .Thirdsec-heading {
     text-align: center
 }
-.Thirdsec-heading h1{
+
+.Thirdsec-heading h1 {
     font-size: 8rem;
-    font-weight:200;
+    font-weight: 200;
     display: inline-block;
-    color:var(--c1);
-    padding:1rem 5rem;
+    color: var(--c1);
+    padding: 1rem 5rem;
     font-family: "Dosis", sans-serif;
     margin-bottom: 2rem;
 }
-.Thirdsec-ques p{
+
+.Thirdsec-ques p {
     font-family: "Dosis", sans-serif;
     font-weight: 400;
-    font-size:3rem;
-    height:60%;
+    font-size: 3rem;
+    transition: all 0.2s;
+    height: 60%;
     text-align: center;
-    border-radius:0 0 1rem 1rem;
-    padding:2rem 1rem;
+    overflow: hidden;
+    border-radius: 0 0 1rem 1rem;
+    padding: 2rem 1rem;
 }
-.Thirdsec-ques h1{
+
+.Thirdsec-ques h1 span:nth-child(2) {
+    font-weight: 700;
+    font-size: 6rem;
+    margin-left: 1rem;
+    transition: all 0.4s;
+    display: none;
+}
+
+.Thirdsec-ques h1 {
     font-family: "Dosis", sans-serif;
     font-weight: 400;
-    padding:2rem 0rem;
+    padding: 2rem 0rem;
     font-size: 4rem;
-    height:40%;
-    width:100%;
-    border-radius:1rem 1rem 0 0;
+    height: 40%;
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
     text-align: center;
-    background-color:rgba(0, 0, 0, 0.1 );
+    background-color: rgba(0, 0, 0, 0.1);
 }
-.Thirdsec-ques{
-    background-color:white;
-    border-radius:1rem;
-    text-align:left;
-    color:black;
-    box-shadow: 0 2px 3px 1px rgba(0,0,0, 0.2);
+
+.Thirdsec-ques {
+    background-color: white;
+    border-radius: 1rem;
+    text-align: left;
+    color: black;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.2);
     width: 60rem;
     box-sizing: border-box;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     place-items: center;
     flex-direction: column;
 }
-.Thirdsec-con{
-    display:flex;
+
+.Thirdsec-con {
+    display: flex;
     flex-wrap: wrap;
-    justify-content:center;
-    align-items:center;
-    gap:4rem
+    justify-content: center;
+    align-items: center;
+    gap: 4rem
 }
-.review h1{
+
+.review h1 {
     font-family: "Dosis";
     text-align: center;
     padding: 2rem 0;
     font-size: 7rem;
     font-weight: 500;
 }
-.review{
+
+.review {
     padding: 1rem 2rem;
-    margin-bottom:4rem
+    margin-bottom: 4rem
 }
-.review-one::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
+
+.review-one::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
 }
-.review-one{
+
+.review-one {
     display: flex;
     overflow-x: scroll;
-    height:100%;
-    white-space: nowrap;
-    gap:2rem;
-    height:32rem;
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    height: 100%;
+    gap: 2rem;
+    height: max-content;
+    -ms-overflow-style: none;
     scrollbar-width: none;
+    padding: 1rem
 }
-.review-cont{
-    padding:1rem 1.6rem;
-    background-color:rgb(210, 210, 210);
-    height:24rem;
-    width:50rem;
+
+.review-cont {
+    padding: 1rem 1.6rem;
+    background-color: rgba(0, 0, 255, 0.1);
+    height: 45rem;
+    color: var(--c1);
+    box-sizing: border-box;
+    width: 70rem;
     border-radius: 0.4rem;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
 }
+
 .review-cont-two {
-    display:flex;
-    justify-content:flex-start;
+    display: flex;
+    justify-content: flex-start;
     place-items: center;
 }
-.review-cont-two h1{
+
+.review-cont-two h1 {
     font-family: "Dosis", sans-serif;
     font-size: 4rem;
-    font-weight: 400;
+    font-weight: 600;
 }
-.review-cont-two h2{
-    color:var(--c1);
+
+.review-cont-two h2 {
+    color: var(--c1);
     margin-left: 1rem;
     font-size: 3rem;
     position: relative;
-    width:max-content;
+    width: max-content;
 }
-.review-cont-two h2::before{
+
+.review-cont-two h2::before {
     content: attr(data-texts);
-    position:absolute;
-    color:gold;
+    position: absolute;
+    color: gold;
     overflow: hidden;
     text-shadow: 0.2px 0.2px 0.4px black;
     width: 100%;
     white-space: nowrap;
 }
-.review-cont-threw h1{
+.Thirdsection-head h1{
+    font-family: "Dosis";
+    font-size: 8rem;
+    margin-bottom:2rem;
+    text-align: center;
+}
+.review-cont-threw h1 {
     font-family: "Dosis", sans-serif;
-    font-size: 2.2rem;
-    font-weight: 500;
+    font-size: 2.6rem;
+    font-weight: 600;
+    width:50rem;
     text-align: left;
-    color:black;
+    color: var(--c1);
     padding-top: 2rem;
 }

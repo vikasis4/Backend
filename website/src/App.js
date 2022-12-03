@@ -29,7 +29,10 @@ import Checkout from './components/checkout/Checkout'
 import Courses from './components/courses/Courses'
 import Books from './components/books/Books'
 import axios from 'axios';
-import io from 'socket.io-client'
+import io from 'socket.io-client';
+import { Helmet } from 'react-helmet'
+// import useSSR from 'use-ssr'
+
 
 
 function App() {
@@ -39,6 +42,11 @@ function App() {
   const location = useLocation();
   const clink = process.env.REACT_APP_LINK;
   const NonApiLink = process.env.REACT_APP_VIDEO_LINK;
+  // var { isBrowser, isServer, isNative } = useSSR()
+
+  // console.log('IS BROWSER: ', isBrowser ? '👍' : '👎')
+  // console.log('IS SERVER: ', isServer ? '👍' : '👎')
+  // console.log('IS NATIVE: ', isNative ? '👍' : '👎')
 
   ///////////////////////// WEB SOCKETS ////////////////////////////////////////////////////////////
 
@@ -52,7 +60,7 @@ function App() {
         socket.emit('update-cont', socket.id); // x8WIv7-mJelg7on_ALbx
       });
     }
-  },[socket])
+  }, [socket])
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   // document.addEventListener('contextmenu', event => event.preventDefault());
@@ -132,41 +140,50 @@ function App() {
   }, [])
 
 
-  return (
-    <div style={{ height: '100%' }} className="App">
-      <ScrollTop />
-      <Routes>
-        <Route path="/" element={<Navbar />} >
-          <Route index element={<HomePageO />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/course" element={<VideosPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/refral-link/:id" element={<HomePageO />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/guidance-personal" element={<Personal />} />
-          <Route path="/refral" element={<Refral />} />
-          <Route path="/player" element={<Player />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/forgot" element={<Forgot />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/support" element={<Support />} />
-          <Route path="/price" element={<Pricing />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/refund" element={<Refund />} />
-          <Route path="/books" element={<Books />} />
-          <Route path="/condition" element={<Condition />} />
-        </Route>
-      </Routes>
-      {window.innerWidth < 480 ?
-        location.pathname === '/course' || location.pathname === '/forgot' || location.pathname === '/price' || location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/support' ? '' : <Footer />
-        :
-        location.pathname === '/course' ? '' : <Footer />
-      }
-    </div>
-  );
+  if (typeof window !== 'undefined') {
+
+    return (
+      <div style={{ height: '100%' }} className="App">
+          <Helmet>
+            <title>RankBoost - Jee Guidance platform</title>
+            <meta name="description" content="Rankboost is a  iit jee guidance & mentorship platform for iit jee, Rankboost aslo provide personal 1-1 guidance and study material. Rankboost is well known for its quality service and high quality iit jee guidance courses" />
+            <meta name="keywords" content="rankboost guidance iit jee mentorship jee-study-material iit-jee iitjee rankboost rankboost" />
+          </Helmet>
+          <ScrollTop />
+        <Routes>
+          <Route path="/" element={<Navbar />} >
+            <Route index element={<HomePageO />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/course" element={<VideosPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/refral-link/:id" element={<HomePageO />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/guidance-personal" element={<Personal />} />
+            <Route path="/refral" element={<Refral />} />
+            <Route path="/player" element={<Player />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/forgot" element={<Forgot />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/price" element={<Pricing />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/refund" element={<Refund />} />
+            <Route path="/books" element={<Books />} />
+            <Route path="/condition" element={<Condition />} />
+          </Route>
+        </Routes>
+        {window.innerWidth < 480 ?
+          location.pathname === '/course' || location.pathname === '/forgot' || location.pathname === '/price' || location.pathname === '/blogs' || location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/support' ? '' : <Footer />
+          :
+          location.pathname === '/course' || location.pathname === '/blogs' ? '' : <Footer />
+        }
+      </div>
+    );
+    // document loaded  
+  }
 }
 
 export default App;

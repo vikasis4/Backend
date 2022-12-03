@@ -288,7 +288,7 @@ const Books = () => {
                             <div className="book-for">
                                 <h2>{array.name}</h2>
                                 <h3>Author ~{array.author}</h3>
-                                <button onClick={() => purchase(array.src)}>Buy now from Amazon</button>
+                                <button onClick={() => purchase(array.src)}>Check on Amazon</button>
                             </div>
                         </div>
                     </>
@@ -306,7 +306,7 @@ const Books = () => {
                             <div className="book-for">
                                 <h2>{array.name}</h2>
                                 <h3>Author ~{array.author}</h3>
-                                <button onClick={() => purchase(array.src)}>Buy now from Amazon</button>
+                                <button onClick={() => purchase(array.src)}>Check on Amazon</button>
                             </div>
                         </div>
                     </>
@@ -324,7 +324,7 @@ const Books = () => {
                             <div className="book-for">
                                 <h2>{array.name}</h2>
                                 <h3>Author ~{array.author}</h3>
-                                <button onClick={() => purchase(array.src)}>Buy now from Amazon</button>
+                                <button onClick={() => purchase(array.src)}>Check on Amazon</button>
                             </div>
                         </div>
                     </>
@@ -342,7 +342,7 @@ const Books = () => {
                             <div className="book-for">
                                 <h2>{array.name}</h2>
                                 <h3>Author ~{array.author}</h3>
-                                <button onClick={() => purchase(array.src)}>Buy now from Amazon</button>
+                                <button onClick={() => purchase(array.src)}>Check on Amazon</button>
                             </div>
                         </div>
                     </>
@@ -360,7 +360,7 @@ const Books = () => {
                             <div className="book-for">
                                 <h2>{array.name}</h2>
                                 <h3>Author ~{array.author}</h3>
-                                <button onClick={() => purchase(array.src)}>Buy now from Amazon</button>
+                                <button onClick={() => purchase(array.src)}>Check on Amazon</button>
                             </div>
                         </div>
                     </>
@@ -378,7 +378,7 @@ const Books = () => {
                             <div className="book-for">
                                 <h2>{array.name}</h2>
                                 <h3>Author ~{array.author}</h3>
-                                <button onClick={() => purchase(array.src)}>Buy now from Amazon</button>
+                                <button onClick={() => purchase(array.src)}>Check on Amazon</button>
                             </div>
                         </div>
                     </>
@@ -395,7 +395,7 @@ const Books = () => {
                             <img src={array.img}></img>
                             <div className="book-for">
                                 <h2>{array.name}</h2>
-                                <button onClick={() => purchase(array.src)}>Buy now from Amazon</button>
+                                <button onClick={() => purchase(array.src)}>Check on Amazon</button>
                             </div>
                         </div>
                     </>

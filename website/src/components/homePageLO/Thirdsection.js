@@ -1,67 +1,174 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './thirdsec.css'
 
 const Thirdsection = () => {
+
+  const [hide, setHide] = useState([{ height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }])
+  const [rotate, setRotate] = useState([{ transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }])
+  const hidefxn = (index) => {
+    if (hide[index].height === '0rem') {
+      hide[index] = { height: 'max-content', padding: '2rem 1rem' };
+      rotate[index] = { transform: 'rotate(180deg)' };
+      setHide(hide)
+      setRotate(rotate)
+    } else {
+      hide[index] = { height: '0rem', padding: '0rem' };
+      rotate[index] = { transform: 'rotate(0deg)' };
+      setHide(hide)
+      setRotate(rotate)
+    }
+  }
   return (
     <div className="Thirdsection-cont">
 
+      <div className="Thirdsection-head">
+        <h1>FeedBack</h1>
+      </div>
       <div className="review">
-
         <div className="review-one">
-
           <div className="review-cont">
             <div className="review-cont-two">
-              <h1>Vikas</h1>
-              <h2 data-texts="&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</h2>
+              <h1>Ranjan kumar</h1>
+              <h2 data-texts="&nbsp;&#9733;&#9733;&#9733;&#9733;">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</h2>
             </div>
             <div className="review-cont-threw">
               <h1>
-                lodu ipsum dolor sit amet, consectetur adip lorem*$<br/>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
+                One of the best platform for IITJEE. The IITIANS & Teachers
+                are amazing, the amount of efforts they are putting is really
+                commendable. As i have enrolled in combo course where i get
+                personal mentorship from seniors & iitians teachers.
               </h1>
             </div>
           </div>
           <div className="review-cont">
             <div className="review-cont-two">
-              <h1>Vikas</h1>
-              <h2 data-texts="&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</h2>
+              <h1>Kunal singh</h1>
+              <h2 data-texts="&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</h2>
             </div>
             <div className="review-cont-threw">
               <h1>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
+                best guidance course for Jee mains & Advance.The recorded
+                doubt videos are amazing. this course has covered almost
+                every doubt that JEE aspirants face during their preparation.
               </h1>
             </div>
           </div>
           <div className="review-cont">
             <div className="review-cont-two">
-              <h1>Vikas</h1>
-              <h2 data-texts="&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</h2>
+              <h1>Deepansh sharma</h1>
+              <h2 data-texts="&nbsp;&#9733;&#9733;&#9733;">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</h2>
             </div>
             <div className="review-cont-threw">
               <h1>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
+                I am currently enrolled in the combo batch, preparing for jee
+                2024.this batch inlcudes (JEE 2023 & 2024).i have seen
+                improvement in my studies because odd the guidance i am
+                getting from iitians. they are 24*7 ready to solve our doubts.
+                This course is value for money.
               </h1>
             </div>
           </div>
           <div className="review-cont">
             <div className="review-cont-two">
-              <h1>Vikas</h1>
+              <h1>Shambhavi ahuja</h1>
               <h2 data-texts="&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</h2>
             </div>
             <div className="review-cont-threw">
               <h1>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
-                lorem ipsum dolor sit amet, consectetur adip lorem*$<br/>
+                i am very happy with this Guidance course.From the doubt videos
+                to the study material, everything is superb. The handwritten
+                Notes which is provided in this course are best, with the help
+                of these short notes i am easily able to revise any chapter.This
+                course is very helpful for jee aspirants.
+              </h1>
+            </div>
+          </div>
+          <div className="review-cont">
+            <div className="review-cont-two">
+              <h1>Vipin kulkarni</h1>
+              <h2 data-texts="&nbsp;&#9733;&#9733;&#9733;&#9733;">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</h2>
+            </div>
+            <div className="review-cont-threw">
+              <h1>
+                This course has covered almost all the doubts that i was facing
+                before enrolling in this course.Rankboost teachers are very supportive
+                they give proper guidance for jee mains as well as jee advance.
+              </h1>
+            </div>
+          </div>
+          <div className="review-cont">
+            <div className="review-cont-two">
+              <h1>Rajkumar bohra</h1>
+              <h2 data-texts="&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</h2>
+            </div>
+            <div className="review-cont-threw">
+              <h1>
+                Excellent teachers and iitians. Recorded videos of doubts, shortnotes,
+                study material, pyq, mindmaps are very helpful. i have practiced almost
+                20 mock tests with these previus year papers.
+              </h1>
+            </div>
+          </div>
+          <div className="review-cont">
+            <div className="review-cont-two">
+              <h1>Shilpi kumari</h1>
+              <h2 data-texts="&nbsp;&#9733;&#9733;&#9733;&#9733;">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</h2>
+            </div>
+            <div className="review-cont-threw">
+              <h1>
+                i am a jee 2024 aspirant. I study in kota in resonance.due to many
+                backlogs in my studies i was not able to understand the concepts in
+                coaching. But due rankboost course, i watched one video on how to
+                cover backlogs i have covered almost half of my backlogs.Thanks to
+                whole team.I am facing one issue, i am not able to download the study
+                notes. please resolve this probelm asap
+              </h1>
+            </div>
+          </div>
+          <div className="review-cont">
+            <div className="review-cont-two">
+              <h1>Ritu puri</h1>
+              <h2 data-texts="&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</h2>
+            </div>
+            <div className="review-cont-threw">
+              <h1>
+                Thankyou to RankBoost team, especially shubham bhaiya
+                I have enrolled in combo JEE batch last year. I was
+                preparing for jee 2022 by self study but due to lack
+                of guidance i was not able to prepare in proper structure.
+                I enrolled in course iitians & teachers were just amazing
+                they guided me for each subject,I followed all their advice
+                Currently i am in NIT jalandhar EE branch. Thanks again
+                Rankboost team
+              </h1>
+            </div>
+          </div>
+          <div className="review-cont">
+            <div className="review-cont-two">
+              <h1>Ianur alam</h1>
+              <h2 data-texts="&nbsp;&#9733;&#9733;&#9733;">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</h2>
+            </div>
+            <div className="review-cont-threw">
+              <h1>
+                this is the best platform for iitjee guidance & best platform
+                for those students who can't afford very expensive coaching.
+                it is providing all the best things for students like
+                mentorship, short notes, tips & tricks, pyq, mock test at an
+                affordable price. i am very happy and thankful to rankboost.
+              </h1>
+            </div>
+          </div>
+          <div className="review-cont">
+            <div className="review-cont-two">
+              <h1>Anil kumar</h1>
+              <h2 data-texts="&nbsp;&#9733;&#9733;">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</h2>
+            </div>
+            <div className="review-cont-threw">
+              <h1>
+                I am facing technical isssue, i am not able to download the
+                notes & study material. whenever i click on download pdf, it
+                shows error. please fix this as soon as possible. Course is
+                really good, especially doubt videos.
               </h1>
             </div>
           </div>
@@ -76,28 +183,28 @@ const Thirdsection = () => {
         </div>
         <div className="Thirdsec-con">
           <div className="Thirdsec-ques">
-            <h1 className="Thirdsec1">For whom this course is for</h1>
-            <p>This course is for Jee aspirants, who want to crack Jee mains and advance and want to get their dream IIT and NIT</p>
+            <h1 className="Thirdsec1"><span>For whom this course is for</span> <span style={rotate[0]} onClick={() => { hidefxn(0) }}>&#8595;</span></h1>
+            <p style={screen.width < 480 ? hide[0] : {}}>This course is for Jee aspirants, who want to crack Jee mains and advance and want to get their dream IIT and NIT</p>
           </div>
           <div className="Thirdsec-ques">
-            <h1 className="Thirdsec2">what this course contain</h1>
-            <p>This course contains complete roadmap to crack IIT Jee, Doubt session, Mentorship, Study material, weekly plan and proper approach to each subject</p>
+            <h1 className="Thirdsec2"><span>What this course contain</span> <span style={rotate[1]} onClick={() => { hidefxn(1) }}>&#8595;</span></h1>
+            <p style={screen.width < 480 ? hide[1] : {}}>This course contains complete roadmap to crack IIT Jee, Doubt session, Mentorship, Study material, weekly plan and proper approach to each subject</p>
           </div>
           <div className="Thirdsec-ques">
-            <h1 className="Thirdsec3">How many students got selected yet</h1>
-            <p>600+ in mains and 400+ in advance</p>
+            <h1 className="Thirdsec3"><span>How many students got selected </span> <span style={rotate[2]} onClick={() => { hidefxn(2) }}>&#8595;</span></h1>
+            <p style={screen.width < 480 ? hide[2] : {}}>600+ in mains and 400+ in advance</p>
           </div>
           <div className="Thirdsec-ques">
-            <h1 className="Thirdsec4">Will i able to download soft copy of study material</h1>
-            <p>Yes you can download the study material and also can read all that material on website as well</p>
+            <h1 className="Thirdsec4"><span>Can i download the study material</span> <span style={rotate[3]} onClick={() => { hidefxn(3) }}>&#8595;</span></h1>
+            <p style={screen.width < 480 ? hide[3] : {}}>Yes you can download the study material and also can read all that material on website as well</p>
           </div>
           <div className="Thirdsec-ques">
-            <h1 className="Thirdsec5">How can i ask doubt </h1>
-            <p>Go to "Ask a doubt" section or "customer support" section, there will be options available to raise query or doubts, select doubt column and ask your doubt</p>
+            <h1 className="Thirdsec5"><span>How can i ask doubt</span> <span style={rotate[4]} onClick={() => { hidefxn(4) }}>&#8595;</span></h1>
+            <p style={screen.width < 480 ? hide[4] : {}}>Go to "Ask a doubt" section or "customer support" section, there will be options available to raise query or doubts, select doubt column and ask your doubt</p>
           </div>
           <div className="Thirdsec-ques">
-            <h1 className="Thirdsec5">Can i talk to IITians</h1>
-            <p>Yes, after raising a doubt you can ask there for a call and then you can able to ask your queries from our team members, who are all from IIT's and NIT's</p>
+            <h1 className="Thirdsec5"><span>Can i talk to IITians</span> <span style={rotate[5]} onClick={() => { hidefxn(5) }}>&#8595;</span></h1>
+            <p style={screen.width < 480 ? hide[5] : {}}>Yes, after raising a doubt you can ask there for a call and then you can able to ask your queries from our team members, who are all from IIT's and NIT's</p>
           </div>
         </div>
       </div>

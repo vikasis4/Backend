@@ -33,7 +33,7 @@ const HeroHomepageo = () => {
             <div className="herohomepage">
                 <div className="herohomepage-for-m">
                     <h1>RankBoost</h1>
-                    <h2>Jee/Neet best guidance platform</h2>
+                    <h2> India's best JEE guidance platform</h2>
                 </div>
                 <div className="herohomepage-main">
 

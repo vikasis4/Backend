@@ -3,14 +3,14 @@ import ProfileContext from "../../context/profile/ProfileContext";
 import { useNavigate } from 'react-router-dom'
 import './price.css'
 import one from './one.png'
-import two from './two.jpeg'
-import three from './three.jpeg'
+import two from './two.jpg'
+import three from './three.jpg'
 import four from '../homePageLO/course.png'
 import personal from './personal.png'
 import axios from 'axios'
 import sales from './sales/sales2.jpg'
 import medal from '../../svg/badge.svg'
-import deals from './sales/deals.jpeg'
+import deals from './sales/deals.jpg'
 import { Helmet } from 'react-helmet'
 
 const Pricing = () => {

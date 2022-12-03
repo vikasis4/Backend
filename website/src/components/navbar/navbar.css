@@ -40,6 +40,18 @@
     background-color:var(--s3);
     border-radius:50rem;
 }
+.menu-last-dik h1{
+    font-family: "Dosis";
+    font-size: 2.6rem;
+    font-weight: 600;
+}
+.menu-last-dik{
+    display:flex;
+    justify-content:center;
+    place-items: center;
+    gap:1rem;
+    flex-direction:column;
+}
 .navbar-sab ul{
     padding:4rem 2rem;
     width:100%;
@@ -108,7 +120,7 @@
     place-items: flex-start;
     padding-top:4rem;
     gap:10rem;
-    margin-top:4rem
+    margin-top:0rem
 }
 .menu-bhai{
     display: flex;

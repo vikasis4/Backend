@@ -1,15 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import ProfileContext from '../../context/profile/ProfileContext'
 import { useNavigate } from 'react-router-dom'
-import '@vime/core/themes/default.css';
-import {
-  Player, Hls, DefaultUi,
-  Settings,
-  MenuItem,
-  Submenu,
-  MenuRadio,
-  MenuRadioGroup,
-} from '@vime/react';
+// import {
+//   Player, Hls, DefaultUi,
+//   Settings,
+//   MenuItem,
+//   Submenu,
+//   MenuRadio,
+//   MenuRadioGroup,
+// } from '@vime/react';
 import axios from 'axios'
 
 
@@ -55,7 +54,7 @@ const Part = () => {
 
   return (
     <>
-      <Player volume={100} playbackRate={rate}>
+      {/* <Player volume={100} playbackRate={rate}>
 
         <Hls version="latest" config={hlsConfig} poster="/media/poster.png">
           <source data-src={url} type="application/x-mpegURL" />
@@ -92,7 +91,7 @@ const Part = () => {
           </Settings>
         </DefaultUi>
       </Player>
-
+ */}
 
     </>
   )

@@ -16,11 +16,23 @@ import depression from '../../svg/depression.svg'
 import refers from './refers.jpg'
 import djx from './djx.png'
 import icon from '../support/favicon.ico'
+import '@vime/core/themes/default.css';
+import {
+    Player, Hls, DefaultUi,
+    Settings,
+    MenuItem,
+    Submenu,
+    MenuRadio,
+    MenuRadioGroup,
+} from '@vime/react';
 
 const SecondSection = () => {
 
     const navigate = useNavigate();
     const vlink = process.env.REACT_APP_VIDEO_LINK
+    const hlsConfig = {
+        // ...
+    };
 
     return (
         <>
@@ -83,9 +95,13 @@ const SecondSection = () => {
                         <h2>Students Enrolled : 5000+</h2>
                     </div>
                     <div class="yt-vd">
-                    <video width={screen.width <480 ? "100%" : "60%"} height="100%" poster={`${vlink}/image.jpg"`} controls>
-                        <source src={`${vlink}/video.mp4`} type="video/mp4" />
-                    </video>
+                        <Player style={screen.width < 480 ? {width: '100%'} : {width: '60%'}} volume={100}>
+                            <Hls version="latest" controls config={hlsConfig} poster={`${vlink}/hpage/image.jpg`}>
+                                <source data-src={`${vlink}/hpage/out.m3u8`} type="application/x-mpegURL" />
+                            </Hls>
+                            <DefaultUi noClickToPlay>
+                            </DefaultUi>
+                        </Player>
                     </div>
                 </div>
 

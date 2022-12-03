@@ -18,7 +18,33 @@
     font-family: "Dosis", sans-serif;
     margin: 0 auto;
 }
-
+.yt-txt h2{
+    font-size: 2.6rem;
+    font-family: "DM Sans";
+    color: darkgreen
+}
+.yt-txt{
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding:1rem 2rem
+}
+.yt-vd{
+    display: flex;
+    justify-content:center;
+    place-items: center;
+}
+.yt-video h1 {
+    text-align: center;
+    color:darkgreen;
+    font-family: "DM Sans";
+    font-size: 6rem;
+    padding-bottom:3rem;
+}
+.yt-video{
+margin:12rem 0;
+}
 .secondsection-main-third-in {
     display: flex;
     color: var(--c1);
@@ -234,7 +260,7 @@
     z-index: 0;
     display: flex;
     flex-direction: column;
-    margin:4rem 0;
+    margin:8rem 0;
     place-items: center;
     justify-content: center;
 }
@@ -253,7 +279,7 @@
     position: relative;
     width: max-content;
     display: flex;
-    color: var(--s3);
+    color: white;
     font-weight: 600;
     padding: 4rem;
     font-family: "Dosis";

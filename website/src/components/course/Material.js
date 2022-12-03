@@ -1,9 +1,10 @@
 import axios from 'axios';
 import './card.css'
 import React, { useContext, useEffect, useState } from 'react'
-import pdf from '../../svg/pdf.svg'
 import ProfileContext from '../../context/profile/ProfileContext'
+import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet'
+
 
 const Material = (props) => {
 
@@ -13,7 +14,9 @@ const Material = (props) => {
     const clink = process.env.REACT_APP_LINK
     const vlink = process.env.REACT_APP_VIDEO_LINK
     const [bar, setBar] = useState('one');
-    const [plf, setPlf] = useState([])
+    const [plf, setPlf] = useState([]);
+    const navigate = useNavigate();
+    const [loader, setLoader] = useState(true)
 
 
 
@@ -21,6 +24,9 @@ const Material = (props) => {
         axios.get(clink + '/get/pdf')
             .then((response) => {
                 setJankari(response.data)
+                if (plf.length > 0) {
+                    setLoader(false)
+                }
             })
 
     }, [])
@@ -28,9 +34,17 @@ const Material = (props) => {
         console.log(clink + '/pyq/get');
         axios.get(clink + '/pyq/get')
             .then((response) => {
-                setPlf(response.data)
+                setPlf(response.data);
+                if (jankari.length > 0) {
+                    setLoader(false)
+                }
             })
     }, [])
+    useEffect(() => {
+        if (jankari.length > 0 && plf.length > 0) {
+            setLoader(false)
+        }
+    },[jankari, plf])
     var peliment = ''
     var celiment = ''
     var meliment = ''
@@ -39,7 +53,8 @@ const Material = (props) => {
 
     if (plf.length > 0) {
         const bubble = (jankari) => {
-            window.open(`${vlink}/pyq/${jankari.bname}.pdf`, '_blank')
+            profile.setPdfurl(`${vlink}/pyq/${jankari.bname}.pdf`)
+            navigate('/viewpdf')
         }
         deliment = (plf).map(
             (plf) => {
@@ -51,25 +66,23 @@ const Material = (props) => {
                         <>
                             <div className="mat-one">
                                 <div><h1>{plf.name}</h1></div>
-                                <div className="mat-two">{<img src={pdf} />}</div>
                                 <button onClick={() => subble()}>view pdf</button>
                             </div>
                         </>
                     )
                 }
             }
-        )
-        zeliment = (plf).map(
-            (plf) => {
-                const subble = () => {
-                    bubble(plf)
-                }
-                if (plf.type === 'mid') {
-                    return (
-                        <>
+            )
+            zeliment = (plf).map(
+                (plf) => {
+                    const subble = () => {
+                        bubble(plf)
+                    }
+                    if (plf.type === 'mid') {
+                        return (
+                            <>
                             <div className="mat-one">
                                 <div><h1>{plf.name}</h1></div>
-                                <div className="mat-two">{<img src={pdf} />}</div>
                                 <button onClick={() => subble()}>view pdf</button>
                             </div>
                         </>
@@ -80,9 +93,10 @@ const Material = (props) => {
     }
 
     if (jankari.length > 0) {
-
+        
         const bubble = (jankari) => {
-            window.open(`${vlink}/material/${jankari.type}/${jankari.bname}.pdf`, '_blank')
+            profile.setPdfurl(`${vlink}/material/${jankari.type}/${jankari.bname}.pdf`)
+            navigate('/viewpdf')
         }
 
         peliment = (jankari).map(
@@ -95,7 +109,6 @@ const Material = (props) => {
                         <>
                             <div className="mat-one">
                                 <div><h1>{jankari.name}</h1></div>
-                                <div className="mat-two">{<img src={pdf} />}</div>
                                 <button onClick={() => subble()}>view pdf</button>
                             </div>
                         </>
@@ -113,7 +126,6 @@ const Material = (props) => {
                         <>
                             <div className="mat-one">
                                 <div><h1>{jankari.name}</h1></div>
-                                <div className="mat-two">{<img src={pdf} />}</div>
                                 <button onClick={() => subble()}>view pdf</button>
                             </div>
                         </>
@@ -131,7 +143,6 @@ const Material = (props) => {
                         <>
                             <div className="mat-one">
                                 <div><h1>{jankari.name}</h1></div>
-                                <div className="mat-two">{<img src={pdf} />}</div>
                                 <button onClick={() => subble()}>view pdf</button>
                             </div>
                         </>
@@ -176,7 +187,7 @@ const Material = (props) => {
                     <meta name="description" content="Check our quality rankboost study material" />
                 </Helmet>
 
-                <h1 className="bugasuga">{bar === 'one' ? 'Notes' : bar === 'two' ? 'Pyq' : 'Mid map'}</h1>
+                <h1 className="bugasuga">{bar === 'one' ? 'Notes' : bar === 'two' ? 'Pyq' : 'Mind Maps'}</h1>
 
                 <div className="videopage-material">
                     <div onClick={() => toggleR('one')} id="mat-twos" className="videopage-mat-one plokid">
@@ -195,7 +206,7 @@ const Material = (props) => {
                         <div className="material-cont">
 
                             <div className="material-body">
-                                {deliment}
+                                {loader === true ? <h1>Loading...</h1> : deliment}
                             </div>
                         </div>
                         :
@@ -204,7 +215,7 @@ const Material = (props) => {
                                 <div className="material-cont">
 
                                     <div className="material-body">
-                                        {zeliment}
+                                    {loader === true ? <h1>Loading...</h1> : zeliment}
                                     </div>
                                 </div>
                             </>
@@ -215,7 +226,7 @@ const Material = (props) => {
                                         <h1>physics</h1>
                                     </div>
                                     <div className="material-body">
-                                        {peliment}
+                                    {loader === true ? <h1>Loading...</h1> : peliment}
 
                                     </div>
                                 </div>
@@ -224,7 +235,7 @@ const Material = (props) => {
                                         <h1>chemistry</h1>
                                     </div>
                                     <div className="material-body">
-                                        {celiment}
+                                    {loader === true ? <h1>Loading...</h1> : celiment}
                                     </div>
                                 </div>
                                 <div className="material-cont">
@@ -232,7 +243,7 @@ const Material = (props) => {
                                         <h1>maths</h1>
                                     </div>
                                     <div className="material-body">
-                                        {meliment}
+                                    {loader === true ? <h1>Loading...</h1> : meliment}
                                     </div>
                                 </div>
                             </>

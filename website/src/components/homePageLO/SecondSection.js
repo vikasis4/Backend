@@ -17,11 +17,10 @@ import refers from './refers.jpg'
 import djx from './djx.png'
 import icon from '../support/favicon.ico'
 
-
-
 const SecondSection = () => {
 
     const navigate = useNavigate();
+    const vlink = process.env.REACT_APP_VIDEO_LINK
 
     return (
         <>
@@ -77,11 +76,23 @@ const SecondSection = () => {
                         </div>
                     </div>
                 </div>
-
-                <div className="secondsection-reason">
-                    <div className="Thirdsection-head">
-                        <h1>Course Includes</h1>
+                <div className="yt-video">
+                    <h1>Course Introduction</h1>
+                    <div className="yt-txt">
+                        <h2>4.7 &#9733;&#9733;&#9733;&#9733;&#9733;</h2>
+                        <h2>Students Enrolled : 5000+</h2>
                     </div>
+                    <div class="yt-vd">
+                    <video width={screen.width <480 ? "100%" : "60%"} height="100%" poster={`${vlink}/image.jpg"`} controls>
+                        <source src={`${vlink}/video.mp4`} type="video/mp4" />
+                    </video>
+                    </div>
+                </div>
+
+                <div className="Thirdsection-head">
+                    <h1>Course Includes</h1>
+                </div>
+                <div className="secondsection-reason">
                     <div className="reason reason1">
                         <img src={pricem}></img>
                         <h1>Lowest price <br />

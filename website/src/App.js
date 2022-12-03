@@ -31,6 +31,7 @@ import Books from './components/books/Books'
 import axios from 'axios';
 import io from 'socket.io-client';
 import { Helmet } from 'react-helmet'
+import PdfViewer from './components/pdfviewer/PdfViewer';
 // import useSSR from 'use-ssr'
 
 
@@ -164,6 +165,7 @@ function App() {
             <Route path="/player" element={<Player />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/forgot" element={<Forgot />} />
+            <Route path="/viewpdf" element={<PdfViewer />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/support" element={<Support />} />

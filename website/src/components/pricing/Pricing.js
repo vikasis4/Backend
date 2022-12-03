@@ -128,10 +128,10 @@ const Pricing = () => {
             <div className="pd_one">
               <div className="pd_one_head">
                 <h1>Choose Your Plan</h1>
-                <div className="pd_one_button">
+                {/* <div className="pd_one_button">
                   <button style={position === true ? styled.yes : styled.no} onClick={() => { changepos() }}>JEE Guidance Courses </button>
                   <button style={position === false ? styled.yes : styled.no} onClick={() => { changepos() }}> 1-1 Personal Guidance  </button>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="pd_two">
@@ -456,7 +456,7 @@ const Pricing = () => {
                     </div>
                   </div>
                 </div>
-
+{/* 
                 <div className="price-card">
                   <div className="price-first-course">
                     <img className="price-img" src={personal}></img>
@@ -496,7 +496,7 @@ const Pricing = () => {
                       </ul>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 

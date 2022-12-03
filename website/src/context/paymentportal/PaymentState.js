@@ -118,9 +118,8 @@ const PaymentState = (props) => {
                 data
             })
                 .then(function (a) {
-                    console.log(a);
                     if (a.data.status === 'link') {
-                        window.open(a.data.link);
+                        window.open(a.data.link, "_self");
                     } else if (a.data.status === 'body') {
                         setXd(a.data.body);
                     }

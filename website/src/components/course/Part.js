@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
 import ProfileContext from '../../context/profile/ProfileContext'
 import { useNavigate } from 'react-router-dom'
-// import {
-//   Player, Hls, DefaultUi,
-//   Settings,
-//   MenuItem,
-//   Submenu,
-//   MenuRadio,
-//   MenuRadioGroup,
-// } from '@vime/react';
+import '@vime/core/themes/default.css';
+import {
+  Player, Hls, DefaultUi,
+  Settings,
+  MenuItem,
+  Submenu,
+  MenuRadio,
+  MenuRadioGroup,
+} from '@vime/react';
 import axios from 'axios'
 
 
@@ -30,13 +31,14 @@ const Part = () => {
   useEffect(() => {
     setQuality(file.profile.quality)
   },[])
-
+  useEffect(() => {
+    setUrl(`${vlink}/course/${file.profile.current.category}/${file.profile.current.bname}/v${quality}p/index.m3u8`);
+  },[file])
   useEffect(() => {
     setUrl(`${vlink}/course/${file.profile.current.category}/${file.profile.current.bname}/v${quality}p/index.m3u8`);
     if (file.profile.subscription === 'false') {
       navigate('/')
     }
-  
     if (file.profile.quality === quality) {
       ////////
     }else{
@@ -54,7 +56,7 @@ const Part = () => {
 
   return (
     <>
-      {/* <Player volume={100} playbackRate={rate}>
+      <Player volume={100} playbackRate={rate}>
 
         <Hls version="latest" config={hlsConfig} poster="/media/poster.png">
           <source data-src={url} type="application/x-mpegURL" />
@@ -91,7 +93,7 @@ const Part = () => {
           </Settings>
         </DefaultUi>
       </Player>
- */}
+
 
     </>
   )

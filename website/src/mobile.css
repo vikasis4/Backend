@@ -462,23 +462,9 @@
         width: 8rem !important;
     }
 
-    .player-cont {
-        flex-direction: column !important;
-    }
-
-    .player,
-    .player-two {
-        width: 90% !important;
-        margin-left: 0 !important;
-    }
-
     .p21 {
         top: 6rem !important;
         color: black !important;
-    }
-
-    .player-btn {
-        margin-top: 12rem !important;
     }
 
     .videopage-main {
@@ -486,31 +472,18 @@
     }
 
     .mat-text h1 {
-        font-size: 2.4rem !important;
+        font-size: 3.4rem !important;
     }
 
-    .card-flex-two {
-        display: block !important;
+    .yt-txt{
         width: 100% !important;
     }
-
-    .card-cont {
-        background: rgba(0, 0, 0, 0.3) !important;
-        border-radius: 2rem 2rem 0 0 !important;
+    .videopage-sec-enter{
+        position: relative !important;
+        left: 1rem !important;
     }
-
-    .card-one h1 {
-        display: none !important;
-    }
-
-    .card-main {
+    .mat-one{
         width: 100% !important;
-        border-radius: 2rem 2rem 0 0 !important;
-        height: 30rem !important;
-    }
-
-    .card-flex {
-        width: 90% !important;
     }
 
     .about-two h1 {
@@ -561,10 +534,7 @@
         padding: 6rem 4rem !important;
     }
 
-    .player {
-        height: max-content !important;
-    }
-
+   
     .btn-qty {
         border-bottom: 1rem solid black;
     }

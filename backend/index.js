@@ -72,7 +72,7 @@ var job1 = new CronJob(
 mongoToConnect();
 dotenv.config();
 app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true}));
-// app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'https://api.payu.in'], credentials: true }));
+// app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'https://api.payu.in', 'http://192.168.2.76:3000'], credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -966,7 +966,7 @@ app.post('/payu/success', async (req, res) => {
             await User.findByIdAndUpdate(req.body.udf1, { pkey: 0000 })
         }
         res.send(
-            `<h2> <span style={{color:'green'}}> Your payment is successfully </span>.<br/> Click on <a href="https://rankboost.live">RankBoost</a> to reuturn to the website </h2>`
+            `<h4> <span style={{color:'green'}}> Your payment is successfully </span>.<br/> Go back and reload the website or click on <a target="_self" href="https://rankboost.live">RankBoost</a> to reuturn to the website </h4>`
         );
     } catch (error) {
         console.log(error);

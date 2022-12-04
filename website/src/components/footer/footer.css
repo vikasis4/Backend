@@ -1,44 +1,24 @@
 .footer-main {
     height: max-content;
-    background-color: var(--s1);
+    background-color: #1b1b1b;
     display: flex;
     flex-direction: column;
+    padding-top:2rem
 }
 
 .footer-one {
-    color: var(--c1);
-    height: 60%;
+    color:white;
     display: flex;
-    gap: 20rem;
-    align-items: center;
+    gap: 14rem;
+    align-items: flex-start;
     justify-content: center;
+    margin-top:8rem;
     font-family: 'Dosis', sans-serif;
-    font-size: 2rem
-}
-
-.footer-one div li {
-    margin: 2.5rem;
-}
-
-.footer-one div li:hover {
-    cursor: pointer;
-    color: var(--c2);
 }
 
 .footer-one div {
     list-style: none;
 }
-
-.footer-line {
-    margin: 4rem auto;
-    width: 70%;
-    border-radius: 5rem;
-    height: 1rem;
-    background-color: var(--c2);
-}
-
-
-
 .footer-two {
     height: 40%;
     display: flex;
@@ -59,7 +39,7 @@
 }
 
 .footer-brand {
-    color: var(--c1);
+    color: white;
     text-transform: uppercase;
     text-align: center;
     font-family: 'Righteous', sans-serif;
@@ -73,21 +53,69 @@
     position: relative;
     bottom: 3.5rem
 }
-
-.footer-nil img {
-    height: 12rem;
-    width: 12rem;
-    border-radius: 105rem;
+.footer-ek div li:hover, .footer-do div li:hover, .footer-teen div li:hover{
+cursor: pointer;
 }
-#info-link:hover {
-    cursor: pointer;
-    color: var(--s2) !important;
+.footer-ek div li, .footer-do div li, .footer-teen div li{
+font-family: "Dosis";
+padding-bottom: 1rem;
+width:max-content;
+font-size: 2rem;
 }
-
-.social-class ul li a:hover {
-    padding-bottom: 0.7rem;
-    border-bottom: 0.2rem solid var(--c2);
+.footer-ek h1, .footer-do h1, .footer-teen h1{
+    border-bottom: 0.2rem solid white;
+    margin-bottom:3rem;
+    font-size: 3rem;
+    font-family: "DM Sans"
 }
 .f-gappers{
     height:14rem;
+    background-color:#1b1b1b
+}
+.fotter-t-t{
+    font-size: 4rem;
+    border-bottom: 0.2rem solid white;
+}
+.footer-ek-aur {
+    gap:2rem;
+    margin-top:8rem;
+    display: flex;
+    justify-content:center;
+    place-items: center;
+    flex-direction: column;
+}
+.footer-ek-aur h1 {
+    font-size: 4rem;
+}
+.footer-ek-aur img {
+    padding:2rem;
+    height:6rem;
+    width:6rem;
+    background-color:white;
+    border-radius: 50%;
+}
+.footer-th-t h1{
+    color:white;
+    font-size: 2rem;
+    font-family: "Dosis";
+    letter-spacing: 0.1rem;
+}
+.footer-th-t{
+    display: flex;
+    justify-content:center;
+    place-items:center;
+    gap:4rem
+}
+.footer-three h1{
+    font-weight: 600;
+}
+.footer-three{
+    display: flex;
+    padding-top: 2rem;
+    justify-content:center;
+    place-items: center;
+    gap:2rem;
+    color:white;
+    font-family: "DM Sans";
+    flex-direction: column;
 }

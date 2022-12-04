@@ -74,7 +74,7 @@ const Player = () => {
                             {prowork.profile.subscription === 'true' ? <Part /> : 'PLEASE PURCHASE SUBSCRIPTION'}
                         </div>
                         <h1>{prowork.profile.current.name}</h1>
-                        <div className="player-ones">
+                        <div className="player-ones activate-dis">
                             <h1>RankBoost</h1>
                         </div>
                     </div>

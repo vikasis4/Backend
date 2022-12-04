@@ -219,17 +219,16 @@
 }
 .price-cardd{
     height:max-content;
-    background-color:black;
-    box-shadow:0 0 4px 0 rgba(0, 0, 0, 0.4);
+    background-color:#28282B;
+    box-shadow:0 0 4rem 0 gold;
     border-radius: 1rem 1rem 0.3rem 0.3rem;
     width:75%;
 }
 .price-first-course{
-    background-color:royalblue;
+    background-color:var(--c2);
 }
 
 .price-first-coursed {
-    background-color:var(--s4);
     color:white
 }
 .price-first-coursed-img{
@@ -255,8 +254,16 @@
     text-align: center;
     font-size:2rem;
     font-weight:600;
+    margin-top:1rem;
+    color:rgb(211, 192, 86) ;
+}
+.price-tag h5{
+    font-family: "Dosis";
+    text-align: center;
+    font-size:3.8rem;
+    font-weight:600;
     margin-top:3rem;
-    color:var(--s4);
+    color:white;
 }
 .price-tag h3{
     font-family: "Dosis";
@@ -265,7 +272,7 @@
     width:50%;
     margin:3rem auto;
     font-weight:600;
-    color:var(--s4);
+    color:#28282B;
 }
 .price-cbtwn ul{
     display: flex;
@@ -318,7 +325,7 @@
     padding:1.6rem 4rem;
     background-color:white;
     border-radius:0.4rem;
-    color:var(--s4);
+    color:#AA6C39;
     width: 45%;
     font-size: 3.4rem;
     font-weight: 600;
@@ -389,7 +396,7 @@
     font-weight: 700;
     background-color:white;
     border-radius:0 0 50rem 50rem;
-    color:var(--s4);
+    color:#28282B;
     text-align: center;
     width: 90%;
     margin: 3rem auto;

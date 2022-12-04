@@ -70,10 +70,12 @@ const Payment = () => {
     },[dataarr])
     /////////////////////////////
     useEffect(() => {
-        for (let i = 0; i < dataarr.length; i++) {
-            if (dataarr[i].type === 'refral') {
-                refarray.push(dataarr[i])
-                setRefarray([...refarray])
+        if (refarray.length === 0) {
+            for (let i = 0; i < dataarr.length; i++) {
+                if (dataarr[i].type === 'refral') {
+                    refarray.push(dataarr[i])
+                    setRefarray([...refarray])
+                }
             }
         }
     },[dataarr])
@@ -146,7 +148,6 @@ const Payment = () => {
         }
     }
 var paidslip;
-   
     return (
         <>
             <div className="payment-cont">
@@ -192,11 +193,11 @@ var paidslip;
                     <div className="payment-top-one">
                         <h1 style={{textAlign:'center'}}> Courses purchased </h1>
                         <ul>
-                            <li>{numberone[2].amount} :- Combo</li>
-                            <li>{numberone[0].amount} :- 2023 Batch</li>
-                            <li>{numberone[1].amount} :-2024 Batch</li>
-                            <li>{numberone[3].amount} :- 1-1</li>
-                            <li>{numberone[4].amount} :- Mateial</li>
+                            <li> Combo : <span style={{color:'green'}}>{numberone[2].amount > 0 ? numberone[2].amount : 0}</span>&nbsp;&nbsp;&nbsp;</li>
+                            <li>2023-Batch : <span style={{color:'green'}}>{numberone[0].amount}</span>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                            <li>2024-Batch : <span style={{color:'green'}}>{numberone[1].amount}</span>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                            <li>1-1 :<span style={{color:'green'}}> {numberone[3].amount}</span>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                            <li>Mateial : <span style={{color:'green'}}>{numberone[4].amount}</span>&nbsp;&nbsp;&nbsp;&nbsp;</li>
                         </ul>
                     </div>
                 </div>

@@ -331,7 +331,8 @@ const Pricing = () => {
                     <div className="price-cbtwn">
                       <p className="price-head">Jee guidance for 2023 batch</p>
                       <div className="price-tag">
-                        <h4><span style={{ color: 'white' }}> Discounted price  &nbsp; &#8377;699 only</span></h4>
+                      <h5><span > Orignal price  &nbsp; &#8377; 1,400</span></h5>
+                        <h4><span > Discounted price  &nbsp; &#8377;699 only</span></h4>
                         <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 50% off</h3>
                         <div className="price-cbt-panel">
                           {
@@ -374,7 +375,8 @@ const Pricing = () => {
                     <div className="price-cbtwn">
                       <p className="price-head">Jee guidance for 2024 batch</p>
                       <div className="price-tag">
-                        <h4><span style={{ color: 'white' }}> Discounted price  &nbsp; &#8377;1299 only</span>
+                      <h5><span > Orignal price  &nbsp; &#8377; 2,600</span></h5>
+                        <h4><span > Discounted price  &nbsp; &#8377;1299 only</span>
                         </h4>
                         <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 50% off</h3>
                         <div className="price-cbt-panel">
@@ -420,7 +422,8 @@ const Pricing = () => {
                     <div className="price-cbtwn">
                       <p className="price-head">Study Material</p>
                       <div className="price-tag">
-                        <h4><span style={{ color: 'white' }}> Discounted price  &nbsp; &#8377;399 only</span></h4>
+                      <h5><span > Orignal price  &nbsp; &#8377; 1000</span></h5>
+                        <h4><span > Discounted price  &nbsp; &#8377;399 only</span></h4>
                         <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 60% off</h3>
                         <div className="price-cbt-panel">
                           {
@@ -464,7 +467,7 @@ const Pricing = () => {
                       <p className="price-head"> Jee Personal 1-1 guidance</p>
                       <div className="price-tag">
                         <div className="price-cbt-panel">
-                          <h4><span style={{ color: 'white' }}> Discounted price  &nbsp; &#8377;1897 only</span></h4>
+                          <h4><span > Discounted price  &nbsp; &#8377;1897 only</span></h4>
                           <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 60% off</h3>
                           {
                             stated === true ?
@@ -510,8 +513,8 @@ const Pricing = () => {
                     <div className="price-cbtwn">
                       <div className="price-tag">
                         <p className="price-head">COMBO Pack for 2023 and 2024 Batch</p>
-                        <h4><span style={{ color: 'white' }}> Discounted price  &nbsp; &#8377;999 only</span>
-                        </h4>
+                        <h5><span > Orignal price  &nbsp; &#8377; 3,350</span></h5>
+                        <h4><span > Discounted price  &nbsp; &#8377;999 only</span></h4>
                         <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 70% off</h3>
 
                         <div className="price-cbt-panel">

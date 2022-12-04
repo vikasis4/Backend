@@ -13,6 +13,7 @@ const Query = () => {
     useEffect(() => {
         axios.get(link + '/query/fetch').then((response) => {
             setQuery(response.data.query)
+            console.log(response.data.query);
         })
     }, [])
 

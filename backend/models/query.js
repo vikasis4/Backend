@@ -20,6 +20,7 @@ const Query = new mongoose.Schema({
     room: {type: 'string'},
     email: {type: 'string'},
     stat: {type: 'string', default: 'new'},
+    img: {type: 'string'}
 })
 
 module.exports = mongoose.model('Query', Query)

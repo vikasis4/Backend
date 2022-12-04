@@ -19,11 +19,12 @@ const Auth = () => {
 
     //////////////////////// WEB SOCKET ///////////////////////////////////
     const [socket, setSocket] = useState(null);
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
     useEffect(() => {
-        if (socket === null) {
-            setSocket(io(`${NonApiLink}/normal`));
-        }
+        setSocket(io(`http://localhost:8080/admin`));
+    }, [])
+    
+    useEffect(() => {
         if (socket) {
             socket.on('live-listen', (counts) =>{
                 setCount(counts)

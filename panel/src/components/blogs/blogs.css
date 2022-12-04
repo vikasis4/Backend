@@ -1,0 +1,36 @@
+.users{
+    display:flex;
+    justify-content: center;
+    padding: 1rem 4rem;
+    place-items: flex-start;
+    flex-direction: column;
+    gap:2rem
+}
+.users-enter img{
+    border-radius: 50%;
+    height:6rem;
+    width:6rem;
+}
+.users-enter h2{
+    font-weight: 600;
+}
+.users-enter h3{
+    font-weight: 500;
+    color: white;
+    display: flex;
+    place-items: center;
+}
+.users-enter{
+    background-color:blueviolet;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap:1rem;
+    font-family:Dosis;
+    place-items: center;
+    font-size: 1.4rem;
+    color:hsl(0 0% 100%/.9);
+    padding: 1rem;
+    border-radius: 0.6rem;
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.4);
+}

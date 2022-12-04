@@ -51,17 +51,18 @@ function App() {
 
   ///////////////////////// WEB SOCKETS ////////////////////////////////////////////////////////////
 
-  const [socket, setSocket] = useState(null);
-  useEffect(() => {
-    if (socket === null) {
-      setSocket(io(`${NonApiLink}/normal`))
-    }
-    if (socket) {
-      socket.on("connect", () => {
-        socket.emit('update-cont', socket.id); // x8WIv7-mJelg7on_ALbx
-      });
-    }
-  }, [socket])
+  // const [socket, setSocket] = useState({connected: false})
+  // useEffect(() => {
+  //   // setSocket(io(`${NonApiLink}`))
+  //   setSocket(io(`http://localhost:8080/normal`))
+  //   if (socket.connected === true) {  
+  //     socket.on("connect", () => {
+  //       alert('ss test')
+  //       socket.emit('update-cont', socket.id); // x8WIv7-mJelg7on_ALbx
+  //     });
+  //   }
+    
+  // }, [])
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   // document.addEventListener('contextmenu', event => event.preventDefault());

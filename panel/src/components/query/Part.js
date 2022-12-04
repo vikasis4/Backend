@@ -131,11 +131,18 @@ const Part = (props) => {
         }
     }
     runfnbro()
-
     return (
         <>
             <div className="query-main">
-                <div id="scrollchat"  className="query-one">
+                <div className="query-prof">
+                    <div className="query-prof-1">
+                        <img src={query.img}></img>
+                    </div>
+                    <div className="query-prof-2">
+                        <h1>{query.email}</h1>
+                    </div>
+                </div>
+                <div id="scrollchat" className="query-one">
                     {toogle === 'one' ?
                         <>
                             {text}

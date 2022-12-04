@@ -28,7 +28,7 @@ const Navbar = () => {
                                     <li><button onClick={() => { navigate('/personal') }} className="btn">Guidance</button></li>
                                     <li><button onClick={() => { navigate('/payment') }} className="btn">Transactions</button></li>
                                     <li><button onClick={() => { navigate('/video') }} className="btn">Video / Pdf</button></li>
-                                    <li><button onClick={() => { navigate('/blogs') }} className="btn">BLOGS</button></li>
+                                    <li><button onClick={() => { navigate('/blogs') }} className="btn">Users</button></li>
                                     <li><button onClick={() => { navigate('/variable') }} className="btn">Dynamics</button></li>
                                     <li><button onClick={() => { localStorage.removeItem('authinfo'); panel.setVerify(false); navigate('/') }} className="btn">Log out</button></li>
                                 </>
@@ -39,7 +39,7 @@ const Navbar = () => {
                                         <li><button disabled  className="btn">Guidance</button></li>
                                         <li><button disabled  className="btn">Transactions</button></li>
                                         <li><button disabled  className="btn">Video / Pdf</button></li>
-                                        <li><button disabled  className="btn">BLOGS</button></li>
+                                        <li><button disabled  className="btn">Users</button></li>
                                         <li><button disabled className="btn">Dynamics</button></li>
                                         <li><button disabled  className="btn">Log out</button></li>
                                     </>

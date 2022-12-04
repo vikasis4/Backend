@@ -1,3 +1,6 @@
+.card-flex h1:hover {
+    cursor: pointer;
+}
 .card-flex h1 {
     color:var(--c1);
     letter-spacing:0.1rem;

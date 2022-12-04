@@ -420,21 +420,41 @@
         font-weight: 700 !important;
         font-size: 4rem !important;
     }
-
-    .footer-main {
-        height: 60rem !important;
-        background-color: white !important;
-    }
-
     .footer-two {
         margin-top: 4rem !important
     }
-
+    .footer-th-t{
+        flex-direction: column !important;
+        gap:1rem !important;
+    }
+    .fotter-t-t{
+        font-size: 8rem !important;
+        border:none !important;
+    }
+    .footer-ek h1, .footer-do h1, .footer-teen h1{
+        text-align: center !important;
+        width:100% !important;
+        border:none !important;
+        font-size: 6rem !important;
+    }
+    .footer-ek div li, .footer-do div li, .footer-teen div li {
+        font-size: 4rem !important;
+        padding-bottom: 3rem !important;
+    }
+    .footer-th-t h1{
+        font-size: 4rem !important;
+    }
     .footer-one {
         gap: 4rem !important;
         font-size: 3rem !important;
+        flex-direction: column !important;
+        place-items: center !important
     }
-
+    footer-ek-aur{
+        display: flex !important;
+        flex-direction: column !important;
+        place-items: center !important;
+    }
     .social-class ul li a svg {
         height: 7rem !important;
         width: 7rem !important;
@@ -474,7 +494,27 @@
     .mat-text h1 {
         font-size: 3.4rem !important;
     }
-
+    .player-cont {
+        height: 80vh !important;
+        padding-top: 14rem !important;
+        flex-direction: column !important;
+    }
+    .player-top h1 {
+        font-size: 4rem !important;
+    }
+    .blog-content p{
+        font-size: 2.4rem !important;
+        font-weight: 500 !important;
+    }
+    .blog-content{
+        padding:2rem 4rem !important;
+    }
+    .player-bottom{
+        width: 100% !important;
+    }
+    .player-one h1{
+        font-size: 3rem !important;
+    }
     .yt-txt{
         width: 94% !important;
     }
@@ -896,7 +936,7 @@
         margin-top: 4rem !important;
         width: 93% !important;
         border-radius: 1rem !important;
-        box-shadow: 0 0px 2px 1px royalblue;
+        box-shadow: 0 0px 2px 1px #28282B !important;
     }
 
     .price-mod::-webkit-scrollbar {

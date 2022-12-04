@@ -1,11 +1,11 @@
 .player-cont {
-    height: 80vh;
-    padding-top: 14rem;
+    height: calc(100% - 10rem);
+    padding-top: 10rem;
     width: 100%;
     display: flex;
     place-items: flex-start;
     justify-content: flex-start;
-    flex-direction: column;
+    flex-direction: row;
     position: absolute;
     background-color:#343434
 }
@@ -15,7 +15,7 @@
     margin:4rem 3rem;
     padding-bottom:0.6rem;
     color:hsl(0 0% 100% /0.65);
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: "DM Sans";
 }
 .player-ones h1{
@@ -44,13 +44,13 @@
 }
 .player-bottom{
     height: 100%;
-    width: 100%;
+    width: 70%;
     overflow-y: scroll;
     flex-direction: column;
 }
 .player-top h1{
     font-family: "DM Sans";
-    font-size: 4rem;
+    font-size: 3rem;
     color:hsl(0 0% 100% /0.7);
     font-weight: 600;
     padding:2rem 3rem;

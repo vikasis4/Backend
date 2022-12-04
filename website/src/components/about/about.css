@@ -2,22 +2,43 @@
     background-color: white;
 }
 .about-one h1{
-    font-weight: 200;
+    font-weight: 600;
     font-size: 10em;
     letter-spacing: -0.2rem;
     font-family: "Dosis", sans-serif;
     padding: 4rem 0rem;
     text-align: center;
-    color: var(--c1);
+    color: black;
+}
+.about-images img{
+    height:100%;
+    width:40rem;
+}
+.about-images{
+    display: flex;
+    justify-content:center;
+    place-items:center;
+    gap:8rem;
+    flex-wrap: wrap;
 }
 .about-two h1{
-    padding:2rem 30rem;
-    font-size: 2rem;
-    color: var(--c1);
+    font-size: 8rem;
+    color: black;
     font-family: "Dosis", sans-serif;
-    font-weight: 400;
+    font-weight: 600;
+    text-align: center;
+    padding:8rem 0 4rem 0;
     word-spacing: 0.2rem;
     padding-bottom: 10rem;
+}
+.about-two h2{
+    font-size: 3rem;
+    padding: 2rem 8rem;
+    color: var(--c1);
+    font-family: "Dosis", sans-serif;
+    font-weight: 600;
+    text-align: left;
+    word-spacing: 0.2rem;
 }
 .about-two{
     height:max-content;

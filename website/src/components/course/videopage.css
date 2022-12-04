@@ -234,6 +234,13 @@
     font-weight: 600;
     font-size: 4rem;
 }
+.priv-access img{
+    transition: all 0.2s;
+}
+.priv-access img:hover{
+    cursor: pointer;
+    transform: translateY(-4rem)
+}
 .priv-access{
     padding-top: 8rem;
     display: flex;

@@ -88,8 +88,9 @@ const Checkout = () => {
             localStorage.setItem('cart', kart)
         }
     }
-
+const [btn, setBtn] = useState(false)
     const initiate = () => {
+        setBtn(true)
         if (profile.profile.void === 'no') {
             if (bill > 0) {
                 Payment.paymentverify(profile.profile.id)
@@ -127,7 +128,7 @@ const Checkout = () => {
                         </div>
                         <h1 className="checkout-cart-txt">Cart subtotal</h1>
                         <h2>Total amount you have to pay for your cart : &#8377; {bill}</h2>
-                        <button onClick={() => { initiate() }}>Pay</button>
+                        <button onClick={() => { initiate() }}>{btn === false ? 'Pay' : "Please wait..."}</button>
                     </div>
                     <div className="checkout-modes">
                         <h1>Available payment modes</h1>

@@ -35,19 +35,10 @@ const mongoose = require('mongoose');
 const payUMoney = require('./payUmoney');
 
 
-
 const app = express();
+app.use(require('express-status-monitor')());
 const server = require('http').createServer(app);
-// const io = require("socket.io")(server, {
-//     cors: {
-//         origin: "*"
-//     }
-// });
-const io = require("socket.io")(server, {
-    cors: {
-        origin: ['https://rankboost.live', 'https://admin.rankboost.live']
-    }
-});
+
 ////////////////////////////////////////////////////////////////////////////
 const DB_name = 'paceway';
 const Archive_path = path.join(__dirname, 'backup', `${DB_name}.gzip`)
@@ -71,8 +62,8 @@ var job1 = new CronJob(
 
 mongoToConnect();
 dotenv.config();
-app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true}));
-// app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'https://api.payu.in', 'http://192.168.2.76:3000'], credentials: true }));
+// app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true}));
+app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'https://api.payu.in', 'http://192.168.2.76:3000'], credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -80,61 +71,94 @@ var make = path.join(__dirname, 'public');
 app.use(express.static(make));
 
 const bilx = async () => {
+    const ds = new Date();
+    const day = ds.getUTCDate();
+    const month = ds.getUTCMonth() + 1;
+    const year = ds.getUTCFullYear();
+
     await mongoose.model("User").updateMany({}, {
         $set: {
-            guidance_session: {
-                plan_time: 0,
-                expiry_time: {
-                    month: 0,
-                    date: 0,
-                    year: 0,
-                },
-            },
+            last_seen: `${day}/${month}/${year}`
         }
     })
 }
+//     await mongoose.model("User").updateMany({}, {
+//         $set: {
+//             guidance_session: {
+//                 plan_time: 0,
+//                 expiry_time: {
+//                     month: 0,
+//                     date: 0,
+//                     year: 0,
+//                 },
+//             },
+//         }
+//     })
+// }
 // bilx()
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////  WEB SOCKETS  ///////////////////////////////////////////////////////////////////
+// const http = require('http').createServer(app);
+// http.listen( 8080, function() {
+//     console.log( 'Socket server running on port 8080' );
+//     });
+// const io = require("socket.io")(http, {
+//     cors: {
+//         origin: ["http://localhost:3000","http://localhost:3001"],
+//         methods: ["GET", "POST"]
+//       }
+// });
+// const io = require("socket.io")(http, {
+//     cors: {
+//         origin: ['https://rankboost.live', 'https://admin.rankboost.live']
+//     }
+// });
+// const asp = io.of("/admin");
+// const nsp = io.of("/normal");
+// var count = 0;
+// var livearray = [];
+// asp.on("connection", (socket) => {
+//     console.log('j-ad');
 
-const asp = io.of("/admin");
-const nsp = io.of("/normal");
-var count = 0;
-var livearray = [];
-asp.on("connection", (socket) => {
+//     socket.on("Texts", (data) => {
+//         nsp.to(data.connection).emit("data", data);
+//     })
+//     socket.on("disconnect", () => {
+//         console.log('d-ad');
+//     })
+//     /////////////////////////////////////
+    
+// })
 
-    socket.on("Texts", (data) => {
-        nsp.to(data.connection).emit("data", data);
-    })
-    /////////////////////////////////////
+// nsp.on("connection", (socket) => {
+//     console.log('j-cl');
 
-})
-
-nsp.on("connection", (socket) => {
-    socket.on('update-cont', (id) => {
-        count = count + 1;
-        if (id) {
-            livearray.push(id);
-        }
-        asp.emit("live-listen", count);
-    })
-    socket.on("disconnect", () => {
-        const index = livearray.findIndex((element) => element === socket.id);
-        if (index > -1) {
-            count = count - 1;
-            livearray.splice(index, 1);
-        }
-        asp.emit("live-listen", count);
-    })
-    /////////////////////////////////////
-    socket.on('Texts', (data) => {
-        asp.emit('daata', data);
-    })
-    socket.on("join-room", (room) => {
-        socket.join(room)
-    })
-})
+//     socket.on('update-cont', (id) => {
+//         console.log(id);
+//         count = count + 1;
+//         if (id) {
+//             livearray.push(id);
+//         }
+//         asp.emit("live-listen", count);
+//     })
+//     socket.on("disconnect", () => {
+//         console.log('d-cl');
+//         const index = livearray.findIndex((element) => element === socket.id);
+//         if (index > -1) {
+//             count = count - 1;
+//             livearray.splice(index, 1);
+//         }
+//         asp.emit("live-listen", count);
+//     })
+//     /////////////////////////////////////
+//     socket.on('Texts', (data) => {
+//         asp.emit('daata', data);
+//     })
+//     socket.on("join-room", (room) => {
+//         socket.join(room)
+//     })
+// })
 ///////////////// LIVE RELOADER /////////////////////////////////////////////////////////////////////////////
 var job2 = new CronJob(
     '* * * * *',
@@ -160,6 +184,7 @@ app.post('/api/traffic/tracker', async (req, res) => {
                     year
                 })
             }
+            await User.findOneAndUpdate({username: req.body.livetoken}, {last_seen: `${day}/${month}/${year}`})
             await Live.findOneAndUpdate({ username: req.body.livetoken }, {
                 time: req.body.sum,
                 status: "online"
@@ -1135,7 +1160,8 @@ app.post('/api/query/box', async (req, res) => {
             }],
             date: Date.now(),
             email: req.body.email,
-            room: user.room
+            room: user.room,
+            img: user.img
         }
         obj.push(data);
         await Query.create({ ...data, userid: req.body.id, place })
@@ -1445,6 +1471,16 @@ app.put('/api/variables/update', async (req, res) => {
         await Variables.findByIdAndUpdate(req.body.id, { var3: req.body.var3 });
         await Variables.findByIdAndUpdate(req.body.id, { var4: req.body.var4 });
         await Variables.findByIdAndUpdate(req.body.id, { var5: req.body.var5 });
+    } catch (error) {
+        console.log(error);
+    }
+})
+////////////////////////////// DASHBOARD GET USERS ////////////////////////////////////////////////////
+
+app.get('/api/all/users', async (req, res) => {
+    try {
+        var users = await User.find({});
+        res.json(users);
     } catch (error) {
         console.log(error);
     }

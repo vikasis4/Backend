@@ -82,8 +82,14 @@
 }
 .payment-top-one ul li{
     font-family: "Dosis";
+    font-weight: 600;
+    border-bottom: 2px solid black;
+    margin:0 1rem;
     font-size: 2rem;
 }
 .payment-top-one ul{
     list-style: none;
+    display: flex;
+    justify-content: center;
+    place-items:center;
 }

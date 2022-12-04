@@ -5,7 +5,7 @@
 .blog-one h2{
     font-weight: 600;
     text-align: center;
-    font-size:5rem;
+    font-size:2.4rem;
     padding-top: 2rem;
     color: var(--c1);
 }
@@ -18,18 +18,28 @@
 .blog-one{
     font-family: 'Dosis', sans-serif;
 }
-.blog-content h1{
-    font-weight: 600;
-    font-family: 'Dosis', sans-serif;
+.blog-content p{
+    line-height: 1.8;
     font-size: 3rem;
+}
+.blog-content {
+    padding: 2rem 28rem;
+}
+.blog-content h2{
+    font-weight: 600;
+    font-size:2.6rem
+}
+.blog-content h1{
+    font-weight: 700;
+    font-family: 'Dosis', sans-serif;
+    font-size: 5rem;
     word-wrap: wrap;
     text-align: left;
-    padding: 2rem;
-    line-height: 2.4
 }
-.blog-content img{
+.mnbv{
     height:40rem;
-    width:50%;
+}
+.blog-main img{
     margin:2rem auto;
     display:block;
 }

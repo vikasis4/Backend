@@ -4,12 +4,17 @@ var jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
 
+const ds = new Date();
+const day = ds.getUTCDate();
+const month = ds.getUTCMonth() + 1;
+const year = ds.getUTCFullYear();
 
 const User = new mongoose.Schema({
 
     username: { type: 'string', required: true },
     password: { type: 'string', required: true },
     subscription: { type: 'string', default: 'false' },
+    last_seen: { type: 'string', default:`${day}/${month}/${year}` },
     guidance_session: {
         plan_time: { type: 'number', default: 0},
         expiry_time: {

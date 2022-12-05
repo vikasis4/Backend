@@ -7,6 +7,21 @@
 .checkout-second img{
     height:60rem
 }
+.check-warn h2{
+    color:white;
+    font-family: "DM Sans" !important;
+}
+.check-warn h1{
+    color:white;
+    font-family: "DM Sans" !important;
+    font-weight: 600 !important;
+}
+.check-warn{
+    background-color:red;
+    width: 100%;
+    padding:1rem;
+    border-radius: 0.6rem;
+}
 .checkout-first-second h2{
     font-family: "Dosis", sans-serif;
     font-size:2.4rem;

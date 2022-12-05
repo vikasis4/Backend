@@ -193,7 +193,7 @@
 }
 .mat-one{
     padding:2rem 1rem;
-    width: 23rem;
+    min-width: 25rem;
     color:white;
     background-color:var(--s3);
     display : flex;

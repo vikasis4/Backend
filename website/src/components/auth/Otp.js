@@ -58,9 +58,7 @@ const Otp = (props) => {
     }
 
     var timer;
-
     useEffect(() => {
-
         timer = setInterval(() => {
             setSeconds(seconds - 1);
             if (seconds === 0) {
@@ -68,7 +66,6 @@ const Otp = (props) => {
                 setSeconds(120);
             }
         }, 1000)
-
         return () => clearInterval(timer)
     })
 

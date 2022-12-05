@@ -80,7 +80,7 @@ const Pricing = () => {
       }
       setCart(profile.profile.cart)
     }
-  }, [profile])
+  }, [])
 
   useEffect(() => {
     const newArray = profile.profile.subarray;
@@ -92,25 +92,49 @@ const Pricing = () => {
 
 
   const updatecart = (value) => {
-    cart.push({ name: value })
-    setCart(cart);
-    const user = profile.profile
-    profile.setProfile({ ...user, cart })
-    if (profile.profile.void === 'no') {
-      axios.post(clink + '/cart', {
-        id: profile.profile.id,
-        cart
-      }).then(response => {
-        if (response.data.status === 'yes') {
-          ////
-        } else {
-          alert('Something went wrong, please try again later')
-        }
-      })
+
+    if (cart.find(({ name }) => name === value)) {
+      ////
     } else {
-      localStorage.setItem('cart', cart)
+      cart.push({ name: value })
+      setCart(cart);
+      const user = profile.profile
+      profile.setProfile({ ...user, cart })
+      if (profile.profile.void === 'no') {
+        axios.post(clink + '/cart', {
+          id: profile.profile.id,
+          cart
+        }).then(response => {
+          if (response.data.status === 'yes') {
+            ////
+          } else {
+            alert('Something went wrong, please try again later')
+          }
+        })
+      } else {
+        localStorage.setItem('cart', cart)
+      }
     }
   }
+
+  const [seconds, setSeconds] = useState(60)
+  const [mins,setMins] = useState(48)
+  const [Hrs, setHrs] = useState(14)
+  var timer;
+  useEffect(() => {
+      timer = setInterval(() => {
+          setSeconds(seconds - 1);
+          if (seconds === 0) {
+              setSeconds(60);
+              setMins(mins - 1)
+          }
+          if (mins === 0) {
+              setMins(60);
+              setHrs(Hrs - 1)
+          }
+      }, 1000)
+      return () => clearInterval(timer)
+  })
 
   return (
     <>
@@ -256,7 +280,7 @@ const Pricing = () => {
                         </span>
                         <ul>
                           <li>&#10003; 23+ Doubt + Councelling videos</li>
-                          <li>&#10003; 1-1 personal guidance</li>
+                          <li>&#10003; 1-1 personal guidance (3 Months access) worth &#8377; 2,499</li>
                           <li>&#10003; IITIANs support</li>
                           <li>&#10003; Doubt session</li>
                           <li>&#10003; Study material for mains and advance</li>
@@ -331,7 +355,7 @@ const Pricing = () => {
                     <div className="price-cbtwn">
                       <p className="price-head">Jee guidance for 2023 batch</p>
                       <div className="price-tag">
-                      <h5><span > Orignal price  &nbsp; &#8377; 1,400</span></h5>
+                        <h5><span > Original price  &nbsp; &#8377; 1,400</span></h5>
                         <h4><span > Discounted price  &nbsp; &#8377;699 only</span></h4>
                         <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 50% off</h3>
                         <div className="price-cbt-panel">
@@ -375,7 +399,7 @@ const Pricing = () => {
                     <div className="price-cbtwn">
                       <p className="price-head">Jee guidance for 2024 batch</p>
                       <div className="price-tag">
-                      <h5><span > Orignal price  &nbsp; &#8377; 2,600</span></h5>
+                        <h5><span > Original price  &nbsp; &#8377; 2,600</span></h5>
                         <h4><span > Discounted price  &nbsp; &#8377;1299 only</span>
                         </h4>
                         <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 50% off</h3>
@@ -422,7 +446,7 @@ const Pricing = () => {
                     <div className="price-cbtwn">
                       <p className="price-head">Study Material</p>
                       <div className="price-tag">
-                      <h5><span > Orignal price  &nbsp; &#8377; 1000</span></h5>
+                        <h5><span > Original price  &nbsp; &#8377; 1000</span></h5>
                         <h4><span > Discounted price  &nbsp; &#8377;399 only</span></h4>
                         <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 60% off</h3>
                         <div className="price-cbt-panel">
@@ -459,7 +483,7 @@ const Pricing = () => {
                     </div>
                   </div>
                 </div>
-{/* 
+                {/* 
                 <div className="price-card">
                   <div className="price-first-course">
                     <img className="price-img" src={personal}></img>
@@ -513,7 +537,7 @@ const Pricing = () => {
                     <div className="price-cbtwn">
                       <div className="price-tag">
                         <p className="price-head">COMBO Pack for Both 2023 & 2024</p>
-                        <h5><span > Orignal price  &nbsp; &#8377; 3,350</span></h5>
+                        <h5><span > Original price  &nbsp; &#8377; 3,350</span></h5>
                         <h4><span > Discounted price  &nbsp; &#8377;999 only</span></h4>
                         <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 70% off</h3>
 
@@ -542,7 +566,7 @@ const Pricing = () => {
                       </div>
                       <ul>
                         <li>&#10003; 23+ Doubt + Councelling videos</li>
-                        <li>&#10003; 1-1 personal guidance</li>
+                        <li>&#10003; 1-1 personal guidance (3 Months access) worth &#8377; 2499</li>
                         <li>&#10003; IITIANs support</li>
                         <li>&#10003; Doubt session</li>
                         <li>&#10003; Study material for both mains and advance</li>
@@ -560,6 +584,12 @@ const Pricing = () => {
               </div>
             </div>
             {/* /////////////////////// */}
+            <div className="price-ltd">
+              <h1>Discount Ends In</h1>
+              <div className="price-ltd-timer">
+                <h2><span>{Hrs} </span>Hrs : <span>{mins} </span>Mins : <span>{seconds} </span>Secs</h2>
+              </div>
+            </div>
             <img className="sales-img" src={sales}></img>
             {/* /////////////////////// */}
           </div>

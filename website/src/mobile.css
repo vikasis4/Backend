@@ -229,7 +229,7 @@
         justify-content: flex-start !important;
         background-color: white !important;
         place-items: flex-start !important;
-        box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.3) !important;
+        box-shadow: 0 0px 12px 1px #AA6C39 !important;
     }
 
     .herohomepage-first-course img {
@@ -265,7 +265,7 @@
         width: 100% !important;
         box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.3);
         border-radius: 0rem !important;
-        background-color: var(--c2) !important;
+        background-color: #AA6C39 !important;
     }
     .Thirdsec-ques h1 span:nth-child(2){
         display: block !important;

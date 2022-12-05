@@ -91,16 +91,18 @@ const Checkout = () => {
 const [btn, setBtn] = useState(false)
     const initiate = () => {
         setBtn(true)
-        if (profile.profile.void === 'no') {
-            if (bill > 0) {
-                Payment.paymentverify(profile.profile.id)
+        setTimeout(() => {
+            if (profile.profile.void === 'no') {
+                if (bill > 0) {
+                    Payment.paymentverify(profile.profile.id)
+                } else {
+                    alert("Cart is empty")
+                }
             } else {
-                alert("Cart is empty")
+                alert('Quickly create an account to start your journey')
+                navigate('/register')
             }
-        } else {
-            alert('Quickly create an account to start your journey')
-            navigate('/register')
-        }
+        },4000)
     }
 
     return (
@@ -115,6 +117,8 @@ const [btn, setBtn] = useState(false)
                 </div>
                 <div className="checkout-first">
                     <div className="checkout-first-second">
+                        {!btn === false ? <div className="check-warn"> <h1>Warning !!!!</h1><h2>Do not close the Tab or the Browser while the payment is processing</h2></div> :
+                        <>
                         <div className="checkout-liss">
                             <h1>Total items :-</h1>
                             {kart.length === 0 ? <h1 style={{ fontSize: '1.8rem', fontWeight: '600', color: 'purple', textAlign: 'center', margin: '4rem 0' }}>Cart is empty</h1> : ""}
@@ -126,6 +130,7 @@ const [btn, setBtn] = useState(false)
                                 {kart.find(({ name }) => name === "personal") ? <li><a onClick={() => { jani("personal") }}><img src={minus}></img></a> personal 1-1 guidance 6 moths validity, price &#8377; 2999 </li> : ""}
                             </ul>
                         </div>
+                        </>}
                         <h1 className="checkout-cart-txt">Cart subtotal</h1>
                         <h2>Total amount you have to pay for your cart : &#8377; {bill}</h2>
                         <button onClick={() => { initiate() }}>{btn === false ? 'Pay' : "Please wait..."}</button>

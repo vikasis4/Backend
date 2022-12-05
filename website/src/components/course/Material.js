@@ -1,24 +1,17 @@
 import axios from 'axios';
 import './card.css'
-import React, { useContext, useEffect, useState } from 'react'
-import ProfileContext from '../../context/profile/ProfileContext'
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
-
 
 const Material = (props) => {
 
     const { footer } = props
-    const profile = useContext(ProfileContext)
     const [jankari, setJankari] = useState([])
     const clink = process.env.REACT_APP_LINK
     const vlink = process.env.REACT_APP_VIDEO_LINK
     const [bar, setBar] = useState('one');
     const [plf, setPlf] = useState([]);
-    const navigate = useNavigate();
     const [loader, setLoader] = useState(true)
-
-
 
     useEffect(() => {
         axios.get(clink + '/get/pdf')
@@ -28,7 +21,6 @@ const Material = (props) => {
                     setLoader(false)
                 }
             })
-
     }, [])
     useEffect(() => {
         console.log(clink + '/pyq/get');
@@ -53,8 +45,10 @@ const Material = (props) => {
 
     if (plf.length > 0) {
         const bubble = (jankari) => {
-            profile.setPdfurl(`${vlink}/pyq/${jankari.bname}.pdf`)
-            navigate('/viewpdf')
+            window.open(`${vlink}/pyq/${jankari.bname}.pdf`)
+            if (screen.width < 480) {
+                alert('Download has started')
+            }
         }
         deliment = (plf).map(
             (plf) => {
@@ -66,7 +60,7 @@ const Material = (props) => {
                         <>
                             <div className="mat-one">
                                 <div><h1>{plf.name}</h1></div>
-                                <button onClick={() => subble()}>view pdf</button>
+                                <button onClick={() => subble()}>Download Pdf</button>
                             </div>
                         </>
                     )
@@ -83,7 +77,7 @@ const Material = (props) => {
                             <>
                             <div className="mat-one">
                                 <div><h1>{plf.name}</h1></div>
-                                <button onClick={() => subble()}>view pdf</button>
+                                <button onClick={() => subble()}>Download Pdf</button>
                             </div>
                         </>
                     )
@@ -95,8 +89,10 @@ const Material = (props) => {
     if (jankari.length > 0) {
         
         const bubble = (jankari) => {
-            profile.setPdfurl(`${vlink}/material/${jankari.type}/${jankari.bname}.pdf`)
-            navigate('/viewpdf')
+            window.open(`${vlink}/material/${jankari.type}/${jankari.bname}.pdf`)
+            if (screen.width < 480) {
+                alert('Download has started')
+            }
         }
 
         peliment = (jankari).map(
@@ -109,7 +105,7 @@ const Material = (props) => {
                         <>
                             <div className="mat-one">
                                 <div><h1>{jankari.name}</h1></div>
-                                <button onClick={() => subble()}>view pdf</button>
+                                <button onClick={() => subble()}>Download Pdf</button>
                             </div>
                         </>
                     )
@@ -126,7 +122,7 @@ const Material = (props) => {
                         <>
                             <div className="mat-one">
                                 <div><h1>{jankari.name}</h1></div>
-                                <button onClick={() => subble()}>view pdf</button>
+                                <button onClick={() => subble()}>Download Pdf</button>
                             </div>
                         </>
                     )
@@ -143,7 +139,7 @@ const Material = (props) => {
                         <>
                             <div className="mat-one">
                                 <div><h1>{jankari.name}</h1></div>
-                                <button onClick={() => subble()}>view pdf</button>
+                                <button onClick={() => subble()}>Download Pdf</button>
                             </div>
                         </>
                     )

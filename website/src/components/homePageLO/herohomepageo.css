@@ -204,10 +204,9 @@
     place-items: center;
 }
 .htdocs-1{
-    padding:1rem 4rem;
-    width:max-content;
-    border-radius: 50rem;
-    background-color:var(--s3);
+    padding:1rem 0;
+    width:100%;
+    background-color:var(--c2);
     color:white;
     font-weight: 600;
     margin: 3rem auto;

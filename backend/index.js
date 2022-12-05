@@ -62,8 +62,8 @@ var job1 = new CronJob(
 
 mongoToConnect();
 dotenv.config();
-// app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true}));
-app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'https://api.payu.in', 'http://192.168.177.76:3000'], credentials: true }));
+app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true}));
+// app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'https://api.payu.in', 'http://192.168.177.76:3000'], credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -738,11 +738,13 @@ app.get('/api/verifyuser', verify, async (req, res) => {
 
 })
 //////////////////////////////////  PAYU  /////////////////////////////////////////////
+
 app.post('/api/payments/payumoney', payUMoney.payUMoneyPayment);
 app.post('/payu/success', async (req, res) => {
 
     try {
         var user = await User.findById(req.body.udf1);
+        var subsarray = user.subarray;
         var type = 'empty'
         if (user.refral === 'empty') {
             type = 'normal'
@@ -798,13 +800,15 @@ app.post('/payu/success', async (req, res) => {
                 cart: cart
             })
             payment.save();
+            subsarray.push(...cart);
         }
         var vpkey = parseInt(req.body.udf3);
         if (pkey === vpkey) {
             if (user.subscription === 'false') {
                 await User.findByIdAndUpdate(req.body.udf1, { subscription: 'true' })
             }
-            await User.findByIdAndUpdate(req.body.udf1, { subarray: cart });
+
+            await User.findByIdAndUpdate(req.body.udf1, { subarray: subsarray });
             await User.findByIdAndUpdate(req.body.udf1, { cart: [] });
 
             const updatepersonal = async (amount, bools) => {

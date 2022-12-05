@@ -3,8 +3,8 @@ import './thirdsec.css'
 
 const Thirdsection = () => {
 
-  const [hide, setHide] = useState([{ height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }])
-  const [rotate, setRotate] = useState([{ transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }])
+  const [hide, setHide] = useState([{ height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' },{ height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }])
+  const [rotate, setRotate] = useState([{ transform: 'rotate(0deg)' },{ transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }])
   const hidefxn = (index) => {
     if (hide[index].height === '0rem') {
       hide[index] = { height: 'max-content', padding: '2rem 1rem' };
@@ -183,28 +183,32 @@ const Thirdsection = () => {
         </div>
         <div className="Thirdsec-con">
           <div className="Thirdsec-ques">
-            <h1 className="Thirdsec1"><span>For whom this course is for</span> <span style={rotate[0]} onClick={() => { hidefxn(0) }}>&#8595;</span></h1>
-            <p style={screen.width < 480 ? hide[0] : {}}>This course is for Jee aspirants, who want to crack Jee mains and advance and want to get their dream IIT and NIT</p>
+            <h1 className="Thirdsec1"><span>Which is the best course for the jee ?</span> <span style={rotate[0]} onClick={() => { hidefxn(0) }}>&#8595;</span></h1>
+            <p style={screen.width < 480 ? hide[0] : {}}>Combo pack is the best course for jee guidance as it contains the maximum value in very affordable cost</p>
           </div>
           <div className="Thirdsec-ques">
-            <h1 className="Thirdsec2"><span>What this course contain</span> <span style={rotate[1]} onClick={() => { hidefxn(1) }}>&#8595;</span></h1>
-            <p style={screen.width < 480 ? hide[1] : {}}>This course contains complete roadmap to crack IIT Jee, Doubt session, Mentorship, Study material, weekly plan and proper approach to each subject</p>
+            <h1 className="Thirdsec2"><span>I can't able able to Access the course after making the payment</span> <span style={rotate[1]} onClick={() => { hidefxn(1) }}>&#8595;</span></h1>
+            <p style={screen.width < 480 ? hide[1] : {}}>Either raise a query on customer support or Email us at rankboosteducation@gmail.com , we will reply you within 1 day</p>
           </div>
           <div className="Thirdsec-ques">
-            <h1 className="Thirdsec3"><span>How many students got selected </span> <span style={rotate[2]} onClick={() => { hidefxn(2) }}>&#8595;</span></h1>
-            <p style={screen.width < 480 ? hide[2] : {}}>600+ in mains and 400+ in advance</p>
+            <h1 className="Thirdsec3"><span>How many students have enrolled ? </span> <span style={rotate[2]} onClick={() => { hidefxn(2) }}>&#8595;</span></h1>
+            <p style={screen.width < 480 ? hide[2] : {}}>More than 4000 students have enrolled and majority of them have enrolled in Combo pack</p>
           </div>
           <div className="Thirdsec-ques">
             <h1 className="Thirdsec4"><span>Can i download the study material</span> <span style={rotate[3]} onClick={() => { hidefxn(3) }}>&#8595;</span></h1>
-            <p style={screen.width < 480 ? hide[3] : {}}>Yes you can download the study material and also can read all that material on website as well</p>
+            <p style={screen.width < 480 ? hide[3] : {}}>Yes you can download the study material </p>
           </div>
           <div className="Thirdsec-ques">
-            <h1 className="Thirdsec5"><span>How can i ask doubt</span> <span style={rotate[4]} onClick={() => { hidefxn(4) }}>&#8595;</span></h1>
-            <p style={screen.width < 480 ? hide[4] : {}}>Go to "Ask a doubt" section or "customer support" section, there will be options available to raise query or doubts, select doubt column and ask your doubt</p>
+            <h1 className="Thirdsec5"><span>How can i contact rankboost team ?</span> <span style={rotate[4]} onClick={() => { hidefxn(4) }}>&#8595;</span></h1>
+            <p style={screen.width < 480 ? hide[4] : {}}>Email us on any of the email id :- rankboosteducation@gmail.com<br/>  kumarshubham6089@gmail.com  <br/> vikasisgen@gmail.com</p>
           </div>
           <div className="Thirdsec-ques">
-            <h1 className="Thirdsec5"><span>Can i talk to IITians</span> <span style={rotate[5]} onClick={() => { hidefxn(5) }}>&#8595;</span></h1>
-            <p style={screen.width < 480 ? hide[5] : {}}>Yes, after raising a doubt you can ask there for a call and then you can able to ask your queries from our team members, who are all from IIT's and NIT's</p>
+            <h1 className="Thirdsec5"><span>How to purchase the course ?</span> <span style={rotate[5]} onClick={() => { hidefxn(5) }}>&#8595;</span></h1>
+            <p style={screen.width < 480 ? hide[5] : {}}>1) Create Your account<br/>2) Choose the course by adding them to the cart or directly buy them<br/>3) Make the payment (Warning : Do not close the page or browser while the payment is being processing)<br/>4) When you see the success message after payment, return to the website and reload the page</p>
+          </div>
+          <div className="Thirdsec-ques">
+            <h1 className="Thirdsec5"><span>What this course contains ?</span> <span style={rotate[6]} onClick={() => { hidefxn(6) }}>&#8595;</span></h1>
+            <p style={screen.width < 480 ? hide[6] : {}}>1) Roadmap for Jee Prepration<br/>2) Doubt session<br/>3) Mentorship <br/>4)Subject wise strategy<br/>5) 1-1 personal guidance</p>
           </div>
         </div>
       </div>

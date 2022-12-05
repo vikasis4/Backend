@@ -80,15 +80,15 @@ const Player = () => {
                     </div>
                     <div className="player-bottom">
                         <div className="player-one">
-                            <h1>Section 1 - Brainless creatures</h1>
+                            <h1>Section 1 - Mindset & Mentality</h1>
                             <div className="player-one-list">
-                                {one}
+                                {two}
                             </div>
                         </div>
                         <div className="player-one">
-                            <h1>Section 2 - Brainless creatures</h1>
+                            <h1>Section 2 & 3 - Avoid Major Mistakes || Study Pattern and Strategies</h1>
                             <div className="player-one-list">
-                                {two}
+                                {one}
                                 <div className="soros"></div>
                             </div>
                         </div>

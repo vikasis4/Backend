@@ -512,7 +512,7 @@ const Pricing = () => {
                     <img className="price-first-coursed-img" src={four}></img>
                     <div className="price-cbtwn">
                       <div className="price-tag">
-                        <p className="price-head">COMBO Pack for 2023 and 2024 Batch</p>
+                        <p className="price-head">COMBO Pack for Both 2023 & 2024</p>
                         <h5><span > Orignal price  &nbsp; &#8377; 3,350</span></h5>
                         <h4><span > Discounted price  &nbsp; &#8377;999 only</span></h4>
                         <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 70% off</h3>

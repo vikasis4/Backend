@@ -235,6 +235,26 @@ app.post('/api/withdraw/refral/money', async (req, res) => {
         console.log(error);
     }
 })
+////////////////////////////////// ACTIVE COURSE /////////////////////////////////////////////////////
+app.post('/api/manage/course', async (req, res)=>{
+    try {
+        var pin = process.env.pin;
+        var vipin = req.body.pin;
+        console.log(pin);
+        console.log(vipin);
+        if (pin === vipin) {
+            var num = {name: req.body.typ}
+            var user = await User.findOne({username: req.body.email});
+            var subs = user.subarray;
+            subs.push(num)
+            await User.findOneAndUpdate({username: req.body.email},{subarray:subs});
+            res.json({status: 'success'})
+        }
+    } catch (error) {
+        console.log(error);
+        res.json({status: 'falied'})
+    }
+})
 ////////////////////////////// MONEY PAID /////////////////////////////////////////////////////////////
 
 app.post('/api/benjo/paid', async (req, res) => {

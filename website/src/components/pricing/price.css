@@ -325,9 +325,9 @@
     width: 100%;
 }
 .price-ltd-timer {
-    background-color:#28282B;
+    background-color:black;
     width:96%;
-    box-shadow: 0 0px 20px 0 red;
+    box-shadow: 0 0px 20px 0 var(--s4);
     margin:3rem auto 8rem auto;
     border-radius: 0.4rem;
     padding: 3rem 0
@@ -347,7 +347,7 @@
     font-weight: 600;
     font-size: 7rem;
     font-family: "DM Sans";
-    color:#AA6C39;
+    color:black;
     text-align: center;
     text-shadow: 0px 0px 4px #AA6C39;
     width: 100%;

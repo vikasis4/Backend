@@ -240,13 +240,30 @@ app.post('/api/manage/course', async (req, res)=>{
     try {
         var pin = process.env.pin;
         var vipin = req.body.pin;
-        console.log(pin);
-        console.log(vipin);
         if (pin === vipin) {
             var num = {name: req.body.typ}
             var user = await User.findOne({username: req.body.email});
             var subs = user.subarray;
-            subs.push(num)
+            subs.push(num);
+            if (user.subscription === 'false') {
+                await User.findOneAndUpdate({username: req.body.email},{subscription: 'true'});
+            }
+            var type = 'empty'
+            if (user.refral === 'empty') {
+                type = 'normal'
+            } else {
+                type = 'refral'
+            }
+            const ds = new Date();
+            const payment = await Payment.create({
+                refrence_nos: 6969,
+                transaction_id: 6969,
+                user: user._id,
+                date: ds,
+                type: type,
+                cart: subs
+            });
+            payment.save()
             await User.findOneAndUpdate({username: req.body.email},{subarray:subs});
             res.json({status: 'success'})
         }

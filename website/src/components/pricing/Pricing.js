@@ -120,7 +120,7 @@ const Pricing = () => {
   var ds = new Date();
   const [seconds, setSeconds] = useState(60 - ds.getSeconds())
   const [mins,setMins] = useState(60 - ds.getMinutes())
-  const [Hrs, setHrs] = useState(24 - ds.getHours())
+  const [Hrs, setHrs] = useState(48 - ds.getHours())
   var timer;
   useEffect(() => {
       timer = setInterval(() => {
@@ -541,7 +541,7 @@ const Pricing = () => {
                     <div className="price-cbtwn">
                       <div className="price-tag">
                         <p className="price-head">COMBO Pack for Both 2023 & 2024</p>
-                        <h5><span > Original price  &nbsp; &#8377; 4,000</span></h5>
+                        <h5><span > Original price  &nbsp; &#8377; <strike>4,000</strike></span></h5>
                         <h4><span > Discounted price  &nbsp; &#8377;999 only</span></h4>
                         <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 75% off</h3>
 
@@ -570,7 +570,7 @@ const Pricing = () => {
                       </div>
                       <ul>
                         <li>&#10003; 23+ Doubt + Councelling videos</li>
-                        <li>&#10003; 1-1 personal guidance (3 Months access) worth &#8377; 2499</li>
+                        <li>&#10003; 1-1 personal guidance</li>
                         <li>&#10003; IITIANs support</li>
                         <li>&#10003; Doubt session</li>
                         <li>&#10003; Study material for both mains and advance</li>

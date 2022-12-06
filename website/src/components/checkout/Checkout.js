@@ -102,7 +102,7 @@ const [btn, setBtn] = useState(false)
                 alert('Quickly create an account to start your journey')
                 navigate('/register')
             }
-        },4000)
+        },2500)
     }
 
     return (

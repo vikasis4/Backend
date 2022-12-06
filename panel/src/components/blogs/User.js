@@ -11,17 +11,22 @@ const User = () => {
   const [pin, setPin] = useState(0)
 
   const updatesusb = (value)=>{
-    axios.post(clink+'/manage/course',{
-      pin,
-      email:value.id,
-      typ:value.typ
-    }).then((response)=>{
-      if (response.data.status === 'success') {
-        alert('successfully updated')
-      }else{
-        alert('Failed')
-      }
-    })
+
+    if (pin.length === 6) {
+      axios.post(clink+'/manage/course',{
+        pin,
+        email:value.id,
+        typ:value.typ
+      }).then((response)=>{
+        if (response.data.status === 'success') {
+          alert('successfully updated')
+        }else{
+          alert('Failed')
+        }
+      })
+    }else{
+      alert('Wrong pin')
+    }
   }
   useEffect(() => {
     axios.get(`${clink}/all/users`).then((response) => {

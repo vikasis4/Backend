@@ -26,12 +26,6 @@ const User = new mongoose.Schema({
     img: { type: 'string', default: 'empty' },
     name: { type: 'string', default: 'User'},
     pkey: { type: 'number', default: 9876 },
-    current: {
-        bname: { type: 'string', default: 'video0'},
-        name: { type: 'string', default: 'Introduction of course' },
-        category: { type: 'string', default: 't2' },
-    },
-    quality: { type: 'number', default: 480 },
     refral:{type: 'string', default: 'empty'},
     query: [{
         type: { type: 'string' },

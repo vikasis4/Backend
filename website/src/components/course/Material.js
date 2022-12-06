@@ -45,10 +45,10 @@ const Material = (props) => {
 
     if (plf.length > 0) {
         const bubble = (jankari) => {
-            window.open(`${vlink}/pyq/${jankari.bname}.pdf`)
             if (screen.width < 480) {
-                alert('Download has started')
+                alert('Downloading has started, Check the Download section of browser')
             }
+            window.open(`${vlink}/pyq/${jankari.bname}.pdf`, "_self")
         }
         deliment = (plf).map(
             (plf) => {
@@ -89,10 +89,10 @@ const Material = (props) => {
     if (jankari.length > 0) {
         
         const bubble = (jankari) => {
-            window.open(`${vlink}/material/${jankari.type}/${jankari.bname}.pdf`)
             if (screen.width < 480) {
-                alert('Download has started')
+                alert('Downloading has started, Check the Download section of browser')
             }
+            window.open(`${vlink}/material/${jankari.type}/${jankari.bname}.pdf`, "_self")
         }
 
         peliment = (jankari).map(

@@ -1,32 +1,20 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import CourseContext from './CourseContext';
-import axios from 'axios'
 
-const CourseState =(props)=>{
+const CourseState = (props) => {
 
-    
     const [course, setCourse] = useState([]);
-    const [progress, setProgress] = useState('');
-    const clink = process.env.REACT_APP_LINK
-    
-    
-    const update = async (obj)=> {
-        const current = {
-            name: obj.name,
-            bname: obj.bname,
-            category: obj.category,
-        }
-        const id = obj.id    
-        await axios.put(clink+'/updatecurrent',{current, id})
-            setProgress(40)
+
+    const update = async (obj) => {
+        localStorage.setItem('cu_name', obj.name)
+        localStorage.setItem('cu_bname', obj.bname)
+        localStorage.setItem('cu_cat', obj.category)
     }
 
-
-
     return (
-    <CourseContext.Provider value={{course, setCourse, update}} >
-       { props.children}
-    </CourseContext.Provider>
+        <CourseContext.Provider value={{ course, setCourse, update }} >
+            {props.children}
+        </CourseContext.Provider>
     )
 }
- export default CourseState;
+export default CourseState;

@@ -117,9 +117,10 @@ const Pricing = () => {
     }
   }
 
-  const [seconds, setSeconds] = useState(60)
-  const [mins,setMins] = useState(48)
-  const [Hrs, setHrs] = useState(14)
+  var ds = new Date();
+  const [seconds, setSeconds] = useState(60 - ds.getSeconds())
+  const [mins,setMins] = useState(60 - ds.getMinutes())
+  const [Hrs, setHrs] = useState(24 - ds.getHours())
   var timer;
   useEffect(() => {
       timer = setInterval(() => {
@@ -130,7 +131,10 @@ const Pricing = () => {
           }
           if (mins === 0) {
               setMins(60);
-              setHrs(Hrs - 1)
+              setHrs(24 - ds.getHours())
+          }
+          if (Hrs === 0) {
+              setHrs(24 - ds.getHours());
           }
       }, 1000)
       return () => clearInterval(timer)
@@ -537,9 +541,9 @@ const Pricing = () => {
                     <div className="price-cbtwn">
                       <div className="price-tag">
                         <p className="price-head">COMBO Pack for Both 2023 & 2024</p>
-                        <h5><span > Original price  &nbsp; &#8377; 3,350</span></h5>
+                        <h5><span > Original price  &nbsp; &#8377; 4,000</span></h5>
                         <h4><span > Discounted price  &nbsp; &#8377;999 only</span></h4>
-                        <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 70% off</h3>
+                        <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 75% off</h3>
 
                         <div className="price-cbt-panel">
                           {

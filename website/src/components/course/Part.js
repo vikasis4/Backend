@@ -34,6 +34,7 @@ const Part = () => {
   useEffect(() => {
     setUrl(`${vlink}/course/${file.profile.current.category}/${file.profile.current.bname}/v${quality}p/index.m3u8`);
   },[file])
+
   useEffect(() => {
     setUrl(`${vlink}/course/${file.profile.current.category}/${file.profile.current.bname}/v${quality}p/index.m3u8`);
     if (file.profile.subscription === 'false') {
@@ -43,7 +44,7 @@ const Part = () => {
       ////////
     }else{
       setRate(1)
-      axios.post(clink+'/update/quality',{id:file.profile.id, quality})
+      localStorage.setItem('quality', quality)
     }
   }, [quality]);
 

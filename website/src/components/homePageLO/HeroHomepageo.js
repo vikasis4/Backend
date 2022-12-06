@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./herohomepageo.css";
 import animated from './main.jpg';
@@ -6,7 +6,9 @@ import cone from './cone.jpg';
 import cone4 from './cone4.jpg';
 import cone3 from './cone3.jpg';
 import cone5 from './cone5.jpg';
-import course from './course.png'
+import course from './course.png';
+import ProfileContext from '../../context/profile/ProfileContext';
+import telegram from '../../svg/telegram.svg'
 
 
 
@@ -14,7 +16,7 @@ const HeroHomepageo = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-
+    const profile = useContext(ProfileContext);
 
 
     if (location.pathname.slice(0, 12) === '/refral-link') {
@@ -72,29 +74,40 @@ const HeroHomepageo = () => {
                         </div>
                         {/* ///////////////////// */}
                         <div className="herohomepage-course-list">
-                            <div className="herohomepage-first-course">
-                                <img src={course}></img>
-                                <div className="herohomepage-cbtwn">
-                                    <h6>IIT-JEE Mentorship Courses</h6>
-                                    <p className="htdocs-1"> Special 50% off - Limited time offer</p>
-                                    <div className="herohomepage-cbt-panel">
-                                        <button onClick={() => { navigate('/price') }} className="herohomepage-main-half-btn">View all courses</button>
-                                        <div className="herohomepage-fine-line"></div>
+                            {
+                                profile.profile.subscription === 'true' ?
+                                    <div className="join-tele">
+                                        <img src={telegram}></img>
+                                        <h1>Join Telegram</h1>
+                                        <h2>For all the students who have enrolled in courses, They have to join this telegram channel for various facilities and future updates</h2>
+                                        <a href="https://t.me/+LZFARaWHr80yNzNl" target="_blank">Join Now</a>
                                     </div>
-                                    <div className="activate-dis">
-                                        <ul>
-                                            <li>&#10003; Guidance</li>
-                                            <li>&#10003; Doubt session</li>
-                                            <li>&#10003; 23+ Doubt videos</li>
-                                            <li>&#10003; 1-1 personal guidance</li>
-                                            <li>&#10003; Study material</li>
-                                            <li>&#10003; Councelling</li>
-                                            <li>&#10003; Short notes + PYQ</li>
-                                            <li>&#10003; Mains + Advance strategy</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                                    :
+                                    <>
+                                        <div className="herohomepage-first-course">
+                                            <img src={course}></img>
+                                            <div className="herohomepage-cbtwn">
+                                                <h6>IIT-JEE Mentorship Courses</h6>
+                                                <p className="htdocs-1"> Special 50% off - Limited time offer</p>
+                                                <div className="herohomepage-cbt-panel">
+                                                    <button onClick={() => { navigate('/price') }} className="herohomepage-main-half-btn">View all courses</button>
+                                                    <div className="herohomepage-fine-line"></div>
+                                                </div>
+                                                <div className="activate-dis">
+                                                    <ul>
+                                                        <li>&#10003; Guidance</li>
+                                                        <li>&#10003; Doubt session</li>
+                                                        <li>&#10003; 23+ Doubt videos</li>
+                                                        <li>&#10003; 1-1 personal guidance</li>
+                                                        <li>&#10003; Study material</li>
+                                                        <li>&#10003; Councelling</li>
+                                                        <li>&#10003; Short notes + PYQ</li>
+                                                        <li>&#10003; Mains + Advance strategy</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </>}
                         </div>
                     </div>
 

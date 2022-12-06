@@ -23,7 +23,9 @@ const Contact = () => {
                 <div className="contact-tab contact-tab1">
                     <p>if you want to talk to us related to any issue or want to raise any query related to the business you can contact us through our Email. Our company address is #5, lucky garden, dalip garh, ambala cantt, haryana</p>
                     <div><span style={{ color: 'var(--c2)' }}>EMAIL :- &nbsp;</span>
-                        <a target="_blank" href="https://mail.google.com/">rankboost.help@gmail.com</a>
+                        <a target="_blank" href="https://mail.google.com/">rankboosteducation@gmail.com</a><br/>
+                        <a target="_blank" href="https://mail.google.com/">kumarshubham6089@gmail.com</a><br/>
+                        <a target="_blank" href="https://mail.google.com/">vikasisgen@gmail.com</a><br/>
                     </div>
                     <div><span style={{ color: 'var(--c2)' }}>ADDRESS :- &nbsp;</span>
                         <a href="#">S O Kewal Krishan, Moonak, Sangrur, Punjab</a>

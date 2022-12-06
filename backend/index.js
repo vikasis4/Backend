@@ -1021,34 +1021,6 @@ app.delete('/api/delete/subs', async (req, res) => {
         console.log(error);
     }
 })
-////////////////////// UPDATE USER URL ///////////////////////////////////
-
-app.put('/api/updatecurrent', async (req, res) => {
-
-    try {
-        const doc = await User.findByIdAndUpdate(req.body.id, {
-            current: {
-                bname: req.body.current.bname,
-                name: req.body.current.name,
-                category: req.body.current.category
-            }
-        })
-    } catch (error) {
-        console.log(error);
-    }
-
-})
-app.post('/api/update/quality', async (req, res) => {
-    try {
-        await User.findByIdAndUpdate(req.body.id, {
-            quality: req.body.quality
-        })
-    } catch (error) {
-        console.log(error);
-    }
-})
-
-
 ///////////////////// UPLOAD QUERY IMAGE ////////////////////////////////
 
 const storage = multer.diskStorage({

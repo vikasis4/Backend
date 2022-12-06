@@ -11,12 +11,29 @@ const VerifyState = (props) => {
     const datas = useContext(ProfileContext);
     const [verify, setVerify] = useState('');
     const [progress, setProgress] = useState('');
-    const clink = process.env.REACT_APP_LINK
-
-
+    const clink = process.env.REACT_APP_LINK;
+    var cu_obj = {
+        name: 'Mistakes to avoid in JEE preparation',
+        bname: 'video1',
+        category: 't1'
+    }
+    var quality = 480
 
 
     const Runverify = async (name) => {
+
+        ////////////////////// video setting //////////////////////
+        if (localStorage.getItem('cu_name')) {
+            cu_obj = {
+                name: localStorage.getItem('cu_name'),
+                bname: localStorage.getItem('cu_bname'),
+                category: localStorage.getItem('cu_cat')
+            }
+        }
+        if (localStorage.getItem('quality')) {
+            quality = ocalStorage.getItem('quality')
+        }
+        ////////////////////// video setting //////////////////////
 
         if (progress < 40) {
             setProgress(10)
@@ -40,12 +57,12 @@ const VerifyState = (props) => {
                         subscription: response.data.user.subscription,
                         void: 'no',
                         id: response.data.user._id,
-                        current: response.data.user.current,
+                        current: cu_obj,
                         query: response.data.user.query,
                         img: response.data.user.img,
                         vkey: response.data.user.vkey,
                         name: response.data.user.name,
-                        quality: response.data.user.quality,
+                        quality: quality,
                         subarray: response.data.user.subarray,
                         type,
                         room: response.data.user.room,

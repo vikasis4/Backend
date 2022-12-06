@@ -193,7 +193,42 @@
 .herohero-mobile-cont h1 {
     text-align: center;
 }
-
+.join-tele a{
+    width: 100%;
+    padding:2rem;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Dosis";
+    font-weight: 600;
+    font-size: 4rem;
+    color:white;
+    background-color:var(--c2)
+}
+.join-tele h1{
+    font-family: "Dosis";
+    font-weight: 600 !important;
+    padding: 2rem;
+    font-size: 5rem !important;
+}
+.join-tele h2{
+    font-family: Dosis;
+    font-size: 4rem;
+    font-weight: 500;
+    padding:4rem 3rem;
+    color: #28282B;
+}
+.join-tele{
+    display: flex;
+    justify-content: flex-start;
+    place-items: center;
+    flex-direction: column;
+    width: 90%;
+    margin:4rem auto;
+    box-shadow:0 2px 8px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 0.4rem;
+    padding-top: 4rem;
+}
 .herohero-mobile-cont {
     display: flex;
     height: 100%;

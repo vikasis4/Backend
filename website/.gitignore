@@ -6,4 +6,5 @@ server-build
 .env.save
 server
 .babelrc.json
+/backup
 webpack.server.js

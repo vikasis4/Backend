@@ -107,6 +107,7 @@ const Refral = () => {
                 <div className="refral-one">
                     <h1>&#8377; 50 &nbsp; per referral</h1>
                 </div>
+                <h1 className="ref-msg">This service will start from 10 January 2023</h1>
                 <div className="refral-two">
                     <div className="refral-two-one">
                         <h1>Balance</h1>

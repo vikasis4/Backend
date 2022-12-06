@@ -183,7 +183,7 @@ const Navbar = () => {
                 <div className="menu-bhai">
                     <ul>
                         <li onClick={() => { navigate('/'); show(); }}> <div className="menu-bros" ><img className="menu-icos" src={mhome} ></img> <a>Home</a></div><img src={mright}></img></li>
-                        <li onClick={() => { navigate('/courses'); show(); }}> <div className="menu-bros" ><img className="menu-icos" src={mcourse} ></img> <a>Courses</a></div><img src={mright}></img></li>
+                        <li onClick={() => { navigate('/courses'); show(); }}> <div className="menu-bros" ><img className="menu-icos" src={mcourse} ></img> <a>Active Courses</a></div><img src={mright}></img></li>
                         <li onClick={() => { navigate('/price'); show(); }}> <div className="menu-bros" ><img className="menu-icos" src={mprice} ></img> <a>Pricing</a></div><img src={mright}></img></li>
                         <li onClick={() => { navigate('/refral'); show(); }}> <div className="menu-bros" ><img className="menu-icos" src={mrefer} ></img> <a >Referral</a></div><img src={mright}></img></li>
                         <li onClick={() => { navigate('/books'); show(); }}> <div className="menu-bros" ><img className="menu-icos" src={mbook} ></img> <a >Books</a></div><img src={mright}></img></li>

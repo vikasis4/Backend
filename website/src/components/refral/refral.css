@@ -5,6 +5,19 @@
     text-align: center;
     margin-top:2rem
 }
+.ref-msg span{
+    font-size: 4rem;
+}
+.ref-msg{
+    background-color: red;
+    color:white;
+    font-family: "DM Sans";
+    text-align: center;
+    margin:4rem 0;
+    padding:4rem 0;
+    width:100%;
+    font-size: 6rem;
+}
 .refral-two{
     width: 90%;
     margin:4rem auto;

@@ -522,6 +522,8 @@ const Query = () => {
                     <h1>{progress} %</h1>
                 </div>
             </div>
+            <div style={{ height: '10rem'}}></div>
+            <h1 className="ref-msg">This service will start from 10 January 2023<br/><span> 2 Months Extra will be Granted to the students who have made the payment befor the 10 january</span>  </h1>
             {activation === true ?
                 <>
                     <div className="Dquery-main deactivate-dis">

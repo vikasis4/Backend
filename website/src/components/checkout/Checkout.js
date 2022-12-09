@@ -7,6 +7,8 @@ import pay from './6342757.jpg'
 import minus from '../../svg/minus.svg'
 import axios from 'axios'
 import { Helmet } from 'react-helmet'
+import jwt_decode from 'jwt-decode'
+
 
 const Checkout = () => {
 
@@ -17,7 +19,7 @@ const Checkout = () => {
     const [kart, setKart] = useState(profile.profile.cart);
     const [bill, setBill] = useState(0);
     var num = 0;
-
+    const [refral, setRefral] = useState(localStorage.getItem('refral'))
 
 
     useEffect(() => {
@@ -88,22 +90,69 @@ const Checkout = () => {
             localStorage.setItem('cart', kart)
         }
     }
-const [btn, setBtn] = useState(false)
+    const [btn, setBtn] = useState(false)
+    const [vista, setVista] = useState(false)
+
     const initiate = () => {
-        setBtn(true)
-        setTimeout(() => {
+        if (bill > 0) {
             if (profile.profile.void === 'no') {
-                if (bill > 0) {
+                setBtn(true)
+                setTimeout(() => {
                     Payment.paymentverify(profile.profile.id)
-                } else {
-                    alert("Cart is empty")
-                }
-            } else {
-                alert('Quickly create an account to start your journey')
-                navigate('/register')
+                }, 2500)
+            }else{
+                setVista(true)
             }
-        },2500)
+        } else {
+            alert("Cart is empty")
+        }
     }
+
+    /////////////////////// initiate google ////////////////////////////
+    const googlesignup = (response) => {
+        var userobj = jwt_decode(response.credential);
+        if (userobj.email_verified) {
+            var pass = userobj.jti.slice(0, 10);
+            const googlestart = async () => {
+                await axios.post(clink + '/register', {
+                    username: userobj.email,
+                    password: pass,
+                    type: 'google',
+                    name: userobj.given_name,
+                    img: userobj.picture,
+                    refral: refral,
+                    namee: userobj.given_name
+                })
+                    .then((response) => {
+                        if (response.data.message === 'yup') {
+                            localStorage.setItem('token', response.data.token)
+                            if (localStorage.getItem('refral')) {
+                                localStorage.removeItem('refral')
+                            }
+                            Payment.noUserPay(response.data.newUser, kart);
+                            setVista(false)
+                        }
+                        else if (response.data.message === 'no') {
+                            profile.setDisp('none')
+                            alert('email is already registered')
+                        }
+                    })
+            }
+            googlestart();
+        }
+    }
+    useEffect(() => {
+        /* global google */
+        google.accounts.id.initialize({
+            client_id: "535610579205-d0dad7t8r0orbhtgb842l84bib80gg95.apps.googleusercontent.com",
+            callback: googlesignup
+        });
+        google.accounts.id.renderButton(
+            document.getElementById("PayJs"),
+            { theme: "outline", size: "large" }
+        )
+    }, [])
+
 
     return (
         <>
@@ -112,25 +161,31 @@ const [btn, setBtn] = useState(false)
                 <Helmet>
                     <title>RankBoost - Checkout Cart</title>
                 </Helmet>
+                <div className="pay-acc" style={vista === false ? { display: "none" } : { display: "block" }}>
+                    <div className="pay-accs">
+                        <h1>Create Account and continue to pay</h1>
+                        <div id="PayJs"></div>
+                    </div>
+                </div>
                 <div className="checkout-second">
                     <img src={pay}></img>
                 </div>
                 <div className="checkout-first">
                     <div className="checkout-first-second">
                         {!btn === false ? <div className="check-warn"> <h1>Warning !!!!</h1><h2>Do not close the Tab or the Browser while the payment is processing</h2></div> :
-                        <>
-                        <div className="checkout-liss">
-                            <h1>Total items :-</h1>
-                            {kart.length === 0 ? <h1 style={{ fontSize: '1.8rem', fontWeight: '600', color: 'purple', textAlign: 'center', margin: '4rem 0' }}>Cart is empty</h1> : ""}
-                            <ul>
-                                {kart.find(({ name }) => name === "elev") ? <li><a onClick={() => { jani("elev") }}><img src={minus}></img></a> Jee guidance for 2024 batch, price &#8377; 1299 </li> : ""}
-                                {kart.find(({ name }) => name === "twel") ? <li><a onClick={() => { jani("twel") }}><img src={minus}></img></a> Jee guidance for 2023 batch, price &#8377; 699 </li> : ""}
-                                {kart.find(({ name }) => name === "combo") ? <li><a onClick={() => { jani("combo") }}><img src={minus}></img></a> Combo pack for both 2023 and 2024 students, price &#8377; 999 </li> : ""}
-                                {kart.find(({ name }) => name === "material") ? <li><a onClick={() => { jani("material") }}><img src={minus}></img></a> Jee study material, price &#8377; 399 </li> : ""}
-                                {kart.find(({ name }) => name === "personal") ? <li><a onClick={() => { jani("personal") }}><img src={minus}></img></a> personal 1-1 guidance 6 moths validity, price &#8377; 2999 </li> : ""}
-                            </ul>
-                        </div>
-                        </>}
+                            <>
+                                <div className="checkout-liss">
+                                    <h1>Total items :-</h1>
+                                    {kart.length === 0 ? <h1 style={{ fontSize: '1.8rem', fontWeight: '600', color: 'purple', textAlign: 'center', margin: '4rem 0' }}>Cart is empty</h1> : ""}
+                                    <ul>
+                                        {kart.find(({ name }) => name === "elev") ? <li><a onClick={() => { jani("elev") }}><img src={minus}></img></a> Jee guidance for 2024 batch, price &#8377; 1299 </li> : ""}
+                                        {kart.find(({ name }) => name === "twel") ? <li><a onClick={() => { jani("twel") }}><img src={minus}></img></a> Jee guidance for 2023 batch, price &#8377; 699 </li> : ""}
+                                        {kart.find(({ name }) => name === "combo") ? <li><a onClick={() => { jani("combo") }}><img src={minus}></img></a> Combo pack for both 2023 and 2024 students, price &#8377; 999 </li> : ""}
+                                        {kart.find(({ name }) => name === "material") ? <li><a onClick={() => { jani("material") }}><img src={minus}></img></a> Jee study material, price &#8377; 399 </li> : ""}
+                                        {kart.find(({ name }) => name === "personal") ? <li><a onClick={() => { jani("personal") }}><img src={minus}></img></a> personal 1-1 guidance 6 moths validity, price &#8377; 2999 </li> : ""}
+                                    </ul>
+                                </div>
+                            </>}
                         <h1 className="checkout-cart-txt">Cart subtotal</h1>
                         <h2>Total amount you have to pay for your cart : &#8377; {bill}</h2>
                         <button onClick={() => { initiate() }}>{btn === false ? 'Pay' : "Please wait..."}</button>

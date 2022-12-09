@@ -22,8 +22,6 @@ const Query = require("./models/query");
 const multer = require("multer");
 const Refral = require('./models/refral');
 const reffile = require("./refralfile");
-const live = require("./live");
-const Live = require('./models/live');
 const History = require('./models/traffichistory');
 const { v4: uuidv4 } = require('uuid');
 const Personal = require('./models/personal');
@@ -33,6 +31,8 @@ const { spawn } = require('child_process');
 const CronJob = require('cron').CronJob;
 const mongoose = require('mongoose');
 const payUMoney = require('./payUmoney');
+const Live = require('./models/live');
+const live = require("./live");
 
 
 const app = express();
@@ -96,70 +96,7 @@ const bilx = async () => {
 //     })
 // }
 // bilx()
-
-
-////////////////////////////////////  WEB SOCKETS  ///////////////////////////////////////////////////////////////////
-// const http = require('http').createServer(app);
-// http.listen( 8080, function() {
-//     console.log( 'Socket server running on port 8080' );
-//     });
-// const io = require("socket.io")(http, {
-//     cors: {
-//         origin: ["http://localhost:3000","http://localhost:3001"],
-//         methods: ["GET", "POST"]
-//       }
-// });
-// const io = require("socket.io")(http, {
-//     cors: {
-//         origin: ['https://rankboost.live', 'https://admin.rankboost.live']
-//     }
-// });
-// const asp = io.of("/admin");
-// const nsp = io.of("/normal");
-// var count = 0;
-// var livearray = [];
-// asp.on("connection", (socket) => {
-//     console.log('j-ad');
-
-//     socket.on("Texts", (data) => {
-//         nsp.to(data.connection).emit("data", data);
-//     })
-//     socket.on("disconnect", () => {
-//         console.log('d-ad');
-//     })
-//     /////////////////////////////////////
-    
-// })
-
-// nsp.on("connection", (socket) => {
-//     console.log('j-cl');
-
-//     socket.on('update-cont', (id) => {
-//         console.log(id);
-//         count = count + 1;
-//         if (id) {
-//             livearray.push(id);
-//         }
-//         asp.emit("live-listen", count);
-//     })
-//     socket.on("disconnect", () => {
-//         console.log('d-cl');
-//         const index = livearray.findIndex((element) => element === socket.id);
-//         if (index > -1) {
-//             count = count - 1;
-//             livearray.splice(index, 1);
-//         }
-//         asp.emit("live-listen", count);
-//     })
-//     /////////////////////////////////////
-//     socket.on('Texts', (data) => {
-//         asp.emit('daata', data);
-//     })
-//     socket.on("join-room", (room) => {
-//         socket.join(room)
-//     })
-// })
-///////////////// LIVE RELOADER /////////////////////////////////////////////////////////////////////////////
+///////////////////////// LIVE RELOADER /////////////////////////
 var job2 = new CronJob(
     '* * * * *',
     function () {
@@ -184,7 +121,11 @@ app.post('/api/traffic/tracker', async (req, res) => {
                     year
                 })
             }
-            await User.findOneAndUpdate({username: req.body.livetoken}, {last_seen: `${day}/${month}/${year}`})
+            try {
+                await User.findOneAndUpdate({ username: req.body.username }, { last_seen: `${day}/${month}/${year}` })
+            } catch (error) {
+                console.log('live-token-error');
+            }
             await Live.findOneAndUpdate({ username: req.body.livetoken }, {
                 time: req.body.sum,
                 status: "online"
@@ -207,15 +148,6 @@ app.post('/api/traffic/tracker', async (req, res) => {
     }
     res.status(200).send({ work: 'yes' })
 })
-app.get('/api/get/traffic', async (req, res) => {
-    try {
-        await Live.find({}).then(function (data) {
-            res.json(data)
-        })
-    } catch (error) {
-        console.log(error);
-    }
-})
 app.get('/api/history/traffic', async (req, res) => {
     try {
         await History.find({}).then(function (data) {
@@ -236,17 +168,17 @@ app.post('/api/withdraw/refral/money', async (req, res) => {
     }
 })
 ////////////////////////////////// ACTIVE COURSE /////////////////////////////////////////////////////
-app.post('/api/manage/course', async (req, res)=>{
+app.post('/api/manage/course', async (req, res) => {
     try {
         var pin = process.env.pin;
         var vipin = req.body.pin;
         if (pin === vipin) {
-            var num = {name: req.body.typ}
-            var user = await User.findOne({username: req.body.email});
+            var num = { name: req.body.typ }
+            var user = await User.findOne({ username: req.body.email });
             var subs = user.subarray;
             subs.push(num);
             if (user.subscription === 'false') {
-                await User.findOneAndUpdate({username: req.body.email},{subscription: 'true'});
+                await User.findOneAndUpdate({ username: req.body.email }, { subscription: 'true' });
             }
             var type = 'empty'
             if (user.refral === 'empty') {
@@ -264,12 +196,12 @@ app.post('/api/manage/course', async (req, res)=>{
                 cart: subs
             });
             payment.save()
-            await User.findOneAndUpdate({username: req.body.email},{subarray:subs});
-            res.json({status: 'success'})
+            await User.findOneAndUpdate({ username: req.body.email }, { subarray: subs });
+            res.json({ status: 'success' })
         }
     } catch (error) {
         console.log(error);
-        res.json({status: 'falied'})
+        res.json({ status: 'falied' })
     }
 })
 ////////////////////////////// MONEY PAID /////////////////////////////////////////////////////////////
@@ -298,18 +230,7 @@ app.get('/api/userswill/info', async (req, res) => {
         console.log(error);
     }
 })
-app.post('/api/check/live', async (req, res) => {
-    try {
-        const user = await User.findById(req.body.id)
-        if (user) {
-            const live = await Live.findOne({ username: user.username });
-            res.json(live)
-        }
-    } catch (error) {
-        console.log(error);
-    }
 
-})
 
 //////////////   REGISTER    /////////////////////////////////////////////////////////////////////////////
 
@@ -357,8 +278,9 @@ app.post('/api/register', async (req, res) => {
                     room: uuidv4()
                 })
                 const token = await user.generateToken();
-                user.save()
-                res.json({ message: "yup", token });
+                user.save();
+                var newUser = await User.findOne({ username: req.body.username });
+                res.json({ message: "yup", token, newUser });
 
                 var cred = {
                     pass: req.body.password,
@@ -376,8 +298,9 @@ app.post('/api/register', async (req, res) => {
                     room: uuidv4()
                 })
                 const token = await user.generateToken();
-                user.save()
-                res.json({ message: "yup", token });
+                user.save();
+                var newUser = await User.findOne({ username: req.body.username });
+                res.json({ message: "yup", token, newUser });
 
                 var cred = {
                     pass: req.body.password,
@@ -939,7 +862,7 @@ app.post('/payu/success', async (req, res) => {
                     status = 15
                 }
                 if (user.guidance_session.plan_time === 0) {
-                    updatepersonal(status, 'true');
+                    // updatepersonal(status, 'true');
                 } else {
                     var monthz = p_month + status;
                     var yearz = p_year;
@@ -979,7 +902,7 @@ app.post('/payu/success', async (req, res) => {
                     status = 12
                 }
                 if (user.guidance_session.plan_time === 0) {
-                    updatepersonal(status, 'true');
+                    // updatepersonal(status, 'true');
                 } else {
                     var monthz = p_month + status;
                     var yearz = p_year;
@@ -1005,7 +928,7 @@ app.post('/payu/success', async (req, res) => {
             }
             else if (cart.find(({ name }) => name === 'combo')) {
                 if (user.guidance_session.plan_time === 0) {
-                    updatepersonal(3, 'false');
+                    // updatepersonal(3, 'false');
                 } else {
                     var monthz = p_month + 3;
                     var yearz = p_year;

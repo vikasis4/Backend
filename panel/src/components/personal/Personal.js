@@ -21,7 +21,7 @@ const Personal = () => {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     useEffect(() => {
         if (socket === null) {
-            setSocket(io('http://localhost:4000/admin'))
+            // setSocket(io('http://localhost:4000/admin'))
         }
         if (socket && ready === true) {
             socket.on('daata', (data) => {

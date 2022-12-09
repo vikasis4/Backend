@@ -31,8 +31,9 @@ import Books from './components/books/Books'
 import axios from 'axios';
 import io from 'socket.io-client';
 import { Helmet } from 'react-helmet'
-// import useSSR from 'use-ssr'
 
+// var socket = io('http://localhost:8080/normal', { transports: ["websocket"] });
+var socket = io('https://wbb.rankboost.live/normal', { transports: ["websocket"] });
 
 
 function App() {
@@ -42,27 +43,30 @@ function App() {
   const location = useLocation();
   const clink = process.env.REACT_APP_LINK;
   const NonApiLink = process.env.REACT_APP_VIDEO_LINK;
-  // var { isBrowser, isServer, isNative } = useSSR()
-
-  // console.log('IS BROWSER: ', isBrowser ? '👍' : '👎')
-  // console.log('IS SERVER: ', isServer ? '👍' : '👎')
-  // console.log('IS NATIVE: ', isNative ? '👍' : '👎')
 
   ///////////////////////// WEB SOCKETS ////////////////////////////////////////////////////////////
 
-  // const [socket, setSocket] = useState({connected: false})
-  // useEffect(() => {
-  //   // setSocket(io(`${NonApiLink}`))
-  //   setSocket(io(`http://localhost:8080/normal`))
-  //   if (socket.connected === true) {  
-  //     socket.on("connect", () => {
-  //       alert('ss test')
-  //       socket.emit('update-cont', socket.id); // x8WIv7-mJelg7on_ALbx
-  //     });
-  //   }
-    
-  // }, [])
+  const [isConnected, setIsConnected] = useState(socket.connected);
+  const [lastPong, setLastPong] = useState(null);
 
+  useEffect(() => {
+
+    socket.on('connect', () => {
+      setIsConnected(true);
+      socket.emit('update-cont', socket.id);
+    });
+    socket.on('disconnect', () => {
+      setIsConnected(false);
+    });
+    socket.on('pong', () => {
+      setLastPong(new Date().toISOString());
+    });
+    return () => {
+      socket.off('connect');
+      socket.off('disconnect');
+      socket.off('pong');
+    };
+  }, []);
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   // document.addEventListener('contextmenu', event => event.preventDefault());
   // document.onkeydown = function (e) {
@@ -113,21 +117,23 @@ function App() {
       livetoken = final
     }
     const date = new Date();
-    const hrs = date.getHours();
-    const mins = date.getMinutes();
-    const secs = date.getSeconds();
-    const sum = hrs * 3600 + mins * 60 + secs;
-    axios.post(clink + '/traffic/tracker', { livetoken, sum, type: "non-reg" })
+    const mins = date.getMinutes().toString();
+    const secs = date.getSeconds().toString();
+    var topG = secs.length === 1 ? 'x'+secs : secs;
+    var sum = mins.length === 1 ? 'x'+mins+':'+topG : mins+':'+topG
+    var username = duework.profile.username
+    axios.post(clink + '/traffic/tracker', { livetoken, sum, type: "non-reg", username })
   }
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   const regrefresh = () => {
     const date = new Date();
-    const hrs = date.getHours();
-    const mins = date.getMinutes();
-    const secs = date.getSeconds();
-    const sum = hrs * 3600 + mins * 60 + secs;
+    const mins = date.getMinutes().toString();
+    const secs = date.getSeconds().toString();
+    var topG = secs.length === 1 ? 'x'+secs : secs;
+    var sum = mins.length === 1 ? 'x'+mins+':'+topG : mins+':'+topG
+    var username = duework.profile.username
     const livetoken = duework.profile.username
-    axios.post(clink + '/traffic/tracker', { livetoken, sum, type: "reg" })
+    axios.post(clink + '/traffic/tracker', { livetoken, sum, type: "reg", username })
 
   }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -145,12 +151,12 @@ function App() {
 
     return (
       <div style={{ height: '100%' }} className="App">
-          <Helmet>
-            <title>RankBoost - Jee Guidance platform</title>
-            <meta name="description" content="Rankboost is a  iit jee guidance & mentorship platform for iit jee, Rankboost aslo provide personal 1-1 guidance and study material. Rankboost is well known for its quality service and high quality iit jee guidance courses" />
-            <meta name="keywords" content="rankboost guidance iit jee mentorship jee-study-material iit-jee iitjee rankboost rankboost" />
-          </Helmet>
-          <ScrollTop />
+        <Helmet>
+          <title>RankBoost - Jee Guidance platform</title>
+          <meta name="description" content="Rankboost is a  iit jee guidance & mentorship platform for iit jee, Rankboost aslo provide personal 1-1 guidance and study material. Rankboost is well known for its quality service and high quality iit jee guidance courses" />
+          <meta name="keywords" content="rankboost guidance iit jee mentorship jee-study-material iit-jee iitjee rankboost rankboost" />
+        </Helmet>
+        <ScrollTop />
         <Routes>
           <Route path="/" element={<Navbar />} >
             <Route index element={<HomePageO />} />

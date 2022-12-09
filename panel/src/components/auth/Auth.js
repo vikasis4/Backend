@@ -4,8 +4,12 @@ import './auth.css'
 import PanelContext from '../../context/panelentry/PanelContext'
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, registerables } from 'chart.js';
-import io from 'socket.io-client'
+import io from 'socket.io-client';
 ChartJS.register(...registerables);
+
+const NonApiLink = process.env.REACT_APP_VIDEO_LINK;
+// var socket = io('http://localhost:8080/admin', {transports: ["websocket"]});
+var socket = io('https://wbb.rankboost.live/admin', {transports: ["websocket"]});
 
 
 
@@ -14,23 +18,34 @@ const Auth = () => {
     const [key, setKey] = useState('')
     const link = process.env.REACT_APP_LINK
     const panel = useContext(PanelContext)
-    const NonApiLink = process.env.REACT_APP_VIDEO_LINK;
 
 
     //////////////////////// WEB SOCKET ///////////////////////////////////
-    const [socket, setSocket] = useState(null);
+    const [isConnected, setIsConnected] = useState(socket.connected);
+    const [lastPong, setLastPong] = useState(null);
     const [count, setCount] = useState(0);
-    useEffect(() => {
-        setSocket(io(`http://localhost:8080/admin`));
-    }, [])
     
     useEffect(() => {
-        if (socket) {
-            socket.on('live-listen', (counts) =>{
-                setCount(counts)
-            })
-        }
-    }, [socket])
+
+        socket.on('connect', () => {
+            setIsConnected(true);
+            socket.emit('update-me')
+        });
+        socket.on('live-listen', (counts) => {
+            setCount(counts);
+        })
+        socket.on('disconnect', () => {
+            setIsConnected(false);
+        });
+        socket.on('pong', () => {
+            setLastPong(new Date().toISOString());
+        });
+        return () => {
+            socket.off('connect');
+            socket.off('disconnect');
+            socket.off('pong');
+        };
+    }, []);
 
 
     /////////////////////////// TOKEN //////////////////////////////////////
@@ -57,10 +72,8 @@ const Auth = () => {
             }
         })
     }
-    /////////////////////////// TOKEN //////////////////////////////////////
 
     ////////////////////////////// TRAFFIC ////////////////////////////////////
-    const [traffic, setTraffic] = useState([])
     const [regtraffic, setRegtraffic] = useState([])
     const [non_regtraffic, setNon_regtraffic] = useState([])
     const [user, setUser] = useState([])
@@ -73,7 +86,6 @@ const Auth = () => {
         timer = setInterval(() => {
             setSeconds(seconds + 1);
             if (seconds === 20) {
-                setTraffic([])
                 setUser([])
                 setRegtraffic([])
                 setNon_regtraffic([])
@@ -94,9 +106,6 @@ const Auth = () => {
         axios.get(link + '/userswill/info').then((response) => {
             setUser(response.data)
         })
-        axios.get(link + '/get/traffic').then((response) => {
-            setTraffic(response.data)
-        })
     }
     useEffect(() => {
         for (let i = 0; i < user.length; i++) {
@@ -110,19 +119,7 @@ const Auth = () => {
             }
         }
     }, [user])
-    useEffect(() => {
-        for (let i = 0; i < traffic.length; i++) {
-            if (traffic[i].register === 'reg' && traffic[i].status === 'online') {
-                regtraffic.push(traffic[i]);
-                setRegtraffic([...regtraffic]);
-            }
-            else if (traffic[i].register === 'non-reg') {
-                non_regtraffic.push(traffic[i]);
-                setNon_regtraffic([...non_regtraffic])
-            }
-        }
-    }, [traffic])
-
+  
     ////////////////////////////// TRAFFIC ////////////////////////////////////
     const ds = new Date();
     const monthy = ds.getUTCMonth() + 1;
@@ -242,11 +239,6 @@ const Auth = () => {
                                     <h1 style={{ textAlign: 'center' }}>Online non-registered users</h1>
                                     <h1 style={{ textAlign: 'center' }}>{non_regtraffic.length}</h1>
                                 </div>
-                                <div className="dash-cont">
-                                    <h1 style={{ textAlign: 'center' }}>Live traffic</h1>
-                                    <h1 style={{ textAlign: 'center' }}>{regtraffic.length + non_regtraffic.length}</h1>
-                                </div>
-
                                 <div className="dash-cont">
                                     <h1 style={{ textAlign: 'center' }}>History of traffic</h1>
                                     <h1 style={{ textAlign: 'center' }}>{history.length}</h1>

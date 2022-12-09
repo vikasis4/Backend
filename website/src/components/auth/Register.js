@@ -46,17 +46,11 @@ const Register = () => {
 
 
     const googlesignup = (response) => {
-
         profile.setDisp('block')
-
         var userobj = jwt_decode(response.credential);
-
         if (userobj.email_verified) {
             var pass = userobj.jti.slice(0, 10);
-
-
             const googlestart = async () => {
-
                 await axios.post(clink + '/register', {
                     username: userobj.email,
                     password: pass,

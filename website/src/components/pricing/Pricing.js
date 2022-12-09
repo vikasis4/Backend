@@ -260,8 +260,8 @@ const Pricing = () => {
                     </div>
                     <div className="pd_card_two">
                       <div className="pd_card_slab pd_slab_combo">
-                        <h4>Discounted price  &nbsp; &#8377; 999 only</h4>
-                        <h3>Flat 70% off</h3>
+                        <h4>Discounted price  &nbsp; &#8377; 499 only</h4>
+                        <h3>Flat 85% off</h3>
                         <div className="pd_control_buttons">
                           {
                             statee === true ?
@@ -284,7 +284,7 @@ const Pricing = () => {
                         </span>
                         <ul>
                           <li>&#10003; 23+ Doubt + Councelling videos</li>
-                          <li>&#10003; 1-1 personal guidance (3 Months access) worth &#8377; 2,499</li>
+                          {/* <li>&#10003; 1-1 personal guidance (3 Months access) worth &#8377; 2,499</li> */}
                           <li>&#10003; IITIANs support</li>
                           <li>&#10003; Doubt session</li>
                           <li>&#10003; Study material for mains and advance</li>
@@ -542,8 +542,8 @@ const Pricing = () => {
                       <div className="price-tag">
                         <p className="price-head">COMBO Pack for Both 2023 & 2024</p>
                         <h5><span > Original price  &nbsp; &#8377; <strike>4,000</strike></span></h5>
-                        <h4><span > Discounted price  &nbsp; &#8377;999 only</span></h4>
-                        <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 75% off</h3>
+                        <h4><span > Discounted price  &nbsp; &#8377;499 only</span></h4>
+                        <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 85% off</h3>
 
                         <div className="price-cbt-panel">
                           {
@@ -570,7 +570,7 @@ const Pricing = () => {
                       </div>
                       <ul>
                         <li>&#10003; 23+ Doubt + Councelling videos</li>
-                        <li>&#10003; 1-1 personal guidance</li>
+                        {/* <li>&#10003; 1-1 personal guidance</li> */}
                         <li>&#10003; IITIANs support</li>
                         <li>&#10003; Doubt session</li>
                         <li>&#10003; Study material for both mains and advance</li>

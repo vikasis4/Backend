@@ -49,10 +49,10 @@ const Footer = () => {
                                 <li><a onClick={() => { navigate('/books') }} >Books</a></li>
                                 <li><a onClick={() => { navigate('/refral') }} >Referral</a></li>
                                 <li>{info.profile.void === 'no' ? <a onClick={() => { navigate('/profile') }}>Account</a> : <a onClick={() => { navigate('/login') }}>Account</a>}</li>
+                                <li>{info.profile.void === 'no' ? <a onClick={() => { navigate('/support') }}>Customer Support</a> : <a onClick={() => { navigate('/register') }}>Register</a>}</li>
                                 <li><a onClick={() => { navigate('/forgot') }}>Change Password</a></li>
                                 <li><a onClick={() => { navigate('/support') }}>Customer support</a></li>
-                                <li>{info.profile.void === 'no' ? <a onClick={() => { navigate('/support') }}>Customer Support</a> : <a onClick={() => { navigate('/register') }}>Register</a>}</li>
-                                <li><a onClick={() => { navigate('/guidance-personal') }} >Personal 1-1 Guidance</a></li>
+                                {/* <li><a onClick={() => { navigate('/guidance-personal') }} >Personal 1-1 Guidance</a></li> */}
                             </div>
                         </div>
                         <div className="footer-do">

@@ -18,9 +18,13 @@ exports.payUMoneyPayment = function (req, res) {
         const cross = async () => {
 
             var user = await User.findById(req.body.data.udf1);
-            var money = user.cart;
+            if (req.body.data.txnid === 'new_account') {
+                var money = req.body.data.udf2;
+            }else{
+                var money = user.cart;
+            }
             var num = process.env.value;
-            var string = ''
+            var string = '';
 
             for (let i = 0; i < money.length; i++) {
                 if (money[i].name === 'elev') {

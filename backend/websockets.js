@@ -1,18 +1,26 @@
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 
-const httpServer = createServer();
-const io = new Server(httpServer, {
-    cors: {
-        origin: ["http://localhost:3000", "http://localhost:3001"],
-        methods: ["GET", "POST"]
-    }
-});
-// const io = require("socket.io")(http, {
+
+const requestListener = function (req, res) {
+    res.setHeader("Content-Type", "text/html");
+    res.writeHead(200);
+    res.end(`<html><body><h1>This is HTML</h1></body></html>`)
+};
+
+const httpServer = createServer(requestListener);
+
+// const io = new Server(httpServer, {
 //     cors: {
-//         origin: ['https://rankboost.live', 'https://admin.rankboost.live']
+//         origin: ["http://localhost:3000", "http://localhost:3001"],
+//         methods: ["GET", "POST"]
 //     }
 // });
+const io = require("socket.io")(httpServer, {
+    cors: {
+        origin: ['https://rankboost.live', 'https://admin.rankboost.live']
+    }
+});
 //////////////////////////////////// SERVER SETUP //////////////////////////////
 const asp = io.of("/admin");
 const nsp = io.of("/normal");

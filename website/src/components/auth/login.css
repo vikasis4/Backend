@@ -12,7 +12,13 @@
     place-items:center;
     gap:15rem
 }
-
+.spam{
+    font-family: "Dosis";
+    color:red !important;
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 1.6rem;
+}
 .login-center {
     margin: 8rem 0;
     border-radius: 0.8rem;
@@ -295,7 +301,8 @@
     place-items: center;
 }
 .mob-forgot-btn2{
-    margin-top:9rem !important
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+    margin-top:5rem !important
 }
 .mob-forgot-btn3{
     margin-top:18rem !important
@@ -383,5 +390,5 @@
     border-radius:1rem;
     font-size: 3.6rem;
     font-weight: 600;
-    margin-top:18rem
+    margin-top:12rem
 }

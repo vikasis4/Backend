@@ -588,12 +588,12 @@ const Pricing = () => {
               </div>
             </div>
             {/* /////////////////////// */}
-            <div className="price-ltd">
+            {/* <div className="price-ltd">
               <h1>Discount Ends In</h1>
               <div className="price-ltd-timer">
                 <h2><span>{Hrs} </span>Hrs : <span>{mins} </span>Mins : <span>{seconds} </span>Secs</h2>
               </div>
-            </div>
+            </div> */}
             <img className="sales-img" src={sales}></img>
             {/* /////////////////////// */}
           </div>

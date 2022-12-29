@@ -117,7 +117,7 @@ const Forgot = () => {
                             {change === '' ?
                                 <h3>Welcome to Rank boost</h3>
                                 :
-                                <h3>Didn't get otp ? check spam</h3>
+                                <h3 className="spam">Didn't get the OTP ? <br/> check the Spam Section</h3>
                             }
                         </div>
                         <div className="login-center-last">
@@ -139,6 +139,7 @@ const Forgot = () => {
                                 :
                                 <>
                                     <form method="post" onSubmit={e => { e.preventDefault(); }} encType="application/json">
+                                        
                                         <input
                                             type="text"
                                             value={otp}
@@ -190,7 +191,9 @@ const Forgot = () => {
                                 <button className="mob-forgot-btn" type="submit" onClick={forward}>get otp</button></>
                                 :
                                 <>
+                                    <h3 className="spam">Didn't get the OTP ? <br/> check the Spam Section</h3>
                                     <form method="post" onSubmit={e => { e.preventDefault(); }} encType="application/json">
+
                                         <input
                                             type="text"
                                             value={otp}

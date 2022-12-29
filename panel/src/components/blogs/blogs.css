@@ -11,6 +11,31 @@
     height:6rem;
     width:6rem;
 }
+.classplus:hover{
+    cursor: pointer;
+    transform: translateY(-0.4rem);
+}
+.classplus-s{
+    font-family: "Dosis";
+    font-weight: 600;
+    font-size: 2.4rem;
+    border-bottom: 3px solid green;
+}
+.classplus-del{
+    color: red !important;
+}
+.classplus{
+    font-family: "Dosis";
+    transition: all 0.2s;
+    font-size: 2rem;
+    color: green;
+    font-weight: 600;
+    height:4rem;
+    background-color:white;
+    border:none;
+    border-radius: 0.2rem;
+    box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.2);
+}
 .users-enter h2{
     font-weight: 600;
 }
@@ -19,9 +44,10 @@ cursor: pointer;
 }
 .form-cnt{
     width:20%;
-    border:4px solid black;
+    border:2px solid black;
     margin:0 4rem;
     border-radius: 1rem;
+    font-family: "Dosis";
     padding:1rem;
 }
 .act-btn {

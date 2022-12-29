@@ -31,7 +31,7 @@ const VerifyState = (props) => {
             }
         }
         if (localStorage.getItem('quality')) {
-            quality = ocalStorage.getItem('quality')
+            quality = localStorage.getItem('quality')
         }
         ////////////////////// video setting //////////////////////
 

@@ -8,19 +8,12 @@
         width: 100% !important;
         overflow-x: hidden !important;
     }
-
-    ::-webkit-scrollbar {
-        width: 1rem
+    body {
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
     }
-
-    ::-webkit-scrollbar-track {
-        background: var(--s1) !important;
-        margin: 3rem;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        border-radius: 7px !important;
-        background: var(--c2)
+    body::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
     }
 
     .activate-dis {
@@ -90,7 +83,10 @@
         color: black !important;
         background: transparent !important;
     }
-
+    .spam{
+        font-size: 3rem !important;
+        margin-top: 3rem !important;
+    }
     .herohomepage-for-m h2 {
         font-size: 3rem;
         font-weight: 500;

@@ -34,6 +34,7 @@ const payUMoney = require('./payUmoney');
 const Live = require('./models/live');
 const live = require("./live");
 
+///////////////////// ACTIVE COURSE - 1-1 NOT ADD ON ///////////////////////////
 
 const app = express();
 app.use(require('express-status-monitor')());
@@ -977,6 +978,25 @@ app.delete('/api/delete/subs', async (req, res) => {
         arr.shift();
         await User.findByIdAndUpdate({ _id: req.body.id }, { subarray: arr });
         res.json(arr)
+    } catch (error) {
+        console.log(error);
+    }
+})
+app.post('/api/delete/user', async (req, res) => {
+    try {
+        if (req.body.pin === process.env.pin) {
+            
+            await User.findOneAndDelete({username: req.body.id})
+            try {
+                await Personal.findOneAndDelete({email: req.body.id})
+            } catch (error) {}
+            try {
+                await Query.findOneAndDelete({email: req.body.id})
+            } catch (error) {}
+            res.json({status: 'yes'})
+        }else{
+            res.json({status: 'no'})
+        }
     } catch (error) {
         console.log(error);
     }

@@ -32,12 +32,12 @@ const Otp = (props) => {
 
 
         var blink = 90;
-        await axios.post(clink+'/otp', { otp, id, blink })
+        await axios.post(clink + '/otp', { otp, id, blink })
             .then(response => {
                 if (response.data.message === 'yes') {
                     setValid(response.data.message);
                     setTokn(response.data.token)
-                }else if (response.data.message === 'no') {
+                } else if (response.data.message === 'no') {
                     alert('WRONG')
                 }
                 else {
@@ -49,11 +49,11 @@ const Otp = (props) => {
     const reotp = async () => {
 
         if (seconds < 70) {
-            await axios.post(clink+'/endverify', {id})
+            await axios.post(clink + '/endverify', { id })
             setSeconds(120);
         }
-        else{
-            alert(`OTP can be resend after ${seconds-70}`)
+        else {
+            alert(`OTP can be resend after ${seconds - 70}`)
         }
     }
 
@@ -73,6 +73,7 @@ const Otp = (props) => {
     return (
         <>
             <div className="deactivate-dis">
+                <h1 className='spam'>Didn't recieved the OTP ? <br />Check the Spam Section</h1>
                 <form method="post" onSubmit={e => { e.preventDefault(); }} encType="application/json">
                     <input
                         type="otp"
@@ -96,6 +97,7 @@ const Otp = (props) => {
             <div className="activate-dis">
                 <div className="mkijn">
                     <form className="MOB-otp" method="post" onSubmit={e => { e.preventDefault(); }} encType="application/json">
+                        <h1 className='spam'>Didn't recieved the OTP ? <br />Check the Spam Section in gmail</h1>
                         <input
                             type="otp"
                             value={otp}

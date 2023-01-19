@@ -63,8 +63,8 @@ var job1 = new CronJob(
 
 mongoToConnect();
 dotenv.config();
-app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true}));
-// app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'https://api.payu.in', 'http://192.168.177.76:3000'], credentials: true }));
+// app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true}));
+app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'https://api.payu.in', 'http://192.168.1.36:3000'], credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -502,7 +502,10 @@ app.post('/api/login', async (req, res) => {
         const user = await User.findOne({
             username: req.body.username
         })
-        if (user && user.otp === false) {
+        if (!user) {
+            res.json({ val: 'no' })
+        }
+        else if (user && user.otp === false) {
             res.json({ val: 'none' })
         }
         else if (user && req.body.type === 'google') {
@@ -956,16 +959,27 @@ app.post('/payu/success', async (req, res) => {
             await User.findByIdAndUpdate(req.body.udf1, { pkey: 0000 })
         }
         res.send(
-            `<h4> <span style={{color:'green'}}> Your payment is successfully </span>.<br/> Go back and reload the website or click on <a target="_self" href="https://rankboost.live">RankBoost</a> to reuturn to the website </h4>`
+            `
+            <div
+        style="height: 100%; width:100%; display:flex; justify-content:center; align-items:center ">
+        <h2 style="font-size:62px; text-align:center "> <span style="color:green"> Payment successfull </span><br /><br /><br /> Click on <a
+                href="https://rankboost.live">RankBoost</a> to return to the website </h2>
+        </div>
+            `
         );
     } catch (error) {
         console.log(error);
     }
 })
 app.post('/payu/failed', async (req, res) => {
-    console.log(req.body);
     res.send(
-        `<h2> <span style={{color:'red'}}> payment failed </span>.<br/> Click on <a href="https://rankboost.live">RankBoost</a> to reuturn to the website </h2>`
+        `
+        <div
+        style="height: 100%; width:100%; display:flex; justify-content:center; align-items:center ">
+        <h2 style="font-size:62px; text-align:center "> <span style="color:red"> Error :- Payment Failed </span><br /><br /><br /> Click on <a
+                href="https://rankboost.live">RankBoost</a> to return to the website </h2>
+        </div>
+        `
     );
 })
 
@@ -985,17 +999,17 @@ app.delete('/api/delete/subs', async (req, res) => {
 app.post('/api/delete/user', async (req, res) => {
     try {
         if (req.body.pin === process.env.pin) {
-            
-            await User.findOneAndDelete({username: req.body.id})
+
+            await User.findOneAndDelete({ username: req.body.id })
             try {
-                await Personal.findOneAndDelete({email: req.body.id})
-            } catch (error) {}
+                await Personal.findOneAndDelete({ email: req.body.id })
+            } catch (error) { }
             try {
-                await Query.findOneAndDelete({email: req.body.id})
-            } catch (error) {}
-            res.json({status: 'yes'})
-        }else{
-            res.json({status: 'no'})
+                await Query.findOneAndDelete({ email: req.body.id })
+            } catch (error) { }
+            res.json({ status: 'yes' })
+        } else {
+            res.json({ status: 'no' })
         }
     } catch (error) {
         console.log(error);

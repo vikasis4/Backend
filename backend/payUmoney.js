@@ -5,7 +5,6 @@ const request = require('request');
 const User = require('./models/user.model.js')
 dotenv.config();
 
-
 exports.payUMoneyPayment = function (req, res) {
 
 
@@ -20,7 +19,7 @@ exports.payUMoneyPayment = function (req, res) {
             var user = await User.findById(req.body.data.udf1);
             if (req.body.data.txnid === 'new_account') {
                 var money = req.body.data.udf2;
-            }else{
+            } else {
                 var money = user.cart;
             }
             var num = process.env.value;
@@ -82,7 +81,7 @@ exports.payUMoneyPayment = function (req, res) {
             pd.surl = 'https://api.rankboost.live/payu/success';
             pd.furl = 'https://api.rankboost.live/payu/failed';
 
-            request.post({
+            request.post( {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
@@ -90,6 +89,7 @@ exports.payUMoneyPayment = function (req, res) {
                 url: 'https://secure.payu.in/_payment', //Testing url
                 form: pd
             }, function (error, httpRes, body) {
+
                 if (error)
                     res.send(
                         {
@@ -109,3 +109,5 @@ exports.payUMoneyPayment = function (req, res) {
         cross()
     }
 }
+
+// https://api.payu.in/public/#/ee2ff02ab7daea51eaa20504d7cf79ee

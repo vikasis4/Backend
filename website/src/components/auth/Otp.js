@@ -26,7 +26,7 @@ const Otp = (props) => {
             navigate('/price')
             window.location.reload()
         }
-    })
+    },[valid])
 
     const sendotp = async () => {
 

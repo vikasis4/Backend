@@ -4,10 +4,10 @@ var jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const ds = new Date();
-const day = ds.getUTCDate();
-const month = ds.getUTCMonth() + 1;
-const year = ds.getUTCFullYear();
+var ds = new Date();
+var day = ds.getUTCDate();
+var month = ds.getUTCMonth() + 1;
+var year = ds.getUTCFullYear();
 
 const User = new mongoose.Schema({
 

@@ -30,7 +30,9 @@ import Courses from './components/courses/Courses'
 import Books from './components/books/Books'
 import axios from 'axios';
 import io from 'socket.io-client';
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet';
+import VideoCall from './components/videocall/VideoCall';
+import MeetRoom from './components/videocall/MeetRoom';
 
 // var socket = io('http://localhost:8080/normal', { transports: ["websocket"] });
 var socket = io('https://wbb.rankboost.live/normal', { transports: ["websocket"] });
@@ -86,21 +88,23 @@ function App() {
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////
   var timer;
-  const [seconds, setSeconds] = useState(0)
+  var seconds = 0;
+
   useEffect(() => {
     timer = setInterval(() => {
-      setSeconds(seconds + 1);
+      seconds = seconds + 1;
       if (seconds === 15) {
         if (duework.profile.void === 'no') {
           regrefresh()
         } else {
           refresh()
         }
-        setSeconds(0);
+        seconds = 0;
       }
     }, 1000)
     return () => clearInterval(timer)
   })
+  
   const refresh = () => {
     var livetoken;
     if (localStorage.getItem('livefresh')) {
@@ -180,6 +184,8 @@ function App() {
             <Route path="/refund" element={<Refund />} />
             <Route path="/books" element={<Books />} />
             <Route path="/condition" element={<Condition />} />
+            <Route path="/videocall" element={<VideoCall />} />
+            <Route path="/videocall/:roomId" element={<MeetRoom />} />
           </Route>
         </Routes>
         {window.innerWidth < 480 ?

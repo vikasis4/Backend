@@ -7,19 +7,24 @@ import VerifyState from './context/verify/VerifyState'
 import PaymentState from './context/paymentportal/PaymentState'
 import CourseState from './context/course/CourseState'
 import * as ReactDOM from 'react-dom/client';
-
+import { VideoCallSocketProvider } from './context/websockets/VideoCallSockets'
+import { PeerProvider } from './context/websockets/Peer'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
         <ProfileState >
-            <VerifyState >
-                <PaymentState>
-                    <CourseState>
-                        <App />
-                    </CourseState>
-                </PaymentState>
-            </VerifyState>
+            <VideoCallSocketProvider>
+                <PeerProvider>
+                    <VerifyState >
+                        <PaymentState>
+                            <CourseState>
+                                <App />
+                            </CourseState>
+                        </PaymentState>
+                    </VerifyState>
+                </PeerProvider>
+            </VideoCallSocketProvider>
         </ProfileState>
     </BrowserRouter>
 );

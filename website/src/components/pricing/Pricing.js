@@ -256,11 +256,11 @@ const Pricing = () => {
                         <h6>Best Deal</h6>
                       </div>
                       <img src={four}></img>
-                      <h1>Combo For 2023 & 2024 Batch</h1>
+                      <h1>Combo Pack</h1>
                     </div>
                     <div className="pd_card_two">
                       <div className="pd_card_slab pd_slab_combo">
-                        <h4>Discounted price  &nbsp; &#8377; 499 only</h4>
+                        <h4>Discounted price  &nbsp; &#8377; 999 only</h4>
                         <h3>Flat 85% off</h3>
                         <div className="pd_control_buttons">
                           {
@@ -540,9 +540,9 @@ const Pricing = () => {
                     <img className="price-first-coursed-img" src={four}></img>
                     <div className="price-cbtwn">
                       <div className="price-tag">
-                        <p className="price-head">COMBO Pack for Both 2023 & 2024</p>
+                        <p className="price-head">COMBO Pack </p>
                         <h5><span > Original price  &nbsp; &#8377; <strike>4,000</strike></span></h5>
-                        <h4><span > Discounted price  &nbsp; &#8377;499 only</span></h4>
+                        <h4><span > Discounted price  &nbsp; &#8377;999 only</span></h4>
                         <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 85% off</h3>
 
                         <div className="price-cbt-panel">

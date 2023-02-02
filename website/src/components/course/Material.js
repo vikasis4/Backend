@@ -11,6 +11,7 @@ const Material = (props) => {
     const vlink = process.env.REACT_APP_VIDEO_LINK
     const [bar, setBar] = useState('one');
     const [plf, setPlf] = useState([]);
+    const [sub, setSub] = useState('phy');
     const [loader, setLoader] = useState(true)
 
     useEffect(() => {
@@ -36,7 +37,7 @@ const Material = (props) => {
         if (jankari.length > 0 && plf.length > 0) {
             setLoader(false)
         }
-    },[jankari, plf])
+    }, [jankari, plf])
     var peliment = ''
     var celiment = ''
     var meliment = ''
@@ -66,15 +67,15 @@ const Material = (props) => {
                     )
                 }
             }
-            )
-            zeliment = (plf).map(
-                (plf) => {
-                    const subble = () => {
-                        bubble(plf)
-                    }
-                    if (plf.type === 'mid') {
-                        return (
-                            <>
+        )
+        zeliment = (plf).map(
+            (plf) => {
+                const subble = () => {
+                    bubble(plf)
+                }
+                if (plf.type === 'mid') {
+                    return (
+                        <>
                             <div className="mat-one">
                                 <div><h1>{plf.name}</h1></div>
                                 <button onClick={() => subble()}>Download Pdf</button>
@@ -87,7 +88,7 @@ const Material = (props) => {
     }
 
     if (jankari.length > 0) {
-        
+
         const bubble = (jankari) => {
             if (screen.width < 480) {
                 alert('Downloading has started, Check the Download section of browser')
@@ -151,27 +152,14 @@ const Material = (props) => {
     /////////////////////////////////////////////////////////////////////////////////////////
 
     const toggleR = (jsx) => {
-
         setBar(jsx)
-
-        if (jsx === 'two') {
-
-            document.getElementById('mat-ones').style.transform = 'translateY(-10px)';
-            document.getElementById('mat-twos').style.transform = 'translateY(0px)';
-            document.getElementById('mat-three').style.transform = 'translateY(0px)';
-        }
-        else if (jsx === 'one') {
-
-            document.getElementById('mat-ones').style.transform = 'translateY(0px)';
-            document.getElementById('mat-twos').style.transform = 'translateY(-10px)';
-            document.getElementById('mat-three').style.transform = 'translateY(0px)';
-        }
-        else if (jsx === 'three') {
-
-            document.getElementById('mat-ones').style.transform = 'translateY(0px)';
-            document.getElementById('mat-twos').style.transform = 'translateY(0px)';
-            document.getElementById('mat-three').style.transform = 'translateY(-10px)';
-        }
+    }
+    const ONobj = {
+        color: 'black',
+        borderBottom: '3px solid black'
+    }
+    const OFFobj = {
+        color: 'white',
     }
 
     return (
@@ -183,17 +171,16 @@ const Material = (props) => {
                     <meta name="description" content="Check our quality rankboost study material" />
                 </Helmet>
 
-                <h1 className="bugasuga">{bar === 'one' ? 'Notes' : bar === 'two' ? 'Pyq' : 'Mind Maps'}</h1>
 
                 <div className="videopage-material">
                     <div onClick={() => toggleR('one')} id="mat-twos" className="videopage-mat-one plokid">
-                        <div className="mat-text"><h1>Notes</h1></div>
+                        <div className="mat-text"><h1 style={bar === 'one' ? ONobj : OFFobj}>Notes</h1></div>
                     </div>
                     <div onClick={() => toggleR('two')} id="mat-ones" className="videopage-mat-one plokod">
-                        <div className="mat-text"><h1>Pyq</h1></div>
+                        <div className="mat-text"><h1 style={bar === 'two' ? ONobj : OFFobj}>PYQ</h1></div>
                     </div>
                     <div onClick={() => toggleR('three')} id="mat-three" className="videopage-mat-one plokod">
-                        <div className="mat-text"><h1>Mind maps</h1></div>
+                        <div className="mat-text"><h1 style={bar === 'three' ? ONobj : OFFobj}>Mind Maps</h1></div>
                     </div>
                 </div>
 
@@ -211,37 +198,31 @@ const Material = (props) => {
                                 <div className="material-cont">
 
                                     <div className="material-body">
-                                    {loader === true ? <h1>Loading...</h1> : zeliment}
+                                        {loader === true ? <h1>Loading...</h1> : zeliment}
                                     </div>
                                 </div>
                             </>
                             :
                             <>
                                 <div className="material-cont">
-                                    <div style={{ marginTop: '12rem' }} className="material-head">
-                                        <h1>physics</h1>
-                                    </div>
-                                    <div className="material-body">
-                                    {loader === true ? <h1>Loading...</h1> : peliment}
-
-                                    </div>
-                                </div>
-                                <div className="material-cont">
                                     <div className="material-head">
-                                        <h1>chemistry</h1>
+                                        <h1 onClick={() => setSub('phy')} style={sub === 'phy' ? ONobj : OFFobj} >Physics</h1>
+                                        <h1 onClick={() => setSub('chem')} style={sub === 'chem' ? ONobj : OFFobj}>Chemistry</h1>
+                                        <h1 onClick={() => setSub('mth')} style={sub === 'mth' ? ONobj : OFFobj}>Maths</h1>
                                     </div>
                                     <div className="material-body">
-                                    {loader === true ? <h1>Loading...</h1> : celiment}
+                                        {
+                                            sub === 'phy' ?
+                                                loader === true ? <h1>Loading...</h1> : peliment
+                                                :
+                                                sub === 'chem' ?
+                                                    loader === true ? <h1>Loading...</h1> : celiment
+                                                    :
+                                                    loader === true ? <h1>Loading...</h1> : meliment
+                                        }
                                     </div>
                                 </div>
-                                <div className="material-cont">
-                                    <div className="material-head">
-                                        <h1>maths</h1>
-                                    </div>
-                                    <div className="material-body">
-                                    {loader === true ? <h1>Loading...</h1> : meliment}
-                                    </div>
-                                </div>
+                                
                             </>
                 }
 

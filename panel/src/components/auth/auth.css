@@ -7,6 +7,9 @@
 .key-cont button:hover{
     cursor: pointer;
 }
+#real21:hover{
+    cursor: pointer;
+}
 .key-cont button{
     margin-top: 2rem;
     border-radius: 1rem;

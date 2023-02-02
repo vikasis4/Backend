@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import './App.css';
 import Navbar from './components/navbar/Navbar'
 import Videos from './components/videos/Videos'
@@ -10,6 +10,7 @@ import PanelContext from './context/panelentry/PanelContext'
 import User from './components/blogs/User'
 import Personal from './components/personal/Personal'
 import Variables from './components/variables/Variables'
+import LivePro from './components/live/LivePro';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Route path={panel.verify === true ? '/blogs' : '/dedcgiegcdeiycgdddic'} element={<User />} />
           <Route path={panel.verify === true ? '/personal' : '/dedcgiegcdeiycgdddsd'} element={<Personal />} />
           <Route path={panel.verify === true ? '/variable' : '/dedcgiegbuiycdedddsd'} element={<Variables />} />
+          <Route path={panel.verify === true ? '/livepro' : '/dedcgiegbuiycdedddsd'} element={<LivePro />} />
           <Route path="/:id" element={<Auth />} />
         </Route>
       </Routes>

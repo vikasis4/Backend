@@ -9,7 +9,8 @@ import cone5 from './cone5.jpg';
 import course from './course.png';
 import ProfileContext from '../../context/profile/ProfileContext';
 import telegram from '../../svg/telegram.svg'
-
+import msup from '../../svg/mrefer.svg'
+import mbook from '../../svg/mbook.svg'
 
 
 const HeroHomepageo = () => {
@@ -35,7 +36,7 @@ const HeroHomepageo = () => {
             <div className="herohomepage">
                 <div className="herohomepage-for-m">
                     <h1>RankBoost</h1>
-                    <h2> India's best JEE guidance platform</h2>
+                    <h2>Your Personal Mentor and Life Saver</h2>
                 </div>
                 <div className="herohomepage-main">
 
@@ -85,29 +86,30 @@ const HeroHomepageo = () => {
                                     :
                                     <>
                                         <div className="herohomepage-first-course">
-                                            <img src={course}></img>
-                                            <div className="herohomepage-cbtwn">
-                                                <h6>IIT-JEE Mentorship Courses</h6>
-                                                <p className="htdocs-1"> Special 50% off - Limited time offer</p>
-                                                <div className="herohomepage-cbt-panel">
-                                                    <button onClick={() => { navigate('/price') }} className="herohomepage-main-half-btn">View all courses</button>
-                                                    <div className="herohomepage-fine-line"></div>
+
+                                            <img className="herohomepage-first-course-img" src={course}></img>
+
+                                            <div className="herohomepage-adv">
+                                                <div className="herohomepage-adv-o">
+                                                    <img src={msup} ></img>
+                                                    <h1>JEE Mentorship </h1>
                                                 </div>
-                                                <div className="activate-dis">
-                                                    <ul>
-                                                        <li>&#10003; Guidance</li>
-                                                        <li>&#10003; Doubt session</li>
-                                                        <li>&#10003; 23+ Doubt videos</li>
-                                                        <li>&#10003; 1-1 personal guidance</li>
-                                                        <li>&#10003; Study material</li>
-                                                        <li>&#10003; Councelling</li>
-                                                        <li>&#10003; Short notes + PYQ</li>
-                                                        <li>&#10003; Mains + Advance strategy</li>
-                                                    </ul>
+                                                <div className="herohomepage-adv-o">
+                                                    <img src={mbook} />
+                                                    <h1>Study Material</h1>
                                                 </div>
                                             </div>
+
+                                            <div className="herohomepage-infos">
+                                                <h1>3428 <span style={{color:'rgba(0,0,0,0.7)'}}>Total Students enrolled</span></h1>
+                                                <h1>50% Off Discount <span style={{color:'rgba(0,0,0,0.7)'}}>Limited time offer </span> </h1>
+                                                <h1 style={{color:'green', textAlign:'center', marginTop:'2rem',paddingBottom:'4px', borderBottom:'2px solid green'}}>Behind the Every Selection there is a Mentor</h1>
+                                                <button onClick={() => navigate('/price')} >View all Courses</button>
+                                            </div>
+
                                         </div>
-                                    </>}
+                                    </>
+                                    }
                         </div>
                     </div>
 

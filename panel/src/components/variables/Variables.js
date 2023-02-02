@@ -5,11 +5,11 @@ import './variable.css'
 const Variables = () => {
 
     const [variables, setVariables] = useState([
-        {var1:0},
-        {var2:0},
-        {var3:0},
-        {var4:0},
-        {var5:0},
+        { var1: 0 },
+        { var2: 0 },
+        { var3: 0 },
+        { var4: 0 },
+        { var5: 0 },
     ]);
     const [display, setDisplay] = useState('on');
     const [var1, setVar1] = useState('')
@@ -19,6 +19,9 @@ const Variables = () => {
     const [var5, setVar5] = useState('')
     const clink = process.env.REACT_APP_LINK;
 
+    const [taskArr, setTaskArr] = useState([]);
+    const [tasks, setTasks] = useState('')
+
     useEffect(() => {
         axios.get(clink + '/variables/fetch').then((response) => {
             setVariables(response.data)
@@ -26,11 +29,11 @@ const Variables = () => {
     }, [])
     useEffect(() => {
         if (variables.length > 0) {
-            
-        }
-    },[variables])
 
-   
+        }
+    }, [variables])
+
+
 
     const create = () => {
         axios.post(clink + '/variables/create', {
@@ -63,10 +66,10 @@ const Variables = () => {
     }
 
     const toggle = (pre) => {
-        if (pre === 'one'){
+        if (pre === 'one') {
             setDisplay('on')
         }
-        else if (pre === 'two'){
+        else if (pre === 'two') {
             setDisplay('off')
         }
     }
@@ -82,13 +85,13 @@ const Variables = () => {
                 {
                     display === 'on' ?
                         <>
-                         <div className="variable-cont">
+                            <div className="variable-cont">
                                 <h1>Update variable</h1>
-                                <input type="text" value={var1} onChange={(e) => { setVar1(e.target.value) }} placeholder={variables[0].var1+' ////B23'}></input>
-                                <input type="text" value={var2} onChange={(e) => { setVar2(e.target.value) }} placeholder={variables[0].var2+' ////B24'}></input>
-                                <input type="text" value={var3} onChange={(e) => { setVar3(e.target.value) }} placeholder={variables[0].var3+' ////material'}></input>
-                                <input type="text" value={var4} onChange={(e) => { setVar4(e.target.value) }} placeholder={variables[0].var4+' ////1-1'}></input>
-                                <input type="text" value={var5} onChange={(e) => { setVar5(e.target.value) }} placeholder={variables[0].var5+' ////combo'}></input>
+                                <input type="text" value={var1} onChange={(e) => { setVar1(e.target.value) }} placeholder={variables[0].var1 + ' ////B23'}></input>
+                                <input type="text" value={var2} onChange={(e) => { setVar2(e.target.value) }} placeholder={variables[0].var2 + ' ////B24'}></input>
+                                <input type="text" value={var3} onChange={(e) => { setVar3(e.target.value) }} placeholder={variables[0].var3 + ' ////material'}></input>
+                                <input type="text" value={var4} onChange={(e) => { setVar4(e.target.value) }} placeholder={variables[0].var4 + ' ////1-1'}></input>
+                                <input type="text" value={var5} onChange={(e) => { setVar5(e.target.value) }} placeholder={variables[0].var5 + ' ////combo'}></input>
                                 <button onClick={() => { update() }}>Update</button>
                             </div>
                         </>
@@ -105,6 +108,9 @@ const Variables = () => {
                             </div>
                         </>
                 }
+                <div className='variable-task'>
+                    <h1>Weekly Tasks</h1>
+                </div>
             </div>
         </>
     )

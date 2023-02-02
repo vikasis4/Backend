@@ -33,6 +33,7 @@ const mongoose = require('mongoose');
 const payUMoney = require('./payUmoney');
 const Live = require('./models/live');
 const live = require("./live");
+const Task = require('./models/task');
 
 ///////////////////// ACTIVE COURSE - 1-1 NOT ADD ON ///////////////////////////
 
@@ -64,7 +65,7 @@ var job1 = new CronJob(
 mongoToConnect();
 dotenv.config();
 // app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true}));
-app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'https://api.payu.in', 'http://192.168.1.36:3000'], credentials: true }));
+app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'https://api.payu.in', 'http://192.168.1.35:3000'], credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -568,6 +569,28 @@ app.post('/api/changepassword', async (req, res) => {
 
 
 })
+////////////////////////////// WEEKLY TASK ///////////////////////////////////////////////////////////////
+app.get('/api/weeklytask/update', async(req, res) => {
+    try {
+        await Task.findOneAndUpdate({_id:'63dbed1ce28b3fa30a7aefd1'}, {
+            tasks:req.body.array,
+            time:{
+                from: req.body.from,
+                to: req.body.to
+            }
+        })
+    } catch (error) {
+        console.log(error);
+    }
+})
+app.get('/api/weeklytask', async(req, res) => {
+    try {
+        var fo = await Task.find({});
+        res.json(fo[0].tasks);
+    } catch (error) {
+        console.log(error);
+    }
+})
 ///////////////////////////// MAIL TEMPLATE /////////////////////////////////////////////////////////////
 
 const messageFxn = async (cred) => {
@@ -739,7 +762,7 @@ app.post('/payu/success', async (req, res) => {
                     cart.push({ name: 'twel' });
                 }
                 else if (string.slice(i * 4, (i + 1) * 4) === 'drdo') {
-                    cart.push({ name: 'combo' });
+                    cart.push({ name: '2023CC' });
                 }
                 else if (string.slice(i * 4, (i + 1) * 4) === 'bel1') {
                     cart.push({ name: 'personal1' });
@@ -854,7 +877,7 @@ app.post('/payu/success', async (req, res) => {
                     name: user.name
                 })
             }
-            if (cart.find(({ name }) => name === 'combo') && (cart.find(({ name }) => name === 'personal1') || cart.find(({ name }) => name === 'personal2') || cart.find(({ name }) => name === 'personal3'))) {
+            if (cart.find(({ name }) => name === '2023CC') && (cart.find(({ name }) => name === 'personal1') || cart.find(({ name }) => name === 'personal2') || cart.find(({ name }) => name === 'personal3'))) {
                 var status = 0
                 if (cart.find(({ name }) => name === 'personal1')) {
                     status = 6
@@ -930,7 +953,7 @@ app.post('/payu/success', async (req, res) => {
                     await User.findByIdAndUpdate(req.body.udf1, { guidance_session: updatedvalue })
                 }
             }
-            else if (cart.find(({ name }) => name === 'combo')) {
+            else if (cart.find(({ name }) => name === '2023CC')) {
                 if (user.guidance_session.plan_time === 0) {
                     // updatepersonal(3, 'false');
                 } else {

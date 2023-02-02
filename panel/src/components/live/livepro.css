@@ -1,0 +1,8 @@
+.livepro{
+    padding: 2rem;
+}
+.livepro-map h1{
+    font-family: 'Dosis';
+    color: green;
+    overflow-y: auto;
+}

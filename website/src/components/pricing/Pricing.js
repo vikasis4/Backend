@@ -119,25 +119,25 @@ const Pricing = () => {
 
   var ds = new Date();
   const [seconds, setSeconds] = useState(60 - ds.getSeconds())
-  const [mins,setMins] = useState(60 - ds.getMinutes())
+  const [mins, setMins] = useState(60 - ds.getMinutes())
   const [Hrs, setHrs] = useState(48 - ds.getHours())
   var timer;
   useEffect(() => {
-      timer = setInterval(() => {
-          setSeconds(seconds - 1);
-          if (seconds === 0) {
-              setSeconds(60);
-              setMins(mins - 1)
-          }
-          if (mins === 0) {
-              setMins(60);
-              setHrs(24 - ds.getHours())
-          }
-          if (Hrs === 0) {
-              setHrs(24 - ds.getHours());
-          }
-      }, 1000)
-      return () => clearInterval(timer)
+    timer = setInterval(() => {
+      setSeconds(seconds - 1);
+      if (seconds === 0) {
+        setSeconds(60);
+        setMins(mins - 1)
+      }
+      if (mins === 0) {
+        setMins(60);
+        setHrs(24 - ds.getHours())
+      }
+      if (Hrs === 0) {
+        setHrs(24 - ds.getHours());
+      }
+    }, 1000)
+    return () => clearInterval(timer)
   })
 
   return (
@@ -162,138 +162,46 @@ const Pricing = () => {
                 </div> */}
               </div>
             </div>
+
             <div className="pd_two">
               <div style={position === true ? { display: 'block' } : { display: 'none' }} className="pd_two_one">
                 <div className="pd_card_cont">
 
-                  <div className="pd_card">
-                    <div className="pd_card_one">
-                      <img src={one}></img>
-                      <h1>Jee Guidance For 2023 Batch</h1>
-                    </div>
-                    <div className="pd_card_two">
-                      <div className="pd_card_slab">
-                        <h4>Discounted price  &nbsp; &#8377; 699 only</h4>
-                        <h3>Flat 70% off</h3>
-                        <div className="pd_control_buttons">
-                          {
-                            statea === true ?
-                              <button onClick={() => { profile.setCurrent('twel'); navigate('/course'); }}>Go to course</button>
-                              :
-                              cart.find(({ name }) => name === "twel") ?
-                                <>
-                                  <button onClick={() => { navigate("/checkout") }}>Go to cart</button>
-                                  <button onClick={() => { navigate('/checkout'); updatecart('twel') }}>Buy now</button>
-                                </>
-                                :
-                                <>
-                                  <button onClick={() => { updatecart('twel') }}>Add to cart</button>
-                                  <button onClick={() => { navigate('/checkout'); updatecart('twel') }}>Buy now</button>
-                                </>
-                          }
-                        </div>
-                        <span className="pd_h6">
-                          {variables.var1} students enrolled
-                        </span>
-                        <ul>
-                          <li>&#10003; 23+ Doubt + Councelling videos - 2023</li>
-                          <li>&#10003; JEE Mains approach</li>
-                          <li>&#10003; JEE Advance approach</li>
-                          <li>&#10003; Physics-chemistry-Maths RoadMaps</li>
-                          <li>&#10003; Mistakes to avoid</li>
-                          <li>&#10003; Proper Study plan</li>
-                          <li>&#10003; 1 year access</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="pd_card">
-                    <div className="pd_card_one">
-                      <img src={three}></img>
-                      <h1>Jee Guidance For 2024 Batch</h1>
-                    </div>
-                    <div className="pd_card_two">
-                      <div className="pd_card_slab">
-                        <h4>Discounted price  &nbsp; &#8377; 1299 only</h4>
-                        <h3>Flat 70% off</h3>
-                        <div className="pd_control_buttons">
-                          {
-                            stateb === true ?
-                              <>
-                                <button onClick={() => { profile.setCurrent('elev'); navigate('/course'); }}>Go to course</button>
-                              </>
-                              :
-                              cart.find(({ name }) => name === "elev") ?
-                                <>
-                                  <button onClick={() => { navigate("/checkout") }} >Go to cart</button>
-                                  <button onClick={() => { navigate('/checkout'); updatecart('elev') }} >Buy now</button>
-                                </>
-                                :
-                                <>
-                                  <button onClick={() => { updatecart('elev') }} >Add to cart</button>
-                                  <button onClick={() => { navigate('/checkout'); updatecart('elev') }}>Buy now</button>
-                                </>
-                          }
-                        </div>
-                        <span className="pd_h6">
-                          {variables.var2} students enrolled
-                        </span>
-                        <ul>
-                          <li>&#10003; 23+ Doubt + Councelling videos - 2024</li>
-                          <li>&#10003; JEE Mains approach</li>
-                          <li>&#10003; JEE Advance approach</li>
-                          <li>&#10003; Physics-chemistry-Maths RoadMaps</li>
-                          <li>&#10003; Mistakes to avoid</li>
-                          <li>&#10003; Proper Study plan</li>
-                          <li>&#10003; 2 year access</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+
+
                   <div className="pd_card pd_card_combo">
                     <div className="pd_card_one pd_cambo">
                       <div className="pd_card_useless">
                         <h6>Best Deal</h6>
                       </div>
                       <img src={four}></img>
-                      <h1>Combo Pack</h1>
+                      <h1>JEE Mains 2023 Mentorship</h1>
                     </div>
                     <div className="pd_card_two">
                       <div className="pd_card_slab pd_slab_combo">
                         <h4>Discounted price  &nbsp; &#8377; 999 only</h4>
                         <h3>Flat 85% off</h3>
+                          <span className="pd_h6 pd_combo_h6">
+                            {variables.var5} students enrolled
+                          </span>
                         <div className="pd_control_buttons">
                           {
                             statee === true ?
-                              <button onClick={() => { profile.setCurrent('combo'); navigate('/course'); }} >Go to course</button>
+                              <button onClick={() => { profile.setCurrent('2023CC'); navigate('/course'); }} >Go to course</button>
                               :
-                              cart.find(({ name }) => name === "combo") ?
+                              cart.find(({ name }) => name === "2023CC") ?
                                 <>
-                                  <button onClick={() => { navigate("/checkout") }} >Go to cart</button>
-                                  <button onClick={() => { navigate('/checkout'); updatecart('combo') }} >Buy now</button>
+                                  <button onClick={() => { navigate("/explore") }} >Explore</button>
+                                  <button onClick={() => { navigate('/checkout'); updatecart('2023CC') }} >Buy now</button>
                                 </>
                                 :
                                 <>
-                                  <button onClick={() => { updatecart('combo') }} >Add to cart</button>
-                                  <button onClick={() => { navigate('/checkout'); updatecart('combo') }} >Buy now</button>
+                                  <button onClick={() => { navigate("/explore") }} >Explore</button>
+                                  <button onClick={() => { navigate('/checkout'); updatecart('2023CC') }} >Buy now</button>
                                 </>
                           }
                         </div>
-                        <span className="pd_h6 pd_combo_h6">
-                          {variables.var5} students enrolled
-                        </span>
-                        <ul>
-                          <li>&#10003; 23+ Doubt + Councelling videos</li>
-                          {/* <li>&#10003; 1-1 personal guidance (3 Months access) worth &#8377; 2,499</li> */}
-                          <li>&#10003; IITIANs support</li>
-                          <li>&#10003; Doubt session</li>
-                          <li>&#10003; Study material for mains and advance</li>
-                          <li>&#10003; Chat section</li>
-                          <li>&#10003; 26 previous year papers with solutions</li>
-                          <li>&#10003; Toppers notes + short notes</li>
-                          <li>&#10003; Weekly study plan</li>
-                          <li>&#10003; 2 years access</li>
-                        </ul>
+
                       </div>
                     </div>
                   </div>
@@ -306,6 +214,9 @@ const Pricing = () => {
                       <div className="pd_card_slab">
                         <h4>Discounted price  &nbsp; &#8377; 399 only</h4>
                         <h3>Flat 70% off</h3>
+                        <span className="pd_h6">
+                          {variables.var3} students enrolled
+                        </span>
                         <div className="pd_control_buttons">
                           {
                             statec === true ?
@@ -324,18 +235,6 @@ const Pricing = () => {
                                 </>
                           }
                         </div>
-                        <span className="pd_h6">
-                          {variables.var3} students enrolled
-                        </span>
-                        <ul>
-                          <li>&#10003; Complete study material</li>
-                          <li>&#10003; Toppers notes</li>
-                          <li>&#10003; MindMaps chapterwise</li>
-                          <li>&#10003; Short notes</li>
-                          <li>&#10003; JEE Mains Pyq + Solutions</li>
-                          <li>&#10003; JEE Advance Pyq + Solutions</li>
-                          <li>&#10003; 26 previos paper</li>
-                        </ul>
                       </div>
                     </div>
                   </div>
@@ -353,97 +252,7 @@ const Pricing = () => {
             <div className="price-flex">
               <div className="price-mod">
 
-                <div className="price-card">
-                  <div className="price-first-course">
-                    <img className="price-img" src={one}></img>
-                    <div className="price-cbtwn">
-                      <p className="price-head">Jee guidance for 2023 batch</p>
-                      <div className="price-tag">
-                        <h5><span > Original price  &nbsp; &#8377; 1,400</span></h5>
-                        <h4><span > Discounted price  &nbsp; &#8377;699 only</span></h4>
-                        <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 50% off</h3>
-                        <div className="price-cbt-panel">
-                          {
-                            statea === true ?
-                              <button onClick={() => { profile.setCurrent('twel'); navigate('/course'); }} className="price-main-half-btn">Go to course</button>
-                              :
-                              cart.find(({ name }) => name === "twel") ?
-                                <>
-                                  <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
-                                  <button onClick={() => { navigate('/checkout'); updatecart('twel') }} className="price-main-half-btn">Buy now</button>
-                                </>
-                                :
-                                <>
-                                  <button onClick={() => { updatecart('twel') }} className="price-main-half-btn">Add to cart</button>
-                                  <button onClick={() => { navigate('/checkout'); updatecart('twel') }} className="price-main-half-btn">Buy now</button>
-                                </>
-                          }
-                        </div>
-                        <span className="price-h6">
-                          {variables.var1} students enrolled
-                        </span>
-                      </div>
-                      <ul>
-                        <li>&#10003; 23+ Doubt + Councelling videos - 2023</li>
-                        <li>&#10003; JEE Mains approach</li>
-                        <li>&#10003; JEE Advance approach</li>
-                        <li>&#10003; Physics-chemistry-Maths RoadMaps</li>
-                        <li>&#10003; Mistakes to avoid</li>
-                        <li>&#10003; Proper Study plan</li>
-                        <li>&#10003; 1 year access</li>
-                      </ul>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div className="price-card">
-                  <div className="price-first-course">
-                    <img className="price-img" src={three}></img>
-                    <div className="price-cbtwn">
-                      <p className="price-head">Jee guidance for 2024 batch</p>
-                      <div className="price-tag">
-                        <h5><span > Original price  &nbsp; &#8377; 2,600</span></h5>
-                        <h4><span > Discounted price  &nbsp; &#8377;1299 only</span>
-                        </h4>
-                        <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 50% off</h3>
-                        <div className="price-cbt-panel">
-                          {
-                            stateb === true ?
-                              <>
-                                <button onClick={() => { profile.setCurrent('elev'); navigate('/course'); }} className="price-main-half-btn">Go to course</button>
-                              </>
-                              :
-                              cart.find(({ name }) => name === "elev") ?
-                                <>
-                                  <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
-                                  <button onClick={() => { navigate('/checkout'); updatecart('elev') }} className="price-main-half-btn">Buy now</button>
-                                </>
-                                :
-                                <>
-                                  <button onClick={() => { updatecart('elev') }} className="price-main-half-btn">Add to cart</button>
-                                  <button onClick={() => { navigate('/checkout'); updatecart('elev') }} className="price-main-half-btn">Buy now</button>
-                                </>
-                          }
-                        </div>
-                        <span className="price-h6">
-                          {variables.var2} students enrolled
-                        </span>
-                      </div>
-                      <ul>
-                        <li>&#10003; 23+ Doubt + Councelling videos - 2024</li>
-                        <li>&#10003; JEE Mains approach</li>
-                        <li>&#10003; JEE Advance approach</li>
-                        <li>&#10003; Physics-chemistry-Maths RoadMaps</li>
-                        <li>&#10003; Mistakes to avoid</li>
-                        <li>&#10003; Proper Study plan</li>
-                        <li>&#10003; 2 year access</li>
-                      </ul>
-                    </div>
-
-
-                  </div>
-                </div>
+                
                 <div className="price-card">
                   <div className="price-first-course">
                     <img className="price-img" src={two}></img>
@@ -453,6 +262,9 @@ const Pricing = () => {
                         <h5><span > Original price  &nbsp; &#8377; 1000</span></h5>
                         <h4><span > Discounted price  &nbsp; &#8377;399 only</span></h4>
                         <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 60% off</h3>
+                        <span className="price-h6">
+                          {variables.var3} students enrolled
+                        </span>
                         <div className="price-cbt-panel">
                           {
                             statec === true ?
@@ -471,63 +283,12 @@ const Pricing = () => {
                                 </>
                           }
                         </div>
-                        <span className="price-h6">
-                          {variables.var3} students enrolled
-                        </span>
                       </div>
-                      <ul>
-                        <li>&#10003; Complete study material</li>
-                        <li>&#10003; Toppers notes</li>
-                        <li>&#10003; MindMaps chapterwise</li>
-                        <li>&#10003; Short notes</li>
-                        <li>&#10003; JEE Mains Pyq + Solutions</li>
-                        <li>&#10003; JEE Advance Pyq + Solutions</li>
-                        <li>&#10003; 26 previos paper</li>
-                      </ul>
+                    
                     </div>
                   </div>
                 </div>
-                {/* 
-                <div className="price-card">
-                  <div className="price-first-course">
-                    <img className="price-img" src={personal}></img>
-                    <div className="price-cbtwn">
-                      <p className="price-head"> Jee Personal 1-1 guidance</p>
-                      <div className="price-tag">
-                        <div className="price-cbt-panel">
-                          <h4><span > Discounted price  &nbsp; &#8377;1897 only</span></h4>
-                          <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 60% off</h3>
-                          {
-                            stated === true ?
-                              <button onClick={() => { navigate('/course'); }} className="price-main-half-btn">Go to course</button>
-                              :
-                              cart.find(({ name }) => name === "personal") ?
-                                <>
-                                  <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
-                                  <button onClick={() => { navigate('/checkout'); updatecart('personal2') }} className="price-main-half-btn">Buy now</button>
-                                </>
-                                :
-                                <>
-                                  <button onClick={() => { updatecart('personal') }} className="price-main-half-btn">Add to cart</button>
-                                  <button onClick={() => { navigate('/checkout'); updatecart('personal') }} className="price-main-half-btn">Buy now</button>
-                                </>
-                          }
-                        </div>
-                        <span className="price-h6">
-                          {variables.var4} students enrolled
-                        </span>
-                      </div>
-                      <ul>
-                        <li>&#10003; Get a personal guide</li>
-                        <li>&#10003; IITIAN support</li>
-                        <li>&#10003; Doubt session</li>
-                        <li>&#10003; Chat section</li>
-                        <li>&#10003; 6 month Study plan</li>
-                        <li>&#10003; 1 year access</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div> */}
+               
               </div>
             </div>
 
@@ -540,49 +301,36 @@ const Pricing = () => {
                     <img className="price-first-coursed-img" src={four}></img>
                     <div className="price-cbtwn">
                       <div className="price-tag">
-                        <p className="price-head">COMBO Pack </p>
+                        <p className="price-head">JEE 2023 Mains + Advance </p>
                         <h5><span > Original price  &nbsp; &#8377; <strike>4,000</strike></span></h5>
                         <h4><span > Discounted price  &nbsp; &#8377;999 only</span></h4>
                         <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 85% off</h3>
 
-                        <div className="price-cbt-panel">
-                          {
-                            statee === true ?
-                              <button onClick={() => { profile.setCurrent('combo'); navigate('/course'); }} className="price-main-half-btn">Go to course</button>
-                              :
-                              cart.find(({ name }) => name === "combo") ?
-                                <>
-                                  <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
-                                  <button onClick={() => { navigate('/checkout'); updatecart('combo') }} className="price-main-half-btn">Buy now</button>
-                                </>
-                                :
-                                <>
-                                  <button onClick={() => { updatecart('combo') }} className="price-main-half-btn">Add to cart</button>
-                                  <button onClick={() => { navigate('/checkout'); updatecart('combo') }} className="price-main-half-btn">Buy now</button>
-                                </>
-                          }
-                        </div>
                         <span className="price-h6">
                           {variables.var5} students enrolled
                         </span>
 
+                        <div className="price-cbt-panel">
+                          {
+                            statee === true ?
+                              <button onClick={() => { profile.setCurrent('2023CC'); navigate('/course'); }} className="price-main-half-btn">Go to course</button>
+                              :
+                              cart.find(({ name }) => name === "2023CC") ?
+                                <>
+                                  <button onClick={() => { navigate("/checkout") }} className="price-main-half-btn">Go to cart</button>
+                                  <button onClick={() => { navigate('/checkout'); updatecart('2023CC') }} className="price-main-half-btn">Buy now</button>
+                                </>
+                                :
+                                <>
+                                  <button onClick={() => { navigate('/explore') }} className="price-main-half-btn">Explore</button>
+                                  <button onClick={() => { navigate('/checkout'); updatecart('2023CC') }} className="price-main-half-btn">Buy now</button>
+                                </>
+                          }
+                        </div>
+
 
                       </div>
-                      <ul>
-                        <li>&#10003; 23+ Doubt + Councelling videos</li>
-                        {/* <li>&#10003; 1-1 personal guidance</li> */}
-                        <li>&#10003; IITIANs support</li>
-                        <li>&#10003; Doubt session</li>
-                        <li>&#10003; Study material for both mains and advance</li>
-                        <li>&#10003; Chat section</li>
-                        <li>&#10003; 26 previous year papers with solutions</li>
-                        <li>&#10003; Toppers notes + short notes</li>
-                        <li>&#10003; Weekly study plan</li>
-                        <li>&#10003; 2 years access</li>
-                      </ul>
                     </div>
-
-
                   </div>
                 </div>
               </div>

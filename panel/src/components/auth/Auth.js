@@ -4,12 +4,13 @@ import './auth.css'
 import PanelContext from '../../context/panelentry/PanelContext'
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, registerables } from 'chart.js';
+import { useNavigate } from 'react-router-dom'
 import io from 'socket.io-client';
 ChartJS.register(...registerables);
 
 const NonApiLink = process.env.REACT_APP_VIDEO_LINK;
-// var socket = io('http://localhost:8080/admin', {transports: ["websocket"]});
-var socket = io('https://wbb.rankboost.live/admin', {transports: ["websocket"]});
+var socket = io('http://localhost:8080/admin', {transports: ["websocket"]});
+// var socket = io('https://wbb.rankboost.live/admin', {transports: ["websocket"]});
 
 
 
@@ -18,8 +19,7 @@ const Auth = () => {
     const [key, setKey] = useState('')
     const link = process.env.REACT_APP_LINK
     const panel = useContext(PanelContext)
-
-
+    const navigate = useNavigate()
     //////////////////////// WEB SOCKET ///////////////////////////////////
     const [isConnected, setIsConnected] = useState(socket.connected);
     const [lastPong, setLastPong] = useState(null);
@@ -31,8 +31,9 @@ const Auth = () => {
             setIsConnected(true);
             socket.emit('update-me')
         });
-        socket.on('live-listen', (counts) => {
-            setCount(counts);
+        socket.on('live-listen', (data) => {
+            setCount(data.count);
+            panel.setWebsocket(data)
         })
         socket.on('disconnect', () => {
             setIsConnected(false);
@@ -244,7 +245,7 @@ const Auth = () => {
                                     <h1 style={{ textAlign: 'center' }}>{history.length}</h1>
                                 </div>
 
-                                <div className="dash-cont">
+                                <div id="real21" onClick={() => navigate('/livepro')} className="dash-cont">
                                     <h1 style={{ textAlign: 'center' }}>Realtime Traffic</h1>
                                     <h1 style={{ textAlign: 'center' }}>{count}</h1>
                                 </div>

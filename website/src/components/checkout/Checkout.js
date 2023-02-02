@@ -180,7 +180,7 @@ const Checkout = () => {
                                     <ul>
                                         {kart.find(({ name }) => name === "elev") ? <li><a onClick={() => { jani("elev") }}><img src={minus}></img></a> Jee guidance for 2024 batch, price &#8377; 1299 </li> : ""}
                                         {kart.find(({ name }) => name === "twel") ? <li><a onClick={() => { jani("twel") }}><img src={minus}></img></a> Jee guidance for 2023 batch, price &#8377; 699 </li> : ""}
-                                        {kart.find(({ name }) => name === "combo") ? <li><a onClick={() => { jani("combo") }}><img src={minus}></img></a> Combo pack for both 2023 and 2024 students, price &#8377; 999 </li> : ""}
+                                        {kart.find(({ name }) => name === "2023CC") ? <li><a onClick={() => { jani("combo") }}><img src={minus}></img></a> Jee Mains and Advance 2023 Mentorship, Price &#8377; 999 </li> : ""}
                                         {kart.find(({ name }) => name === "material") ? <li><a onClick={() => { jani("material") }}><img src={minus}></img></a> Jee study material, price &#8377; 399 </li> : ""}
                                         {kart.find(({ name }) => name === "personal") ? <li><a onClick={() => { jani("personal") }}><img src={minus}></img></a> personal 1-1 guidance 6 moths validity, price &#8377; 2999 </li> : ""}
                                     </ul>

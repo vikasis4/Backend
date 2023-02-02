@@ -220,11 +220,13 @@
         box-shadow: 0 0px 12px 1px #AA6C39 !important;
     }
 
-    .herohomepage-first-course img {
+    .herohomepage-first-course-img {
         height: 36rem !important;
         width: 100% !important;
     }
-
+    .herohomepage-infos {
+        padding: 2rem 3rem !important;
+        }
     .herohomepage-cbtwn p:nth-child(2) span {
         padding: 0 1rem !important;
         border-right: 2px solid var(--c1) !important;
@@ -246,15 +248,18 @@
     .herohomepage-cbtwn {
         height: 28% !important
     }
-
-    .herohomepage-first-course button {
-        font-size: 4rem !important;
-        font-weight: 500 !important;
-        width: 100% !important;
-        box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.3);
-        border-radius: 0rem !important;
-        background-color: #AA6C39 !important;
+    .herohomepage-adv h1{
+        font-size: 3.2rem !important;
     }
+    .herohomepage-infos h1{
+font-size:2.8rem !important; 
+    }
+    .herohomepage-infos button{
+        margin: 4rem auto 2rem auto !important;
+        padding: 1.8rem 0rem !important;
+    }
+
+    
     .Thirdsec-ques h1 span:nth-child(2){
         display: block !important;
     }
@@ -279,10 +284,7 @@
         margin-bottom: 4rem !important;
     }
 
-    .herohomepage-course-list h1 {
-        font-weight: 400 !important;
-        font-size: 4rem !important;
-    }
+  
 
     .herohomepage {
         background-color: var(--s1) !important;

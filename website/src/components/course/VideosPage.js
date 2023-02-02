@@ -74,47 +74,10 @@ const VideosPage = () => {
           <meta name="keywords" content="RankBoost course guidance mentorship iit jee" />
           <meta name="description" content="RankBoost Course" />
         </Helmet>
-        <div className="videopage-main-cont">
-          <div className="videopage-bg">
-            <div className="videopage-info">
-              <h1>{status}</h1>
-            </div>
-            {
-              wow.current === "combo" ?
-                <div className="videopage-material">
-                  <div onClick={() => toggleR()} id="mat-two" className="videopage-mat-one ploki">
-                    <div className="mat-text"><h1>Guidance videos</h1></div>
-                  </div>
-                  <div onClick={() => toggleR()} id="mat-one" className="videopage-mat-one ploko">
-                    <div className="mat-text"><h1>Study material</h1></div>
-                  </div>
-                </div>
-                : ''
-            }
-            {
-              wow.current === 'combo' || wow.current === 'elev' || wow.current === 'twel' ?
-                bar === 'yes' ?
-                  <div className="last-watched">
-                    <h1>Your last watched video was :</h1>
-                    <h2>{wow.profile.current.name === '' ? "None" : wow.profile.current.name}</h2>
-                  </div>
-                  : ''
-                : ''
-            }
-          </div>
-          {bar === 'no' ?
-            <Material footer={<Footer />} />
-            :
-            <>
-              <div className="priv-access">
-                <img onClick={wow.profile.subscription === 'true' ? ()=> navigate('/player') : ()=>{}} src={profile}></img>
-                <h1>Open The Videos</h1>
-              </div>
-              <div className="videopage-gap"></div>
-              <Footer />
-            </>
-          }
-        </div>
+
+
+
+        <Material footer={<Footer />} />
       </div>
     </>
   )

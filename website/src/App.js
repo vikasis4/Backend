@@ -28,17 +28,21 @@ import ScrollTop from './ScrollTop.js'
 import Checkout from './components/checkout/Checkout'
 import Courses from './components/courses/Courses'
 import Books from './components/books/Books'
+import Task from './components/activeHome/Task';
+import Explore from './components/explore/Explore';
+import ActiveHome from './components/activeHome/ActiveHome';
 import axios from 'axios';
 import io from 'socket.io-client';
 import { Helmet } from 'react-helmet';
 import VideoCall from './components/videocall/VideoCall';
 import MeetRoom from './components/videocall/MeetRoom';
 
-// var socket = io('http://localhost:8080/normal', { transports: ["websocket"] });
-var socket = io('https://wbb.rankboost.live/normal', { transports: ["websocket"] });
-
+var socket = io('http://localhost:8080/normal', { transports: ["websocket"] });
+// var socket = io('https://wbb.rankboost.live/normal', { transports: ["websocket"] });
 
 function App() {
+  
+
 
   const duework = useContext(ProfileContext);
   const verify = useContext(VerifyContext);
@@ -50,12 +54,19 @@ function App() {
 
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [lastPong, setLastPong] = useState(null);
+  var emailed = duework.profile.username === '' ? 'null' : duework.profile.username;
+
+  useEffect(()=>{
+    if (emailed.length > 2) {
+      socket.emit('update-cont-new', {id:socket.id, email:emailed});
+    }
+  },[emailed])
 
   useEffect(() => {
 
     socket.on('connect', () => {
       setIsConnected(true);
-      socket.emit('update-cont', socket.id);
+        socket.emit('update-cont', {id:socket.id, email:emailed});
     });
     socket.on('disconnect', () => {
       setIsConnected(false);
@@ -165,7 +176,9 @@ function App() {
           <Route path="/" element={<Navbar />} >
             <Route index element={<HomePageO />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/course" element={<VideosPage />} />
+            <Route path="/material" element={<VideosPage />} />
+            <Route path="/course" element={<ActiveHome />} />
+            <Route path="/explore" element={<Explore />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/refral-link/:id" element={<HomePageO />} />
             <Route path="/login" element={<Login />} />
@@ -178,6 +191,7 @@ function App() {
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/support" element={<Support />} />
+            <Route path="/task" element={<Task />} />
             <Route path="/price" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
@@ -189,7 +203,7 @@ function App() {
           </Route>
         </Routes>
         {window.innerWidth < 480 ?
-          location.pathname === '/course' || location.pathname === '/forgot' || location.pathname === '/price' || location.pathname === '/blogs' || location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/support' ? '' : <Footer />
+          location.pathname === '/course' || location.pathname === '/forgot' || location.pathname === '/price' || location.pathname === '/blogs' || location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/support' || location.pathname === '/material' || location.pathname === '/explore' ? '' : <Footer />
           :
           location.pathname === '/course' || location.pathname === '/blogs' ? '' : <Footer />
         }

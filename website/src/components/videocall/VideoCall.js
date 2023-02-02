@@ -1,25 +1,35 @@
 import React, { useEffect, useCallback } from 'react'
 import { useVideoCallSocket } from '../../context/websockets/VideoCallSockets'
 import { useNavigate } from 'react-router-dom';
+import ProfileContext from '../../context/profile/ProfileContext';
+import { usePeerContext } from '../../context/websockets/Peer'
 
 const VideoCall = () => {
-
+    
     const { socket } = useVideoCallSocket();
     const navigate = useNavigate();
+    const profile = React.useContext(ProfileContext)
+    const {myPeer} = usePeerContext();
 
-    const [emailId, setEmailId] = React.useState('');
+    const [id, setId] = React.useState('');
     const [roomId, setRoomId] = React.useState('');
 
+    useEffect(() => {
+        setRoomId(profile.profile.room);
+    }, [profile])
+
     const handleJoin = () => {
-        socket.emit('join-room', { emailId, roomId })
+        socket.emit('join-room', { userId: id, roomId })
     };
 
+    myPeer.on('open', id => {
+        setId(id)
+    })
 
-    const joinedRoom = useCallback(
-        (data) => {
-            console.log('RoomJoined:- ' + data.roomId);
-            navigate(`/videocall/${data.roomId}`)
-        }, [navigate])
+    const joinedRoom = (data) => {
+        console.log('RoomJoined:- ' + data.roomId);
+        navigate(`/videocall/${data.roomId}`)
+    }
 
     useEffect(() => {
         socket.on('joined-room', joinedRoom)
@@ -35,9 +45,7 @@ const VideoCall = () => {
             <div className="videopage-gap"></div>
 
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '60rem', alignItems: 'center' }}>
-                <input style={style} type="text" value={emailId} onChange={(e) => setEmailId(e.target.value)} placeholder="Enter Email" />
-                <input style={style} type="number" value={roomId} onChange={(e) => setRoomId(e.target.value)} placeholder="Enter Room code" />
-                <button onClick={() => handleJoin()} style={style}>Enter Room</button>
+                <button onClick={() => handleJoin()} style={style}>Start Calling</button>
             </div>
         </>
     )

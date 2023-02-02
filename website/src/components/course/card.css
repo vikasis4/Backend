@@ -17,7 +17,9 @@
     place-items:center;
 }
 
-
+.material-head h1:hover{
+    cursor: pointer;
+}
 
 
 /* ////////////////////////////////////////////////////////////////////////// */

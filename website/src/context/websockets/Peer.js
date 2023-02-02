@@ -1,4 +1,5 @@
-import React, { useMemo, useEffect, useState, useCallback } from 'react';
+import React, { useMemo, useEffect, useState, useRef } from 'react';
+import { useVideoCallSocket } from './VideoCallSockets'
 
 const PeerContext = React.createContext();
 
@@ -8,54 +9,59 @@ const usePeerContext = () => {
 
 const PeerProvider = (props) => {
 
-    const [remoteStream, setRemoteStream] = useState(null)
+    /////////////////////// STATES //////////////////////////////
+    const socket = useVideoCallSocket().socket;
+    const myStream = useRef(null);
+    const remoteStream = useRef(null);
+    const [media, setMedia] = useState({ video: false, audio: false });
 
-    const peer = useMemo(
-        () =>
-            new RTCPeerConnection({
-                iceServers: [{
-                    urls: [
-                        "stun:stun.l.google.com:19302",
-                        "stun:global.stun.twilio.com:3478",
-                    ]
-                }]
-            })
-        , [])
-    const createOffer = async () => {
-        var offer = await peer.createOffer();
-        await peer.setLocalDescription(offer);
-        return offer;
-    }
-    const createAnswer = async (offer) => {
-        await peer.setRemoteDescription(offer);
-        const answer = await peer.createAnswer();
-        await peer.setLocalDescription(answer);
-        return answer;
-    }
-    const setRemoteAnswer = async (answer) => {
-        await peer.setRemoteDescription(answer);
-    }
-    const sendStream = async (stream) => {
-        const tracks = stream.getTracks();
-        for (const track of tracks) {
-            peer.addTrack(track, stream)
-        }
-    }
-    const recieveStream = useCallback((ev) => {
-        const streams = ev.streams;
-        setRemoteStream(streams[0]);
-    },[])
-   
+
+    /////////////////////// PEER SETUP /////////////////////////////////
+    const myPeer = useMemo(() => { return new Peer() }, [])
+    const peers = {}
+
     useEffect(() => {
-        peer.addEventListener('track', recieveStream);
-        return()=>{
-            peer.removeEventListener('track', recieveStream);
-        }
-    }, [recieveStream, peer])
+    },[socket, myStream])
+    
+    //////////////////////////// VIDEO INPUTS //////////////////////////
 
+    // var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+    // getUserMedia({ video: true, audio: true }, (mediaStream) => {
+    //     myStream.current.srcObject = mediaStream;
+    //     myStream.current.play();
+
+    //     socket.on('user-connected', userId => {
+    //         setTimeout(connectToNewUser,4000, userId, mediaStream);
+    //     });
+
+    //     myPeer.on('call', (call) => {
+    //         const answerCall = confirm("Do you want to answer?");
+    //         console.log('called me called');
+    //         call.answer(mediaStream)
+    //         call.on('stream', function (remoteStream) {
+    //             remoteStream.current.srcObject = remoteStream
+    //             remoteStream.current.play();
+    //         });
+    //     })
+    // })
+
+    //////////////////////////////////// SEND CALL FUNCTION //////////////////////////
+    const connectToNewUser = (userId, mediaStream) => {
+        console.log('korona go');
+        const call = myPeer.call(userId, mediaStream);
+        call.on('stream', userVideoStream => {
+            remoteStream.current.srcObject = userVideoStream;
+            remoteStream.current.play();
+        })
+    }
+
+    ///////////////////////////// USER EXIT || HANDLE DISCONNECT //////////////////////
+    // socket.on('user-disconnected', userId => {
+    //     if (peers[userId]) peers[userId].close()
+    // })
 
     return (
-        <PeerContext.Provider value={{ peer, createOffer, createAnswer, setRemoteAnswer, sendStream, remoteStream }}>
+        <PeerContext.Provider value={{ myStream, remoteStream, setMedia, media, myPeer }}>
             {props.children}
         </PeerContext.Provider>
     )

@@ -10,17 +10,17 @@ const requestListener = function (req, res) {
 
 const httpServer = createServer(requestListener);
 
-// const io = new Server(httpServer, {
-//     cors: {
-//         origin: ["http://localhost:3000", "http://localhost:3001", "http://192.168.1.36:3000"],
-//         methods: ["GET", "POST"]
-//     }
-// });
-const io = require("socket.io")(httpServer, {
+const io = new Server(httpServer, {
     cors: {
-        origin: ['https://rankboost.live', 'https://admin.rankboost.live']
+        origin: ["http://localhost:3000", "http://localhost:3001", "http://192.168.1.36:3000"],
+        methods: ["GET", "POST"]
     }
 });
+// const io = require("socket.io")(httpServer, {
+//     cors: {
+//         origin: ['https://rankboost.live', 'https://admin.rankboost.live']
+//     }
+// });
 //////////////////////////////////// SERVER SETUP //////////////////////////////
 const asp = io.of("/admin");
 const nsp = io.of("/normal");
@@ -31,58 +31,58 @@ var livearray = [];
 ///////////////// ADMIN CONNECTION ////////////////////////////////////
 asp.on("connection", (socket) => {
     socket.on('update-me', () => {
-        asp.emit("live-listen", count);
+        asp.emit("live-listen", {count, livearray});
     })
 })
 ///////////////// USER CONNECTION ////////////////////////////////////
 nsp.on("connection", (socket) => {
-
-    socket.on('update-cont', (id) => {
+    socket.on('update-cont', (data) => {
         count = count + 1;
-        if (id) {
-            livearray.push(id);
+        if (data) {
+            livearray.push({email: data.email, id:data.id});
         }
-        asp.emit("live-listen", count);
+        asp.emit("live-listen", {count, livearray});
+    })
+    socket.on('update-cont-new', (data) => {
+        if (data.email === 'null') {
+            
+        }else{
+            const index = livearray.findIndex((element) => element.id === data.id);
+            livearray.splice(index, 1);
+            livearray.push({email: data.email, id:data.id});;
+            console.log(livearray);
+            asp.emit("live-listen", {count, livearray});
+        }
     })
     socket.on("disconnect", () => {
-        const index = livearray.findIndex((element) => element === socket.id);
+        const index = livearray.findIndex((element) => element.id === socket.id);
         if (index > -1) {
             count = count - 1;
             livearray.splice(index, 1);
         }
-        asp.emit("live-listen", count);
+        asp.emit("live-listen", {count, livearray});
     })
 })
 ////////////////////////// VIDEO CALL CONNECTION + SIGNALING SERVER ////////////////
 
-const emailToSocket = new Map();
-const socketToEmail = new Map();
+// const socketToPeer = new Map();
 
-vsp.on("connection", (socket) => {
+// vsp.on("connection", (socket) => {
 
-    socket.on('join-room', (data) => {
-        const {roomId, emailId} = data;
-        console.log(emailId+' User Joined');
-        emailToSocket.set(emailId, socket.id);
-        socketToEmail.set(socket.id, emailId);
-        socket.join(roomId);
-        socket.broadcast.to(roomId).emit('New-User-Joined', {emailId});
-        socket.emit('joined-room', {roomId, emailId});
-    })
+//     socket.on('join-room', (data) => {
 
-    socket.on('call-user', (data) => {
-        const { offer, emailId } = data;
-        const roomId = emailToSocket.get(emailId);
-        const fromEmail = socketToEmail.get(socket.id);
-        socket.to(roomId).emit('incoming-call', {from: fromEmail, offer})
-    })
+//         const {roomId, userId} = data;
+//         socketToPeer.set(socket.id, userId)
+//         socket.join(roomId);
+//         socket.broadcast.to(roomId).emit('user-connected', {userId});
+//         socket.emit('joined-room', {roomId, userId});
+//     })
 
-    socket.on('call-accepted', (data) => {
-        const {ans, from} = data;
-        const socketId = emailToSocket.get(from);
-        socket.to(socketId).emit('call-accepted', {ans})
-    })
-})
+//     socket.on('disconnect', ()=>{
+//         var peerId = socketToPeer.get(socket.id)
+//         socket.emit('user-disconnected', {peerId})
+//     })
+// })
 
 
 /////////////////////// 8080 port listening ////////////////////////

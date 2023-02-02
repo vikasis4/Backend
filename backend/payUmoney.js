@@ -34,7 +34,7 @@ exports.payUMoneyPayment = function (req, res) {
                     num = parseInt(num) + parseInt(process.env.twel);
                     string = string + 'tata'
                 }
-                else if (money[i].name === 'combo') {
+                else if (money[i].name === '2023CC') {
                     num = parseInt(num) + parseInt(process.env.combo);
                     string = string + 'drdo'
                 }

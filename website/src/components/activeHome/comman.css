@@ -100,6 +100,12 @@
 
 
 /* ////////////////////////////// */
+.task-one h2{
+    font-family: 'Dosis';
+    text-align: center;
+    font-size: 4rem;
+    margin-top:3rem
+}
 .task-one {
     width: 100%;
 }

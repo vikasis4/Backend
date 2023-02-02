@@ -20,7 +20,39 @@ const Variables = () => {
     const clink = process.env.REACT_APP_LINK;
 
     const [taskArr, setTaskArr] = useState([]);
-    const [tasks, setTasks] = useState('')
+    const [tasks, setTasks] = useState('');
+    const [from, setFrom] = useState('');
+    const [to, setTo] = useState('');
+    const [mar, setMar] = useState(null);
+
+    const addtolist = () =>{
+        taskArr.push({name:tasks});
+        setTaskArr(taskArr);
+        setTasks('')
+    }
+    const submitshit =() =>{
+        axios.post(`${clink}/weeklytask/update`, {array:taskArr, from, to}).then((response) =>{
+            if(response.data.status === 'yes'){
+                alert('Successfully updated')
+            }else{
+                alert('Something went wrong')
+            }
+        })
+    }
+    const mapped = () =>{
+        setMar(
+            taskArr.map((taskArr) => {
+                return(
+                    <>
+                    {taskArr.name} <br/>
+                    </>
+                )
+            })
+        )
+    }
+    useEffect(() => {
+      mapped();
+    }, [tasks])
 
     useEffect(() => {
         axios.get(clink + '/variables/fetch').then((response) => {
@@ -110,6 +142,16 @@ const Variables = () => {
                 }
                 <div className='variable-task'>
                     <h1>Weekly Tasks</h1>
+                    <div className='variable-task-lis'>
+                    <h2>
+                    {mar}
+                    </h2>
+                    <input value={tasks} onChange={(e)=> setTasks(e.target.value)} placeholder="Enter Task"/>
+                    <input value={from} onChange={(e)=> setFrom(e.target.value)} placeholder="Enter Date From"/>
+                    <input value={to} onChange={(e)=> setTo(e.target.value)} placeholder="Enter Date To"/>
+                    <button onClick={()=> submitshit()}>Submit</button>
+                    <button onClick={()=> addtolist()}>Add To List</button>
+                    </div>
                 </div>
             </div>
         </>

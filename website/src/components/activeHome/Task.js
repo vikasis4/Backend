@@ -7,12 +7,16 @@ import axios from 'axios';
 function Task() {
 
     const [array, setArray] = useState([{name:'hello sir'}]);
+    const [from ,setFrom] = useState('')
+    const [to, setTo] = useState('')
     const clink = process.env.REACT_APP_LINK;
 
     useEffect(() => {
       axios.get(`${clink}/weeklytask`).then((response) => {
         console.log(response.data);
-        setArray(response.data)
+        setArray(response.data.task);
+        setFrom(response.data.from)
+        setTo(response.data.to)
       })
     }, [])
     
@@ -43,6 +47,7 @@ function Task() {
                     <div className="task-list">
                         <h1> Weekly Task <img style={{ width: '6rem', height: '6rem', marginLeft: '2rem' }} src={rackit} /></h1>
                     </div>
+                    <h2>{from} <span style={{color:'green'}}>To</span> {to}</h2>
                     <div className='taskbar'>
                         {list}
                     </div>

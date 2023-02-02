@@ -60,8 +60,38 @@
 }
 
 
+.variable-task-lis {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+}
+.variable-task button:hover{
+    cursor: pointer;
+}
+.variable-task button{
+    background-color: black;
+    border-radius:0.4rem;
+    padding: 1rem 8rem;
+    color:white;
+    margin-top: 1rem;
+    font-family: 'Dosis';
+}
+.variable-task {
+    padding-bottom: 5rem;
+}
+.variable-task h2{
+    font-family: 'Dosis';
+}
 .variable-task h1{
     font-family: 'Dosis';
     text-align: center;
     font-size: 6rem;
+}
+.variable-task input {
+    border: 2px solid gray;
+    width: 40rem;
+    border-radius: 0.4rem;
+    padding: 1rem 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

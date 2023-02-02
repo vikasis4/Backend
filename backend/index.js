@@ -570,7 +570,7 @@ app.post('/api/changepassword', async (req, res) => {
 
 })
 ////////////////////////////// WEEKLY TASK ///////////////////////////////////////////////////////////////
-app.get('/api/weeklytask/update', async(req, res) => {
+app.post('/api/weeklytask/update', async(req, res) => {
     try {
         await Task.findOneAndUpdate({_id:'63dbed1ce28b3fa30a7aefd1'}, {
             tasks:req.body.array,
@@ -579,6 +579,7 @@ app.get('/api/weeklytask/update', async(req, res) => {
                 to: req.body.to
             }
         })
+        res.json({status:'yes'})
     } catch (error) {
         console.log(error);
     }
@@ -586,7 +587,7 @@ app.get('/api/weeklytask/update', async(req, res) => {
 app.get('/api/weeklytask', async(req, res) => {
     try {
         var fo = await Task.find({});
-        res.json(fo[0].tasks);
+        res.json({task: fo[0].tasks, from:fo[0].time.from, to:fo[0].time.to});
     } catch (error) {
         console.log(error);
     }

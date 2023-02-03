@@ -36,19 +36,10 @@ const Checkout = () => {
 
     useEffect(() => {
         for (let i = 0; i < kart.length; i++) {
-            if (kart[i].name === 'elev') {
-                num = num + 1299;
-            }
-            else if (kart[i].name === 'twel') {
-                num = num + 699;
-            }
-            else if (kart[i].name === 'material') {
+            if (kart[i].name === 'material') {
                 num = num + 399;
             }
-            else if (kart[i].name === 'personal') {
-                num = num + 2999;
-            }
-            else if (kart[i].name === 'combo') {
+            else if (kart[i].name === '2023CC') {
                 num = num + 999;
             }
             if (i === kart.length - 1) {
@@ -63,19 +54,12 @@ const Checkout = () => {
         setKart(kart);
         profile.setProfile({ ...profile.profile, cart: kart });
 
-        if (pirop === 'elev') {
-            num = bill - 1299;
-        }
-        else if (pirop === 'twel') {
-            num = bill - 699;
-        }
-        else if (pirop === 'material') {
+
+        if (pirop === 'material') {
             num = bill - 399;
         }
-        else if (pirop === 'personal') {
-            num = bill - 2999;
-        }
-        else if (pirop === 'combo') {
+
+        else if (pirop === '2023CC') {
             num = bill - 999;
         }
 
@@ -100,7 +84,7 @@ const Checkout = () => {
                 setTimeout(() => {
                     Payment.paymentverify(profile.profile.id)
                 }, 2500)
-            }else{
+            } else {
                 setVista(true)
             }
         } else {
@@ -178,11 +162,8 @@ const Checkout = () => {
                                     <h1>Total items :-</h1>
                                     {kart.length === 0 ? <h1 style={{ fontSize: '1.8rem', fontWeight: '600', color: 'purple', textAlign: 'center', margin: '4rem 0' }}>Cart is empty</h1> : ""}
                                     <ul>
-                                        {kart.find(({ name }) => name === "elev") ? <li><a onClick={() => { jani("elev") }}><img src={minus}></img></a> Jee guidance for 2024 batch, price &#8377; 1299 </li> : ""}
-                                        {kart.find(({ name }) => name === "twel") ? <li><a onClick={() => { jani("twel") }}><img src={minus}></img></a> Jee guidance for 2023 batch, price &#8377; 699 </li> : ""}
                                         {kart.find(({ name }) => name === "2023CC") ? <li><a onClick={() => { jani("combo") }}><img src={minus}></img></a> Jee Mains and Advance 2023 Mentorship, Price &#8377; 999 </li> : ""}
                                         {kart.find(({ name }) => name === "material") ? <li><a onClick={() => { jani("material") }}><img src={minus}></img></a> Jee study material, price &#8377; 399 </li> : ""}
-                                        {kart.find(({ name }) => name === "personal") ? <li><a onClick={() => { jani("personal") }}><img src={minus}></img></a> personal 1-1 guidance 6 moths validity, price &#8377; 2999 </li> : ""}
                                     </ul>
                                 </div>
                             </>}

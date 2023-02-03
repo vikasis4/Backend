@@ -18,19 +18,27 @@ const Player = () => {
     const jango = useContext(CourseContext)
     const amaze = useContext(VerifyContext)
     const clink = process.env.REACT_APP_LINK;
+    const kart = prowork.profile.subarray;
 
 
     useEffect(() => {
-        if (prowork.profile.subscription === "false") {
-            navigate('/')
-        } else {
-            fetchData();
-            async function fetchData() {
-                await axios.get(clink + '/course')
-                    .then(async (response) => {
-                        jango.setCourse(response.data)
-                    })
+        if (prowork.profile.void === 'no') {
+            if (prowork.profile.subscription === "false") {
+                navigate('/')
             }
+            else if (kart.find(({ name }) => name === "2023") || kart.find(({ name }) => name === "combo")) {
+                fetchData();
+                async function fetchData() {
+                    await axios.get(clink + '/course')
+                        .then(async (response) => {
+                            jango.setCourse(response.data)
+                        })
+                }
+            } else {
+                alert('Purchase main course to access this section')
+            }
+        } else {
+            navigate('/')
         }
     }, [prowork])
 
@@ -38,23 +46,41 @@ const Player = () => {
 
     var one = '';
     var two = '';
+    var three = '';
+    var four = '';
     var dyta = '';
     var we = 1
     var be = 1
+    var te = 1
+    var ze = 1
     if (jango.course) {
 
         dyta = jango.course;
         one = (dyta).map(
             (dyta) => {
-                if (dyta.category === 't1') {
+                if (dyta.category === 's1') {
                     return <Card key={dyta._id} nig={we++} card={dyta} />
                 }
             }
         )
         two = (dyta).map(
             (dyta) => {
-                if (dyta.category === 't2') {
+                if (dyta.category === 's2') {
                     return <Card key={dyta._id} nig={be++} card={dyta} />
+                }
+            }
+        )
+        three = (dyta).map(
+            (dyta) => {
+                if (dyta.category === 's3') {
+                    return <Card key={dyta._id} nig={te++} card={dyta} />
+                }
+            }
+        )
+        four = (dyta).map(
+            (dyta) => {
+                if (dyta.category === 's4') {
+                    return <Card key={dyta._id} nig={ze++} card={dyta} />
                 }
             }
         )
@@ -80,16 +106,31 @@ const Player = () => {
                     </div>
                     <div className="player-bottom">
                         <div className="player-one">
-                            <h1>Section 1 & 2 - Avoid Major Mistakes || Study Pattern and Strategies</h1>
+                            <h1 style={{ color: 'var(--s2)' }}>Section 1 - Confidence || Health || Social Media || Mindset || Study routine</h1>
                             <div className="player-one-list">
                                 {one}
-                                <div className="soros"></div>
                             </div>
                         </div>
                         <div className="player-one">
-                            <h1>Section 3 - Mindset & Mentality</h1>
+                            <h1 style={{ color: 'var(--s2)' }}>Section 2 - Major Mistakes to avoid for jee Mains & Advance</h1>
                             <div className="player-one-list">
                                 {two}
+                            </div>
+                        </div>
+                        <div className="player-one">
+                            <h1 style={{ color: 'var(--s2)' }}>Section 3 - Strategy & Study tips for jee Mains 2023</h1>
+                            <div className="player-one-list">
+                                {three}
+                            </div>
+                        </div>
+                        <div className="player-one">
+                            <h1 style={{ color: 'var(--s2)' }}>Section 4 - Strategy & Study Tips for jee Advance 2023</h1>
+                            <div className="player-one-list">
+                                <div className="frozen">
+                                    {/* {four} */}
+                                    <h3>This Section will unlock after JEE Mains second attempt 2023.<br />This section has 6 videos</h3>
+                                </div>
+                                <div className="soros"></div>
                             </div>
                         </div>
                     </div>

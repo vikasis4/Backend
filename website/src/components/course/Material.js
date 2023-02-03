@@ -12,6 +12,7 @@ const Material = (props) => {
     const [bar, setBar] = useState('one');
     const [plf, setPlf] = useState([]);
     const [sub, setSub] = useState('phy');
+    const [pbk, setPbk] = useState(0);
     const [loader, setLoader] = useState(true)
 
     useEffect(() => {
@@ -24,7 +25,6 @@ const Material = (props) => {
             })
     }, [])
     useEffect(() => {
-        console.log(clink + '/pyq/get');
         axios.get(clink + '/pyq/get')
             .then((response) => {
                 setPlf(response.data);
@@ -42,6 +42,7 @@ const Material = (props) => {
     var celiment = ''
     var meliment = ''
     var deliment = ''
+    var keliment = ''
     var zeliment = ''
 
     if (plf.length > 0) {
@@ -57,6 +58,23 @@ const Material = (props) => {
                     bubble(plf)
                 }
                 if (plf.type === 'pyq') {
+                    return (
+                        <>
+                            <div className="mat-one">
+                                <div><h1>{plf.name}</h1></div>
+                                <button onClick={() => subble()}>Download Pdf</button>
+                            </div>
+                        </>
+                    )
+                }
+            }
+        )
+        keliment = (plf).map(
+            (plf) => {
+                const subble = () => {
+                    bubble(plf)
+                }
+                if (plf.type === 'jan') {
                     return (
                         <>
                             <div className="mat-one">
@@ -188,8 +206,17 @@ const Material = (props) => {
                     bar === 'two' ?
                         <div className="material-cont">
 
+                                <div className="material-head">
+                                    <h1 onClick={() => setPbk(0)} style={pbk === 0 ? ONobj : OFFobj} >PYQ before 2022</h1>
+                                    <h1 onClick={() => setPbk(1)} style={pbk === 1 ? ONobj : OFFobj}>2023 janurary shift</h1>
+                                </div>
                             <div className="material-body">
-                                {loader === true ? <h1>Loading...</h1> : deliment}
+                                {loader === true ? <h1>Loading...</h1> : 
+                                pbk === 0 ?
+                                deliment
+                                :
+                                keliment
+                                }
                             </div>
                         </div>
                         :
@@ -222,7 +249,7 @@ const Material = (props) => {
                                         }
                                     </div>
                                 </div>
-                                
+
                             </>
                 }
 

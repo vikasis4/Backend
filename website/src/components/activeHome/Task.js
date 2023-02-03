@@ -3,6 +3,8 @@ import './comman.css'
 import Part from '../course/Part'
 import rackit from './rocket.png'
 import axios from 'axios';
+import ProfileContext from '../../context/profile/ProfileContext';
+import { useNavigate } from 'react-router-dom';
 
 function Task() {
 
@@ -10,6 +12,9 @@ function Task() {
     const [from ,setFrom] = useState('')
     const [to, setTo] = useState('')
     const clink = process.env.REACT_APP_LINK;
+    const prowork = React.useContext(ProfileContext);
+    const kart = prowork.profile.subarray;
+    const navigate = useNavigate()
 
     useEffect(() => {
       axios.get(`${clink}/weeklytask`).then((response) => {
@@ -19,6 +24,18 @@ function Task() {
         setTo(response.data.to)
       })
     }, [])
+
+    useEffect(() => {
+        if (prowork.profile.void === 'no') {
+             if (kart.find(({ name }) => name === "2023") || kart.find(({ name }) => name === "combo")) {
+              /////////////
+            } else {
+                navigate('/')
+            }
+        } else {
+            navigate('/')
+        }
+    }, [prowork])
     
 
     var n = 0;

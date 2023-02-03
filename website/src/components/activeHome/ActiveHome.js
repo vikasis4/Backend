@@ -21,9 +21,7 @@ function ActiveHome() {
         setId(profile.profile.id)
         
         if (id) {     
-            console.log(id);
             axios.post(`${clink}/get-form-info`,  {id:id} ).then((response) => {
-                console.log(response.data);
                 if (response.data.status === 'yes') {
                     setForm(true)
                 }

@@ -10,10 +10,6 @@ import {
   MenuRadio,
   MenuRadioGroup,
 } from '@vime/react';
-import axios from 'axios'
-
-
-
 
 const Part = () => {
 
@@ -22,10 +18,8 @@ const Part = () => {
   const [url, setUrl] = useState('');
   const [quality, setQuality] = useState(480)
   const [rate, setRate] = useState(1);
-  const [pate, setPate] = useState(1);
 
   const vlink = process.env.REACT_APP_VIDEO_LINK
-  const clink = process.env.REACT_APP_LINK
 
 
   useEffect(() => {

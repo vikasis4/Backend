@@ -13,9 +13,9 @@ const VerifyState = (props) => {
     const [progress, setProgress] = useState('');
     const clink = process.env.REACT_APP_LINK;
     var cu_obj = {
-        name: 'Mistakes to avoid in JEE preparation',
+        name: 'How to Build',
         bname: 'video1',
-        category: 't1'
+        category: 's1'
     }
     var quality = 480
 

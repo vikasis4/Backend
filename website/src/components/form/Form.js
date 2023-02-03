@@ -2,10 +2,11 @@ import React, { useState, useContext } from 'react'
 import './form.css'
 import axios from 'axios'
 import ProfileContext from '../../context/profile/ProfileContext'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Form() {
 
+    const Navigate = useNavigate()
     const style = {
         border: '1px solid black',
         borderRadius: '8px',
@@ -14,9 +15,32 @@ function Form() {
     const profile = useContext(ProfileContext);
     const [id, setId] = useState(null)
 
-    React.useEffect(()=>{
+    React.useEffect(() => {
+
         setId(profile.profile.id)
-        console.log(profile.profile.id);
+        
+        if (id) {     
+            console.log(id);
+            axios.post(`${clink}/get-form-info`,  {id:id} ).then((response) => {
+                console.log(response.data);
+                if (response.data.status === 'yes') {
+                    Navigate('/')
+                }
+                else if (response.data.status === 'no') {
+                    // setForm(false)
+                }
+            })
+        }
+
+    }, [profile, id])
+
+    React.useEffect(()=>{
+        if (profile.profile.subscription === 'true') {   
+            setId(profile.profile.id)
+            console.log(profile.profile.id);
+        }else{
+            Navigate('/')
+        }
     },[profile.profile.id])
     
     const clink = process.env.REACT_APP_LINK;

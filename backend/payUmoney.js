@@ -26,29 +26,9 @@ exports.payUMoneyPayment = function (req, res) {
             var string = '';
 
             for (let i = 0; i < money.length; i++) {
-                if (money[i].name === 'elev') {
-                    num = parseInt(num) + parseInt(process.env.elev);
-                    string = string + 'isro'
-                }
-                else if (money[i].name === 'twel') {
-                    num = parseInt(num) + parseInt(process.env.twel);
-                    string = string + 'tata'
-                }
-                else if (money[i].name === '2023CC') {
-                    num = parseInt(num) + parseInt(process.env.combo);
+                 if (money[i].name === '2023CC') {
+                    num = parseInt(num) + parseInt(process.env.CC2023);
                     string = string + 'drdo'
-                }
-                else if (money[i].name === 'personal1') {
-                    num = parseInt(num) + parseInt(process.env.personal1);
-                    string = string + 'bel1'
-                }
-                else if (money[i].name === 'personal2') {
-                    num = parseInt(num) + parseInt(process.env.personal2);
-                    string = string + 'bel2'
-                }
-                else if (money[i].name === 'personal3') {
-                    num = parseInt(num) + parseInt(process.env.personal3);
-                    string = string + 'bel3'
                 }
                 else if (money[i].name === 'material') {
                     num = parseInt(num) + parseInt(process.env.material);

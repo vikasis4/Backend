@@ -723,39 +723,14 @@ app.post('/payu/success', async (req, res) => {
             type = 'refral'
         }
         var string = req.body.udf2;
-        var plan_time = user.guidance_session.plan_time;
-        var p_date = user.guidance_session.expiry_time.date;
-        var p_month = user.guidance_session.expiry_time.month;
-        var p_year = user.guidance_session.expiry_time.year;
         var pkey = user.pkey
         var cart = [];
         var derator = string.length / 4;
-        var xl = ['', 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-        const ds = new Date();
-        const date = ds.getUTCDate();
-        const month = ds.getUTCMonth() + 1;
-        const year = ds.getUTCFullYear();
-        const hours = ds.getHours();
-        const mins = ds.getMinutes();
+       
         if (req.body.status === 'success') {
             for (let i = 0; i < derator; i++) {
-                if (string.slice(i * 4, (i + 1) * 4) === 'isro') {
-                    cart.push({ name: 'elev' });
-                }
-                else if (string.slice(i * 4, (i + 1) * 4) === 'tata') {
-                    cart.push({ name: 'twel' });
-                }
-                else if (string.slice(i * 4, (i + 1) * 4) === 'drdo') {
+                if (string.slice(i * 4, (i + 1) * 4) === 'drdo') {
                     cart.push({ name: '2023CC' });
-                }
-                else if (string.slice(i * 4, (i + 1) * 4) === 'bel1') {
-                    cart.push({ name: 'personal1' });
-                }
-                else if (string.slice(i * 4, (i + 1) * 4) === 'bel2') {
-                    cart.push({ name: 'personal2' });
-                }
-                else if (string.slice(i * 4, (i + 1) * 4) === 'bel3') {
-                    cart.push({ name: 'personal3' });
                 }
                 else if (string.slice(i * 4, (i + 1) * 4) === 'bros') {
                     cart.push({ name: 'material' });
@@ -778,191 +753,8 @@ app.post('/payu/success', async (req, res) => {
             if (user.subscription === 'false') {
                 await User.findByIdAndUpdate(req.body.udf1, { subscription: 'true' })
             }
-
             await User.findByIdAndUpdate(req.body.udf1, { subarray: subsarray });
             await User.findByIdAndUpdate(req.body.udf1, { cart: [] });
-
-            const updatepersonal = async (amount, bools) => {
-                if (month + amount > 24) {
-                    var monthz = month + amount - 24;
-                    var yearz = year + 2;
-                    var datez = date;
-                    if (datez > xl[monthz]) {
-                        datez = datez - xl[monthz];
-                        monthz = monthz + 1;
-                    }
-                    await User.findByIdAndUpdate(req.body.udf1, {
-                        guidance_session: {
-                            plan_time: amount,
-                            expiry_time: {
-                                month: monthz,
-                                date: datez,
-                                year: yearz
-                            },
-                        }
-                    })
-                }
-                else if (month + amount > 12) {
-                    var monthz = month + amount - 12;
-                    var yearz = year + 1;
-                    var datez = date;
-                    if (datez > xl[monthz]) {
-                        datez = datez - xl[monthz];
-                        monthz = monthz + 1;
-                    }
-                    await User.findByIdAndUpdate(req.body.udf1, {
-                        guidance_session: {
-                            plan_time: amount,
-                            expiry_time: {
-                                month: monthz,
-                                date: datez,
-                                year: yearz
-                            },
-                        }
-                    })
-                } else {
-                    var monthy = month + amount;
-                    var yeary = year;
-                    var datey = date;
-                    if (datey > xl[monthy]) {
-                        datey = datey - xl[monthy];
-                        monthy = monthy + 1;
-                    }
-                    await User.findByIdAndUpdate(req.body.udf1, {
-                        guidance_session: {
-                            plan_time: amount,
-                            expiry_time: {
-                                month: monthy,
-                                date: datey,
-                                year: yeary
-                            },
-                        }
-                    })
-                }
-                await Personal.create({
-                    dialogue: [
-                        {
-                            statement: 'Welcome to rankboost personal 1-1 guidance programme. you can ask your all problems in your jee journey between Monady to Friday. on the weekends (saturday and sunday) our team will address your problems.',
-                            type: 'vikas',
-                            content: 'text',
-                            mins,
-                            hours,
-                            date,
-                            month,
-                            year,
-                        }
-                    ],
-                    personal: bools,
-                    date: ds,
-                    userid: req.body.id,
-                    room: uuidv4(),
-                    image: user.img,
-                    email: user.username,
-                    name: user.name
-                })
-            }
-            if (cart.find(({ name }) => name === '2023CC') && (cart.find(({ name }) => name === 'personal1') || cart.find(({ name }) => name === 'personal2') || cart.find(({ name }) => name === 'personal3'))) {
-                var status = 0
-                if (cart.find(({ name }) => name === 'personal1')) {
-                    status = 6
-                }
-                else if (cart.find(({ name }) => name === 'personal2')) {
-                    status = 9
-                }
-                else if (cart.find(({ name }) => name === 'personal3')) {
-                    status = 15
-                }
-                if (user.guidance_session.plan_time === 0) {
-                    // updatepersonal(status, 'true');
-                } else {
-                    var monthz = p_month + status;
-                    var yearz = p_year;
-                    var datez = p_date;
-                    if (p_month + status > 24) {
-                        monthz = p_month + status - 24;
-                        yearz = p_year + 2
-                    }
-                    else if (p_month + status > 12) {
-                        monthz = p_month + status - 12;
-                        yearz = p_year + 1
-                    }
-                    if (datez > xl[monthz]) {
-                        datez = datez - xl[monthz];
-                        monthz = monthz + 1;
-                    }
-                    var updatedvalue = {
-                        plan_time: plan_time + status,
-                        expiry_time: {
-                            month: monthz,
-                            date: datez,
-                            year: yearz
-                        },
-                    }
-                    await User.findByIdAndUpdate(req.body.udf1, { guidance_session: updatedvalue })
-                }
-            }
-            else if (cart.find(({ name }) => name === 'personal1') || cart.find(({ name }) => name === 'personal2') || cart.find(({ name }) => name === 'personal3')) {
-                var status = 0
-                if (cart.find(({ name }) => name === 'personal1')) {
-                    status = 3
-                }
-                else if (cart.find(({ name }) => name === 'personal2')) {
-                    status = 6
-                }
-                else if (cart.find(({ name }) => name === 'personal3')) {
-                    status = 12
-                }
-                if (user.guidance_session.plan_time === 0) {
-                    // updatepersonal(status, 'true');
-                } else {
-                    var monthz = p_month + status;
-                    var yearz = p_year;
-                    var datez = p_date;
-                    if (p_month + status > 12) {
-                        monthz = p_month + status - 12;
-                        yearz = p_year + 1
-                    }
-                    if (datez > xl[monthz]) {
-                        datez = datez - xl[monthz];
-                        monthz = monthz + 1;
-                    }
-                    var updatedvalue = {
-                        plan_time: plan_time + status,
-                        expiry_time: {
-                            month: monthz,
-                            date: datez,
-                            year: yearz
-                        },
-                    }
-                    await User.findByIdAndUpdate(req.body.udf1, { guidance_session: updatedvalue })
-                }
-            }
-            else if (cart.find(({ name }) => name === '2023CC')) {
-                if (user.guidance_session.plan_time === 0) {
-                    // updatepersonal(3, 'false');
-                } else {
-                    var monthz = p_month + 3;
-                    var yearz = p_year;
-                    var datez = p_date;
-                    if (p_month + 3 > 12) {
-                        monthz = p_month + 3 - 12;
-                        yearz = p_year + 1
-                    }
-                    if (datez > xl[monthz]) {
-                        datez = datez - xl[monthz];
-                        monthz = monthz + 1;
-                    }
-                    var updatedvalue = {
-                        plan_time: plan_time + 3,
-                        expiry_time: {
-                            month: monthz,
-                            date: datez,
-                            year: yearz
-                        },
-                    }
-                    await User.findByIdAndUpdate(req.body.udf1, { guidance_session: updatedvalue })
-                }
-            }
             await User.findByIdAndUpdate(req.body.udf1, { pkey: 0000 })
         }
         res.send(
@@ -1085,26 +877,24 @@ app.post('/api/video/upload', async (req, res) => {
 //////////////////////////////////// COURSE FORM /////////////////////////////////////////////////////////////
 app.post('/api/get-form-info', async (req, res) => {
     try {
-        console.log(req.body);
-          var gb =  await Form.findOne({id:req.body.id})
-          if (gb) {
-            res.json({status:'yes'})
-        }else{
-              res.json({status:'no'})
-          }
+        var gb = await Form.findOne({ id: req.body.id })
+        if (gb) {
+            res.json({ status: 'yes' })
+        } else {
+            res.json({ status: 'no' })
+        }
     } catch (error) {
         console.log(error);
     }
 })
 app.post('/api/course-form', async (req, res) => {
-    console.log('ello');
     try {
         var form = req.body.form;
         await Form.create({
             id: req.body.men,
             q1: form.q1,
-            q21: form.q21, 
-            q22: form.q22, 
+            q21: form.q21,
+            q22: form.q22,
             q3: form.q3,
             q4: form.q4,
             q5: form.q5,
@@ -1118,10 +908,10 @@ app.post('/api/course-form', async (req, res) => {
             q13: form.q13,
             q14: form.q14,
         })
-        await User.findByIdAndUpdate(req.body.men, {phone:form.q3});
-        res.json({status:'yes'})
+        await User.findByIdAndUpdate(req.body.men, { phone: form.q3 });
+        res.json({ status: 'yes' })
     } catch (error) {
-        res.json({status:'no'})
+        res.json({ status: 'no' })
         console.log(error);
     }
 })
@@ -1148,7 +938,7 @@ app.get('/api/get/pdf', async (req, res) => {
 // COMMAND : HLS : ffmpeg -i videoone.mp4 -codec: copy -start_number 0 -hls_time 5 -hls_list_size 0 -bsf:v h264_mp4toannexb -f hls videoone.m3u8
 // COMMAND : FFMPEG: 240P 480P :ffmpeg -i input.mp4 -vf scale=320:240,setsar=1:1 output.mp4
 // COMMAND : HLS ALL QUALITY : ffmpeg -y -i 720video.mp4 -preset slow -g 48 -sc_threshold 0 -map 0:0 -map 0:1 -map 0:0 -map 0:1 -map 0:0 -map 0:1 -map 0:0 -map 0:1 -map 0:0 -map 0:1 -map 0:0 -map 0:1 -s:v:0 1920*1080 -b:v:0 1800k -s:v:1 1280*720 -b:v:1 1200k -s:v:2 858*480 -b:v:2 750k -s:v:3 630*360 -b:v:3 550k -s:v:4 426*240 -b:v:4 400k -s:v:5 256*144 -b:v:5 200k -c:a copy -var_stream_map "v:0,a:0,name:1080p v:1,a:1,name:720p v:2,a:2,name:480p v:3,a:3,name:360p v:4,a:4,name:240p v:5,a:5,name:144p" -master_pl_name master.m3u8 -f hls -hls_time 10 -hls_key_info_file enc.keyinfo -hls_playlist_type vod -hls_list_size 0 -hls_segment_filename "v%v/segment%d.ts" v%v/index.m3u8
-
+console.log(new Date().getUTCDate())
 //////////////////////////////////// GET COURSE //////////////////////////////////////////////////////
 app.get('/api/course', async (req, res) => {
     Video.find({}).then(async function (users) {

@@ -80,7 +80,7 @@ const HeroHomepageo = () => {
                                         <img src={telegram}></img>
                                         <h1>Join Telegram</h1>
                                         <h2>For all the students who have enrolled in courses, They have to join this telegram channel for various facilities and future updates</h2>
-                                        <a href="https://t.me/+LZFARaWHr80yNzNl" target="_blank">Join Now</a>
+                                        <a href="https://t.me/+UzksYobn86tiZWM9" target="_blank">Join Now</a>
                                     </div>
                                     :
                                     <>

@@ -133,3 +133,33 @@
     font-size: 6rem;
     padding-bottom: 1rem;
 }
+
+.AH-two-form h3{
+    font-family: "Dosis";
+    text-align: center;
+    font-size: 3rem;
+    padding-top: 1rem;
+    font-weight: 500;
+}
+.AH-two-form h2{
+    font-family: "Dosis";
+    text-align: center;
+    font-size: 6rem;
+}
+.AH-two-form button:hover{
+    cursor: pointer;
+}
+.AH-two-form button{
+    display: block;
+    margin: 8rem auto;
+    padding: 2rem 12rem;
+    background-color: var(--c2);
+    border-radius: 0.6rem;
+    color: white;
+    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.3);
+    font-family: "Dosis";
+    font-size: 3rem;
+}
+.AH-two-form{
+    margin-top:6rem
+}

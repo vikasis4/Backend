@@ -34,6 +34,7 @@ const payUMoney = require('./payUmoney');
 const Live = require('./models/live');
 const live = require("./live");
 const Task = require('./models/task');
+const Form = require('./models/form');
 
 ///////////////////// ACTIVE COURSE - 1-1 NOT ADD ON ///////////////////////////
 
@@ -73,30 +74,12 @@ var make = path.join(__dirname, 'public');
 app.use(express.static(make));
 
 const bilx = async () => {
-    const ds = new Date();
-    const day = ds.getUTCDate();
-    const month = ds.getUTCMonth() + 1;
-    const year = ds.getUTCFullYear();
-
     await mongoose.model("User").updateMany({}, {
         $set: {
-            last_seen: `${day}/${month}/${year}`
+            phone: null
         }
     })
 }
-//     await mongoose.model("User").updateMany({}, {
-//         $set: {
-//             guidance_session: {
-//                 plan_time: 0,
-//                 expiry_time: {
-//                     month: 0,
-//                     date: 0,
-//                     year: 0,
-//                 },
-//             },
-//         }
-//     })
-// }
 // bilx()
 ///////////////////////// LIVE RELOADER /////////////////////////
 var job2 = new CronJob(
@@ -570,24 +553,24 @@ app.post('/api/changepassword', async (req, res) => {
 
 })
 ////////////////////////////// WEEKLY TASK ///////////////////////////////////////////////////////////////
-app.post('/api/weeklytask/update', async(req, res) => {
+app.post('/api/weeklytask/update', async (req, res) => {
     try {
-        await Task.findOneAndUpdate({_id:'63dbed1ce28b3fa30a7aefd1'}, {
-            tasks:req.body.array,
-            time:{
+        await Task.findOneAndUpdate({ _id: '63dbed1ce28b3fa30a7aefd1' }, {
+            tasks: req.body.array,
+            time: {
                 from: req.body.from,
                 to: req.body.to
             }
         })
-        res.json({status:'yes'})
+        res.json({ status: 'yes' })
     } catch (error) {
         console.log(error);
     }
 })
-app.get('/api/weeklytask', async(req, res) => {
+app.get('/api/weeklytask', async (req, res) => {
     try {
         var fo = await Task.find({});
-        res.json({task: fo[0].tasks, from:fo[0].time.from, to:fo[0].time.to});
+        res.json({ task: fo[0].tasks, from: fo[0].time.from, to: fo[0].time.to });
     } catch (error) {
         console.log(error);
     }
@@ -1099,8 +1082,49 @@ app.post('/api/video/upload', async (req, res) => {
     res.json(video)
 
 })
-
-
+//////////////////////////////////// COURSE FORM /////////////////////////////////////////////////////////////
+app.post('/api/get-form-info', async (req, res) => {
+    try {
+        console.log(req.body);
+          var gb =  await Form.findOne({id:req.body.id})
+          if (gb) {
+            res.json({status:'yes'})
+        }else{
+              res.json({status:'no'})
+          }
+    } catch (error) {
+        console.log(error);
+    }
+})
+app.post('/api/course-form', async (req, res) => {
+    console.log('ello');
+    try {
+        var form = req.body.form;
+        await Form.create({
+            id: req.body.men,
+            q1: form.q1,
+            q21: form.q21, 
+            q22: form.q22, 
+            q3: form.q3,
+            q4: form.q4,
+            q5: form.q5,
+            q6: form.q6,
+            q7: form.q7,
+            q8: form.q8,
+            q9: form.q9,
+            q10: form.q10,
+            q11: form.q11,
+            q12: form.q12,
+            q13: form.q13,
+            q14: form.q14,
+        })
+        await User.findByIdAndUpdate(req.body.men, {phone:form.q3});
+        res.json({status:'yes'})
+    } catch (error) {
+        res.json({status:'no'})
+        console.log(error);
+    }
+})
 //////////////////////////////////// ADD PDF /////////////////////////////////////////////////////////////////
 app.post('/api/upload/pdf', async (req, res) => {
     const pdf = await Pdf.create({

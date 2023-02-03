@@ -13,6 +13,7 @@ const User = new mongoose.Schema({
 
     username: { type: 'string', required: true },
     password: { type: 'string', required: true },
+    phone:{ type: 'number', default: null},
     subscription: { type: 'string', default: 'false' },
     last_seen: { type: 'string', default:`${day}/${month}/${year}` },
     guidance_session: {

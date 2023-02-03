@@ -36,6 +36,7 @@ import io from 'socket.io-client';
 import { Helmet } from 'react-helmet';
 import VideoCall from './components/videocall/VideoCall';
 import MeetRoom from './components/videocall/MeetRoom';
+import Form from './components/form/Form';
 
 var socket = io('http://localhost:8080/normal', { transports: ["websocket"] });
 // var socket = io('https://wbb.rankboost.live/normal', { transports: ["websocket"] });
@@ -191,6 +192,7 @@ function App() {
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/support" element={<Support />} />
+            <Route path="/course-form" element={<Form />} />
             <Route path="/task" element={<Task />} />
             <Route path="/price" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />

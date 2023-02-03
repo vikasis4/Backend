@@ -11,6 +11,7 @@ import ProfileContext from '../../context/profile/ProfileContext';
 import telegram from '../../svg/telegram.svg'
 import msup from '../../svg/mrefer.svg'
 import mbook from '../../svg/mbook.svg'
+import Not from './Not.js' 
 
 
 const HeroHomepageo = () => {
@@ -25,9 +26,6 @@ const HeroHomepageo = () => {
             localStorage.setItem('refral', location.pathname.slice(13))
         }
     }
-
-
-
 
     return (
         <>
@@ -74,6 +72,7 @@ const HeroHomepageo = () => {
                             </div>
                         </div>
                         {/* ///////////////////// */}
+                        <Not />
                         <div className="herohomepage-course-list">
                             {
                                 profile.profile.subscription === 'true' ?
@@ -101,15 +100,15 @@ const HeroHomepageo = () => {
                                             </div>
 
                                             <div className="herohomepage-infos">
-                                                <h1>3428 <span style={{color:'rgba(0,0,0,0.7)'}}>Total Students enrolled</span></h1>
-                                                <h1>50% Off Discount <span style={{color:'rgba(0,0,0,0.7)'}}>Limited time offer </span> </h1>
-                                                <h1 style={{color:'green', textAlign:'center', marginTop:'2rem',paddingBottom:'4px', borderBottom:'2px solid green'}}>Behind the Every Selection there is a Mentor</h1>
+                                                <h1>3428 <span style={{ color: 'rgba(0,0,0,0.7)' }}>Total Students enrolled</span></h1>
+                                                <h1>50% Off Discount <span style={{ color: 'rgba(0,0,0,0.7)' }}>Limited time offer </span> </h1>
+                                                <h1 style={{ color: 'green', textAlign: 'center', marginTop: '2rem', paddingBottom: '4px', borderBottom: '2px solid green' }}>Behind the Every Selection there is a Mentor</h1>
                                                 <button onClick={() => navigate('/price')} >View all Courses</button>
                                             </div>
 
                                         </div>
                                     </>
-                                    }
+                            }
                         </div>
                     </div>
 

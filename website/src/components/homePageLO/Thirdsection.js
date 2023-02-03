@@ -3,6 +3,7 @@ import './thirdsec.css'
 
 const Thirdsection = () => {
 
+  const [pop, setPop] = useState(0)
   const [hide, setHide] = useState([{ height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' },{ height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }, { height: '0rem', padding: '0rem' }])
   const [rotate, setRotate] = useState([{ transform: 'rotate(0deg)' },{ transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }, { transform: 'rotate(0deg)' }])
   const hidefxn = (index) => {
@@ -17,7 +18,11 @@ const Thirdsection = () => {
       setHide(hide)
       setRotate(rotate)
     }
+
+    setPop(Math.random() * 10)
   }
+
+
   return (
     <div className="Thirdsection-cont">
 

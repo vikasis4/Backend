@@ -208,30 +208,36 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div className="activate-dis">
-                <div className="bottom-menu">
-                    <div onClick={() => { navigate('/refral') }} className="bottom-menu-comman">
-                        <img src={mrefer}></img>
-                        <h1>Refer to Earn</h1>
-                    </div>
-                    <div onClick={() => { navigate('/books') }} className="bottom-menu-comman">
-                        <img src={mbook}></img>
-                        <h1>Books</h1>
-                    </div>
 
-                    <div onClick={() => { show() }} className="bottom-menu-center">
-                        <img src={dottedmenu}></img>
+            {
+                location.pathname === '/player' ?
+                    ""
+                    :
+                    <div className="activate-dis">
+                        <div className="bottom-menu">
+                            <div onClick={() => { navigate('/refral') }} className="bottom-menu-comman">
+                                <img src={mrefer}></img>
+                                <h1>Refer to Earn</h1>
+                            </div>
+                            <div onClick={() => { navigate('/books') }} className="bottom-menu-comman">
+                                <img src={mbook}></img>
+                                <h1>Books</h1>
+                            </div>
+
+                            <div onClick={() => { show() }} className="bottom-menu-center">
+                                <img src={dottedmenu}></img>
+                            </div>
+                            <div onClick={() => { navigate('/price') }} className="bottom-menu-comman">
+                                <img src={mprice}></img>
+                                <h1>Price</h1>
+                            </div>
+                            <div onClick={() => { navigate('/courses') }} className="bottom-menu-comman">
+                                <img src={mcourse}></img>
+                                <h1>courses</h1>
+                            </div>
+                        </div>
                     </div>
-                    <div onClick={() => { navigate('/price') }} className="bottom-menu-comman">
-                        <img src={mprice}></img>
-                        <h1>Price</h1>
-                    </div>
-                    <div onClick={() => { navigate('/courses') }} className="bottom-menu-comman">
-                        <img src={mcourse}></img>
-                        <h1>courses</h1>
-                    </div>
-                </div>
-            </div>
+            }
 
             <Outlet />
             <div className="special-gappers"></div>

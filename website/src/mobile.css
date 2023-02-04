@@ -485,13 +485,10 @@ font-size:2.8rem !important;
         font-size: 3.4rem !important;
     }
     .player-cont {
-        height: 80vh !important;
         padding-top: 14rem !important;
         flex-direction: column !important;
     }
-    .player-top h1 {
-        font-size: 4rem !important;
-    }
+    
     .blog-content p{
         font-size: 2.4rem !important;
         font-weight: 500 !important;

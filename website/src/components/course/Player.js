@@ -26,7 +26,7 @@ const Player = () => {
             if (prowork.profile.subscription === "false") {
                 navigate('/')
             }
-            else if (kart.find(({ name }) => name === "2023") || kart.find(({ name }) => name === "combo")) {
+            else if (kart.find(({ name }) => name === "2023CC") || kart.find(({ name }) => name === "combo")) {
                 fetchData();
                 async function fetchData() {
                     await axios.get(clink + '/course')

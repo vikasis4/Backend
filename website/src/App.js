@@ -38,8 +38,8 @@ import VideoCall from './components/videocall/VideoCall';
 import MeetRoom from './components/videocall/MeetRoom';
 import Form from './components/form/Form';
 
-var socket = io('http://localhost:8080/normal', { transports: ["websocket"] });
-// var socket = io('https://wbb.rankboost.live/normal', { transports: ["websocket"] });
+// var socket = io('http://localhost:8080/normal', { transports: ["websocket"] });
+var socket = io('https://wbb.rankboost.live/normal', { transports: ["websocket"] });
 
 function App() {
   

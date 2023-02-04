@@ -10,7 +10,7 @@ export const useVideoCallSocket = () => {
 export const VideoCallSocketProvider = (props) => {
 
     const socket = React.useMemo(()=>{
-        return io('http://localhost:8080/videocall', { transports: ["websocket"] })
+        // return io('http://localhost:8080/videocall', { transports: ["websocket"] })
         // return io('https://wbb.rankboost.live/videocall', { transports: ["websocket"] })
     },[]);
     

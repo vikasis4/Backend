@@ -109,7 +109,7 @@ function Explore() {
 
                 <div className="explore-enter-top">
                     <img src={winner} style={{ height: '12rem', width: '12rem' }} />
-                    <h1>Target - Jee Mains 2023 ( 2nd Attempt ) and Advance</h1>
+                    <h1 style={{textAlign:'center'}}>Jee Mains + Advance + JOSSA Councelling</h1>
                 </div>
 
                 <div className="explore-enter-second">
@@ -117,7 +117,7 @@ function Explore() {
                     <div className="explore-enter-second-list">
                         <h1>30+<br />Videos </h1><h2> | </h2>
                         <h1> Premium<br />Short Notes </h1><h2> | </h2>
-                        <h1>Top<br />600 Questions </h1><h2> | </h2>
+                        <h1>26+<br />Mock Test </h1><h2> | </h2>
                         <h1> PYQ of<br />Mains+Advance </h1>
                     </div>
                 </div>
@@ -149,39 +149,51 @@ function Explore() {
                     <div className="explore-enter-five-list">
                         <div className="explore-enter-five-inner">
                             <h3>1</h3>
-                            <h2>Blizard is going on woooow</h2>
+                            <h2>5 months personal 1-1 Mentorship till jee advcance 2023</h2>
                         </div>
                         <div className="explore-enter-five-inner">
                             <h3>2</h3>
-                            <h2>Blizard is not going on Boooo</h2>
+                            <h2>30+ Guidance videos (Mains+Advance)</h2>
                         </div>
                         <div className="explore-enter-five-inner">
                             <h3>3</h3>
-                            <h2>Blizard is not going on Boooo</h2>
+                            <h2>Complete study material</h2>
                         </div>
                         <div className="explore-enter-five-inner">
                             <h3>4</h3>
-                            <h2>Blizard is not going on Boooo</h2>
+                            <h2>100+ Kota Premium Quality short notes</h2>
                         </div>
                         <div className="explore-enter-five-inner">
                             <h3>5</h3>
-                            <h2>Blizard is not going on Boooo</h2>
+                            <h2>Daily-Task, weekly schedule & Study Plans</h2>
                         </div>
                         <div className="explore-enter-five-inner">
                             <h3>6</h3>
-                            <h2>Blizard is not going on Boooo</h2>
+                            <h2>600+ Top Questions for Jee Mains</h2>
                         </div>
                         <div className="explore-enter-five-inner">
                             <h3>7</h3>
-                            <h2>Blizard is not going on Boooo</h2>
+                            <h2>Jee Mains and advance complete RoadMap</h2>
                         </div>
                         <div className="explore-enter-five-inner">
                             <h3>8</h3>
-                            <h2>Blizard is not going on Boooo</h2>
+                            <h2>20+ Jee Mains Tests & 6+ Advance Mock Test</h2>
                         </div>
                         <div className="explore-enter-five-inner">
                             <h3>9</h3>
-                            <h2>Blizard is not going on Boooo</h2>
+                            <h2>Top PYQ Questions</h2>
+                        </div>
+                        <div className="explore-enter-five-inner">
+                            <h3>10</h3>
+                            <h2>JOSSA councelling help</h2>
+                        </div>
+                        <div className="explore-enter-five-inner">
+                            <h3>11</h3>
+                            <h2>Chat section for Doubt Solving</h2>
+                        </div>
+                        <div className="explore-enter-five-inner">
+                            <h3>12</h3>
+                            <h2>Target Jee Mains second attempt and advance 2023</h2>
                         </div>
                     </div>
 

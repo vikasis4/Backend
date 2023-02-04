@@ -9,8 +9,8 @@ import io from 'socket.io-client';
 ChartJS.register(...registerables);
 
 const NonApiLink = process.env.REACT_APP_VIDEO_LINK;
-var socket = io('http://localhost:8080/admin', {transports: ["websocket"]});
-// var socket = io('https://wbb.rankboost.live/admin', {transports: ["websocket"]});
+// var socket = io('http://localhost:8080/admin', {transports: ["websocket"]});
+var socket = io('https://wbb.rankboost.live/admin', {transports: ["websocket"]});
 
 
 

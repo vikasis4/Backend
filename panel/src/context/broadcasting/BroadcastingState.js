@@ -9,7 +9,8 @@ const BroadcastingState = (props) => {
     const [live, setLive] = useState(0);
 
     useEffect(() => {
-        setSocket(io('http://localhost:4000/admin'));
+        // setSocket(io('http://localhost:4000/admin'));
+        setSocket(io('https://wbb.rankboost.live/admin'));
     }, [])
 
     //////////////////////////////////////////////////////////////////////////////////////

@@ -2,11 +2,8 @@ import React, { useContext, useState, useEffect } from 'react'
 import ProfileContext from "../../context/profile/ProfileContext";
 import { useNavigate } from 'react-router-dom'
 import './price.css'
-import one from './one.png'
 import two from './two.jpg'
-import three from './three.jpg'
-import four from '../homePageLO/course.png'
-import personal from './personal.png'
+import four from './imghector.png'
 import axios from 'axios'
 import sales from './sales/sales2.jpg'
 import medal from '../../svg/badge.svg'
@@ -175,7 +172,7 @@ const Pricing = () => {
                         <h6>Best Deal</h6>
                       </div>
                       <img src={four}></img>
-                      <h1>JEE Mains 2023 Mentorship</h1>
+                      <h1>JEE Mains + Advance 2023 Mentorship</h1>
                     </div>
                     <div className="pd_card_two">
                       <div className="pd_card_slab pd_slab_combo">
@@ -296,7 +293,7 @@ const Pricing = () => {
             <div className="price-flex price-spl">
               <div className="price-mod mob-price-mod">
                 <div className="price-cardd">
-                  <img className="price-deal" src={deals}></img>
+                  {/* <img className="price-deal" src={deals}></img> */}
                   <div className="price-first-coursed">
                     <img className="price-first-coursed-img" src={four}></img>
                     <div className="price-cbtwn">

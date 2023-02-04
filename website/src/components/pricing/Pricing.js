@@ -71,7 +71,7 @@ const Pricing = () => {
         else if (array[i].name === 'personal') {
           setStated(true)
         }
-        else if (array[i].name === 'combo') {
+        else if (array[i].name === 'combo' || array[i].name === '2023CC') {
           setStatee(true)
         }
       }

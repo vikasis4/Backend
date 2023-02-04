@@ -13,7 +13,7 @@ const VerifyState = (props) => {
     const [progress, setProgress] = useState('');
     const clink = process.env.REACT_APP_LINK;
     var cu_obj = {
-        name: 'How to Build',
+        name: 'How to Build Confidence for JEE Main & Advance 2023',
         bname: 'video1',
         category: 's1'
     }

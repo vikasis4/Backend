@@ -163,7 +163,7 @@ const Checkout = () => {
                                     {kart.length === 0 ? <h1 style={{ fontSize: '1.8rem', fontWeight: '600', color: 'purple', textAlign: 'center', margin: '4rem 0' }}>Cart is empty</h1> : ""}
                                     <ul>
                                         {kart.find(({ name }) => name === "2023CC") ? <li><a onClick={() => { jani("combo") }}><img src={minus}></img></a> Jee Mains and Advance 2023 Mentorship, Price &#8377; 999 </li> : ""}
-                                        {kart.find(({ name }) => name === "material") ? <li><a onClick={() => { jani("material") }}><img src={minus}></img></a> Jee study material, price &#8377; 399 </li> : ""}
+                                        {kart.find(({ name }) => name === "material") ? <li><a onClick={() => { jani("material") }}><img src={minus}></img></a> Jee study material, price &#8377; 499 </li> : ""}
                                     </ul>
                                 </div>
                             </>}

@@ -205,7 +205,7 @@ function App() {
           </Route>
         </Routes>
         {window.innerWidth < 480 ?
-          location.pathname === '/course' || location.pathname === '/forgot' || location.pathname === '/price' || location.pathname === '/blogs' || location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/support' || location.pathname === '/material' || location.pathname === '/explore' ? '' : <Footer />
+          location.pathname === '/course' || location.pathname === '/forgot' || location.pathname === '/price' || location.pathname === '/blogs' || location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/support' || location.pathname === '/material' || location.pathname === '/explore' || location.pathname === '/task' ? '' : <Footer />
           :
           location.pathname === '/course' || location.pathname === '/blogs' ? '' : <Footer />
         }

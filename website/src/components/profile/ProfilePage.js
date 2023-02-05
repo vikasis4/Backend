@@ -70,11 +70,8 @@ const ProfilePage = () => {
                                 <>
                                 <h1>Your Subscribed courses</h1>
                                 <ul>
-                                {kart.find(({ name }) => name === "elev") ? <li>* Jee guidance for 2024 batch</li> : ""}
-                                {kart.find(({ name }) => name === "twel") ? <li>* Jee guidance for 2023 batch </li> : ""}
-                                {kart.find(({ name }) => name === "combo") ? <li>* Combo pack for both 2023 and 2024 students</li> : ""}
+                                {kart.find(({ name }) => name === "combo") || kart.find(({ name }) => name === "2023CC") ? <li>*Jee Mains + Advance 2023 Mentorship</li> : ""}
                                 {kart.find(({ name }) => name === "material") ? <li>* Jee study material</li> : ""}
-                                {kart.find(({ name }) => name === "personal") ? <li>* personal 1-1 guidance 6 moths validity </li> : ""}
                             </ul>
                                 </>
                                 :

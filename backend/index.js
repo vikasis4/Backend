@@ -726,7 +726,7 @@ app.post('/payu/success', async (req, res) => {
         var pkey = user.pkey
         var cart = [];
         var derator = string.length / 4;
-       
+
         if (req.body.status === 'success') {
             for (let i = 0; i < derator; i++) {
                 if (string.slice(i * 4, (i + 1) * 4) === 'drdo') {
@@ -736,7 +736,7 @@ app.post('/payu/success', async (req, res) => {
                     cart.push({ name: 'material' });
                 }
             }
-
+            
             const payment = await Payment.create({
                 refrence_nos: req.body.bank_ref_num,
                 transaction_id: req.body.mihpayid,
@@ -938,7 +938,6 @@ app.get('/api/get/pdf', async (req, res) => {
 // COMMAND : HLS : ffmpeg -i videoone.mp4 -codec: copy -start_number 0 -hls_time 5 -hls_list_size 0 -bsf:v h264_mp4toannexb -f hls videoone.m3u8
 // COMMAND : FFMPEG: 240P 480P :ffmpeg -i input.mp4 -vf scale=320:240,setsar=1:1 output.mp4
 // COMMAND : HLS ALL QUALITY : ffmpeg -y -i 720video.mp4 -preset slow -g 48 -sc_threshold 0 -map 0:0 -map 0:1 -map 0:0 -map 0:1 -map 0:0 -map 0:1 -map 0:0 -map 0:1 -map 0:0 -map 0:1 -map 0:0 -map 0:1 -s:v:0 1920*1080 -b:v:0 1800k -s:v:1 1280*720 -b:v:1 1200k -s:v:2 858*480 -b:v:2 750k -s:v:3 630*360 -b:v:3 550k -s:v:4 426*240 -b:v:4 400k -s:v:5 256*144 -b:v:5 200k -c:a copy -var_stream_map "v:0,a:0,name:1080p v:1,a:1,name:720p v:2,a:2,name:480p v:3,a:3,name:360p v:4,a:4,name:240p v:5,a:5,name:144p" -master_pl_name master.m3u8 -f hls -hls_time 10 -hls_key_info_file enc.keyinfo -hls_playlist_type vod -hls_list_size 0 -hls_segment_filename "v%v/segment%d.ts" v%v/index.m3u8
-console.log(new Date().getUTCDate())
 //////////////////////////////////// GET COURSE //////////////////////////////////////////////////////
 app.get('/api/course', async (req, res) => {
     Video.find({}).then(async function (users) {

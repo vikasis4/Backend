@@ -36,12 +36,12 @@ function ActiveHome() {
     }, [profile, id])
 
     const handleRepo = () => {
-if (form) {
+// if (form) {
     navigate('/task')
-}
-else{
-    alert('Fill the Form so that we can generate the Weekly task according to your needs')
-}
+// }
+// else{
+//     alert('Fill the Form so that we can generate the Weekly task according to your needs')
+// }
     }
 
     return (

@@ -8,27 +8,28 @@ import { useNavigate } from 'react-router-dom';
 
 function Task() {
 
-    const [array, setArray] = useState([{name:'hello sir'}]);
-    const [from ,setFrom] = useState('')
+    const [array, setArray] = useState([{ name: 'hello sir' }]);
+    const [from, setFrom] = useState('')
     const [to, setTo] = useState('')
     const clink = process.env.REACT_APP_LINK;
     const prowork = React.useContext(ProfileContext);
     const kart = prowork.profile.subarray;
     const navigate = useNavigate()
+    const vlink = process.env.REACT_APP_VIDEO_LINK
 
     useEffect(() => {
-      axios.get(`${clink}/weeklytask`).then((response) => {
-        console.log(response.data);
-        setArray(response.data.task);
-        setFrom(response.data.from)
-        setTo(response.data.to)
-      })
+        axios.get(`${clink}/weeklytask`).then((response) => {
+            console.log(response.data);
+            setArray(response.data.task);
+            setFrom(response.data.from)
+            setTo(response.data.to)
+        })
     }, [])
 
     useEffect(() => {
         if (prowork.profile.void === 'no') {
-             if (kart.find(({ name }) => name === "2023") || kart.find(({ name }) => name === "combo")) {
-              /////////////
+            if (kart.find(({ name }) => name === "2023CC") || kart.find(({ name }) => name === "combo")) {
+                /////////////
             } else {
                 navigate('/')
             }
@@ -36,7 +37,7 @@ function Task() {
             navigate('/')
         }
     }, [prowork])
-    
+
 
     var n = 0;
     const [list, setList] = useState()
@@ -54,7 +55,10 @@ function Task() {
         run();
     }, [array])
 
-
+    const openpdf = () => {
+        window.open(`${vlink}/task1.pdf`, "_self")
+        alert('Download has started')
+    }
 
     return (
         <>
@@ -64,9 +68,10 @@ function Task() {
                     <div className="task-list">
                         <h1> Weekly Task <img style={{ width: '6rem', height: '6rem', marginLeft: '2rem' }} src={rackit} /></h1>
                     </div>
-                    <h2>{from} <span style={{color:'green'}}>To</span> {to}</h2>
+                    <h2>6 Feb 2023</h2>
                     <div className='taskbar'>
-                        {list}
+                        <h1>PDF of Weekly Task</h1>
+                        <button onClick={() => openpdf()}>Download</button>
                     </div>
                 </div>
             </div>

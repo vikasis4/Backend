@@ -254,7 +254,8 @@ const Material = (props) => {
                 }
 
             </div>
-            {footer}
+            <div style={{height: '20rem'}}></div>
+            {/* {footer} */}
 
         </>
     )

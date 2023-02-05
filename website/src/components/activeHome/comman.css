@@ -109,19 +109,36 @@
 .task-one {
     width: 100%;
 }
+
 .taskbar h1{
-    font-family: "Dosis";
+    font-family: 'Dosis';
+    color:white;
     font-size: 3rem;
-    color: black;
-    font-weight: 500;
-    padding: 1rem 2rem;
-    border-radius: 0.4rem;
-    margin: 2rem 0 0 0rem;
-    background-color: lightgray;
+}
+.taskbar button:hover{
+    cursor: pointer;
+}
+.taskbar button{
+    font-family: 'Dosis';
+    font-size: 3rem;
+    font-weight: 600;
+    background-color: white;
+    padding: 1rem 3rem;
+    border-radius: 1rem;
 }
 .taskbar{
     padding: 1rem 0;
-    min-height: 90rem;
+    height:10rem;
+    background-color: red;
+    width: 90%;
+    margin: 8rem auto;
+    border-radius: 1rem;
+    display: flex;
+    box-sizing: border-box;
+    justify-content:space-between;
+    padding: 0 4rem;
+    align-items:center;
+    box-shadow: 0 2px 14px 8px rgba(0,0,0,0.3);
 }
 .task-list {
     border-bottom: 1px solid gray;

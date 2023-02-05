@@ -29,7 +29,7 @@ const HomePageO = () => {
                 <Thirdsection />
                 {
                     screen.width < 480 ?
-                        <a href="//api.whatsapp.com/send?phone=919034616480&text=Hello sir, I want to know about the rankboost Mentorship course">
+                        <a href="//api.whatsapp.com/send?phone=918572087710&text=Hello sir, I want to know about the rankboost Mentorship course">
                             <img src={whatsapp} style={styleObj} />
                         </a>
                         :

@@ -37,7 +37,7 @@ const Checkout = () => {
     useEffect(() => {
         for (let i = 0; i < kart.length; i++) {
             if (kart[i].name === 'material') {
-                num = num + 399;
+                num = num + 499;
             }
             else if (kart[i].name === '2023CC') {
                 num = num + 999;
@@ -56,7 +56,7 @@ const Checkout = () => {
 
 
         if (pirop === 'material') {
-            num = bill - 399;
+            num = bill - 499;
         }
 
         else if (pirop === '2023CC') {

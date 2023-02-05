@@ -5,6 +5,7 @@ import winner from './winner.png'
 import '@vime/core/themes/default.css';
 import { Player, Hls, DefaultUi } from '@vime/react';
 import axios from 'axios';
+import img from '../pricing/imghector.png'
 
 function Explore() {
 
@@ -126,8 +127,8 @@ function Explore() {
                     <h1>Course Details</h1>
                     <div class="yt-vd">
                         <Player style={screen.width < 480 ? { width: '100%' } : { width: '60%' }} volume={100}>
-                            <Hls version="latest" controls config={hlsConfig} poster={`${vlink}/hpage/image.jpg`}>
-                                <source data-src={`${vlink}/hpage/out.m3u8`} type="application/x-mpegURL" />
+                            <Hls version="latest" controls config={hlsConfig} poster={img}>
+                                <source data-src={`${vlink}/explore/v480p/index.m3u8`} type="application/x-mpegURL" />
                             </Hls>
                             <DefaultUi noClickToPlay>
                             </DefaultUi>

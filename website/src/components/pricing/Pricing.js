@@ -209,8 +209,8 @@ const Pricing = () => {
                     </div>
                     <div className="pd_card_two">
                       <div className="pd_card_slab">
-                        <h4>Discounted price  &nbsp; &#8377; 399 only</h4>
-                        <h3>Flat 70% off</h3>
+                        <h4>Discounted price  &nbsp; &#8377; 499 only</h4>
+                        <h3>Flat 75% off</h3>
                         <span className="pd_h6">
                           {variables.var3} students enrolled
                         </span>
@@ -256,9 +256,9 @@ const Pricing = () => {
                     <div className="price-cbtwn">
                       <p className="price-head">Study Material</p>
                       <div className="price-tag">
-                        <h5><span > Original price  &nbsp; &#8377; 1000</span></h5>
-                        <h4><span > Discounted price  &nbsp; &#8377;399 only</span></h4>
-                        <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 60% off</h3>
+                        <h5><span > Original price  &nbsp; &#8377; 2000</span></h5>
+                        <h4><span > Discounted price  &nbsp; &#8377;499 only</span></h4>
+                        <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 75% off</h3>
                         <span className="price-h6">
                           {variables.var3} students enrolled
                         </span>

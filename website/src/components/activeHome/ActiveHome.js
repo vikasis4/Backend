@@ -14,14 +14,14 @@ function ActiveHome() {
     const profile = useContext(ProfileContext);
     const [form, setForm] = React.useState(false)
     const navigate = useNavigate();
-    const [id,setId] = React.useState(null)
+    const [id, setId] = React.useState(null)
 
     React.useEffect(() => {
 
         setId(profile.profile.id)
-        
-        if (id) {     
-            axios.post(`${clink}/get-form-info`,  {id:id} ).then((response) => {
+
+        if (id) {
+            axios.post(`${clink}/get-form-info`, { id: id }).then((response) => {
                 if (response.data.status === 'yes') {
                     setForm(true)
                 }
@@ -36,12 +36,12 @@ function ActiveHome() {
     }, [profile, id])
 
     const handleRepo = () => {
-// if (form) {
-    navigate('/task')
-// }
-// else{
-//     alert('Fill the Form so that we can generate the Weekly task according to your needs')
-// }
+        if (form) {
+            navigate('/task')
+        }
+        else {
+            alert('Fill the Form so that we can generate the Weekly task according to your needs')
+        }
     }
 
     return (

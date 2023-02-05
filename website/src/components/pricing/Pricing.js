@@ -177,7 +177,7 @@ const Pricing = () => {
                     <div className="pd_card_two">
                       <div className="pd_card_slab pd_slab_combo">
                         <h4>Discounted price  &nbsp; &#8377; 999 only</h4>
-                        <h3>Flat 85% off</h3>
+                        <h3>Flat 75% off</h3>
                           <span className="pd_h6 pd_combo_h6">
                             {variables.var5} students enrolled
                           </span>

@@ -203,7 +203,7 @@ function Explore() {
                 <div className="explore-buy">
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <h1>&#8377;999</h1>
-                        <h2>42% off</h2>
+                        <h2>75% off</h2>
                     </div>
                     <button onClick={() => { navigate('/checkout'); updatecart('2023CC') }}>Buy Now</button>
                 </div>

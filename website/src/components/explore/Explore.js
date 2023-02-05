@@ -116,10 +116,10 @@ function Explore() {
                 <div className="explore-enter-second">
                     <h1 style={{ paddingLeft: '3rem', fontWeight: '500' }}>This Batch Includes ~</h1>
                     <div className="explore-enter-second-list">
-                        <h1>30+<br />Videos </h1><h2> | </h2>
-                        <h1> Premium<br />Short Notes </h1><h2> | </h2>
-                        <h1>26+<br />Mock Test </h1><h2> | </h2>
-                        <h1> PYQ of<br />Mains+Advance </h1>
+                        <h1>Personal 1-1<br />Mentorship </h1><h2> | </h2>
+                        <h1> 100+ kota<br />PDF Notes </h1><h2> | </h2>
+                        <h1>600+<br />Top Questions </h1><h2> | </h2>
+                        <h1> 26+ of<br />Mock Tests </h1>
                     </div>
                 </div>
 

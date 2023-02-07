@@ -301,7 +301,7 @@ const Pricing = () => {
                         <p className="price-head">JEE 2023 Mains + Advance </p>
                         <h5><span > Original price  &nbsp; &#8377; <strike>4,000</strike></span></h5>
                         <h4><span > Discounted price  &nbsp; &#8377;999 only</span></h4>
-                        <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 85% off</h3>
+                        <h3 className="price-call"><img className="price-call-img" src={medal}></img>Flat 75% off</h3>
 
                         <span className="price-h6">
                           {variables.var5} students enrolled

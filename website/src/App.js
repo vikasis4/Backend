@@ -17,6 +17,7 @@ import Forgot from './components/auth/Forgot'
 import Blogs from './components/blogs/Blogs'
 import Pricing from './components/pricing/Pricing'
 import Support from './components/support/Support'
+import Selections from './components/selections/Selection'
 import Footer from './components/footer/Footer'
 import Contact from './components/contact/Contact'
 import Refral from './components/refral/Refral'
@@ -191,6 +192,7 @@ function App() {
             <Route path="/forgot" element={<Forgot />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/courses" element={<Courses />} />
+            <Route path="/selections" element={<Selections />} />
             <Route path="/support" element={<Support />} />
             <Route path="/course-form" element={<Form />} />
             <Route path="/task" element={<Task />} />

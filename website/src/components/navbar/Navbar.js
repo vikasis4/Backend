@@ -8,9 +8,9 @@ import cross from '../../svg/cross.svg'
 import menu from '../../svg/menud.svg'
 import user from './user.png'
 import Gif from '../homePageLO/Gif.gif'
-// import ico from '../support/favicon.ico'
 import ico from '../support/favicon.ico'
 import mhome from '../../svg/mhome.svg'
+import trophy from '../explore/winner.png'
 import mkey from '../../svg/mkey.svg'
 import mprice from '../../svg/mprice.svg'
 import mrefer from '../../svg/mrefer.svg'
@@ -215,9 +215,9 @@ const Navbar = () => {
                     :
                     <div className="activate-dis">
                         <div className="bottom-menu">
-                            <div onClick={() => { navigate('/refral') }} className="bottom-menu-comman">
-                                <img src={mrefer}></img>
-                                <h1>Refer to Earn</h1>
+                            <div onClick={() => { navigate('/selections') }} className="bottom-menu-comman">
+                                <img src={trophy}></img>
+                                <h1 style={{color:'gold', borderBottom:'1px solid gold'}} >Selections</h1>
                             </div>
                             <div onClick={() => { navigate('/books') }} className="bottom-menu-comman">
                                 <img src={mbook}></img>

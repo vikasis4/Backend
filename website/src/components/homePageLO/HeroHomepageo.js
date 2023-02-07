@@ -48,13 +48,13 @@ const HeroHomepageo = () => {
                                 <div className="herohero-mobile-one">
                                     <img src={cone4}></img>
                                     <div className="herohero-mobile-cont">
-                                        <h1>400+ Jee Mains <br /> selections</h1>
+                                        <h1>1200+ Jee Mains <br /> selections</h1>
                                     </div>
                                 </div>
                                 <div className="herohero-mobile-one">
                                     <img src={cone5}></img>
                                     <div className="herohero-mobile-cont">
-                                        <h1>200+ Jee Advanced <br /> selections</h1>
+                                        <h1>400+ Jee Advanced <br /> selections</h1>
                                     </div>
                                 </div>
                                 <div className="herohero-mobile-one">

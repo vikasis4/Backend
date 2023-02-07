@@ -239,7 +239,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2rem 0;
+    margin: 2rem 0 6rem 0;
     gap: 2rem
 }
 
@@ -248,4 +248,60 @@
     width: 2rem;
     border: 1px solid black;
     border-radius: 50rem;
+}
+.show{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color:rgba(0, 0, 0, 0.7);
+    z-index: 19191919;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+.show-cross{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.show-cont {
+    background-color:rgba(0, 0, 0, 0.4);
+    width: 100%;
+    box-shadow: 0 0 32px 42px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+}
+.show-cont h1{
+    font-family: 'Dosis';
+    font-size: 5rem;
+    font-weight: 500;
+    color: white;
+    border-bottom: 2px solid white;
+    margin-bottom:2rem
+}
+
+.show-cont button{
+    margin-top: 8rem;
+    border-radius: 0.4rem;
+    padding:2rem 4rem;
+    font-size: 3.4rem;
+    width: 80%;
+    font-family: 'Dosis';
+    font-weight: 600;
+}
+.show-cont h2{
+    display: flex;
+    gap:4rem;
+    font-family: 'Dosis';
+    color: white;
+    font-size: 4rem;
+    font-weight: 500;
+}
+.show-cont img{
+   height: 20rem;
+   width: 20rem;
 }

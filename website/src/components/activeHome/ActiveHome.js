@@ -78,7 +78,7 @@ function ActiveHome() {
             </div>
 
             {
-                !form ?
+                form ?
                     <div className="form-imp">
                         <h1 style={{ marginTop: '2rem' }}>Formulas</h1>
                         <div className="form-formula">

@@ -37,6 +37,7 @@ import io from 'socket.io-client';
 import { Helmet } from 'react-helmet';
 import VideoCall from './components/videocall/VideoCall';
 import MeetRoom from './components/videocall/MeetRoom';
+import RefAdmin from './components/refral-admin/RefAdmin';
 import Form from './components/form/Form';
 
 // var socket = io('http://localhost:8080/normal', { transports: ["websocket"] });
@@ -191,6 +192,7 @@ function App() {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/forgot" element={<Forgot />} />
             <Route path="/blogs" element={<Blogs />} />
+            <Route path="/refral-admin" element={<RefAdmin />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/selections" element={<Selections />} />
             <Route path="/support" element={<Support />} />

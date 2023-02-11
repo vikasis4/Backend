@@ -251,58 +251,67 @@ app.post('/api/register', async (req, res) => {
             res.json({ message: 'no' })
         }
         else if (req.body.type === 'google') {
-            const vref = await Refral.findOne({ userid: req.body.refral })
-            if (vref) {
-                const user = await User.create({
-                    username: req.body.username,
-                    password: req.body.password,
-                    img: req.body.img,
-                    otp: true,
-                    refral: req.body.refral,
-                    name: req.body.namee,
-                    room: uuidv4()
-                })
-                const token = await user.generateToken();
-                user.save();
-                var newUser = await User.findOne({ username: req.body.username });
-                res.json({ message: "yup", token, newUser });
 
-                var cred = {
-                    pass: req.body.password,
-                    email: user.username
-                }
-                passFxn(cred);
-                reffile("account", req.body.username, req.body.refral)
-            } else {
-                const user = await User.create({
-                    username: req.body.username,
-                    password: req.body.password,
-                    img: req.body.img,
-                    otp: true,
-                    refral: "empty",
-                    room: uuidv4()
-                })
-                const token = await user.generateToken();
-                user.save();
-                var newUser = await User.findOne({ username: req.body.username });
-                res.json({ message: "yup", token, newUser });
+            // const vref = await Refral.findOne({ userid: req.body.refral })
+            // if (vref) {
+            //     const user = await User.create({
+            //         username: req.body.username,
+            //         password: req.body.password,
+            //         img: req.body.img,
+            //         otp: true,
+            //         refral: req.body.refral,
+            //         name: req.body.namee,
+            //         room: uuidv4()
+            //     })
+            //     const token = await user.generateToken();
+            //     user.save();
+            //     var newUser = await User.findOne({ username: req.body.username });
+            //     res.json({ message: "yup", token, newUser });
 
-                var cred = {
-                    pass: req.body.password,
-                    email: user.username
-                }
-                passFxn(cred);
-                reffile("account", req.body.username, req.body.refral)
+            //     var cred = {
+            //         pass: req.body.password,
+            //         email: user.username
+            //     }
+            //     passFxn(cred);
+            //     reffile("account", req.body.username, req.body.refral)
+            // } else {
+            var toks = '';
+            if (req.body.refral) {
+                toks = req.body.refral
             }
+            const user = await User.create({
+                username: req.body.username,
+                password: req.body.password,
+                img: req.body.img,
+                otp: true,
+                refral: toks,
+                room: uuidv4()
+            })
+            const token = await user.generateToken();
+            user.save();
+            var newUser = await User.findOne({ username: req.body.username });
+            res.json({ message: "yup", token, newUser });
+
+            var cred = {
+                pass: req.body.password,
+                email: user.username
+            }
+            passFxn(cred);
+            reffile("account", req.body.username, req.body.refral)
+            // }
         }
         else {
             try {
+                var toks = '';
+                if (req.body.refral) {
+                    toks = req.body.refral
+                }
                 const vref = await Refral.findOne({ userid: req.body.refral })
                 if (vref) {
                     const user = await User.create({
                         username: req.body.username,
                         password: req.body.password,
-                        refral: req.body.refral,
+                        refral: toks,
                         name: req.body.namee,
                         room: uuidv4()
                     })
@@ -1282,13 +1291,43 @@ app.put('/api/variables/update', async (req, res) => {
         console.log(error);
     }
 })
-////////////////////////////// DASHBOARD GET USERS ////////////////////////////////////////////////////
+////////////////////////////// DASHBOARD GET USERS && REFRAL GET USERS ////////////////////////////////////////////////////
 
 app.get('/api/all/users', async (req, res) => {
     try {
         var users = await User.find({});
         res.json(users);
     } catch (error) {
+        console.log(error);
+    }
+})
+app.post('/api/refral/users', async (req, res) => {
+    try {
+        var refid = req.body.value;
+        var users = await User.find({});
+        var total = [];
+        var subs = [];
+        var mats = [];
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].refral === refid) {
+                total.push({ date: users[i].date });
+                if (users[i].subscription === 'true') {
+                    for (let j = 0; j < users[i].subarray.length; j++) {
+                        if (users[i].subarray[j].name === '2023CC') {
+                            subs.push({ date: users[i].date });
+                        }
+                        else if (users[i].subarray[j].name === 'material') {
+                            mats.push({ date: users[i].date });
+                        }
+                    }
+                }
+            } else {
+                continue;
+            }
+        }
+        res.json({ status: 'success', total, subs, mats });
+    } catch (error) {
+        res.json({ status: 'failed' })
         console.log(error);
     }
 })

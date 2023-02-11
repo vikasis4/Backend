@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet'
 
 const Material = (props) => {
 
-    const { footer } = props
     const [jankari, setJankari] = useState([])
     const clink = process.env.REACT_APP_LINK
     const vlink = process.env.REACT_APP_VIDEO_LINK

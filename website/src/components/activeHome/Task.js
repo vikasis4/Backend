@@ -55,8 +55,8 @@ function Task() {
         run();
     }, [array])
 
-    const openpdf = () => {
-        window.open(`${vlink}/task1.pdf`, "_self")
+    const openpdf = (val) => {
+        window.open(`${vlink}/task${val}.pdf`, "_self")
         alert('Download has started')
     }
 
@@ -68,10 +68,13 @@ function Task() {
                     <div className="task-list">
                         <h1> Weekly Task <img style={{ width: '6rem', height: '6rem', marginLeft: '2rem' }} src={rackit} /></h1>
                     </div>
-                    <h2>6 Feb 2023</h2>
                     <div className='taskbar'>
-                        <h1>PDF of Weekly Task</h1>
-                        <button onClick={() => openpdf()}>Download</button>
+                        <h1>PDF &nbsp; 5Feb - 11Feb </h1>
+                        <button onClick={() => openpdf('1')}>Download</button>
+                    </div>
+                    <div className='taskbar'>
+                        <h1>PDF &nbsp; 12Feb - 18Feb </h1>
+                        <button onClick={() => openpdf('2')}>Download</button>
                     </div>
                 </div>
             </div>

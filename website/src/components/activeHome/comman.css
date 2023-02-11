@@ -131,7 +131,7 @@
     height:10rem;
     background-color: red;
     width: 90%;
-    margin: 8rem auto;
+    margin: 6rem auto;
     border-radius: 1rem;
     display: flex;
     box-sizing: border-box;
@@ -179,4 +179,48 @@
 }
 .AH-two-form{
     margin-top:6rem
+}
+
+.form-imp h1{
+    padding-left: 3rem;
+    font-size: 4.8rem;
+    font-weight: 500;
+    font-family: 'Dosis';
+}
+.form-imp {
+    padding-top: 3rem;
+}
+.form-imp img{
+    width:100%;
+}
+.form-formula{
+    display:flex;
+    gap:2rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.form-form-box h3{
+    font-family: 'Dosis';
+    color: white;
+    font-size:3.6rem;
+    text-align: center;
+}
+.form-form-box button{
+    font-family: 'Dosis';
+    font-weight: 600;
+    background-color: white;
+    border-radius:1rem;
+    padding: 0.4rem 1rem;
+}
+.form-form-box{
+    background-color:rgb(255, 73, 73);
+    height: 20rem;
+    width: 20rem;
+    border-radius: 1rem;
+    margin-top:2rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }

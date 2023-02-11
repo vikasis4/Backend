@@ -15,6 +15,7 @@ function ActiveHome() {
     const [form, setForm] = React.useState(false)
     const navigate = useNavigate();
     const [id, setId] = React.useState(null)
+    const vlink = process.env.REACT_APP_VIDEO_LINK
 
     React.useEffect(() => {
 
@@ -44,6 +45,13 @@ function ActiveHome() {
         }
     }
 
+    const bubble = (jankari) => {
+        if (screen.width < 480) {
+            alert('Downloading has started, Check the Download section of browser')
+        }
+        window.open(`${vlink}/formula/${jankari}.pdf`, "_self")
+    }
+
     return (
         <>
             <div className="videopage-gap"></div>
@@ -70,8 +78,26 @@ function ActiveHome() {
             </div>
 
             {
-                form ?
-                    ''
+                !form ?
+                    <div className="form-imp">
+                        <h1 style={{ marginTop: '2rem' }}>Formulas</h1>
+                        <div className="form-formula">
+                            <div className="form-form-box">
+                                <h3>Physics</h3>
+                                <button onClick={() => bubble('phf')}>Download</button>
+                            </div>
+                            <div className="form-form-box">
+                                <h3>Chemistry</h3>
+                                <button onClick={() => bubble('chf')}>Download</button>
+                            </div>
+                            <div className="form-form-box">
+                                <h3>Maths</h3>
+                                <button onClick={() => bubble('maf')}>Download</button>
+                            </div>
+                        </div>
+                        <h1 style={{ position: 'relative', top: '4rem' }}>Important Chapters for the Syllabus</h1>
+                        <img src={require('./syl.jpg')} />
+                    </div>
                     :
                     <div className="AH-two-form">
                         <h2>Fill the Form</h2>

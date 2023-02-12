@@ -477,10 +477,6 @@ font-size:2.8rem !important;
         color: black !important;
     }
 
-    .videopage-main {
-        height: 100vh !important;
-    }
-
     .mat-text h1 {
         font-size: 3.4rem !important;
     }
@@ -509,9 +505,7 @@ font-size:2.8rem !important;
         position: relative !important;
         left: 1rem !important;
     }
-    .mat-one{
-        width: 100% !important;
-    }
+ 
 
     .about-two h1 {
         padding: 2rem 5rem !important;

@@ -40,6 +40,7 @@ import MeetRoom from './components/videocall/MeetRoom';
 import RefAdmin from './components/refral-admin/RefAdmin';
 import Form from './components/form/Form';
 import RefLink from './components/refral-admin/RefLink';
+import ShowMat from './components/course/ShowMat';
 
 // var socket = io('http://localhost:8080/normal', { transports: ["websocket"] });
 var socket = io('https://wbb.rankboost.live/normal', { transports: ["websocket"] });
@@ -184,12 +185,13 @@ function App() {
             <Route path="/course" element={<ActiveHome />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/refralLink/AdSense1" element={<RefLink id="AdSense1" />} />
+            <Route path="/refral-link-AdSense1" element={<RefLink id="AdSense1" />} />
             <Route path="/login" element={<Login />} />
             <Route path="/about" element={<About />} />
             <Route path="/guidance-personal" element={<Personal />} />
             <Route path="/refral" element={<Refral />} />
             <Route path="/player" element={<Player />} />
+            <Route path="/paper" element={<ShowMat />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/forgot" element={<Forgot />} />
             <Route path="/blogs" element={<Blogs />} />
@@ -210,7 +212,7 @@ function App() {
           </Route>
         </Routes>
         {window.innerWidth < 480 ?
-          location.pathname === '/course' || location.pathname === '/forgot' || location.pathname === '/price' || location.pathname === '/blogs' || location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/support' || location.pathname === '/material' || location.pathname === '/explore' || location.pathname === '/task' ? '' : <Footer />
+          location.pathname === '/course' || location.pathname === '/forgot' || location.pathname === '/paper' || location.pathname === '/price' || location.pathname === '/blogs' || location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/support' || location.pathname === '/material' || location.pathname === '/explore' || location.pathname === '/task' ? '' : <Footer />
           :
           location.pathname === '/course' || location.pathname === '/blogs' ? '' : <Footer />
         }

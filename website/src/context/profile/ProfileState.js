@@ -6,6 +6,7 @@ const ProfileState=(props)=>{
 const [disp, setDisp] = useState('none')
 const [dispmessage, setDispmessage] = useState('Logging you in');
 const [current, setCurrent] = useState('')
+const [mat, setMat] = useState('one')
 const [profile, setProfile] = useState({
     username: '',
     subscription:'',
@@ -25,7 +26,7 @@ const [profile, setProfile] = useState({
 
 
     return (
-    <ProfileContext.Provider value={{profile, setProfile, disp, setDisp, dispmessage, setDispmessage, current, setCurrent}} >
+    <ProfileContext.Provider value={{profile, setProfile, disp, setDisp, dispmessage, setDispmessage, current, setCurrent, mat, setMat}} >
        { props.children}
     </ProfileContext.Provider>
     )

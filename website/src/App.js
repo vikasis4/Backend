@@ -39,6 +39,7 @@ import VideoCall from './components/videocall/VideoCall';
 import MeetRoom from './components/videocall/MeetRoom';
 import RefAdmin from './components/refral-admin/RefAdmin';
 import Form from './components/form/Form';
+import RefLink from './components/refral-admin/RefLink';
 
 // var socket = io('http://localhost:8080/normal', { transports: ["websocket"] });
 var socket = io('https://wbb.rankboost.live/normal', { transports: ["websocket"] });
@@ -183,7 +184,7 @@ function App() {
             <Route path="/course" element={<ActiveHome />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/refralLink/AdSense1" element={<HomePageO id="AdSense1" />} />
+            <Route path="/refralLink/AdSense1" element={<RefLink id="AdSense1" />} />
             <Route path="/login" element={<Login />} />
             <Route path="/about" element={<About />} />
             <Route path="/guidance-personal" element={<Personal />} />

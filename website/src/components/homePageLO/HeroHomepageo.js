@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./herohomepageo.css";
 import animated from './main.jpg';
 import cone from './cone.jpg';
@@ -14,16 +14,14 @@ import mbook from '../../svg/mbook.svg'
 import Not from './Not.js' 
 
 
-const HeroHomepageo = () => {
+const HeroHomepageo = (props) => {
 
     const navigate = useNavigate();
-    const location = useLocation();
     const profile = useContext(ProfileContext);
 
-
-    if (location.pathname.slice(0, 12) === '/refral-link') {
+    if (props.referLink) {
         if (!localStorage.getItem('refral')) {
-            localStorage.setItem('refral', location.pathname.slice(13))
+            localStorage.setItem('refral', props.referLink)
         }
     }
 

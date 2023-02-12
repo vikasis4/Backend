@@ -19,8 +19,9 @@ const styleObj = {
     right: '1rem'
 }
 
-const HomePageO = () => {
+const HomePageO = (props) => {
 
+    const referLink = props.id;
     const navigate = useNavigate()
     const [show, setShow] = React.useState(false);
 
@@ -37,7 +38,7 @@ const HomePageO = () => {
         <>
 
             <>
-                <HeroHomepageo />
+                <HeroHomepageo referLink={referLink} />
                 <SecondSection />
                 <Thirdsection />
                 {

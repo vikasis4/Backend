@@ -183,7 +183,7 @@ function App() {
             <Route path="/course" element={<ActiveHome />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/refral-link/:id" element={<HomePageO />} />
+            <Route path="/refral-link/AdSense1" element={<HomePageO id="AdSense1" />} />
             <Route path="/login" element={<Login />} />
             <Route path="/about" element={<About />} />
             <Route path="/guidance-personal" element={<Personal />} />

@@ -229,11 +229,11 @@ const Navbar = () => {
                             </div>
                             <div onClick={() => { navigate('/price') }} className="bottom-menu-comman">
                                 <img src={mprice}></img>
-                                <h1>Price</h1>
+                                <h1>Pricing</h1>
                             </div>
-                            <div onClick={() => { navigate('/courses') }} className="bottom-menu-comman">
+                            <div onClick={() => { navigate('/course') }} className="bottom-menu-comman">
                                 <img src={mcourse}></img>
-                                <h1>courses</h1>
+                                <h1>Batch</h1>
                             </div>
                         </div>
                     </div>
@@ -242,7 +242,7 @@ const Navbar = () => {
             <Outlet />
             <div className="special-gappers"></div>
         </>
-    )
+     )
 }
 
 export default Navbar;

@@ -14,8 +14,17 @@ function ActiveHome() {
     const profile = useContext(ProfileContext);
     const [form, setForm] = React.useState(false)
     const navigate = useNavigate();
-    const [id, setId] = React.useState(null)
-    const vlink = process.env.REACT_APP_VIDEO_LINK
+    const [id, setId] = React.useState(null);
+    const vlink = process.env.REACT_APP_VIDEO_LINK;
+
+    React.useEffect(() => {
+        if (profile.profile.subscription === 'true') {
+         ///////////   
+        }else{
+            alert('Please Purchase the course to continue...');
+            navigate('/')
+        }
+    },[])
 
     React.useEffect(() => {
 

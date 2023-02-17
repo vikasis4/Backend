@@ -1208,16 +1208,24 @@ app.post('/api/keyverify', async (req, res) => {
 
 app.post('/api/cart', async (req, res) => {
     try {
-        await User.findByIdAndUpdate(req.body.id, { cart: req.body.cart })
-        res.json({ status: 'yes' })
+        if (req.body.id.length === 0) {   
+            res.json({ status: 'yes' })
+        }else{
+            await User.findByIdAndUpdate(req.body.id, { cart: req.body.cart })
+            res.json({ status: 'yes' })
+        }
     } catch (error) {
         res.json({ status: 'no' })
     }
 })
 app.post('/api/cartremove', async (req, res) => {
     try {
-        await User.findByIdAndUpdate(req.body.id, { cart: req.body.cart })
-        res.json({ status: 'yes' })
+        if (req.body.id.length === 0) {   
+            res.json({ status: 'yes' })
+        }else{
+            await User.findByIdAndUpdate(req.body.id, { cart: req.body.cart })
+            res.json({ status: 'yes' })
+        }
     } catch (error) {
         res.json({ status: 'no' })
     }

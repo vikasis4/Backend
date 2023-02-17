@@ -26,7 +26,7 @@ const Footer = () => {
                         <div className="footer-th-t">
                             <h1>rankboosteducation@gmail.com</h1>
                             <h1>kumarshubham6089@gmail.com</h1>
-                            <h1>vikasisgen@gmail.com</h1>
+                            {/* <h1>vikasisgen@gmail.com</h1> */}
                         </div>
                     </div>
 

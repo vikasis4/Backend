@@ -41,6 +41,7 @@ import RefAdmin from './components/refral-admin/RefAdmin';
 import Form from './components/form/Form';
 import RefLink from './components/refral-admin/RefLink';
 import ShowMat from './components/course/ShowMat';
+import Scam from './components/scam/Scam';
 
 // var socket = io('http://localhost:8080/normal', { transports: ["websocket"] });
 var socket = io('https://wbb.rankboost.live/normal', { transports: ["websocket"] });
@@ -185,7 +186,6 @@ function App() {
             <Route path="/course" element={<ActiveHome />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/refral-link-AdSense1" element={<RefLink id="AdSense1" />} />
             <Route path="/login" element={<Login />} />
             <Route path="/about" element={<About />} />
             <Route path="/guidance-personal" element={<Personal />} />
@@ -201,6 +201,7 @@ function App() {
             <Route path="/support" element={<Support />} />
             <Route path="/course-form" element={<Form />} />
             <Route path="/task" element={<Task />} />
+            <Route path="/office-space" element={<Scam />} />
             <Route path="/price" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
@@ -209,6 +210,9 @@ function App() {
             <Route path="/condition" element={<Condition />} />
             <Route path="/videocall" element={<VideoCall />} />
             <Route path="/videocall/:roomId" element={<MeetRoom />} />
+
+            <Route path="/refral-link-AdSense1" element={<RefLink id="AdSense1" />} />
+            
           </Route>
         </Routes>
         {window.innerWidth < 480 ?

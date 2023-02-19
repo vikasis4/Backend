@@ -115,6 +115,14 @@
     color:white;
     font-size: 3rem;
 }
+.taskbar h3{
+    font-family: 'Dosis';
+    color:var(--s2);
+    font-weight: 500;
+    border-bottom: 1px solid var(--s2);
+    background-color: red;
+    font-size: 3rem;
+}
 .taskbar button:hover{
     cursor: pointer;
 }

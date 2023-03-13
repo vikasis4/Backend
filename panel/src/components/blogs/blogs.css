@@ -1,7 +1,7 @@
 .users {
     display: flex;
     justify-content: center;
-    padding: 1rem 4rem;
+    padding: 1rem;
     place-items: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
@@ -11,8 +11,8 @@
 .users-enter img {
     border-radius: 50%;
     border:3px solid white;
-    height: 10rem;
-    width: 10rem;
+    height: 8rem;
+    width: 8rem;
 }
 
 .classplus:hover {
@@ -48,6 +48,8 @@
 .users-enter h2 {
     font-weight: 600;
     margin: 0;
+    color: white;
+    font-size: 1.5rem;
 }
 
 .act-btn button:hover {
@@ -88,7 +90,7 @@
 
 .users_complie {
     display: flex;
-    gap: 4rem;
+    gap: 2rem;
     justify-content: center;
     align-items: center;
 }
@@ -103,7 +105,7 @@
 
 .users-enter {
     background-color:teal;
-    width: 45%;
+    width: 29%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

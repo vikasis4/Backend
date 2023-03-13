@@ -94,6 +94,20 @@ function ActiveHome() {
                 form ?
                     <div className="form-imp">
 
+                        {
+                            profile.profile.board ?
+                                <>
+                                    <div className='join'>
+                                        <h2>Join the whatsApp group and get your Mentor</h2>
+                                        <a href="https://chat.whatsapp.com/F8xqzIxIrtOFUH8iFrL9IA">
+                                            <button>Join</button>
+                                        </a>
+                                    </div>
+                                </>
+                                :
+                                ''
+                        }
+
                         <h1 style={{ marginTop: '2rem' }}>Formulas</h1>
                         <div className="form-formula">
                             <div className="form-form-box">
@@ -126,7 +140,7 @@ function ActiveHome() {
                                 ''
                         }
                         <h1 style={{ position: 'relative', marginTop: '8rem' }}>Important Chapters !!</h1>
-                        <img src={require('./syl.jpg')} />
+                        <img className="acthome_img" src={require('./syl.jpg')} />
                     </div>
                     :
                     <div className="AH-two-form">

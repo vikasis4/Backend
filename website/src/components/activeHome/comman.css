@@ -197,7 +197,7 @@
 .form-imp {
     padding-top: 3rem;
 }
-.form-imp img{
+.acthome_img{
     width:120%;
     position: relative;
     left:-6rem;
@@ -263,4 +263,37 @@
     padding: 4rem;
     box-sizing: border-box;
     border-radius:1rem;
+}
+
+.join button:hover{
+    cursor: pointer;
+}
+.join button{
+    background-color: royalblue;
+    color: white;
+    font-family: Dosis;
+    padding:2rem 18rem;
+    border-radius: 0.6rem;
+    font-weight: 600;
+    font-size: 3rem;
+}
+.join h2{
+    font-family: Dosis;
+    font-weight: 600;
+    font-size: 3rem;
+    color: black;
+    text-align: center;
+}
+.join{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 2rem;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin:4rem auto;
+    gap:4rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 1px 8px 1px rgba(0, 0, 255, 0.3);
+    width: 84%;
 }

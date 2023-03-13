@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import ProfileContext from "../../context/profile/ProfileContext";import './explore.css'
+import ProfileContext from "../../context/profile/ProfileContext"; import './explore.css'
 import { useNavigate } from 'react-router-dom';
 import winner from './winner.png'
 import '@vime/core/themes/default.css';
@@ -9,208 +9,208 @@ import img from '../pricing/imghector.png'
 
 function Explore() {
 
-    const vlink = process.env.REACT_APP_VIDEO_LINK
-    const hlsConfig = {
-        // ...
-    };
+  const vlink = process.env.REACT_APP_VIDEO_LINK
+  const hlsConfig = {
+    // ...
+  };
 
-    const navigate = useNavigate();
-    const profile = useContext(ProfileContext);
-    const [op, setOp] = useState([]);
-    const [cart, setCart] = useState([]);
-    const clink = process.env.REACT_APP_LINK;
-    const [statea, setStatea] = useState(false)
-    const [stateb, setStateb] = useState(false)
-    const [statec, setStatec] = useState(false)
-    const [stated, setStated] = useState(false)
-    const [statee, setStatee] = useState(false)
-    const [position, setPosition] = useState(true)
-    
-    const [variables, setVariables] = useState({
-      var1: 0,
-      var2: 0,
-      var3: 0,
-      var4: 0,
-      var5: 0,
+  const navigate = useNavigate();
+  const profile = useContext(ProfileContext);
+  const [op, setOp] = useState([]);
+  const [cart, setCart] = useState([]);
+  const clink = process.env.REACT_APP_LINK;
+  const [statea, setStatea] = useState(false)
+  const [stateb, setStateb] = useState(false)
+  const [statec, setStatec] = useState(false)
+  const [stated, setStated] = useState(false)
+  const [statee, setStatee] = useState(false)
+  const [position, setPosition] = useState(true)
+
+  const [variables, setVariables] = useState({
+    var1: 0,
+    var2: 0,
+    var3: 0,
+    var4: 0,
+    var5: 0,
+  })
+
+  useEffect(() => {
+    axios.get(clink + '/variables/fetch').then((response) => {
+      setVariables(response.data[0])
     })
-    
-    useEffect(() => {
-      axios.get(clink + '/variables/fetch').then((response) => {
-        setVariables(response.data[0])
-      })
-    }, [])
-  
-    useEffect(() => {
-  
-      if (localStorage.getItem('reload-facility') === '89307988vikasREF') {
-        const array = profile.profile.subarray;
-        for (let i = 0; i < array.length; i++) {
-          if (array[i].name === 'elev') {
-            setStatea(true)
-          }
-          else if (array[i].name === 'twel') {
-            setStateb(true)
-          }
-          else if (array[i].name === 'material') {
-            setStatec(true)
-          }
-          else if (array[i].name === 'personal') {
-            setStated(true)
-          }
-          else if (array[i].name === '2023CC') {
-            setStatee(true)
-          }
+  }, [])
+
+  useEffect(() => {
+
+    if (localStorage.getItem('reload-facility') === '89307988vikasREF') {
+      const array = profile.profile.subarray;
+      for (let i = 0; i < array.length; i++) {
+        if (array[i].name === 'elev') {
+          setStatea(true)
         }
-        setCart(profile.profile.cart)
+        else if (array[i].name === 'twel') {
+          setStateb(true)
+        }
+        else if (array[i].name === 'material') {
+          setStatec(true)
+        }
+        else if (array[i].name === 'personal') {
+          setStated(true)
+        }
+        else if (array[i].name === '2023CC') {
+          setStatee(true)
+        }
       }
-    }, [])
-  
-    useEffect(() => {
-      const newArray = profile.profile.subarray;
-      for (let i = 0; i < newArray.length; i++) {
-        op.push(newArray[i].value);
-        setOp(op);
-      }
-    }, [])
+      setCart(profile.profile.cart)
+    }
+  }, [])
 
-    const updatecart = (value) => {
+  useEffect(() => {
+    const newArray = profile.profile.subarray;
+    for (let i = 0; i < newArray.length; i++) {
+      op.push(newArray[i].value);
+      setOp(op);
+    }
+  }, [])
 
-        if (cart.find(({ name }) => name === value)) {
-          ////
-        } else {
-          cart.push({ name: value })
-          setCart(cart);
-          const user = profile.profile
-          profile.setProfile({ ...user, cart })
-          if (profile.profile.void === 'no') {
-            axios.post(clink + '/cart', {
-              id: profile.profile.id,
-              cart
-            }).then(response => {
-              if (response.data.status === 'yes') {
-                ////
-              } else {
-                alert('Something went wrong, please try again later')
-              }
-            })
+  const updatecart = (value) => {
+
+    if (cart.find(({ name }) => name === value)) {
+      ////
+    } else {
+      cart.push({ name: value })
+      setCart(cart);
+      const user = profile.profile
+      profile.setProfile({ ...user, cart })
+      if (profile.profile.void === 'no') {
+        axios.post(clink + '/cart', {
+          id: profile.profile.id,
+          cart
+        }).then(response => {
+          if (response.data.status === 'yes') {
+            ////
           } else {
-            localStorage.setItem('cart', cart)
+            alert('Something went wrong, please try again later')
           }
-        }
+        })
+      } else {
+        localStorage.setItem('cart', cart)
       }
+    }
+  }
 
-    return (
-        <>
-            <div className="videopage-gap"></div>
-            <div className="explore">
+  return (
+    <>
+      <div className="videopage-gap"></div>
+      <div className="explore">
 
-                <div className="explore-heading">
-                    <h1>JEE 2023 ~ Mains + Advance Mentorship</h1>
-                </div>
+        <div className="explore-heading">
+          <h1>JEE 2023 ~ Mains + Advance Mentorship</h1>
+        </div>
 
-                <div className="explore-enter-top">
-                    <img src={winner} style={{ height: '12rem', width: '12rem' }} />
-                    <h1 style={{textAlign:'center'}}>Jee Mains + Advance + JOSSA Councelling</h1>
-                </div>
+        <div className="explore-enter-top">
+          <img src={winner} style={{ height: '12rem', width: '12rem' }} />
+          <h1 style={{ textAlign: 'center' }}>Jee Mains + Advance + JOSSA Councelling</h1>
+        </div>
 
-                <div className="explore-enter-second">
-                    <h1 style={{ paddingLeft: '3rem', fontWeight: '500' }}>This Batch Includes ~</h1>
-                    <div className="explore-enter-second-list">
-                        <h1>Personal 1-1<br />Mentorship </h1><h2> | </h2>
-                        <h1> 100+ kota<br />PDF Notes </h1><h2> | </h2>
-                        <h1>600+<br />Top Questions </h1><h2> | </h2>
-                        <h1> 26+ of<br />Mock Tests </h1>
-                    </div>
-                </div>
+        <div className="explore-enter-second">
+          <h1 style={{ paddingLeft: '3rem', fontWeight: '500' }}>This Batch Includes ~</h1>
+          <div className="explore-enter-second-list">
+            <h1>Personal 1-1<br />Mentorship </h1><h2> | </h2>
+            <h1> 100+ kota<br />PDF Notes </h1><h2> | </h2>
+            <h1>600+<br />Top Questions </h1><h2> | </h2>
+            <h1> 26+ of<br />Mock Tests </h1>
+          </div>
+        </div>
 
-                <div className="explore-enter-third">
-                    <h1>Course Details</h1>
-                    <div class="yt-vd">
-                        <Player style={screen.width < 480 ? { width: '100%' } : { width: '60%' }} volume={100}>
-                            <Hls version="latest" controls config={hlsConfig} poster={img}>
-                                <source data-src={`${vlink}/explore/v480p/index.m3u8`} type="application/x-mpegURL" />
-                            </Hls>
-                            <DefaultUi noClickToPlay>
-                            </DefaultUi>
-                        </Player>
-                    </div>
-                </div>
+        <div className="explore-enter-third">
+          <h1>Course Details</h1>
+          <div class="yt-vd">
+            <Player style={screen.width < 480 ? { width: '100%' } : { width: '60%' }} volume={100}>
+              <Hls version="latest" controls config={hlsConfig} poster={img}>
+                <source data-src={`${vlink}/explore/v480p/index.m3u8`} type="application/x-mpegURL" />
+              </Hls>
+              <DefaultUi noClickToPlay>
+              </DefaultUi>
+            </Player>
+          </div>
+        </div>
 
-                <div className="explore-enter-fourth">
-                    <h2>Mentors :</h2>
-                    <h1>1) Vikas Singh ~ Nit Kurukshetra</h1>
-                    <h1>2) Shubham Kumar ~ Nit Kurukshetra</h1>
-                    <h1>3) Priya Verma ~ IIT Madrass</h1>
-                    <h1>4) Sandeep Kumar~ IIT Kanpur</h1>
-                </div>
+        <div className="explore-enter-fourth">
+          <h2>Mentors :</h2>
+          <h1>1) Vikas Singh ~ Nit Kurukshetra</h1>
+          <h1>2) Shubham Kumar ~ Nit Kurukshetra</h1>
+          <h1>3) Priya Verma ~ IIT Madrass</h1>
+          <h1>4) Sandeep Kumar~ IIT Kanpur</h1>
+        </div>
 
-                <div className="explore-enter-five">
-                    <h1>Description</h1>
+        <div className="explore-enter-five">
+          <h1>Description</h1>
 
-                    <div className="explore-enter-five-list">
-                        <div className="explore-enter-five-inner">
-                            <h3>1</h3>
-                            <h2>5 months personal 1-1 Mentorship till jee advcance 2023</h2>
-                        </div>
-                        <div className="explore-enter-five-inner">
-                            <h3>2</h3>
-                            <h2>30+ Guidance videos (Mains+Advance)</h2>
-                        </div>
-                        <div className="explore-enter-five-inner">
-                            <h3>3</h3>
-                            <h2>Complete study material</h2>
-                        </div>
-                        <div className="explore-enter-five-inner">
-                            <h3>4</h3>
-                            <h2>100+ Kota Premium Quality short notes</h2>
-                        </div>
-                        <div className="explore-enter-five-inner">
-                            <h3>5</h3>
-                            <h2>Daily-Task, weekly schedule & Study Plans</h2>
-                        </div>
-                        <div className="explore-enter-five-inner">
-                            <h3>6</h3>
-                            <h2>600+ Top Questions for Jee Mains</h2>
-                        </div>
-                        <div className="explore-enter-five-inner">
-                            <h3>7</h3>
-                            <h2>Jee Mains and advance complete RoadMap</h2>
-                        </div>
-                        <div className="explore-enter-five-inner">
-                            <h3>8</h3>
-                            <h2>20+ Jee Mains Tests & 6+ Advance Mock Test</h2>
-                        </div>
-                        <div className="explore-enter-five-inner">
-                            <h3>9</h3>
-                            <h2>Top PYQ Questions</h2>
-                        </div>
-                        <div className="explore-enter-five-inner">
-                            <h3>10</h3>
-                            <h2>JOSSA councelling help</h2>
-                        </div>
-                        <div className="explore-enter-five-inner">
-                            <h3>11</h3>
-                            <h2>Chat section for Doubt Solving</h2>
-                        </div>
-                        <div className="explore-enter-five-inner">
-                            <h3>12</h3>
-                            <h2>Target Jee Mains second attempt and advance 2023</h2>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div className="explore-buy">
-                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <h1>&#8377;999</h1>
-                        <h2>75% off</h2>
-                    </div>
-                    <button onClick={() => { navigate('/checkout'); updatecart('2023CC') }}>Buy Now</button>
-                </div>
-
+          <div className="explore-enter-five-list">
+            <div className="explore-enter-five-inner">
+              <h3>1</h3>
+              <h2>5 months personal 1-1 Mentorship till jee advcance 2023</h2>
             </div>
-        </>
-    )
+            <div className="explore-enter-five-inner">
+              <h3>2</h3>
+              <h2>30+ Guidance videos (Mains+Advance)</h2>
+            </div>
+            <div className="explore-enter-five-inner">
+              <h3>3</h3>
+              <h2>Complete study material</h2>
+            </div>
+            <div className="explore-enter-five-inner">
+              <h3>4</h3>
+              <h2>100+ Kota Premium Quality short notes</h2>
+            </div>
+            <div className="explore-enter-five-inner">
+              <h3>5</h3>
+              <h2>Daily-Task, weekly schedule & Study Plans</h2>
+            </div>
+            <div className="explore-enter-five-inner">
+              <h3>6</h3>
+              <h2>600+ Top Questions for Jee Mains</h2>
+            </div>
+            <div className="explore-enter-five-inner">
+              <h3>7</h3>
+              <h2>Jee Mains and advance complete RoadMap</h2>
+            </div>
+            <div className="explore-enter-five-inner">
+              <h3>8</h3>
+              <h2>20+ Jee Mains Tests & 6+ Advance Mock Test</h2>
+            </div>
+            <div className="explore-enter-five-inner">
+              <h3>9</h3>
+              <h2>Top PYQ Questions</h2>
+            </div>
+            <div className="explore-enter-five-inner">
+              <h3>10</h3>
+              <h2>JOSSA councelling help</h2>
+            </div>
+            <div className="explore-enter-five-inner">
+              <h3>11</h3>
+              <h2>Chat section for Doubt Solving</h2>
+            </div>
+            <div className="explore-enter-five-inner">
+              <h3>12</h3>
+              <h2>Target Jee Mains second attempt and advance 2023</h2>
+            </div>
+          </div>
+          <div style={{ height: '6rem' }} ></div>
+        </div>
+
+        <div style={{bottom: window.innerWidth < 480 ? '8rem' : '0'}} className="explore-buy">
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <h1>&#8377;999</h1>
+            <h2>75% off</h2>
+          </div>
+          <button onClick={() => { navigate('/checkout'); updatecart('2023CC') }}>Buy Now</button>
+        </div>
+
+      </div>
+    </>
+  )
 }
 
 export default Explore

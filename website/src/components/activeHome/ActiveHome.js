@@ -116,7 +116,7 @@ function ActiveHome() {
                                     <div style={{ width: '95%', margin: '0 auto' }}>
                                         <Player volume={100} >
                                             <Hls version="latest" config={hlsConfig} poster="/media/poster.png">
-                                                <source data-src={'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8'} type="application/x-mpegURL" />
+                                                <source data-src={'https://api.rankboost.live/course/intro/v480p/index.m3u8'} type="application/x-mpegURL" />
                                             </Hls>
                                             <DefaultUi />
                                         </Player>

@@ -72,7 +72,7 @@ function Task() {
                         prowork.profile.board ?
                         <>
                         <div className="task-ss-one">
-                            <h1>Target Time - 3 Feb to 8 Feb</h1>
+                            <h1>Target Time - 14 March to 20 March</h1>
                             <button onClick={() => openpdf('b1')}>Download PDF</button>
                         </div>
                         </>

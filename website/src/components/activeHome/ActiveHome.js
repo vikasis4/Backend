@@ -7,6 +7,8 @@ import './comman.css'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ProfileContext from '../../context/profile/ProfileContext';
+import '@vime/core/themes/default.css';
+import { Player, Hls, DefaultUi } from '@vime/react';
 
 function ActiveHome() {
 
@@ -16,15 +18,17 @@ function ActiveHome() {
     const navigate = useNavigate();
     const [id, setId] = React.useState(null);
     const vlink = process.env.REACT_APP_VIDEO_LINK;
-
+    const hlsConfig = {
+        // ...
+    };
     React.useEffect(() => {
         if (profile.profile.subscription === 'true') {
-         ///////////   
-        }else{
+            ///////////   
+        } else {
             alert('Please Purchase the course to continue...');
             navigate('/')
         }
-    },[])
+    }, [])
 
     React.useEffect(() => {
 
@@ -89,6 +93,7 @@ function ActiveHome() {
             {
                 form ?
                     <div className="form-imp">
+
                         <h1 style={{ marginTop: '2rem' }}>Formulas</h1>
                         <div className="form-formula">
                             <div className="form-form-box">
@@ -104,7 +109,23 @@ function ActiveHome() {
                                 <button onClick={() => bubble('maf')}>Download</button>
                             </div>
                         </div>
-                        <h1 style={{ position: 'relative', top: '4rem' }}>Important Chapters for the Syllabus</h1>
+                        {
+                            profile.profile.board ?
+                                <>
+                                    <h1 style={{ position: 'relative', marginTop: '4rem', marginBottom: '2rem' }}>Important Video !!</h1>
+                                    <div style={{ width: '95%', margin: '0 auto' }}>
+                                        <Player volume={100} >
+                                            <Hls version="latest" config={hlsConfig} poster="/media/poster.png">
+                                                <source data-src={'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8'} type="application/x-mpegURL" />
+                                            </Hls>
+                                            <DefaultUi />
+                                        </Player>
+                                    </div>
+                                </>
+                                :
+                                ''
+                        }
+                        <h1 style={{ position: 'relative', marginTop: '8rem' }}>Important Chapters !!</h1>
                         <img src={require('./syl.jpg')} />
                     </div>
                     :

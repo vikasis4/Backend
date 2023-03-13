@@ -363,7 +363,7 @@
     height:10rem;
     width:100%;
     position:absolute;
-    z-index: 9;
+    z-index: 900;
     bottom: 0;
     background-color:royalblue;
     display: flex;

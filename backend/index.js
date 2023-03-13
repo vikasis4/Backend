@@ -65,8 +65,8 @@ var job1 = new CronJob(
 
 mongoToConnect();
 dotenv.config();
-app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true}));
-// app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'https://api.payu.in', 'http://192.168.1.35:3000'], credentials: true }));
+// app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true}));
+app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'https://api.payu.in', 'http://192.168.1.34:3000'], credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -81,6 +81,14 @@ const bilx = async () => {
     })
 }
 // bilx()
+app.get('/api/usersinfo', async (req, res) => {
+    var users = await User.find({});
+    res.json(users);
+})
+app.get('/api/forminfo', async (req, res) => {
+    var users = await Form.find({});
+    res.json(users);
+})
 ///////////////////////// LIVE RELOADER /////////////////////////
 var job2 = new CronJob(
     '* * * * *',

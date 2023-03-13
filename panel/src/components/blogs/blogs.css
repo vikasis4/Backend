@@ -1,106 +1,152 @@
-.users{
-    display:flex;
+.users {
+    display: flex;
     justify-content: center;
     padding: 1rem 4rem;
     place-items: flex-start;
-    flex-direction: column;
-    gap:2rem
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem
 }
-.users-enter img{
+
+.users-enter img {
     border-radius: 50%;
-    height:6rem;
-    width:6rem;
+    border:3px solid white;
+    height: 10rem;
+    width: 10rem;
 }
-.classplus:hover{
+
+.classplus:hover {
     cursor: pointer;
     transform: translateY(-0.4rem);
 }
-.classplus-s{
-    font-family: "Dosis";
+
+.classplus-s {
+    font-family: Dosis;
+    margin-right: 2rem;
     font-weight: 600;
     font-size: 2.4rem;
     border-bottom: 3px solid green;
 }
-.classplus-del{
+
+.classplus-del {
     color: red !important;
 }
-.classplus{
+
+.classplus {
     font-family: "Dosis";
     transition: all 0.2s;
     font-size: 2rem;
     color: green;
     font-weight: 600;
-    height:4rem;
-    background-color:white;
-    border:none;
+    height: 4rem;
+    background-color: white;
+    border: none;
     border-radius: 0.2rem;
     box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.2);
 }
-.users-enter h2{
+
+.users-enter h2 {
     font-weight: 600;
+    margin: 0;
 }
-.act-btn button:hover{
-cursor: pointer;
+
+.act-btn button:hover {
+    cursor: pointer;
 }
-.form-cnt{
-    width:20%;
-    border:2px solid black;
-    margin:0 4rem;
-    border-radius: 1rem;
+
+.form-cnt {
+    width: 20%;
+    border: 2px solid black;
+    margin: 0 2rem;
+    border-radius: 0.2rem;
     font-family: Dosis;
     font-weight: 600;
-    padding:1rem;
+    padding: 1rem;
 }
+
 .act-btn {
     display: flex;
     justify-content: center;
     place-items: center;
-    gap:1rem
+    gap: 1rem
 }
-.act-btn button{
+
+.act-btn button {
     border-radius: 0.4rem;
-    padding:1rem;
-    background-color:black;
-    color:white;
+    padding: 1rem;
+    background-color: black;
+    color: white;
     font-family: "Dosis";
 }
-.users-enter h3{
+
+.users-enter h3 {
     font-weight: 500;
     color: white;
-    display: flex;
-    place-items: center;
+    font-size: 12px;
+    margin: 0;
 }
-.users_complie{
+
+.users_complie {
     display: flex;
-    gap:1rem;
+    gap: 4rem;
     justify-content: center;
     align-items: center;
 }
-.users-enter{
-    background-color:blueviolet;
-    width: 100%;
+
+.users_complies {
     display: flex;
-    justify-content: space-between;
     gap:1rem;
-    font-family:Dosis;
-    place-items: center;
-    font-size: 1.4rem;
-    color:hsl(0 0% 100%/.9);
-    padding: 1rem;
-    border-radius: 0.6rem;
-    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.4);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.select-btn{
-    padding:2rem 4rem;
+.users-enter {
+    background-color:teal;
+    width: 45%;
     display: flex;
-    gap:1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3rem;
+    font-family: Dosis;
+    place-items: center;
+    font-size: 1.4rem;
+    color: hsl(0 0% 100%/.9);
+    padding: 1rem;
+    border-radius: 0.6rem;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.select-btn {
+    padding: 2rem 4rem;
+    display: flex;
+    gap: 1.6rem;
+    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
     flex-wrap: wrap;
 }
-.change_btn{
+
+.change_btn {
+    border-radius: 10rem;
+    height: 3rem;
+    width: 3rem;
+    font-weight: 600;
+    font-family: Dosis;
+    box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.1);
+}
+
+.change_btns {
+    border-radius: 0.2rem;
+    padding: 1rem 2rem;
+    background-color: black;
+    color: white;
     font-weight: 600;
     font-family: Dosis;
 }
-.change_btn:hover{
+
+.change_btn:hover,
+.change_btns:hover {
     cursor: pointer;
 }

@@ -22,6 +22,7 @@ const [profile, setProfile] = useState({
     subarray:[],
     room:'',
     cart:[],
+    board:false
 });
 
 

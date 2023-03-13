@@ -146,17 +146,16 @@
     justify-content:space-between;
     padding: 0 4rem;
     align-items:center;
-    box-shadow: 0 2px 14px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 8px 3px rgba(0,0,0,0.3);
 }
-.task-list {
-    border-bottom: 1px solid gray;
-}
+
 .task-list h1{
     font-family: "Dosis";
     color: rgb(56, 55, 55);
     margin: 3rem 0 0 2rem;
     font-size: 6rem;
     padding-bottom: 1rem;
+    text-align: center;
 }
 
 .AH-two-form h3{
@@ -192,14 +191,18 @@
 .form-imp h1{
     padding-left: 3rem;
     font-size: 4.8rem;
-    font-weight: 500;
+    font-weight: 700;
     font-family: 'Dosis';
 }
 .form-imp {
     padding-top: 3rem;
 }
 .form-imp img{
-    width:100%;
+    width:120%;
+    position: relative;
+    left:-6rem;
+    top:-4rem;
+    z-index: -10;
 }
 .form-formula{
     display:flex;
@@ -231,4 +234,33 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+.task-ss-one h1{
+    font-family: Dosis;
+    font-size: 4rem;
+    text-align: center;
+}
+.task-ss-one button:hover{
+    cursor: pointer;
+}
+.task-ss-one button{
+    font-family: Dosis;
+    font-weight: 600;
+    border-radius:1rem;
+    padding: 3rem 1rem;
+    background-color: white;
+}
+.task-ss-one{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color:tomato;
+    color: white;
+    height: 60rem;
+    width: 90%;
+    margin: 10rem auto;
+    padding: 4rem;
+    box-sizing: border-box;
+    border-radius:1rem;
 }

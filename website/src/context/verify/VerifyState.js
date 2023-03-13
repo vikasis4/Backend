@@ -45,6 +45,9 @@ const VerifyState = (props) => {
             }).then(function (response) {
 
                 if (response.data.message === 'success') {
+                    var mth = parseInt(response.data.user.date.slice(5, 7), 10)
+                    var dt = parseInt(response.data.user.date.slice(8, 10), 10)
+
                     setProgress(60)
                     var type = 'normal';
                     if (response.data.user.refral === 'empty') {
@@ -67,6 +70,7 @@ const VerifyState = (props) => {
                         type,
                         room: response.data.user.room,
                         cart: response.data.user.cart,
+                        board: mth >= 3 && dt > 12 ? true : false
                     });
                     if (response.data.user.subscription === 'true') {
                         setVerify('thanks')

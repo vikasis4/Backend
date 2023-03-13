@@ -8,9 +8,10 @@ function Form() {
 
     const Navigate = useNavigate()
     const style = {
-        border: '1px solid black',
-        borderRadius: '8px',
-        padding: '4px',
+        borderRadius: '4px',
+        padding: '4px 6px',
+        backgroundColor: 'white',
+        color:'black'
     }
     const profile = useContext(ProfileContext);
     const [id, setId] = useState(null)
@@ -20,11 +21,9 @@ function Form() {
         setId(profile.profile.id)
         
         if (id) {     
-            console.log(id);
             axios.post(`${clink}/get-form-info`,  {id:id} ).then((response) => {
-                console.log(response.data);
                 if (response.data.status === 'yes') {
-                    Navigate('/')
+                    // Navigate('/')
                 }
                 else if (response.data.status === 'no') {
                     // setForm(false)
@@ -37,9 +36,8 @@ function Form() {
     React.useEffect(()=>{
         if (profile.profile.subscription === 'true') {   
             setId(profile.profile.id)
-            console.log(profile.profile.id);
         }else{
-            Navigate('/')
+            // Navigate('/')
         }
     },[profile.profile.id])
     
@@ -84,7 +82,7 @@ function Form() {
         <>
             <div className="videopage-gap"></div>
             <div className='form-main'>
-                <h4>Form ~ Jee Mains+Advance 2023</h4>
+                <h4>Fill the Form</h4>
 
                 <div className="form-input">
                     <h1>1 ~ What is your Mode of Prepration ?</h1>

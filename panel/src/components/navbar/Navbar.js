@@ -25,7 +25,7 @@ const Navbar = () => {
                                 panel.verify === true ? <>
                                     <li><button onClick={() => { navigate('/') }} className="btn">Dashboard</button></li>
                                     <li><button onClick={() => { navigate('/query') }} className="btn">Query</button></li>
-                                    <li><button onClick={() => { navigate('/personal') }} className="btn">Guidance</button></li>
+                                    <li><button onClick={() => { navigate('/personal') }} className="btn">User_Info</button></li>
                                     <li><button onClick={() => { navigate('/payment') }} className="btn">Transactions</button></li>
                                     <li><button onClick={() => { navigate('/video') }} className="btn">Video / Pdf</button></li>
                                     <li><button onClick={() => { navigate('/blogs') }} className="btn">Users</button></li>
@@ -36,7 +36,7 @@ const Navbar = () => {
                                     <>
                                         <li><button disabled  className="btn">Home</button></li>
                                         <li><button disabled  className="btn">Query</button></li>
-                                        <li><button disabled  className="btn">Guidance</button></li>
+                                        <li><button disabled  className="btn">User_info</button></li>
                                         <li><button disabled  className="btn">Transactions</button></li>
                                         <li><button disabled  className="btn">Video / Pdf</button></li>
                                         <li><button disabled  className="btn">Users</button></li>

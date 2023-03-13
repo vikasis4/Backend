@@ -68,23 +68,39 @@ function Task() {
                     <div className="task-list">
                         <h1> Weekly Task <img style={{ width: '6rem', height: '6rem', marginLeft: '2rem' }} src={rackit} /></h1>
                     </div>
-                    <div className='taskbar'>
-                        <h3>New</h3>
-                        <h1>PDF &nbsp; 26Feb - 4March </h1>
-                        <button onClick={() => openpdf('4')}>Download</button>
-                    </div>
-                    <div className='taskbar'>
-                        <h1>PDF &nbsp; 19Feb - 25Feb </h1>
-                        <button onClick={() => openpdf('3')}>Download</button>
-                    </div>
-                    <div className='taskbar'>
-                        <h1>PDF &nbsp; 12Feb - 18Feb </h1>
-                        <button onClick={() => openpdf('2')}>Download</button>
-                    </div>
-                    <div className='taskbar'>
-                        <h1>PDF &nbsp; 5Feb - 11Feb </h1>
-                        <button onClick={() => openpdf('1')}>Download</button>
-                    </div>
+                    {
+                        prowork.profile.board ?
+                        <>
+                        <div className="task-ss-one">
+                            <h1>Target Time - 3 Feb to 8 Feb</h1>
+                            <button onClick={() => openpdf('b1')}>Download PDF</button>
+                        </div>
+                        </>
+                        :
+                        <>
+                            <div className='taskbar'>
+                                <h3>New</h3>
+                                <h1>PDF &nbsp; 5March - 11March </h1>
+                                <button onClick={() => openpdf('5')}>Download</button>
+                            </div>
+                            <div className='taskbar'>
+                                <h1>PDF &nbsp; 26Feb - 4March </h1>
+                                <button onClick={() => openpdf('4')}>Download</button>
+                            </div>
+                            <div className='taskbar'>
+                                <h1>PDF &nbsp; 19Feb - 25Feb </h1>
+                                <button onClick={() => openpdf('3')}>Download</button>
+                            </div>
+                            <div className='taskbar'>
+                                <h1>PDF &nbsp; 12Feb - 18Feb </h1>
+                                <button onClick={() => openpdf('2')}>Download</button>
+                            </div>
+                            <div className='taskbar'>
+                                <h1>PDF &nbsp; 5Feb - 11Feb </h1>
+                                <button onClick={() => openpdf('1')}>Download</button>
+                            </div>
+                        </>
+                    }
                 </div>
             </div>
         </>

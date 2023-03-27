@@ -7,22 +7,12 @@ dotenv.config();
 const User = new mongoose.Schema({
 
     username: { type: 'string', required: true },
-    password: { type: 'string', required: true },
-    phone:{ type: 'number', default: null},
+    phone: { type: 'number', required: true },
     subscription: { type: 'string', default: 'false' },
-    last_seen: { type: 'string', default:`${new Date().getUTCDate()}/${new Date().getUTCMonth()}/${new Date().getUTCFullYear()}` },
-    guidance_session: {
-        plan_time: { type: 'number', default: 0},
-        expiry_time: {
-            month: {type: 'number', default: 0},
-            date: {type: 'number', default: 0},
-            year: {type: 'number', default: 0}
-        },
-    },
+    last_seen: { type: 'string', default: `${new Date().getUTCDate()}/${new Date().getUTCMonth()}/${new Date().getUTCFullYear()}` },
     img: { type: 'string', default: 'empty' },
-    name: { type: 'string', default: 'User'},
     pkey: { type: 'number', default: 9876 },
-    refral:{type: 'string', default: 'empty'},
+    refral: { type: 'string', default: 'empty' },
     query: [{
         type: { type: 'string' },
         subject: { type: 'string' },
@@ -30,29 +20,29 @@ const User = new mongoose.Schema({
             {
                 statement: { type: 'string' },
                 type: { type: 'string' },
-                content: { type: 'string'},
-                mins: { type: 'number'},
-                hours: { type: 'number'},
-                date: { type: 'number'},
-                month: {type: 'number'},
-                year: { type: 'number'}
+                content: { type: 'string' },
+                mins: { type: 'number' },
+                hours: { type: 'number' },
+                date: { type: 'number' },
+                month: { type: 'number' },
+                year: { type: 'number' }
             }
         ],
-        place:{type: 'number'},
+        place: { type: 'number' },
         date: { type: Date },
         userid: { type: 'string' },
         answered: { type: 'boolean', default: false }
     }],
     subarray: [{
-       name: { type: 'string'},
+        name: { type: 'string' },
     }],
     otp: { type: 'boolean', default: false },
-    date:{type: Date, default: new Date()},
+    date: { type: Date, default: new Date() },
     code: { type: 'number', default: '' },
     cart: [{
-        name: { type: 'string'}
+        name: { type: 'string' }
     }],
-    room: { type: 'string'},
+    room: { type: 'string' },
     tokens: [{
         token: {
             type: 'string',

@@ -36,6 +36,9 @@ const live = require("./live");
 const Task = require('./models/task');
 const Form = require('./models/form');
 
+//////////////////////////////
+const auth_routes = require('./routes/auth')
+
 ///////////////////// ACTIVE COURSE - 1-1 NOT ADD ON ///////////////////////////
 
 const app = express();
@@ -65,8 +68,8 @@ var job1 = new CronJob(
 
 mongoToConnect();
 dotenv.config();
-// app.use(cors('*'))
-app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true}));
+app.use(cors('*'))
+// app.use(cors({ origin:['https://rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true}));
 // app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'https://api.payu.in', 'http://192.168.178.76:3000'], credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -99,6 +102,8 @@ var job2 = new CronJob(
     null,
     true
 );
+////////////////// ROUTES /////////////////////////////////////////////////////////////
+app.use('/api/auth', auth_routes)
 //////////////// TRAFFIC MANAGER ///////////////////////////////////////////////////////////////////////////
 app.post('/api/traffic/tracker', async (req, res) => {
     const ds = new Date();
@@ -224,7 +229,6 @@ app.get('/api/userswill/info', async (req, res) => {
         console.log(error);
     }
 })
-
 
 //////////////   REGISTER    /////////////////////////////////////////////////////////////////////////////
 
@@ -773,7 +777,7 @@ app.post('/payu/success', async (req, res) => {
             }
             await User.findByIdAndUpdate(req.body.udf1, { subarray: subsarray });
             await User.findByIdAndUpdate(req.body.udf1, { cart: [] });
-            await User.findByIdAndUpdate(req.body.udf1, { pkey: 0000 })
+            await User.findByIdAndUpdate(req.body.udf1, { pkey: 0 })
         }
         res.send(
             `
@@ -1217,9 +1221,9 @@ app.post('/api/keyverify', async (req, res) => {
 
 app.post('/api/cart', async (req, res) => {
     try {
-        if (req.body.id.length === 0) {   
+        if (req.body.id.length === 0) {
             res.json({ status: 'yes' })
-        }else{
+        } else {
             await User.findByIdAndUpdate(req.body.id, { cart: req.body.cart })
             res.json({ status: 'yes' })
         }
@@ -1229,9 +1233,9 @@ app.post('/api/cart', async (req, res) => {
 })
 app.post('/api/cartremove', async (req, res) => {
     try {
-        if (req.body.id.length === 0) {   
+        if (req.body.id.length === 0) {
             res.json({ status: 'yes' })
-        }else{
+        } else {
             await User.findByIdAndUpdate(req.body.id, { cart: req.body.cart })
             res.json({ status: 'yes' })
         }

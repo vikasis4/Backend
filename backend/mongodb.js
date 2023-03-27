@@ -6,6 +6,7 @@ dotenv.config()
 
 const url = process.env.connection_string
 
+mongoose.set("strictQuery", false);
 
 const mongoToConnect = async ()=>{
 

@@ -8,40 +8,11 @@ const User = new mongoose.Schema({
 
     username: { type: 'string', required: true },
     phone: { type: 'number', required: true },
-    subscription: { type: 'string', default: 'false' },
     last_seen: { type: 'string', default: `${new Date().getUTCDate()}/${new Date().getUTCMonth()}/${new Date().getUTCFullYear()}` },
-    img: { type: 'string', default: 'empty' },
-    pkey: { type: 'number', default: 9876 },
-    refral: { type: 'string', default: 'empty' },
-    query: [{
-        type: { type: 'string' },
-        subject: { type: 'string' },
-        dialogue: [
-            {
-                statement: { type: 'string' },
-                type: { type: 'string' },
-                content: { type: 'string' },
-                mins: { type: 'number' },
-                hours: { type: 'number' },
-                date: { type: 'number' },
-                month: { type: 'number' },
-                year: { type: 'number' }
-            }
-        ],
-        place: { type: 'number' },
-        date: { type: Date },
-        userid: { type: 'string' },
-        answered: { type: 'boolean', default: false }
-    }],
-    subarray: [{
-        name: { type: 'string' },
-    }],
+    creation_date: { type: Date, default: new Date() },
+    subarray: [{ name: { type: 'string' } }],
     otp: { type: 'boolean', default: false },
-    date: { type: Date, default: new Date() },
-    code: { type: 'number', default: '' },
-    cart: [{
-        name: { type: 'string' }
-    }],
+    cart: [{ name: { type: 'string' }, code: {type: 'number'} }],
     room: { type: 'string' },
     tokens: [{
         token: {

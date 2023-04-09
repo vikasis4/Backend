@@ -10,7 +10,7 @@ const router = express.Router();
 router.route('/register').post(register);
 router.route('/otp/verify').post(OTP);
 router.route('/login').post(login);
-router.route('/verify').get(verify);
+router.route('/token/verify').get(verify);
 router.route('/otp/resend').post(resend);
 
 module.exports = router 

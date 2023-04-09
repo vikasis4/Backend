@@ -26,13 +26,10 @@ const Footer = () => {
                         <div className="footer-th-t">
                             <h1>rankboosteducation@gmail.com</h1>
                             <h1>kumarshubham6089@gmail.com</h1>
-                            {/* <h1>vikasisgen@gmail.com</h1> */}
                         </div>
                     </div>
 
                     <div className="footer-one">
-
-
 
                         <div className="footer-ek">
                             <h1>Usefull Links</h1>
@@ -52,7 +49,6 @@ const Footer = () => {
                                 <li>{info.profile.void === 'no' ? <a onClick={() => { navigate('/support') }}>Customer Support</a> : <a onClick={() => { navigate('/register') }}>Register</a>}</li>
                                 <li><a onClick={() => { navigate('/forgot') }}>Change Password</a></li>
                                 <li><a onClick={() => { navigate('/support') }}>Customer support</a></li>
-                                {/* <li><a onClick={() => { navigate('/guidance-personal') }} >Personal 1-1 Guidance</a></li> */}
                             </div>
                         </div>
                         <div className="footer-do">

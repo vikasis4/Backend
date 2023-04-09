@@ -2,43 +2,30 @@ var jsSHA = require("jssha");
 var { v4: uuidv4 } = require('uuid');
 const dotenv = require('dotenv');
 const request = require('request');
-const User = require('./models/user.model.js')
+const User = require('../models/user.model.js');
+const products = require('../middleware/products.js');
 dotenv.config();
 
-exports.payUMoneyPayment = function (req, res) {
+const payment_init = async (req, res) => {
 
-
-    if (!req.body.data.txnid || !req.body.data.amount || !req.body.data.productinfo
-        || !req.body.data.firstname || !req.body.data.email) {
-        res.send("Mandatory fields missing");
-    }
-    else {
+    try {
 
         const cross = async () => {
 
             var user = await User.findById(req.body.data.udf1);
-            if (req.body.data.txnid === 'new_account') {
-                var money = req.body.data.udf2;
-            } else {
-                var money = user.cart;
-            }
-            var num = process.env.value;
+            var pd = req.body.data;
+            var num = 0;
             var string = '';
 
-            for (let i = 0; i < money.length; i++) {
-                 if (money[i].name === '2023CC') {
-                    num = parseInt(num) + parseInt(process.env.CC2023);
-                    string = string + 'drdo'
-                }
-                else if (money[i].name === 'material') {
-                    num = parseInt(num) + parseInt(process.env.material);
-                    string = string + 'bros'
+            for (let i = 0; i < user.cart.length; i++) {
+                var ans = products.filter((value) => value.code === user.cart[i].code);
+                if (ans.length === 0) { null }
+                else {
+                    string = string + ans[0].code.toString();
+                    num = num + ans[0].price
                 }
             }
-            var pd = req.body.data;
-            var otpi = Math.floor(1000000 + Math.random() * 9000000);
-            await User.findByIdAndUpdate(req.body.data.udf1, { pkey: otpi })
-            pd.udf3 = otpi;
+
             pd.udf2 = string;
             pd.txnid = uuidv4();
             pd.amount = num;
@@ -58,10 +45,10 @@ exports.payUMoneyPayment = function (req, res) {
             var hash = sha.getHash("HEX");
             pd.hash = hash;
             pd.key = process.env.payukey;
-            pd.surl = 'https://api.rankboost.live/payu/success';
-            pd.furl = 'https://api.rankboost.live/payu/failed';
+            pd.surl = 'http://localhost/api/pay/success';
+            pd.furl = 'http://localhost/api/pay/failure';
 
-            request.post( {
+            request.post({
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
@@ -78,8 +65,7 @@ exports.payUMoneyPayment = function (req, res) {
                         }
                     );
                 if (httpRes.statusCode === 200) {
-                    res.send(body);
-                    res.json({ status: 'body' })
+                    res.json({ status: 'body', body })
                 } else if (httpRes.statusCode >= 300 &&
                     httpRes.statusCode <= 400) {
                     res.json({ status: 'link', link: httpRes.headers.location.toString() });
@@ -87,7 +73,10 @@ exports.payUMoneyPayment = function (req, res) {
             })
         }
         cross()
+    } catch (error) {
+        console.log(error);
     }
+
 }
 
-// https://api.payu.in/public/#/ee2ff02ab7daea51eaa20504d7cf79ee
+module.exports = payment_init

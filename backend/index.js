@@ -4,7 +4,7 @@ const User = require('./models/user.model')
 const Video = require('./models/video')
 const mongoToConnect = require('./mongodb')
 const bcrypt = require('bcryptjs');
-const verify = require('./middleware/verify')
+// const verify = require('./middleware/verify')
 const dotenv = require('dotenv');
 const nodemailer = require('nodemailer');
 const Otp = require('./models/otp');
@@ -30,20 +30,24 @@ const Variables = require('./models/variables');
 const { spawn } = require('child_process');
 const CronJob = require('cron').CronJob;
 const mongoose = require('mongoose');
-const payUMoney = require('./payUmoney');
 const Live = require('./models/live');
 const live = require("./live");
 const Task = require('./models/task');
 const Form = require('./models/form');
+const products = require('./middleware/products.js');
 
 //////////////////////////////
 const auth_routes = require('./routes/auth')
+const pay_routes = require('./routes/payment')
+
 
 ///////////////////// ACTIVE COURSE - 1-1 NOT ADD ON ///////////////////////////
 
 const app = express();
 app.use(require('express-status-monitor')());
 const server = require('http').createServer(app);
+
+
 
 ////////////////////////////////////////////////////////////////////////////
 const DB_name = 'paceway';
@@ -64,6 +68,7 @@ var job1 = new CronJob(
     null,
     true
 );
+
 /////////////////////////////////////////////////////////////////////////////////////////
 
 mongoToConnect();
@@ -101,63 +106,11 @@ var job2 = new CronJob(
     },
     null,
     true
-);
+);    
 ////////////////// ROUTES /////////////////////////////////////////////////////////////
 app.use('/api/auth', auth_routes)
-//////////////// TRAFFIC MANAGER ///////////////////////////////////////////////////////////////////////////
-app.post('/api/traffic/tracker', async (req, res) => {
-    const ds = new Date();
-    const day = ds.getUTCDate();
-    const month = ds.getUTCMonth() + 1;
-    const year = ds.getUTCFullYear();
-    try {
-        const live = await Live.findOne({ username: req.body.livetoken });
-        if (live) {
-            if (live.status === 'offline') {
-                await History.create({
-                    day,
-                    month,
-                    year
-                })
-            }
-            try {
-                await User.findOneAndUpdate({ username: req.body.username }, { last_seen: `${day}/${month}/${year}` })
-            } catch (error) {
-                console.log('live-token-error');
-            }
-            await Live.findOneAndUpdate({ username: req.body.livetoken }, {
-                time: req.body.sum,
-                status: "online"
-            })
-        } else {
-            await Live.create({
-                register: req.body.type,
-                username: req.body.livetoken,
-                status: "online",
-                time: req.body.sum
-            })
-            await History.create({
-                day,
-                month,
-                year
-            })
-        }
-    } catch (error) {
-        console.log(error);
-    }
-    res.status(200).send({ work: 'yes' })
-})
-app.get('/api/history/traffic', async (req, res) => {
-    try {
-        await History.find({}).then(function (data) {
-            res.json(data)
-        })
-    } catch (error) {
-        console.log(error);
-    }
-})
-
-
+app.use('/api/pay', pay_routes)
+////////////////// ROUTES /////////////////////////////////////////////////////////////
 ////////////////////////////////// ACTIVE COURSE /////////////////////////////////////////////////////
 app.post('/api/manage/course', async (req, res) => {
     try {
@@ -351,84 +304,6 @@ const optverify = (mailOptions) => {
 }
 
 
-/////////////////////////////////// VERIFY USER JWT //////////////////////////////////////
-
-app.get('/api/verifyuser', verify, async (req, res) => {
-
-})
-//////////////////////////////////  PAYU  /////////////////////////////////////////////
-
-app.post('/api/payments/payumoney', payUMoney.payUMoneyPayment);
-app.post('/payu/success', async (req, res) => {
-
-    try {
-        var user = await User.findById(req.body.udf1);
-        var subsarray = user.subarray;
-        var type = 'empty'
-        if (user.refral === 'empty') {
-            type = 'normal'
-        } else {
-            type = 'refral'
-        }
-        var string = req.body.udf2;
-        var pkey = user.pkey
-        var cart = [];
-        var derator = string.length / 4;
-
-        if (req.body.status === 'success') {
-            for (let i = 0; i < derator; i++) {
-                if (string.slice(i * 4, (i + 1) * 4) === 'drdo') {
-                    cart.push({ name: '2023CC' });
-                }
-                else if (string.slice(i * 4, (i + 1) * 4) === 'bros') {
-                    cart.push({ name: 'material' });
-                }
-            }
-
-            const payment = await Payment.create({
-                refrence_nos: req.body.bank_ref_num,
-                transaction_id: req.body.mihpayid,
-                user: req.body.udf1,
-                date: req.body.addedon,
-                type: type,
-                cart: cart
-            })
-            payment.save();
-            subsarray.push(...cart);
-        }
-        var vpkey = parseInt(req.body.udf3);
-        if (pkey === vpkey) {
-            if (user.subscription === 'false') {
-                await User.findByIdAndUpdate(req.body.udf1, { subscription: 'true' })
-            }
-            await User.findByIdAndUpdate(req.body.udf1, { subarray: subsarray });
-            await User.findByIdAndUpdate(req.body.udf1, { cart: [] });
-            await User.findByIdAndUpdate(req.body.udf1, { pkey: 0 })
-        }
-        res.send(
-            `
-            <div
-        style="height: 100%; width:100%; display:flex; justify-content:center; align-items:center ">
-        <h2 style="font-size:62px; text-align:center "> <span style="color:green"> Payment successfull </span><br /><br /><br /> Click on <a
-                href="https://rankboost.live">RankBoost</a> to return to the website </h2>
-        </div>
-            `
-        );
-    } catch (error) {
-        console.log(error);
-    }
-})
-app.post('/payu/failed', async (req, res) => {
-    res.send(
-        `
-        <div
-        style="height: 100%; width:100%; display:flex; justify-content:center; align-items:center ">
-        <h2 style="font-size:62px; text-align:center "> <span style="color:red"> Error :- Payment Failed </span><br /><br /><br /> Click on <a
-                href="https://rankboost.live">RankBoost</a> to return to the website </h2>
-        </div>
-        `
-    );
-})
 
 
 ///////////////////////////////////////////////////////////////////////

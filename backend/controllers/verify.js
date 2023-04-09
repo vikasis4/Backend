@@ -4,7 +4,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const verify = async (req, res)=>{
-
     try {
         const SecKey = process.env.jwt_web_token;
         const token = req.header('auth-token');

@@ -5,6 +5,6 @@ const {payment_failed, payment_success} = require('../controllers/payment_handle
 
 router.route('/request').post(payment_init);
 router.route('/success').post(payment_success);
-router.route('/failure').post(payment_failed);
+router.route('/failure').get(payment_failed);
 
 module.exports = router 

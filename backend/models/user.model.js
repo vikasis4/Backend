@@ -11,10 +11,10 @@ const User = new mongoose.Schema({
     phone: { type: 'number', required: true },
     last_seen: { type: 'string', default: date },
     creation_date: { type: Date, default: date },
-    subarray: [{ name: { type: 'string' } }],
+    subarray: [{ code: { type: 'number' } }],
     otp: { type: 'boolean', default: false },
     mentorId: { type: 'string' },
-    cart: [{ name: { type: 'string' }, code: { type: 'number' } }],
+    cart: [{ name: { type: 'string' }, code: { type: 'number' }, price:{type:'number'} }],
     room: { type: 'string' },
     tokens: [{
         token: {

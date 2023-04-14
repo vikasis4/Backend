@@ -11,6 +11,7 @@ const mails = require('./middleware/mails')
 const auth_routes = require('./routes/auth')
 const pay_routes = require('./routes/payment')
 const products_routes = require('./routes/products')
+const mentor_routes = require('./routes/mentor')
 
 
 const app = express();
@@ -29,6 +30,7 @@ app.use(express.static(make));
 app.use('/api/auth', auth_routes)
 app.use('/api/pay', pay_routes)
 app.use('/api/product', products_routes)
+app.use('/api/mentor', mentor_routes)
 
 server.listen(process.env.PORT || 4000, function () {
     console.log("server is running on port: 4000");

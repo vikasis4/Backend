@@ -1,5 +1,5 @@
 const User = require('../models/user.model');
-const generateOtp = require('../middleware/otp')
+const generateOtp = require('../middleware/otp');
 const { v4: uuidv4 } = require('uuid');
 
 const register = async (req, res) => {
@@ -20,7 +20,7 @@ const register = async (req, res) => {
             var user = await User.create({
                 phone: req.body.phone,
                 username: req.body.username,
-                room: uuidv4()
+                room: uuidv4(),
             })
             user.save();
             var response = await generateOtp(req.body.phone);

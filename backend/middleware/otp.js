@@ -14,7 +14,8 @@ const genrateOtp = async (value) => {
             })
             sks.save()
         }
-
+        
+        // console.log(otp);
         var req = unirest("GET", "https://www.fast2sms.com/dev/bulkV2");
         req.query({
             "authorization": "TicJmp9NvkwZsx6qGrh1K5S2dLYO3R4BQ7EoaUjueCnVfgPDIH4na7yOgrWsSNuGpjMhVHLBUTE3fXv9",

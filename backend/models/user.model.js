@@ -12,7 +12,8 @@ const User = new mongoose.Schema({
     creation_date: { type: Date, default: new Date() },
     subarray: [{ name: { type: 'string' } }],
     otp: { type: 'boolean', default: false },
-    cart: [{ name: { type: 'string' }, code: {type: 'number'} }],
+    mentorId: { type: 'string', required: true },
+    cart: [{ name: { type: 'string' }, code: { type: 'number' } }],
     room: { type: 'string' },
     tokens: [{
         token: {
@@ -20,7 +21,7 @@ const User = new mongoose.Schema({
             required: true,
             date: { type: Date, default: new Date() }
         },
-    }]
+    }],
 })
 
 const SecKey = process.env.jwt_web_token;

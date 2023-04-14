@@ -3,7 +3,7 @@ var { v4: uuidv4 } = require('uuid');
 const dotenv = require('dotenv');
 const request = require('request');
 const User = require('../models/user.model.js');
-const products = require('../middleware/products.js');
+const {products} = require('../middleware/products.js');
 dotenv.config();
 
 const payment_init = async (req, res) => {
@@ -16,7 +16,7 @@ const payment_init = async (req, res) => {
             var pd = req.body.data;
             var num = 0;
             var string = '';
-
+        
             for (let i = 0; i < user.cart.length; i++) {
                 var ans = products.filter((value) => value.code === user.cart[i].code);
                 if (ans.length === 0) { null }
@@ -45,8 +45,8 @@ const payment_init = async (req, res) => {
             var hash = sha.getHash("HEX");
             pd.hash = hash;
             pd.key = process.env.payukey;
-            pd.surl = 'http://localhost/api/pay/success';
-            pd.furl = 'http://localhost/api/pay/failure';
+            pd.surl = 'https://rankboost.vercel.app/api/success';
+            pd.furl = 'https://rankboost.vercel.app/api/failure';
 
             request.post({
                 headers: {

@@ -34,7 +34,7 @@ const LoginAccount = async (req, res) => {
         var verify = await bcrypt.compare(password, mentor.password);
         if (verify) {
             var token = await jwtTokenCreate({ id: mentor._id });
-            await Mentor.findOneAndUpdate({ token })
+            await Mentor.findOneAndUpdate({phone},{ token })
             res.json({ status: 'true', token });
         } else {
             res.json({ status: 'false' });
@@ -52,7 +52,8 @@ const VerifyToken = async (req, res) => {
         if (result) {
             var tkz = await Mentor.findById(result.id);
             if (tkz.token === token) {
-                res.json({ status: 'true' });
+                var value = await Mentor.findById(req.body.id);
+                res.json({ status: 'success', value });
             } else {
                 res.json({ status: 'expire' });
             }
@@ -65,4 +66,13 @@ const VerifyToken = async (req, res) => {
     }
 }
 
-module.exports = { createAccount, LoginAccount, VerifyToken }
+const FetchData = async (req, res) => {
+    try {
+
+    } catch (error) {
+        res.json({ status: 'failed' });
+        console.log(error);
+    }
+}
+
+module.exports = { createAccount, LoginAccount, VerifyToken, FetchData }

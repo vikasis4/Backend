@@ -1,6 +1,7 @@
 const User = require('../models/user.model');
 const generateOtp = require('../middleware/otp');
 const { v4: uuidv4 } = require('uuid');
+const Support = require('../models/support')
 
 const register = async (req, res) => {
     try {
@@ -17,11 +18,16 @@ const register = async (req, res) => {
                 }
             }
         } else {
+            var support = await Support.create({
+                userId:'await'
+            })
             var user = await User.create({
                 phone: req.body.phone,
                 username: req.body.username,
                 room: uuidv4(),
+                supportId: support._id
             })
+            await Support.findByIdAndUpdate(support._id, {userId: user._id})
             user.save();
             var response = await generateOtp(req.body.phone);
             if (response) {

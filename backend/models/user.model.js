@@ -8,14 +8,29 @@ var date = new Date();
 const User = new mongoose.Schema({
 
     username: { type: 'string', required: true },
+
     phone: { type: 'number', required: true },
+
     last_seen: { type: 'string', default: date },
+
     creation_date: { type: Date, default: date },
+
     subarray: [{ code: { type: 'number' } }],
+
     otp: { type: 'boolean', default: false },
-    mentorId: { name: { type: 'string' }, id: { type: 'string' } },
+
+    chatId: { type: 'string', default: null },
+
+    supportId: { type: 'string', default: null },
+
+    mentorId: {
+        name: { type: 'string' }, id: { type: 'string' }
+    },
+
     cart: [{ name: { type: 'string' }, code: { type: 'number' }, price: { type: 'number' } }],
+
     room: { type: 'string' },
+
     tokens: [{
         token: {
             type: 'string',

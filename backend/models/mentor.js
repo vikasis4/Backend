@@ -6,7 +6,10 @@ const Mentor = new mongoose.Schema({
     phone: { type: 'number', required: true },
     students: [
         {
-            studentId: { type: 'string' }
+            name: { type: 'string'},
+            studentId: { type: 'string' },
+            chatId:{ type: 'string'},
+            roomId:{ type: 'string'}
         }
     ],
     address: { type: 'string', required: true },

@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-const UPDATE_phone = async () => {
-    // await mongoose.model("User").updateMany({}, {
-    //     $set: {
-    //         phone: null
-    //     }
-    // })
+const UPDATE_mentorId = async () => {
+    await mongoose.model("User").updateMany({}, {
+        $set: {
+            mentorId: {name:'', id:''}
+        }
+    })
 }
 
-module.exports = {UPDATE_phone}
+module.exports = {UPDATE_mentorId}

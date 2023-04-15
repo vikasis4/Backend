@@ -3,9 +3,14 @@ const cors = require('cors');
 const mongoToConnect = require('./mongodb')
 const dotenv = require('dotenv');
 const path = require("path");
+const {UPDATE_mentorId} = require('./middleware/updateMongoos');
+
+///////////////// IMPORT SCHEMAS FOR MONGOOSE UPDATE ///////////////////////////
+const User = require('./models/user.model')
 
 //////////////// IMPORTANT BACKGROUND PROCESSES //////////////////////////////////
 const mails = require('./middleware/mails')
+const job1 = require('./cronjobs/saveDB')
 
 //////////////// ROUTES DECLARATION ///////////////////////////////////////////////
 const auth_routes = require('./routes/auth')

@@ -13,8 +13,8 @@ const User = new mongoose.Schema({
     creation_date: { type: Date, default: date },
     subarray: [{ code: { type: 'number' } }],
     otp: { type: 'boolean', default: false },
-    mentorId: { type: 'string' },
-    cart: [{ name: { type: 'string' }, code: { type: 'number' }, price:{type:'number'} }],
+    mentorId: { name: { type: 'string' }, id: { type: 'string' } },
+    cart: [{ name: { type: 'string' }, code: { type: 'number' }, price: { type: 'number' } }],
     room: { type: 'string' },
     tokens: [{
         token: {

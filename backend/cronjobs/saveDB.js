@@ -1,7 +1,9 @@
 const path = require("path");
+var CronJob = require('cron').CronJob;
+
 
 const DB_name = 'paceway';
-const Archive_path = path.join(__dirname, 'backup', `${DB_name}.gzip`)
+const Archive_path = path.join(__dirname, 'db', `${DB_name}.gzip`)
 const backupDB = () => {
     spawn('mongodump', [
         `--db=${DB_name}`,
@@ -9,6 +11,7 @@ const backupDB = () => {
         '--gzip'
     ])
 }
+console.log('Cron_1 is Active -> saveDB');
 
 var job1 = new CronJob(
     '0 1 * * *',
@@ -18,3 +21,5 @@ var job1 = new CronJob(
     null,
     true
 );
+
+module.exports = job1

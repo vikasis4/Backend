@@ -7,13 +7,18 @@ const io = new Server(5000, {
 
 io.on("connection", (socket) => {
 
-  console.log(`Socket Connected`, socket.id);
+  console.log(`Socket Connected :- `, socket.id);
+   
+  io.to(socket.id).emit('get_id', socket.id);
   
-  socket.on("room:join", (data) => {
-    const { email, room } = data;
-    io.to(room).emit("user:joined", { email, id: socket.id });
-    socket.join(room);
-    io.to(socket.id).emit("room:join", data);
+  socket.on("student_socket_id", (data) => {
+    const { from, to } = data;
+    io.to(to).emit("student_socket_id", from);
+  });
+
+  socket.on("confirmation", (data) => {
+    const { from, to, status } = data;
+    io.to(to).emit("confirmation", status);
   });
 
   socket.on("user:call", ({ to, offer }) => {

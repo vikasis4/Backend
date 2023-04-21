@@ -24,7 +24,7 @@ const User = new mongoose.Schema({
     supportId: { type: 'string', default: null },
 
     mentorId: {
-        name: { type: 'string' }, id: { type: 'string' }
+        name: { type: 'string' , default: null }, id: { type: 'string', default: null  }
     },
 
     cart: [{ name: { type: 'string' }, code: { type: 'number' }, price: { type: 'number' } }],

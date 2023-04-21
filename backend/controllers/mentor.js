@@ -29,7 +29,9 @@ const createAccount = async (req, res) => {
 
 const LoginAccount = async (req, res) => {
     try {
+        console.log(req.body);
         var { phone, password } = req.body;
+        console.log(password);
         var mentor = await Mentor.findOne({ phone });
         var verify = await bcrypt.compare(password, mentor.password);
         if (verify) {
@@ -52,8 +54,7 @@ const VerifyToken = async (req, res) => {
         if (result) {
             var tkz = await Mentor.findById(result.id);
             if (tkz.token === token) {
-                var value = await Mentor.findById(req.body.id);
-                res.json({ status: 'success', value });
+                res.json({ status: 'success', value:tkz });
             } else {
                 res.json({ status: 'expire' });
             }

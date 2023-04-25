@@ -29,17 +29,19 @@ const createAccount = async (req, res) => {
 
 const LoginAccount = async (req, res) => {
     try {
-        console.log(req.body);
         var { phone, password } = req.body;
-        console.log(password);
         var mentor = await Mentor.findOne({ phone });
-        var verify = await bcrypt.compare(password, mentor.password);
-        if (verify) {
-            var token = await jwtTokenCreate({ id: mentor._id });
-            await Mentor.findOneAndUpdate({phone},{ token })
-            res.json({ status: 'true', token });
+        if (mentor) {
+            var verify = await bcrypt.compare(password, mentor.password);
+            if (verify) {
+                var token = await jwtTokenCreate({ id: mentor._id });
+                await Mentor.findOneAndUpdate({ phone }, { token })
+                res.json({ status: 'true', token });
+            } else {
+                res.json({ status: 'false' });
+            }
         } else {
-            res.json({ status: 'false' });
+            res.json({ status: 'nouser' })
         }
     } catch (error) {
         res.json({ status: 'failed' });
@@ -54,7 +56,7 @@ const VerifyToken = async (req, res) => {
         if (result) {
             var tkz = await Mentor.findById(result.id);
             if (tkz.token === token) {
-                res.json({ status: 'success', value:tkz });
+                res.json({ status: 'success', value: tkz.students });
             } else {
                 res.json({ status: 'expire' });
             }

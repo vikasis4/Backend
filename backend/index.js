@@ -20,7 +20,8 @@ const pay_routes = require('./routes/payment')
 const products_routes = require('./routes/products')
 const mentor_routes = require('./routes/mentor')
 const cart_routes = require('./routes/cart')
-const call_routes = require('./routes/call')
+const fcm_routes = require('./routes/fcm')
+const chat_routes = require('./routes/chat')
 
 /////////////////////////// INITIALIZE /////////////////////////////
 const app = express();
@@ -41,7 +42,8 @@ app.use('/api/pay', pay_routes)
 app.use('/api/product', products_routes)
 app.use('/api/mentor', mentor_routes)
 app.use('/api/cart', cart_routes)
-app.use('/api/call', call_routes)
+app.use('/api/fcm', fcm_routes)
+app.use('/api/chat', chat_routes)
 
 
 server.listen(process.env.PORT || 4000, function () {

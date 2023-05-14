@@ -8,6 +8,7 @@ const assignMentor = async (id) => {
         var roomId;
         var name;
         var mentorId;
+        var fcm_token;
         for (let i = 0; i < mentor.length; i++) {
             if (mentor[i].students.length < 60) {
                 mentorId = mentor[i]._id;
@@ -23,8 +24,9 @@ const assignMentor = async (id) => {
             chatId = result.chatId;
             roomId = result.room;
             name = result.username;
+            fcm_token = result.fcm_token
         })
-        studentArray.push({ studentId: id, chatId, roomId, name});
+        studentArray.push({ studentId: id, chatId, roomId, name, fcm_token});
         await Mentor.findByIdAndUpdate(mentorId.toString(), { students: studentArray})
         return true
     } catch (error) {

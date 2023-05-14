@@ -3,12 +3,12 @@ const cors = require('cors');
 const mongoToConnect = require('./mongodb')
 const dotenv = require('dotenv');
 const path = require("path");
-// const {UPDATE_mentorId} = require('./middleware/updateMongoos');
-
+const {UPDATE_mentorId} = require('./middleware/updateMongoos');
 
 
 ///////////////// IMPORT SCHEMAS FOR MONGOOSE UPDATE ///////////////////////////
 const User = require('./models/user.model')
+// UPDATE_mentorId()
 
 //////////////// IMPORTANT BACKGROUND PROCESSES //////////////////////////////////
 const mails = require('./middleware/mails')

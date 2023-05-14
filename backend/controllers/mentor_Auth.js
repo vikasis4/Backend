@@ -56,7 +56,7 @@ const VerifyToken = async (req, res) => {
         if (result) {
             var tkz = await Mentor.findById(result.id);
             if (tkz.token === token) {
-                res.json({ status: 'success', value: tkz.students });
+                res.json({ status: 'success', value: tkz.students, id:tkz._id });
             } else {
                 res.json({ status: 'expire' });
             }
@@ -69,13 +69,5 @@ const VerifyToken = async (req, res) => {
     }
 }
 
-const FetchData = async (req, res) => {
-    try {
 
-    } catch (error) {
-        res.json({ status: 'failed' });
-        console.log(error);
-    }
-}
-
-module.exports = { createAccount, LoginAccount, VerifyToken, FetchData }
+module.exports = { createAccount, LoginAccount, VerifyToken }

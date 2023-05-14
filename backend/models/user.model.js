@@ -17,6 +17,8 @@ const User = new mongoose.Schema({
 
     subarray: [{ code: { type: 'number' } }],
 
+    fcm_token: { type: 'string'},
+
     otp: { type: 'boolean', default: false },
 
     chatId: { type: 'string', default: null },

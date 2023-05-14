@@ -10,8 +10,23 @@ const Mentor = new mongoose.Schema({
             studentId: { type: 'string' },
             chatId: { type: 'string' },
             roomId: { type: 'string' },
-            status: { type: 'string', default: 'new' }
+            status: { type: 'string', default: 'new' },
+            fcm_token: { type: 'string'}
         }
+    ],
+    notes: [
+       {
+        data:[
+            {
+                txt: { type: 'string' },
+                hrs: { type: 'number' },
+                date: { type: 'number' },
+                mins: { type: 'number' },
+                month: { type: 'number' },
+            }
+        ],
+        studentId: { type: 'string'}
+       }
     ],
     address: { type: 'string', required: true },
     password: { type: 'string', required: true },

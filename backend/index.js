@@ -13,6 +13,7 @@ const User = require('./models/user.model')
 //////////////// IMPORTANT BACKGROUND PROCESSES //////////////////////////////////
 const mails = require('./middleware/mails')
 const job1 = require('./cronjobs/saveDB')
+const job2 = require('./cronjobs/reset_mentor')
 const firebaseMessages = require('./middleware/firebaseMessage')
 //////////////// ROUTES DECLARATION ///////////////////////////////////////////////
 const auth_routes = require('./routes/auth')

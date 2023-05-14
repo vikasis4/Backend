@@ -12,7 +12,6 @@ const get_messages = async (req, res) => {
 
 const update_messages = async ( req, res ) => {
     try {
-        console.log(req.body);
         var data = await Chat.findOne({ userId: req.body.id });
         data.messages.push(req.body.message);
         data.save();

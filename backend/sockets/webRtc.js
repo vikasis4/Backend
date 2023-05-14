@@ -14,12 +14,8 @@ const io = new Server(server, {
 const chat = io.of("/chat");
 
 chat.on("connection", (socket) => {
-
-  console.log("CHAT :- ", socket.id);
-
   socket.on('join_room', ({ room }) => {
     socket.join(room)
-    console.log("ROOM JOINED :- ", room);
   })
   socket.on('newMsg', async ({ message, room }) => {
     socket.broadcast.to(room).emit('newMsg', ({ message }))
@@ -31,19 +27,29 @@ const call = io.of("/call");
 
 call.on("connection", (socket) => {
 
-  console.log("Call :- ", socket.id);
+  socket.emit("yourID", socket.id);
 
-  socket.on('decline', ({id}) => {
-    call.to(id).emit('decline');
-  })
-  socket.on('accept', ({ room }) => {
-    console.log('accept');
-  })
-  socket.on('getId', () => {
-    call.to(socket.id).emit('getId', socket.id);
-  })
+  socket.on("remoteId", ({ from, to }) => {
+    call.to(to).emit("remoteId", from)
+  });
 
-})
+  socket.on("iceCandidate", ({ to, candidate }) => {
+    call.to(to).emit("iceCandidate", candidate)
+  });
+
+  socket.on("offer", ({ to, offer }) => {
+    call.to(to).emit("offer", { from: socket.id, offer })
+  });
+
+  socket.on("answer", ({ to, answer }) => {
+    call.to(to).emit("answer", answer)
+  });
+
+  socket.on("close", ({ to }) => {
+    call.to(to).emit("close", { close: 'now' })
+  });
+
+});
 
 server.listen(5000, () => {
   console.log('Socket Server running on PORT 5000');

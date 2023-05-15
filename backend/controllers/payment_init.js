@@ -12,6 +12,7 @@ const payment_init = async (req, res) => {
 
         const cross = async () => {
             var user = await User.findById(req.body.data.udf1);
+            var discount = user.refer_id.length > 1 ? 50 : 0
             var pd = req.body.data;
             var num = 0;
             var string = '';
@@ -24,6 +25,8 @@ const payment_init = async (req, res) => {
                     num = num + ans[0].price
                 }
             }
+
+            num = num - discount;
 
             pd.udf2 = string;
             pd.txnid = uuidv4();

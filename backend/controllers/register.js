@@ -1,4 +1,5 @@
 const User = require('../models/user.model');
+const Refer = require('../models/refer');
 const generateOtp = require('../middleware/otp');
 const { v4: uuidv4 } = require('uuid');
 const Support = require('../models/support')
@@ -27,6 +28,7 @@ const register = async (req, res) => {
                 room: uuidv4(),
                 supportId: support._id
             })
+            await Refer.create({user: user._id})
             await Support.findByIdAndUpdate(support._id, {userId: user._id})
             user.save();
             var response = await generateOtp(req.body.phone);

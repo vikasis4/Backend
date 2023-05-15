@@ -3,7 +3,7 @@ const cors = require('cors');
 const mongoToConnect = require('./mongodb')
 const dotenv = require('dotenv');
 const path = require("path");
-const {UPDATE_mentorId} = require('./middleware/updateMongoos');
+const { UPDATE_mentorId } = require('./middleware/updateMongoos');
 
 
 ///////////////// IMPORT SCHEMAS FOR MONGOOSE UPDATE ///////////////////////////

@@ -21,9 +21,11 @@ const User = new mongoose.Schema({
 
     otp: { type: 'boolean', default: false },
 
-    chatId: { type: 'string', default: null },
+    chatId: { type: 'string', default: '' },
 
-    supportId: { type: 'string', default: null },
+    refer_id: { type: 'string', default: '' },
+
+    supportId: { type: 'string', default: '' },
 
     mentorId: {
         name: { type: 'string' , default: null }, id: { type: 'string', default: null  }

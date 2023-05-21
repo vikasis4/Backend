@@ -3,7 +3,7 @@ const cors = require('cors');
 const mongoToConnect = require('./mongodb')
 const dotenv = require('dotenv');
 const path = require("path");
-const { UPDATE_mentorId } = require('./middleware/updateMongoos');
+const { UPDATE_mentorId } = require('./middleware/updateMongoos')
 
 
 ///////////////// IMPORT SCHEMAS FOR MONGOOSE UPDATE ///////////////////////////
@@ -23,6 +23,7 @@ const mentor_routes = require('./routes/mentor')
 const cart_routes = require('./routes/cart')
 const fcm_routes = require('./routes/fcm')
 const chat_routes = require('./routes/chat')
+const material_routes = require('./routes/material')
 
 /////////////////////////// INITIALIZE /////////////////////////////
 const app = express();
@@ -45,6 +46,7 @@ app.use('/api/mentor', mentor_routes)
 app.use('/api/cart', cart_routes)
 app.use('/api/fcm', fcm_routes)
 app.use('/api/chat', chat_routes)
+app.use('/api/material', material_routes)
 
 
 server.listen(process.env.PORT || 4000, function () {

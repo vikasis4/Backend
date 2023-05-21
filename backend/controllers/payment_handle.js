@@ -11,40 +11,41 @@ var success_obj = `<div style="height: 100vh; width:100vw; display:flex; justify
 const payment_success = async (req, res) => {
 
     try {
-        if (req.body.status === 'success') {
+        console.log(req.body);
+        // if (req.body.status === 'success') {
 
-            var id = req.body.udf1;
-            var cartString = req.body.udf2;
-            var refrenceId = req.body.bank_ref_num;
-            var mhId = req.body.mihpayid;
-            var chatId = await Chat.create({ userId: id })
-            var subs = await User.findById(id);
+            // var id = req.body.udf1;
+            // var cartString = req.body.udf2;
+            // var refrenceId = req.body.bank_ref_num;
+            // var mhId = req.body.mihpayid;
+            // var chatId = await Chat.create({ userId: id })
+            // var subs = await User.findById(id);
 
-            if (susb.refer_id.length > 1) {
-                AddMoney(susb.refer_id)
-            }
+            // if (susb.refer_id.length > 1) {
+            //     AddMoney(susb.refer_id)
+            // }
 
-            var subarr = subs.subarray;
+            // var subarr = subs.subarray;
             
-            for (let i = 0; i < cartString.length / 4; i++) {
-                subarr.push({ code: parseInt(cartString.slice(i * 4, (i + 1) * 4)) })
-            }
-            await PaySlip.create({
-                userId: id,
-                mhId,
-                refrenceId
-            })
-            await User.findByIdAndUpdate(id, { "$set": { "cart": [], "subarray": subarr, "chatId": chatId._id } })
-            if (cart.find(({ code }) => code === 7988)) {
-                if (!(await assignMentor(id))) {
-                    res.send(failed_obj);
-                    return false
-                }
-            }
-            res.send(success_obj);
-        } else {
-            res.send(failed_obj);
-        }
+            // for (let i = 0; i < cartString.length / 4; i++) {
+            //     subarr.push({ code: parseInt(cartString.slice(i * 4, (i + 1) * 4)) })
+            // }
+            // await PaySlip.create({
+            //     userId: id,
+            //     mhId,
+            //     refrenceId
+            // })
+            // await User.findByIdAndUpdate(id, { "$set": { "cart": [], "subarray": subarr, "chatId": chatId._id } })
+            // if (cart.find(({ code }) => code === 7988)) {
+            //     if (!(await assignMentor(id))) {
+            //         res.send(failed_obj);
+            //         return false
+            //     }
+            // }
+            // res.send(success_obj);
+        // } else {
+        //     res.send(failed_obj);
+        // }
     } catch (error) {
         console.log(error);
     }

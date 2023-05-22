@@ -47,6 +47,9 @@ app.use('/api/cart', cart_routes)
 app.use('/api/fcm', fcm_routes)
 app.use('/api/chat', chat_routes)
 app.use('/api/material', material_routes)
+app.get('/', async (req, res) => {
+    res.json({ success: true })
+})
 
 
 server.listen(process.env.PORT || 4000, function () {

@@ -1,6 +1,6 @@
 const path = require("path");
 var CronJob = require('cron').CronJob;
-const { spawn } = require('node:child_process');
+const { spawn } = require('child_process');
 
 const DB_name = 'paceway';
 const Archive_path = path.join(__dirname, 'db', `${DB_name}.gzip`)

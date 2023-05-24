@@ -282,7 +282,7 @@
   "_id": {
     "$oid": "63668e10f0782e981843e3ad"
   },
-  "name": "Chemical bonding and molecular structure",
+  "name": "Chemical bonding and molecular str..",
   "bname": "CCH4",
   "type": "c",
   "__v": 0
@@ -701,5 +701,5 @@
   "name": "Probability 12th",
   "bname": "MCH27",
   "type": "m",
-  "__v": 0
+  "__v": "con_2484275"
 }]

@@ -310,4 +310,28 @@
   "bname": "e2",
   "type": "jan",
   "__v": 0
+},{
+  "_id": {
+    "$oid": "63dd611f58eababffb1dc48a"
+  },
+  "name": "Chemistry",
+  "bname": "chf",
+  "type": "formula",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "41dd611f58eababffb1dc48a"
+  },
+  "name": "Maths",
+  "bname": "maf",
+  "type": "formula",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63dd611f58eababffb1dc48w"
+  },
+  "name": "Physics",
+  "bname": "phf",
+  "type": "formula",
+  "__v": 0
 }]

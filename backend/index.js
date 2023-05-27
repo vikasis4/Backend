@@ -25,6 +25,7 @@ const fcm_routes = require('./routes/fcm')
 const chat_routes = require('./routes/chat')
 const material_routes = require('./routes/material')
 
+
 /////////////////////////// INITIALIZE /////////////////////////////
 const app = express();
 app.use(require('express-status-monitor')());
@@ -32,11 +33,12 @@ const server = require('http').createServer(app);
 mongoToConnect();
 dotenv.config();
 const DevMode = process.env.DevMode;
-app.use(DevMode === 'development' ? cors('*') : cors({ origin: ['https://rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true }));
+app.use(DevMode === 'development' ? cors('*') : cors({ origin: ['https://rankboost.live', 'https://pay.rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 var make = path.join(__dirname, 'public');
 app.use(express.static(make));
+
 
 ////////////////// ROUTES //////////////////////////////////////////////////////////
 app.use('/api/auth', auth_routes)

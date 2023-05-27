@@ -3,10 +3,11 @@ var http = require('http'),
 	ccav = require('./ccavutil.js'),
 	qs = require('querystring');
 
+var goPro = [];
 exports.postRes = function (request, response) {
 	var ccavEncResponse = '',
 		ccavResponse = '',
-		workingKey = 'EFD65C114341A8CF9A8E3365E661768C',	//Put in the 32-Bit key shared by CCAvenues.
+		workingKey = '706C8D6B6AF0D4D37E61D2679CECB970',	//Put in the 32-Bit key shared by CCAvenues.
 		ccavPOST = '';
 
 	request.on('data', function (data) {
@@ -17,6 +18,7 @@ exports.postRes = function (request, response) {
 	});
 
 	request.on('end', function () {
+		response.json(ccavResponse)
 		var pData = '';
 		pData = '<table border=1 cellspacing=2 cellpadding=2><tr><td>'
 		pData = pData + ccavResponse.replace(/=/gi, '</td><td>')

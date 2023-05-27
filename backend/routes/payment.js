@@ -7,7 +7,7 @@ const { handleReferrals, withDraw } = require('../controllers/referal')
 router.route('/referral').post(handleReferrals);
 router.route('/withDraw').post(withDraw);
 router.route('/request').post(payment_init);
-router.route('/success').post(payment_success);
+router.route('/success').get(payment_success);
 router.route('/failure').get(payment_failed);
 
 module.exports = router 

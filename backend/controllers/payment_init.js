@@ -12,7 +12,6 @@ const payment_init = async (req, res) => {
 
         const cross = async () => {
             var user = await User.findById(req.body.data.udf1);
-            var discount = user.refer_id.length > 1 ? 50 : 0
             var pd = req.body.data;
             var num = 0;
             var string = '';
@@ -26,12 +25,9 @@ const payment_init = async (req, res) => {
                 }
             }
 
-            num = num - discount;
-
             pd.udf2 = string;
             pd.txnid = uuidv4();
-            // pd.amount = num;
-            pd.amount = 10;
+            pd.amount = num;
             var hashString = process.env.payukey // Merchant Key 
                 + '|' + pd.txnid
                 + '|' + pd.amount
@@ -50,8 +46,8 @@ const payment_init = async (req, res) => {
             pd.key = process.env.payukey;
             // pd.surl = 'https://rankboost.vercel.app/api/success';
             // pd.furl = 'https://rankboost.vercel.app/api/failure';
-            pd.surl = 'http://192.168.101.76:4000/api/pay/success';
-            pd.furl = 'http://192.168.101.76:4000/api/pay/failure';
+            pd.surl = 'http://localhost:4000/api/pay/success';
+            pd.furl = 'http://localhost:4000/api/pay/failure';
 
             request.post({
                 headers: {

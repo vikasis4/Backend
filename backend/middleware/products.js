@@ -25,19 +25,19 @@ const details = [
         ...products[0],
         img: 'https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072821_1280.jpg',
         description: 'new way to interact and create new opputunites and go away with the fact of using it new way to interact and create new opputunites and go away with the fact of using it new way to interact and create new opputunites and go away with the fact of using it',
-        
+
     },
     {
         ...products[1],
         img: 'https://cdn.pixabay.com/photo/2023/03/28/19/54/mountains-7884039_640.jpg',
         description: 'new way to interact and create new opputunites and go away with the fact of using it new way to interact and create new opputunites and go away with the fact of using it new way to interact and create new opputunites and go away with the fact of using it',
-        
+
     },
     {
         ...products[2],
         img: 'https://cdn.pixabay.com/photo/2023/03/26/11/40/terraces-7878191_1280.jpg',
         description: 'new way to interact and create new opputunites and go away with the fact of using it new way to interact and create new opputunites and go away with the fact of using it new way to interact and create new opputunites and go away with the fact of using it',
-        
+
     },
     {
         ...products[3],

@@ -15,9 +15,9 @@ const User = new mongoose.Schema({
 
     creation_date: { type: Date, default: date },
 
-    subarray: [{ code: { type: 'number' } }],
+    subarray: [{ code: { type: 'number' }, expire: { date: { type: 'number', }, month: { type: 'number' }, year: { type: 'number' } } }],
 
-    fcm_token: { type: 'string'},
+    fcm_token: { type: 'string' },
 
     otp: { type: 'boolean', default: false },
 
@@ -28,7 +28,7 @@ const User = new mongoose.Schema({
     supportId: { type: 'string', default: '' },
 
     mentorId: {
-        name: { type: 'string' , default: null }, id: { type: 'string', default: null  }
+        name: { type: 'string', default: null }, id: { type: 'string', default: null }
     },
 
     cart: [{ name: { type: 'string' }, code: { type: 'number' }, price: { type: 'number' } }],

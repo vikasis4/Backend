@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const path = require("path");
 const { UPDATE_mentorId } = require('./middleware/updateMongoos')
 
-
+const { execute } = require('./CCavenue/activate')
 ///////////////// IMPORT SCHEMAS FOR MONGOOSE UPDATE ///////////////////////////
 const User = require('./models/user.model')
 // UPDATE_mentorId()

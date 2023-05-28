@@ -9,14 +9,20 @@ const assignMentor = async (id) => {
         var name;
         var mentorId;
         var fcm_token;
-        for (let i = 0; i < mentor.length; i++) {
-            if (mentor[i].students.length < 60) {
-                mentorId = mentor[i]._id;
-                break;
-            } else {
-                continue;
-            }
+        // for (let i = 0; i < mentor.length; i++) {
+        //     if (mentor[i].students.length < 50) {
+        //         mentorId = mentor[i]._id;
+        //         break;
+        //     } else {
+        //         continue;
+        //     }
+        // }
+        if (mentor[0].students.length >= mentor[1].students.length ) {
+            mentorId = mentor[1]._id;
+        }else{
+            mentorId = mentor[0]._id;
         }
+
         var value = mentor.find(({ _id }) => _id === mentorId);
         var studentArray = value.students;
         var name = value.name;

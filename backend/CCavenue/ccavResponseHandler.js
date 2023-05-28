@@ -2,8 +2,8 @@ var http = require('http'),
 	fs = require('fs'),
 	ccav = require('./ccavutil.js'),
 	qs = require('querystring');
+const axios = require('axios');
 
-var goPro = [];
 exports.postRes = function (request, response) {
 	var ccavEncResponse = '',
 		ccavResponse = '',
@@ -17,8 +17,15 @@ exports.postRes = function (request, response) {
 		ccavResponse = ccav.decrypt(encryption, workingKey);
 	});
 
-	request.on('end', function () {
-		response.json(ccavResponse)
+	request.on('end', async function () {
+		await axios.post('https://api.rankboost.live/api/pay/handle', { str: ccavResponse }).then(function (response) {
+			if (response.data.success) {
+				response.json({ Msg: 'Payment SuccessFull' })
+				response.json(ccavResponse)
+			} else {
+				response.json({ Msg: 'Payment Failed, If Money is deducted contact customer support' })
+			}
+		})
 		var pData = '';
 		pData = '<table border=1 cellspacing=2 cellpadding=2><tr><td>'
 		pData = pData + ccavResponse.replace(/=/gi, '</td><td>')

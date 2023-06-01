@@ -1,337 +1,422 @@
-[{
-  "_id": {
-    "$oid": "63678d90f4417873e0b9d00f"
+[
+  {
+    "_id": {
+      "$oid": "63678d90f4417873e0b9d00f"
+    },
+    "name": "JEE mains paper 1",
+    "bname": "JEEMAINP1",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "JEE mains paper 1",
-  "bname": "JEEMAINP1",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678de1f4417873e0b9d02c"
+  {
+    "_id": {
+      "$oid": "63678de1f4417873e0b9d02c"
+    },
+    "name": "JEE mains paper2",
+    "bname": "JEEMAINP2",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "JEE mains paper2",
-  "bname": "JEEMAINP2",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678df0f4417873e0b9d036"
+  {
+    "_id": {
+      "$oid": "63678df0f4417873e0b9d036"
+    },
+    "name": "jee mains paper 3",
+    "bname": "JEEMAINP3",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 3",
-  "bname": "JEEMAINP3",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678e08f4417873e0b9d042"
+  {
+    "_id": {
+      "$oid": "63678e08f4417873e0b9d042"
+    },
+    "name": "jee mains paper 4",
+    "bname": "JEEMAINP4",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 4",
-  "bname": "JEEMAINP4",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678e18f4417873e0b9d04e"
+  {
+    "_id": {
+      "$oid": "63678e18f4417873e0b9d04e"
+    },
+    "name": "jee mains paper 5",
+    "bname": "JEEMAINP5",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 5",
-  "bname": "JEEMAINP5",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678e29f4417873e0b9d058"
+  {
+    "_id": {
+      "$oid": "63678e29f4417873e0b9d058"
+    },
+    "name": "jee mains paper 6",
+    "bname": "JEEMAINP6",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 6",
-  "bname": "JEEMAINP6",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678e39f4417873e0b9d062"
+  {
+    "_id": {
+      "$oid": "63678e39f4417873e0b9d062"
+    },
+    "name": "jee mains paper 7",
+    "bname": "JEEMAINP7",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 7",
-  "bname": "JEEMAINP7",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678e8ff4417873e0b9d078"
+  {
+    "_id": {
+      "$oid": "63678e8ff4417873e0b9d078"
+    },
+    "name": "jee mains paper 8",
+    "bname": "JEEMAINP8",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 8",
-  "bname": "JEEMAINP8",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678e9cf4417873e0b9d086"
+  {
+    "_id": {
+      "$oid": "63678e9cf4417873e0b9d086"
+    },
+    "name": "jee mains paper 9",
+    "bname": "JEEMAINP9",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 9",
-  "bname": "JEEMAINP9",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678ea9f4417873e0b9d08e"
+  {
+    "_id": {
+      "$oid": "63678ea9f4417873e0b9d08e"
+    },
+    "name": "jee mains paper 10",
+    "bname": "JEEMAINP10",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 10",
-  "bname": "JEEMAINP10",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678eb8f4417873e0b9d098"
+  {
+    "_id": {
+      "$oid": "63678eb8f4417873e0b9d098"
+    },
+    "name": "jee mains paper 11",
+    "bname": "JEEMAINP11",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 11",
-  "bname": "JEEMAINP11",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678ec4f4417873e0b9d0a4"
+  {
+    "_id": {
+      "$oid": "63678ec4f4417873e0b9d0a4"
+    },
+    "name": "jee mains paper 12",
+    "bname": "JEEMAINP12",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 12",
-  "bname": "JEEMAINP12",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678ed1f4417873e0b9d0ac"
+  {
+    "_id": {
+      "$oid": "63678ed1f4417873e0b9d0ac"
+    },
+    "name": "jee mains paper 13",
+    "bname": "JEEMAINP13",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 13",
-  "bname": "JEEMAINP13",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678eddf4417873e0b9d0b8"
+  {
+    "_id": {
+      "$oid": "63678eddf4417873e0b9d0b8"
+    },
+    "name": "jee mains paper 14",
+    "bname": "JEEMAINP14",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 14",
-  "bname": "JEEMAINP14",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678ef1f4417873e0b9d0c2"
+  {
+    "_id": {
+      "$oid": "63678ef1f4417873e0b9d0c2"
+    },
+    "name": "jee mains paper 15",
+    "bname": "JEEMAINP15",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 15",
-  "bname": "JEEMAINP15",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678f04f4417873e0b9d0ce"
+  {
+    "_id": {
+      "$oid": "63678f04f4417873e0b9d0ce"
+    },
+    "name": "jee mains paper 16",
+    "bname": "JEEMAINP16",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 16",
-  "bname": "JEEMAINP16",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678f11f4417873e0b9d0d8"
+  {
+    "_id": {
+      "$oid": "63678f11f4417873e0b9d0d8"
+    },
+    "name": "jee mains paper 17",
+    "bname": "JEEMAINP17",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 17",
-  "bname": "JEEMAINP17",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678f1cf4417873e0b9d0e4"
+  {
+    "_id": {
+      "$oid": "63678f1cf4417873e0b9d0e4"
+    },
+    "name": "jee mains paper 18",
+    "bname": "JEEMAINP18",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 18",
-  "bname": "JEEMAINP18",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678f2af4417873e0b9d0ec"
+  {
+    "_id": {
+      "$oid": "63678f2af4417873e0b9d0ec"
+    },
+    "name": "jee mains paper 19",
+    "bname": "JEEMAINP19",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 19",
-  "bname": "JEEMAINP19",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678f38f4417873e0b9d0f8"
+  {
+    "_id": {
+      "$oid": "63678f38f4417873e0b9d0f8"
+    },
+    "name": "jee mains paper 20",
+    "bname": "JEEMAINP20",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee mains paper 20",
-  "bname": "JEEMAINP20",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678f6ff4417873e0b9d10d"
+  {
+    "_id": {
+      "$oid": "63678f6ff4417873e0b9d10d"
+    },
+    "name": "jee advance paper 1",
+    "bname": "JEEADVP1",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee advance paper 1",
-  "bname": "JEEADVP1",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678f7ff4417873e0b9d119"
+  {
+    "_id": {
+      "$oid": "63678f7ff4417873e0b9d119"
+    },
+    "name": "jee advance paper 2",
+    "bname": "JEEADVP2",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee advance paper 2",
-  "bname": "JEEADVP2",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678f98f4417873e0b9d127"
+  {
+    "_id": {
+      "$oid": "63678f98f4417873e0b9d127"
+    },
+    "name": "jee advance paper 3",
+    "bname": "JEEADVP3",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee advance paper 3",
-  "bname": "JEEADVP3",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678fa7f4417873e0b9d12f"
+  {
+    "_id": {
+      "$oid": "63678fa7f4417873e0b9d12f"
+    },
+    "name": "jee advance paper 4",
+    "bname": "JEEADVP4",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee advance paper 4",
-  "bname": "JEEADVP4",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678fb7f4417873e0b9d13d"
+  {
+    "_id": {
+      "$oid": "63678fb7f4417873e0b9d13d"
+    },
+    "name": "jee advance paper 5",
+    "bname": "JEEADVP5",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee advance paper 5",
-  "bname": "JEEADVP5",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63678fc5f4417873e0b9d145"
+  {
+    "_id": {
+      "$oid": "63678fc5f4417873e0b9d145"
+    },
+    "name": "jee advance paper 6",
+    "bname": "JEEADVP6",
+    "type": "pyq",
+    "__v": 0,
+    "folder": false
   },
-  "name": "jee advance paper 6",
-  "bname": "JEEADVP6",
-  "type": "pyq",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63679029313c585a92f8df9d"
+  {
+    "_id": {
+      "$oid": "63679029313c585a92f8df9d"
+    },
+    "name": "Maths mind map",
+    "bname": "mathmid",
+    "type": "mid",
+    "__v": 0,
+    "folder": false
   },
-  "name": "Maths mind map",
-  "bname": "mathmid",
-  "type": "mid",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63679036313c585a92f8dfa7"
+  {
+    "_id": {
+      "$oid": "63679036313c585a92f8dfa7"
+    },
+    "name": "Chemistry mind map",
+    "bname": "chemmid",
+    "type": "mid",
+    "__v": 0,
+    "folder": false
   },
-  "name": "Chemistry mind map",
-  "bname": "chemmid",
-  "type": "mid",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63679047313c585a92f8dfb1"
+  {
+    "_id": {
+      "$oid": "63679047313c585a92f8dfb1"
+    },
+    "name": "Physics mind map",
+    "bname": "phymid",
+    "type": "mid",
+    "__v": 0,
+    "folder": false
   },
-  "name": "Physics mind map",
-  "bname": "phymid",
-  "type": "mid",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63dd609058eababffb8dc434"
+  {
+    "_id": {
+      "$oid": "63dd609058eababffb8dc434"
+    },
+    "name": "24 Jan shift-1",
+    "bname": "a1",
+    "type": "jan",
+    "__v": 0,
+    "folder": false
   },
-  "name": "24 Jan shift-1",
-  "bname": "a1",
-  "type": "jan",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63dd609c58eababffb8dc43d"
+  {
+    "_id": {
+      "$oid": "63dd609c58eababffb8dc43d"
+    },
+    "name": "24 Jan shift-2",
+    "bname": "a2",
+    "type": "jan",
+    "__v": 0,
+    "folder": false
   },
-  "name": "24 Jan shift-2",
-  "bname": "a2",
-  "type": "jan",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63dd60af58eababffb8dc446"
+  {
+    "_id": {
+      "$oid": "63dd60af58eababffb8dc446"
+    },
+    "name": "25 Jan shift-1",
+    "bname": "b1",
+    "type": "jan",
+    "__v": 0,
+    "folder": false
   },
-  "name": "25 Jan shift-1",
-  "bname": "b1",
-  "type": "jan",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63dd60c058eababffb8dc451"
+  {
+    "_id": {
+      "$oid": "63dd60c058eababffb8dc451"
+    },
+    "name": "25 Jan shift-2",
+    "bname": "b2",
+    "type": "jan",
+    "__v": 0,
+    "folder": false
   },
-  "name": "25 Jan shift-2",
-  "bname": "b2",
-  "type": "jan",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63dd60d658eababffb8dc45d"
+  {
+    "_id": {
+      "$oid": "63dd60d658eababffb8dc45d"
+    },
+    "name": "29 Jan shift-1",
+    "bname": "c1",
+    "type": "jan",
+    "__v": 0,
+    "folder": false
   },
-  "name": "29 Jan shift-1",
-  "bname": "c1",
-  "type": "jan",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63dd60e258eababffb8dc463"
+  {
+    "_id": {
+      "$oid": "63dd60e258eababffb8dc463"
+    },
+    "name": "29 Jan shift-2",
+    "bname": "c2",
+    "type": "jan",
+    "__v": 0,
+    "folder": false
   },
-  "name": "29 Jan shift-2",
-  "bname": "c2",
-  "type": "jan",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63dd60f658eababffb8dc472"
+  {
+    "_id": {
+      "$oid": "63dd60f658eababffb8dc472"
+    },
+    "name": "30 Jan shift-1",
+    "bname": "d1",
+    "type": "jan",
+    "__v": 0,
+    "folder": false
   },
-  "name": "30 Jan shift-1",
-  "bname": "d1",
-  "type": "jan",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63dd610058eababffb8dc478"
+  {
+    "_id": {
+      "$oid": "63dd610058eababffb8dc478"
+    },
+    "name": "30 Jan shift-2",
+    "bname": "d2",
+    "type": "jan",
+    "__v": 0,
+    "folder": false
   },
-  "name": "30 Jan shift-2",
-  "bname": "d2",
-  "type": "jan",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63dd610f58eababffb8dc481"
+  {
+    "_id": {
+      "$oid": "63dd610f58eababffb8dc481"
+    },
+    "name": "31 Jan shift-1",
+    "bname": "e1",
+    "type": "jan",
+    "__v": 0,
+    "folder": false
   },
-  "name": "31 Jan shift-1",
-  "bname": "e1",
-  "type": "jan",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63dd611f58eababffb8dc48a"
+  {
+    "_id": {
+      "$oid": "63dd611f58eababffb8dc48a"
+    },
+    "name": "31 Jan shift-2",
+    "bname": "e2",
+    "type": "jan",
+    "__v": 0,
+    "folder": false
   },
-  "name": "31 Jan shift-2",
-  "bname": "e2",
-  "type": "jan",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63dd611f58eababffb1dc48a"
+  {
+    "_id": {
+      "$oid": "63dd611f58eababffb1dc48a"
+    },
+    "name": "Chemistry",
+    "bname": "chf",
+    "type": "formula",
+    "__v": 0,
+    "folder": false
   },
-  "name": "Chemistry",
-  "bname": "chf",
-  "type": "formula",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "41dd611f58eababffb1dc48a"
+  {
+    "_id": {
+      "$oid": "41dd611f58eababffb1dc48a"
+    },
+    "name": "Maths",
+    "bname": "maf",
+    "type": "formula",
+    "__v": 0,
+    "folder": false
   },
-  "name": "Maths",
-  "bname": "maf",
-  "type": "formula",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63dd611f58eababffb1dc48w"
-  },
-  "name": "Physics",
-  "bname": "phf",
-  "type": "formula",
-  "__v": 0
-}]
+  {
+    "_id": {
+      "$oid": "63dd611f58eababffb1dc48w"
+    },
+    "name": "Physics",
+    "bname": "phf",
+    "type": "formula",
+    "__v": 0,
+    "folder": false
+  }
+]

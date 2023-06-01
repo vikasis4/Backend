@@ -25,6 +25,7 @@ const register = async (req, res) => {
             var user = await User.create({
                 phone: req.body.phone,
                 username: req.body.username,
+                class:req.body.class,
                 room: uuidv4(),
                 supportId: support._id
             })

@@ -1,7 +1,8 @@
 const Mentor = require('../models/mentor')
 const { jwtTokenVerify, jwtTokenCreate } = require('../middleware/jwtToken')
 const bcrypt = require('bcryptjs');
-
+const { data } = require('../material_json/mentor')
+const User = require('../models/user.model')
 
 const createAccount = async (req, res) => {
     try {
@@ -56,7 +57,7 @@ const VerifyToken = async (req, res) => {
         if (result) {
             var tkz = await Mentor.findById(result.id);
             if (tkz.token === token) {
-                res.json({ status: 'success', value: tkz.students, id:tkz._id });
+                res.json({ status: 'success', value: tkz.students, id: tkz._id });
             } else {
                 res.json({ status: 'expire' });
             }
@@ -69,5 +70,30 @@ const VerifyToken = async (req, res) => {
     }
 }
 
+const getData = (req, res) => {
+    try {
+        res.json({ status: true, data })
+    } catch (error) {
+        res.json({ status: false })
+        console.log(error)
+    }
+}
+const setData = async (req, res) => {
+    try {
+        var { id, name, bname } = req.body;
+        var user = await User.findById(id);
+        var obj = {
+            link:bname,
+            title:name
+        }
+        user.video = obj;
+        user.save()
+        res.json({ status: true })
+    } catch (error) {
+        res.json({ status: false })
+        console.log(error)
+    }
+}
 
-module.exports = { createAccount, LoginAccount, VerifyToken }
+
+module.exports = { createAccount, LoginAccount, VerifyToken, getData, setData }

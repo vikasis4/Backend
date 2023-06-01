@@ -9,6 +9,7 @@ const assignMentor = async (id) => {
         var name;
         var mentorId;
         var fcm_token;
+        var klass;
         // for (let i = 0; i < mentor.length; i++) {
         //     if (mentor[i].students.length < 50) {
         //         mentorId = mentor[i]._id;
@@ -30,9 +31,10 @@ const assignMentor = async (id) => {
             chatId = result.chatId;
             roomId = result.room;
             name = result.username;
-            fcm_token = result.fcm_token
+            klass = result.class;
+            fcm_token = result.fcm_token;
         })
-        studentArray.push({ studentId: id, chatId, roomId, name, fcm_token});
+        studentArray.push({ studentId: id, chatId, roomId, name, fcm_token, class: klass});
         await Mentor.findByIdAndUpdate(mentorId.toString(), { students: studentArray})
         return true
     } catch (error) {

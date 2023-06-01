@@ -11,7 +11,8 @@ const Mentor = new mongoose.Schema({
             chatId: { type: 'string' },
             roomId: { type: 'string' },
             status: { type: 'string', default: 'new' },
-            fcm_token: { type: 'string'}
+            fcm_token: { type: 'string'},
+            class: { type: 'number'}
         }
     ],
     notes: [

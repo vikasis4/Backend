@@ -27,7 +27,8 @@ const payment_init = async (req, res) => {
 
             pd.udf2 = string;
             pd.txnid = uuidv4();
-            pd.amount = num;
+            // pd.amount = num;
+            pd.amount = 1;
             var hashString = process.env.payukey // Merchant Key 
                 + '|' + pd.txnid
                 + '|' + pd.amount
@@ -46,8 +47,8 @@ const payment_init = async (req, res) => {
             pd.key = process.env.payukey;
             // pd.surl = 'https://rankboost.vercel.app/api/success';
             // pd.furl = 'https://rankboost.vercel.app/api/failure';
-            pd.surl = 'http://localhost:4000/api/pay/success';
-            pd.furl = 'http://localhost:4000/api/pay/failure';
+            pd.surl = 'http:///192.168.192.76:4000/api/pay/payu/success';
+            pd.furl = 'http:///192.168.192.76:4000/api/pay/payu/failure';
 
             request.post({
                 headers: {

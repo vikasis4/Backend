@@ -1,705 +1,881 @@
-[{
-  "_id": {
-    "$oid": "636687fcf0782e981843e1a9"
-  },
-  "name": "Units and dimensions",
-  "bname": "PCH1and2",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366880cf0782e981843e1b6"
-  },
-  "name": "Kinematics",
-  "bname": "PCH3and4",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668824f0782e981843e1bf"
-  },
-  "name": "NLM",
-  "bname": "PCH5",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366884ef0782e981843e1ce"
-  },
-  "name": "Work power energy",
-  "bname": "PCH6",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668866f0782e981843e1db"
-  },
-  "name": "Rotational motion",
-  "bname": "PCH7",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668881f0782e981843e1e4"
-  },
-  "name": "Gravitation",
-  "bname": "PCH8",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668896f0782e981843e1f1"
-  },
-  "name": "Elasticity",
-  "bname": "PCH9",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636688a8f0782e981843e1fc"
-  },
-  "name": "Fluid mechanics",
-  "bname": "PCH10",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366896ff0782e981843e231"
-  },
-  "name": "Thermodynamics and KTG",
-  "bname": "PCH11_12and13",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668983f0782e981843e23c"
-  },
-  "name": "SHM",
-  "bname": "PCH14",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668991f0782e981843e247"
-  },
-  "name": "Sound waves",
-  "bname": "PCH15",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636689aff0782e981843e254"
-  },
-  "name": "Waves",
-  "bname": "PCH16",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636689bef0782e981843e25d"
-  },
-  "name": "Vectors and scalers",
-  "bname": "PCH17",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636689d1f0782e981843e26a"
-  },
-  "name": "Electrostatics",
-  "bname": "PCH18",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636689e1f0782e981843e273"
-  },
-  "name": "Current electricity",
-  "bname": "PCH19",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636689f5f0782e981843e27e"
-  },
-  "name": "Magnetic effect of current",
-  "bname": "PCH20",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668a03f0782e981843e289"
-  },
-  "name": "Force on moving charge",
-  "bname": "PCH21",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668a1bf0782e981843e294"
-  },
-  "name": "Permanent and earth magnetism",
-  "bname": "PCH22",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668a25f0782e981843e29f"
-  },
-  "name": "EMI",
-  "bname": "PCH23",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668a2ff0782e981843e2aa"
-  },
-  "name": "AC",
-  "bname": "PCH24",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668a4bf0782e981843e2b7"
-  },
-  "name": "EM waves",
-  "bname": "PCH25",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668a70f0782e981843e2c2"
-  },
-  "name": "EM waves",
-  "bname": "PCH25",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668a8ef0782e981843e2cf"
-  },
-  "name": "Ray optics",
-  "bname": "PCH26",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668a9cf0782e981843e2da"
-  },
-  "name": "Optical instruments",
-  "bname": "PCH27",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668aabf0782e981843e2e5"
-  },
-  "name": "Wave optics",
-  "bname": "PCH28",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668abff0782e981843e2ee"
-  },
-  "name": "Dual nature and radiation of matter",
-  "bname": "PCH29",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668acef0782e981843e2fb"
-  },
-  "name": "Atomic structure",
-  "bname": "PCH30",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668adff0782e981843e304"
-  },
-  "name": "Nuclear physics",
-  "bname": "PCH31",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668aecf0782e981843e30f"
-  },
-  "name": "X rays",
-  "bname": "PCH32",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668afff0782e981843e31a"
-  },
-  "name": "Semiconductors",
-  "bname": "PCH33",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668b17f0782e981843e325"
-  },
-  "name": "Logic gates",
-  "bname": "PCH34",
-  "type": "p",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668d35f0782e981843e373"
-  },
-  "name": "Periodic table",
-  "bname": "CCH0",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668d8bf0782e981843e384"
-  },
-  "name": "Basics concepts of chemistry",
-  "bname": "CCH1",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668d9af0782e981843e38f"
-  },
-  "name": "Structure of atom",
-  "bname": "CCH2",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668dbdf0782e981843e39c"
-  },
-  "name": "Classification of elements",
-  "bname": "CCH3",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668e10f0782e981843e3ad"
-  },
-  "name": "Chemical bonding and molecular str..",
-  "bname": "CCH4",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668e32f0782e981843e3bc"
-  },
-  "name": "States of matter",
-  "bname": "CCH5",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668e40f0782e981843e3c5"
-  },
-  "name": "Thermodynamics",
-  "bname": "CCH6",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668e57f0782e981843e3d2"
-  },
-  "name": "Equilibrium",
-  "bname": "CCH7",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668f91f0782e981843e3fd"
-  },
-  "name": "Redox reaction",
-  "bname": "CCH8",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668fcbf0782e981843e412"
-  },
-  "name": "Hydrogen",
-  "bname": "CCH9",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668fdbf0782e981843e41b"
-  },
-  "name": "S-block",
-  "bname": "CCH10",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63668fecf0782e981843e426"
-  },
-  "name": "P-block",
-  "bname": "CCH11",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669001f0782e981843e431"
-  },
-  "name": "GOC",
-  "bname": "CCH12",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669036f0782e981843e440"
-  },
-  "name": "Hydrocarbon",
-  "bname": "CCH13",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669059f0782e981843e44d"
-  },
-  "name": "Environmental chemistry",
-  "bname": "CCH14",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366906ff0782e981843e45a"
-  },
-  "name": "Solid states",
-  "bname": "CCH15",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366907ff0782e981843e463"
-  },
-  "name": "Solutions",
-  "bname": "CCH16",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669095f0782e981843e470"
-  },
-  "name": "Electrochemistry",
-  "bname": "CCH17",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636690a9f0782e981843e47b"
-  },
-  "name": "Chemical kinetics",
-  "bname": "CCH18",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636690c6f0782e981843e486"
-  },
-  "name": "Surface chemistry",
-  "bname": "CCH19",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366918ff0782e981843e4a7"
-  },
-  "name": "P-block 12th",
-  "bname": "CCH20",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366919bf0782e981843e4b0"
-  },
-  "name": "D & F block",
-  "bname": "CCH21",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636691b9f0782e981843e4bd"
-  },
-  "name": "Coordination compound",
-  "bname": "CCH22",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636691daf0782e981843e4c8"
-  },
-  "name": "Halo alkanes and arenes",
-  "bname": "CCH23",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366922ff0782e981843e4db"
-  },
-  "name": "Alde Keto and carboxylic acid",
-  "bname": "CCH25",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366923ff0782e981843e4e6"
-  },
-  "name": "Amines",
-  "bname": "CCH26",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366924cf0782e981843e4f1"
-  },
-  "name": "Biomolecules",
-  "bname": "CCH27",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669275f0782e981843e4fe"
-  },
-  "name": "Polymers",
-  "bname": "CCH28",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669289f0782e981843e50b"
-  },
-  "name": "Chemistry in everyday life",
-  "bname": "CCH29",
-  "type": "c",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636693f0f0782e981843e53a"
-  },
-  "name": "Basic maths",
-  "bname": "MCH1",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669405f0782e981843e547"
-  },
-  "name": "function",
-  "bname": "MCH2",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366941af0782e981843e550"
-  },
-  "name": "Trigonometry",
-  "bname": "MCH3",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636695a3f0782e981843e587"
-  },
-  "name": "Quadratic equation",
-  "bname": "MCH4",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636695c9f0782e981843e594"
-  },
-  "name": "Complex numbers",
-  "bname": "MCH5",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669631f0782e981843e5a7"
-  },
-  "name": "Linear inequality",
-  "bname": "MCH6",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669656f0782e981843e5b4"
-  },
-  "name": "Permutation and combination",
-  "bname": "MCH7",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669672f0782e981843e5c1"
-  },
-  "name": "Binomial thm",
-  "bname": "MCH8",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669681f0782e981843e5ca"
-  },
-  "name": "Sequence and series",
-  "bname": "MCH9",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366968ef0782e981843e5d7"
-  },
-  "name": "Straight lines",
-  "bname": "MCH10",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636696a0f0782e981843e5e0"
-  },
-  "name": "Limits and derivative",
-  "bname": "MCH11",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636696bff0782e981843e5ed"
-  },
-  "name": "Statistics",
-  "bname": "MCH12",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636696d1f0782e981843e5f8"
-  },
-  "name": "Circles",
-  "bname": "MCH13",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636696ddf0782e981843e601"
-  },
-  "name": "Conics",
-  "bname": "MCH14",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366978bf0782e981843e620"
-  },
-  "name": "Relation function 12th",
-  "bname": "MCH15",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636697a5f0782e981843e62b"
-  },
-  "name": "Inverse trigonometry",
-  "bname": "MCH16",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636697d0f0782e981843e638"
-  },
-  "name": "Matrices and determinants",
-  "bname": "MCH17",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366982df0782e981843e64d"
-  },
-  "name": "Continuity and differentiability",
-  "bname": "MCH18",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669853f0782e981843e65a"
-  },
-  "name": "Limits",
-  "bname": "MCH19",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669860f0782e981843e663"
-  },
-  "name": "AOD",
-  "bname": "MCH20",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366987af0782e981843e66e"
-  },
-  "name": "Definite Integration",
-  "bname": "MCH21",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636698a1f0782e981843e67b"
-  },
-  "name": "Indefinite integration",
-  "bname": "MCH22",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636698aff0782e981843e688"
-  },
-  "name": "AOI",
-  "bname": "MCH23",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "636698d6f0782e981843e695"
-  },
-  "name": "Differential equation",
-  "bname": "MCH24",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669906f0782e981843e6a4"
-  },
-  "name": "Vectors",
-  "bname": "MCH25",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "63669911f0782e981843e6ad"
-  },
-  "name": "3D",
-  "bname": "MCH26",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366992df0782e981843e6ba"
-  },
-  "name": "Probability",
-  "bname": "MCH26",
-  "type": "m",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6366995ef0782e981843e6c7"
-  },
-  "name": "Probability 12th",
-  "bname": "MCH27",
-  "type": "m",
-  "__v": "con_2484275"
-}]
+[
+  {
+    "_id": {
+      "$oid": "636687fcf0782e981843e1a9"
+    },
+    "name": "Units and dimensions",
+    "bname": "PCH1and2",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366880cf0782e981843e1b6"
+    },
+    "name": "Kinematics",
+    "bname": "PCH3and4",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668824f0782e981843e1bf"
+    },
+    "name": "NLM",
+    "bname": "PCH5",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366884ef0782e981843e1ce"
+    },
+    "name": "Work power energy",
+    "bname": "PCH6",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668866f0782e981843e1db"
+    },
+    "name": "Rotational motion",
+    "bname": "PCH7",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668881f0782e981843e1e4"
+    },
+    "name": "Gravitation",
+    "bname": "PCH8",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668896f0782e981843e1f1"
+    },
+    "name": "Elasticity",
+    "bname": "PCH9",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636688a8f0782e981843e1fc"
+    },
+    "name": "Fluid mechanics",
+    "bname": "PCH10",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366896ff0782e981843e231"
+    },
+    "name": "Thermodynamics and KTG",
+    "bname": "PCH11_12and13",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668983f0782e981843e23c"
+    },
+    "name": "SHM",
+    "bname": "PCH14",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668991f0782e981843e247"
+    },
+    "name": "Sound waves",
+    "bname": "PCH15",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636689aff0782e981843e254"
+    },
+    "name": "Waves",
+    "bname": "PCH16",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636689bef0782e981843e25d"
+    },
+    "name": "Vectors and scalers",
+    "bname": "PCH17",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636689d1f0782e981843e26a"
+    },
+    "name": "Electrostatics",
+    "bname": "PCH18",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636689e1f0782e981843e273"
+    },
+    "name": "Current electricity",
+    "bname": "PCH19",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636689f5f0782e981843e27e"
+    },
+    "name": "Magnetic effect of current",
+    "bname": "PCH20",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668a03f0782e981843e289"
+    },
+    "name": "Force on moving charge",
+    "bname": "PCH21",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668a1bf0782e981843e294"
+    },
+    "name": "Permanent and earth magnetism",
+    "bname": "PCH22",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668a25f0782e981843e29f"
+    },
+    "name": "EMI",
+    "bname": "PCH23",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668a2ff0782e981843e2aa"
+    },
+    "name": "AC",
+    "bname": "PCH24",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668a4bf0782e981843e2b7"
+    },
+    "name": "EM waves",
+    "bname": "PCH25",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668a70f0782e981843e2c2"
+    },
+    "name": "EM waves",
+    "bname": "PCH25",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668a8ef0782e981843e2cf"
+    },
+    "name": "Ray optics",
+    "bname": "PCH26",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668a9cf0782e981843e2da"
+    },
+    "name": "Optical instruments",
+    "bname": "PCH27",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668aabf0782e981843e2e5"
+    },
+    "name": "Wave optics",
+    "bname": "PCH28",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668abff0782e981843e2ee"
+    },
+    "name": "Dual nature and radiation of matter",
+    "bname": "PCH29",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668acef0782e981843e2fb"
+    },
+    "name": "Atomic structure",
+    "bname": "PCH30",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668adff0782e981843e304"
+    },
+    "name": "Nuclear physics",
+    "bname": "PCH31",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668aecf0782e981843e30f"
+    },
+    "name": "X rays",
+    "bname": "PCH32",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668afff0782e981843e31a"
+    },
+    "name": "Semiconductors",
+    "bname": "PCH33",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668b17f0782e981843e325"
+    },
+    "name": "Logic gates",
+    "bname": "PCH34",
+    "type": "p",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668d35f0782e981843e373"
+    },
+    "name": "Periodic table",
+    "bname": "CCH0",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668d8bf0782e981843e384"
+    },
+    "name": "Basics concepts of chemistry",
+    "bname": "CCH1",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668d9af0782e981843e38f"
+    },
+    "name": "Structure of atom",
+    "bname": "CCH2",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668dbdf0782e981843e39c"
+    },
+    "name": "Classification of elements",
+    "bname": "CCH3",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668e10f0782e981843e3ad"
+    },
+    "name": "Chemical bonding and molecular str..",
+    "bname": "CCH4",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668e32f0782e981843e3bc"
+    },
+    "name": "States of matter",
+    "bname": "CCH5",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668e40f0782e981843e3c5"
+    },
+    "name": "Thermodynamics",
+    "bname": "CCH6",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668e57f0782e981843e3d2"
+    },
+    "name": "Equilibrium",
+    "bname": "CCH7",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668f91f0782e981843e3fd"
+    },
+    "name": "Redox reaction",
+    "bname": "CCH8",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668fcbf0782e981843e412"
+    },
+    "name": "Hydrogen",
+    "bname": "CCH9",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668fdbf0782e981843e41b"
+    },
+    "name": "S-block",
+    "bname": "CCH10",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63668fecf0782e981843e426"
+    },
+    "name": "P-block",
+    "bname": "CCH11",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669001f0782e981843e431"
+    },
+    "name": "GOC",
+    "bname": "CCH12",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669036f0782e981843e440"
+    },
+    "name": "Hydrocarbon",
+    "bname": "CCH13",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669059f0782e981843e44d"
+    },
+    "name": "Environmental chemistry",
+    "bname": "CCH14",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366906ff0782e981843e45a"
+    },
+    "name": "Solid states",
+    "bname": "CCH15",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366907ff0782e981843e463"
+    },
+    "name": "Solutions",
+    "bname": "CCH16",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669095f0782e981843e470"
+    },
+    "name": "Electrochemistry",
+    "bname": "CCH17",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636690a9f0782e981843e47b"
+    },
+    "name": "Chemical kinetics",
+    "bname": "CCH18",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636690c6f0782e981843e486"
+    },
+    "name": "Surface chemistry",
+    "bname": "CCH19",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366918ff0782e981843e4a7"
+    },
+    "name": "P-block 12th",
+    "bname": "CCH20",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366919bf0782e981843e4b0"
+    },
+    "name": "D & F block",
+    "bname": "CCH21",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636691b9f0782e981843e4bd"
+    },
+    "name": "Coordination compound",
+    "bname": "CCH22",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636691daf0782e981843e4c8"
+    },
+    "name": "Halo alkanes and arenes",
+    "bname": "CCH23",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366922ff0782e981843e4db"
+    },
+    "name": "Alde Keto and carboxylic acid",
+    "bname": "CCH25",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366923ff0782e981843e4e6"
+    },
+    "name": "Amines",
+    "bname": "CCH26",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366924cf0782e981843e4f1"
+    },
+    "name": "Biomolecules",
+    "bname": "CCH27",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669275f0782e981843e4fe"
+    },
+    "name": "Polymers",
+    "bname": "CCH28",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669289f0782e981843e50b"
+    },
+    "name": "Chemistry in everyday life",
+    "bname": "CCH29",
+    "type": "c",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636693f0f0782e981843e53a"
+    },
+    "name": "Basic maths",
+    "bname": "MCH1",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669405f0782e981843e547"
+    },
+    "name": "function",
+    "bname": "MCH2",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366941af0782e981843e550"
+    },
+    "name": "Trigonometry",
+    "bname": "MCH3",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636695a3f0782e981843e587"
+    },
+    "name": "Quadratic equation",
+    "bname": "MCH4",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636695c9f0782e981843e594"
+    },
+    "name": "Complex numbers",
+    "bname": "MCH5",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669631f0782e981843e5a7"
+    },
+    "name": "Linear inequality",
+    "bname": "MCH6",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669656f0782e981843e5b4"
+    },
+    "name": "Permutation and combination",
+    "bname": "MCH7",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669672f0782e981843e5c1"
+    },
+    "name": "Binomial thm",
+    "bname": "MCH8",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669681f0782e981843e5ca"
+    },
+    "name": "Sequence and series",
+    "bname": "MCH9",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366968ef0782e981843e5d7"
+    },
+    "name": "Straight lines",
+    "bname": "MCH10",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636696a0f0782e981843e5e0"
+    },
+    "name": "Limits and derivative",
+    "bname": "MCH11",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636696bff0782e981843e5ed"
+    },
+    "name": "Statistics",
+    "bname": "MCH12",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636696d1f0782e981843e5f8"
+    },
+    "name": "Circles",
+    "bname": "MCH13",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636696ddf0782e981843e601"
+    },
+    "name": "Conics",
+    "bname": "MCH14",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366978bf0782e981843e620"
+    },
+    "name": "Relation function 12th",
+    "bname": "MCH15",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636697a5f0782e981843e62b"
+    },
+    "name": "Inverse trigonometry",
+    "bname": "MCH16",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636697d0f0782e981843e638"
+    },
+    "name": "Matrices and determinants",
+    "bname": "MCH17",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366982df0782e981843e64d"
+    },
+    "name": "Continuity and differentiability",
+    "bname": "MCH18",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669853f0782e981843e65a"
+    },
+    "name": "Limits",
+    "bname": "MCH19",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669860f0782e981843e663"
+    },
+    "name": "AOD",
+    "bname": "MCH20",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366987af0782e981843e66e"
+    },
+    "name": "Definite Integration",
+    "bname": "MCH21",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636698a1f0782e981843e67b"
+    },
+    "name": "Indefinite integration",
+    "bname": "MCH22",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636698aff0782e981843e688"
+    },
+    "name": "AOI",
+    "bname": "MCH23",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "636698d6f0782e981843e695"
+    },
+    "name": "Differential equation",
+    "bname": "MCH24",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669906f0782e981843e6a4"
+    },
+    "name": "Vectors",
+    "bname": "MCH25",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "63669911f0782e981843e6ad"
+    },
+    "name": "3D",
+    "bname": "MCH26",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366992df0782e981843e6ba"
+    },
+    "name": "Probability",
+    "bname": "MCH26",
+    "type": "m",
+    "__v": 0,
+    "folder": "notes"
+  },
+  {
+    "_id": {
+      "$oid": "6366995ef0782e981843e6c7"
+    },
+    "name": "Probability 12th",
+    "bname": "MCH27",
+    "type": "m",
+    "__v": "con_2484275"
+  }
+]

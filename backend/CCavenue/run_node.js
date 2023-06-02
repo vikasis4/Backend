@@ -1,14 +1,21 @@
 var express = require('express');
+const mongoose = require('mongoose');
 const { v4: uuidv4 } = require('uuid');
 const User = require('../models/user.model');
-const mongoToConnect = require('../mongodb')
 var ccavReqHandler = require('./ccavRequestHandler.js');
 var ccavResHandler = require('./ccavResponseHandler.js');
 const {products} = require('../middleware/products.js');
 
 var app = express();
-
 app.set('view engine', 'ejs');
+
+const url = 'mongodb://127.0.0.1:27017/paceway?readPreference=primary&serverSelectionTimeoutMS=2000&appname=mongosh+1.5.0&directConnection=true&ssl=false'
+mongoose.set("strictQuery", false);
+const mongoToConnect = async ()=>{
+     await mongoose.connect(url, ()=> {
+        console.log('Connected to MOngoDB');
+    })
+}
 mongoToConnect();
 
 

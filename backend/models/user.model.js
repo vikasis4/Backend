@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -45,25 +44,11 @@ const User = new mongoose.Schema({
     tokens: [{
         token: {
             type: 'string',
-            required: true,
             date: { type: Date, default: new Date() }
         },
     }],
 })
 
-const SecKey = process.env.jwt_web_token;
 
-User.methods.generateToken = async function () {
-
-    try {
-        const token = jwt.sign({ _id: this._id.toString() }, SecKey);
-        this.tokens = this.tokens.concat({ token });
-        await this.save();
-        return token;
-    } catch (error) {
-        console.log(error);
-        console.log("error in jwt token generation");
-    }
-}
 
 module.exports = mongoose.model('User', User)

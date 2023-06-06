@@ -7,6 +7,7 @@ const User = require('../models/user.model')
 const createAccount = async (req, res) => {
     try {
         var { name, phone, address, password } = req.body;
+        console.log(req.body);
         var mentorVerify = await Mentor.findOne({ phone })
         if (mentorVerify) {
             res.json({ status: 'duplicate' })
@@ -18,7 +19,7 @@ const createAccount = async (req, res) => {
                 password,
             })
             var token = await jwtTokenCreate({ id: mentor._id })
-            await Mentor.findOneAndUpdate({ phone, token })
+            mentor.token = token;
             mentor.save();
             res.json({ status: 'true' })
         }

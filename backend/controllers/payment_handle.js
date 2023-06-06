@@ -59,7 +59,7 @@ const activate = async (id, cartString, refrenceId, res) => {
             if (!(await assignMentor(id))) {
                 return false
             }
-            res.send(success_obj);
+            res.json({success: true}).send(success_obj);
             return true
         }
     } catch (error) {
@@ -96,6 +96,7 @@ const CCavenue_execute = async (string, res) => {
 const paymentHandler = async (req, res) => {
     try {
         var string = req.body.str;
+        // console.log(string);
         CCavenue_execute(string, res)
     } catch (error) {
         console.log(error);

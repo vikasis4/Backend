@@ -15,11 +15,11 @@ exports.postRes = function (request, response) {
 		ccavPOST = qs.parse(ccavEncResponse);
 		var encryption = ccavPOST.encResp;
 		ccavResponse = ccav.decrypt(encryption, workingKey);
-	});
+	}); 
 
 	request.on('end', async function () {
-		await axios.post('https://api.rankboost.live/api/pay/handle', { str: ccavResponse }).then(function (response) {
-			if (response.data.success) {
+		await axios.post('https://api.rankboost.live/api/pay/handle', { str: ccavResponse }).then(function (res) {
+			if (res.data.success) {
 				response.json({ Msg: 'Payment SuccessFull' })
 				response.json(ccavResponse)
 			} else {

@@ -56,9 +56,12 @@ const VerifyToken = async (req, res) => {
         var result = await jwtTokenVerify(token);
         if (result) {
             var tkz = await Mentor.findById(result.id);
-            if (tkz.token === token) {
-                res.json({ status: 'success', value: tkz.students, id: tkz._id });
-            } else {
+            if (tkz) {
+                if (tkz.token === token) {
+                    res.json({ status: 'success', value: tkz.students, id: tkz._id });
+                }
+            }
+            else {
                 res.json({ status: 'expire' });
             }
         } else {
@@ -83,8 +86,8 @@ const setData = async (req, res) => {
         var { id, name, bname } = req.body;
         var user = await User.findById(id);
         var obj = {
-            link:bname,
-            title:name
+            link: bname,
+            title: name
         }
         user.video = obj;
         user.save()

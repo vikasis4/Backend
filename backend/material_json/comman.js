@@ -1,8 +1,8 @@
 const data = {
     gateway: {
         // status: 'NONE'
-        // status: 'CCavenue'
-        status: 'PAYU'
+        status: 'CCavenue'
+        // status: 'PAYU'
     },
     phone: 8307067006,
     products: [

@@ -5,7 +5,6 @@ const dotenv = require('dotenv');
 const path = require("path");
 const { UPDATE_mentorId } = require('./middleware/updateMongoos')
 
-const { execute } = require('./CCavenue/activate')
 ///////////////// IMPORT SCHEMAS FOR MONGOOSE UPDATE ///////////////////////////
 const User = require('./models/user.model')
 // UPDATE_mentorId()
@@ -34,13 +33,11 @@ app.use(require('express-status-monitor')());
 const server = require('http').createServer(app);
 mongoToConnect();
 dotenv.config();
-const DevMode = process.env.DevMode;
-app.use(DevMode === 'development' ? cors('*') : cors({ origin: ['https://rankboost.live', 'https://pay.rankboost.live', 'https://admin.rankboost.live', 'https://api.payu.in/'], credentials: true }));
+app.use(cors('*'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 var make = path.join(__dirname, 'public');
 app.use(express.static(make));
-
 
 
 ////////////////// ROUTES //////////////////////////////////////////////////////////
